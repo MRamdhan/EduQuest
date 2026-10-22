@@ -1,0 +1,36 @@
+Bank inti: 7023 | Dikeluarkan: 2230
+
+Alasan dikeluarkan (teratas):
+   2016  bukan_SD_SMP_SMA:PTN
+    123  needs_passage_flag
+     88  opsi_identik
+      7  prescreen:cek_teks_lengkap
+      6  prescreen:tidak_yakin
+      4  prescreen:kunci_diragukan
+      2  prescreen:kunci_salah
+      1  prescreen:soal_cacat
+      1  prescreen:ambigu
+
+Jenjang x mapel (total | tingkat 1/2/3/kosong):
+  SD   Bahasa Indonesia    1032 | 332/326/374/0
+  SD   IPA                  479 | 88/88/172/131
+  SD   IPS                  295 | 111/98/86/0
+  SD   PPKN                  98 | 49/29/20/0
+  SMA  Bahasa Indonesia     791 | 281/260/250/0
+  SMA  Biologi              449 | 180/141/128/0
+  SMA  Ekonomi              293 | 84/94/115/0
+  SMA  Fisika               282 | 113/86/83/0
+  SMA  Geografi             192 | 49/104/39/0
+  SMA  Kimia                282 | 127/70/85/0
+  SMA  PPKN                 294 | 122/104/68/0
+  SMA  Sejarah              286 | 109/73/104/0
+  SMA  Sosiologi            286 | 108/53/125/0
+  SMP  Bahasa Indonesia     751 | 251/268/232/0
+  SMP  IPA                  618 | 232/88/298/0
+  SMP  IPS                  296 | 98/98/100/0
+  SMP  PPKN                 299 | 79/129/91/0
+
+Risiko sumber di bank inti:
+  sedang_blog_soal: 6022
+  rendah_sumber_pemerintah: 668
+  tinggi_unggahan_pihak_ketiga: 333

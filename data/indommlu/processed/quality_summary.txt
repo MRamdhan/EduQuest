@@ -1,0 +1,58 @@
+Total input: 9476
+Lolos aturan dasar (SD/SMP/SMA, tanpa rujukan visual, tanpa duplikat): 9253
+
+Flag:
+  PTN            : 2052
+  needs_visual   : 29
+  needs_passage  : 131 (tetap di eligible, hanya ditandai)
+  duplikat       : 194
+
+Risiko sumber (seluruh input):
+  sedang_blog_soal: 7995
+  rendah_sumber_pemerintah: 750
+  tinggi_ujian_ptn: 381
+  tinggi_unggahan_pihak_ketiga: 350
+
+Risiko sumber (eligible):
+  sedang_blog_soal: 7819
+  rendah_sumber_pemerintah: 719
+  tinggi_ujian_ptn: 366
+  tinggi_unggahan_pihak_ketiga: 349
+
+Eligible per jenjang x mapel:
+  PTN   Bahasa Indonesia   366
+  PTN   Biologi            388
+  PTN   Ekonomi            191
+  PTN   Geografi           277
+  PTN   Kimia              398
+  PTN   Sejarah            195
+  PTN   Sosiologi          201
+  SD    Bahasa Indonesia   1081
+  SD    IPA                483
+  SD    IPS                296
+  SD    PPKN               99
+  SMA   Bahasa Indonesia   845
+  SMA   Biologi            457
+  SMA   Ekonomi            296
+  SMA   Fisika             286
+  SMA   Geografi           193
+  SMA   Kimia              286
+  SMA   PPKN               299
+  SMA   Sejarah            290
+  SMA   Sosiologi          293
+  SMP   Bahasa Indonesia   817
+  SMP   IPA                620
+  SMP   IPS                297
+  SMP   PPKN               299
+
+Jumlah opsi per jenjang (eligible):
+  PTN   3 opsi: 1
+  PTN   4 opsi: 2
+  PTN   5 opsi: 2013
+  SD    3 opsi: 489
+  SD    4 opsi: 1465
+  SD    5 opsi: 5
+  SMA   4 opsi: 62
+  SMA   5 opsi: 3183
+  SMP   4 opsi: 1943
+  SMP   5 opsi: 90

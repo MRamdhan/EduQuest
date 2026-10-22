@@ -1,0 +1,171 @@
+
+=== #1 group 853bc6e1_02b9e3 | splits=3 rows=7 jawaban_berbeda=7 ===
+Q: select the mammal below.
+  - [train baris 1656] pilihan=['piranha', 'koala'] | jawaban='koala' | topik=biology | kelas=grade3
+  - [train baris 8809] pilihan=['fruit bat', 'bull shark'] | jawaban='fruit bat' | topik=biology | kelas=grade3
+  - [train baris 10332] pilihan=['rabbit', 'box turtle'] | jawaban='rabbit' | topik=biology | kelas=grade2
+  - [validation baris 481] pilihan=['green moray eel', 'red kangaroo', 'catfish', 'robin'] | jawaban='red kangaroo' | topik=biology | kelas=grade4
+  - [test baris 3342] pilihan=['eastern newt', 'black howler'] | jawaban='black howler' | topik=biology | kelas=grade3
+  - [test baris 3720] pilihan=['bull shark', 'yak', 'shoebill', 'eastern newt'] | jawaban='yak' | topik=biology | kelas=grade4
+  - [test baris 4124] pilihan=['barn owl', 'sea otter'] | jawaban='sea otter' | topik=biology | kelas=grade2
+
+=== #2 group 73c8c97c_d4c970 | splits=3 rows=7 jawaban_berbeda=7 ===
+Q: select the fish below.
+  - [train baris 3701] pilihan=['salmon', 'box turtle'] | jawaban='salmon' | topik=biology | kelas=grade2
+  - [train baris 3876] pilihan=['coral snake', 'cardinalfish'] | jawaban='cardinalfish' | topik=biology | kelas=grade3
+  - [train baris 5590] pilihan=['piranha', 'zebra'] | jawaban='piranha' | topik=biology | kelas=grade2
+  - [train baris 11159] pilihan=['Nile crocodile', 'painted stork', 'cane toad', 'seahorse'] | jawaban='seahorse' | topik=biology | kelas=grade4
+  - [validation baris 1355] pilihan=['box turtle', 'Canadian lynx', 'albatross', 'leafy seadragon'] | jawaban='leafy seadragon' | topik=biology | kelas=grade4
+  - [test baris 1435] pilihan=['tiger shark', 'leaf-tailed gecko', "Hermann's tortoise", 'dwarf crocodile'] | jawaban='tiger shark' | topik=biology | kelas=grade4
+  - [test baris 2612] pilihan=['clownfish', 'American alligator'] | jawaban='clownfish' | topik=biology | kelas=grade2
+
+=== #3 group 59286830_02b9e3 | splits=3 rows=7 jawaban_berbeda=7 ===
+Q: select the mammal below.
+  - [train baris 6472] pilihan=['kangaroo', 'loon', 'great crested newt', 'poison dart frog'] | jawaban='kangaroo' | topik=biology | kelas=grade4
+  - [train baris 9536] pilihan=['Galapagos giant tortoise', 'zebra'] | jawaban='zebra' | topik=biology | kelas=grade3
+  - [train baris 11593] pilihan=['African bullfrog', 'rabbit'] | jawaban='rabbit' | topik=biology | kelas=grade3
+  - [validation baris 2743] pilihan=['American toad', 'robin', 'sugar glider', 'ostrich'] | jawaban='sugar glider' | topik=biology | kelas=grade4
+  - [test baris 788] pilihan=['brown tree frog', 'red crowned crane', 'great white shark', 'red kangaroo'] | jawaban='red kangaroo' | topik=biology | kelas=grade4
+  - [test baris 2141] pilihan=['common toad', 'human', 'box turtle', 'clownfish'] | jawaban='human' | topik=biology | kelas=grade4
+  - [test baris 3051] pilihan=['loon', 'great white shark', 'albatross', 'Tasmanian devil'] | jawaban='Tasmanian devil' | topik=biology | kelas=grade4
+
+=== #4 group 240e403d_409389 | splits=3 rows=6 jawaban_berbeda=6 ===
+Q: select the reptile below.
+  - [train baris 452] pilihan=['American alligator', 'manta ray'] | jawaban='American alligator' | topik=biology | kelas=grade2
+  - [train baris 1895] pilihan=['western rattlesnake', 'western toad'] | jawaban='western rattlesnake' | topik=biology | kelas=grade2
+  - [train baris 8200] pilihan=['Tasmanian devil', 'olive toad', 'western gorilla', 'tokay gecko'] | jawaban='tokay gecko' | topik=biology | kelas=grade4
+  - [train baris 9277] pilihan=['gray tree frog', 'coral snake'] | jawaban='coral snake' | topik=biology | kelas=grade3
+  - [validation baris 110] pilihan=['leaf-tailed gecko', 'Banggai cardinalfish', 'red-eyed tree frog', 'clownfish'] | jawaban='leaf-tailed gecko' | topik=biology | kelas=grade4
+  - [test baris 638] pilihan=['sea otter', 'tortoise'] | jawaban='tortoise' | topik=biology | kelas=grade3
+
+=== #5 group 3e059505_b4b3ec | splits=3 rows=6 jawaban_berbeda=6 ===
+Q: which animal's skin is better adapted as a warning sign to ward off predators?
+  - [train baris 588] pilihan=['sharpnose-puffer', 'lechwe'] | jawaban='sharpnose-puffer' | topik=biology | kelas=grade4
+  - [train baris 1221] pilihan=['fire salamander', 'fantastic leaf-tailed gecko'] | jawaban='fire salamander' | topik=biology | kelas=grade5
+  - [train baris 4570] pilihan=['golden dart frog', 'lichen katydid'] | jawaban='golden dart frog' | topik=biology | kelas=grade4
+  - [train baris 10640] pilihan=['peppered moth', 'crown-of-thorns sea star'] | jawaban='crown-of-thorns sea star' | topik=biology | kelas=grade3
+  - [validation baris 192] pilihan=['flamboyant cuttlefish', 'impala'] | jawaban='flamboyant cuttlefish' | topik=biology | kelas=grade4
+  - [test baris 1672] pilihan=['lechwe', 'blue poison dart frog'] | jawaban='blue poison dart frog' | topik=biology | kelas=grade3
+
+=== #6 group 2985d19a_5518c8 | splits=3 rows=6 jawaban_berbeda=6 ===
+Q: which animal is also adapted to be camouflaged in the snow?
+  - [train baris 810] pilihan=['Arctic hare', 'lion'] | jawaban='Arctic hare' | topik=biology | kelas=grade5
+  - [train baris 2756] pilihan=['polar bear', "Grant's gazelle"] | jawaban='polar bear' | topik=biology | kelas=grade3
+  - [train baris 5164] pilihan=['lechwe', 'short-tailed weasel'] | jawaban='short-tailed weasel' | topik=biology | kelas=grade5
+  - [validation baris 2084] pilihan=['Arctic wolf', 'porcupine'] | jawaban='Arctic wolf' | topik=biology | kelas=grade3
+  - [validation baris 3974] pilihan=['camel', 'snowy owl'] | jawaban='snowy owl' | topik=biology | kelas=grade3
+  - [test baris 2901] pilihan=['echidna', 'Arctic fox'] | jawaban='Arctic fox' | topik=biology | kelas=grade4
+
+=== #7 group c42668f7_067f89 | splits=3 rows=6 jawaban_berbeda=6 ===
+Q: which animal is also adapted to be camouflaged among green leaves?
+  - [train baris 1396] pilihan=['green mantis', 'Namaqua chameleon'] | jawaban='green mantis' | topik=biology | kelas=grade3
+  - [train baris 1846] pilihan=['huntsman spider', 'blue poison dart frog'] | jawaban='huntsman spider' | topik=biology | kelas=grade3
+  - [train baris 3721] pilihan=['shield mantis', 'black widow spider'] | jawaban='shield mantis' | topik=biology | kelas=grade5
+  - [train baris 4073] pilihan=['green silver-line', 'blue poison dart frog'] | jawaban='green silver-line' | topik=biology | kelas=grade5
+  - [validation baris 2779] pilihan=['leaf-mimic katydid', 'hoverfly'] | jawaban='leaf-mimic katydid' | topik=biology | kelas=grade5
+  - [test baris 2953] pilihan=['fox snake', 'emerald tree boa'] | jawaban='emerald tree boa' | topik=biology | kelas=grade4
+
+=== #8 group 8e83298a_8085ea | splits=3 rows=6 jawaban_berbeda=6 ===
+Q: based on the arrows, which of the following organisms is a consumer?
+  - [train baris 4639] pilihan=['collared lemming', 'bilberry'] | jawaban='collared lemming' | topik=biology | kelas=grade4
+  - [train baris 6439] pilihan=['bilberry', 'earthworm'] | jawaban='earthworm' | topik=biology | kelas=grade4
+  - [train baris 10055] pilihan=['Arctic fox', 'lichen'] | jawaban='Arctic fox' | topik=biology | kelas=grade4
+  - [validation baris 26] pilihan=['barren-ground caribou', 'bear sedge'] | jawaban='barren-ground caribou' | topik=biology | kelas=grade4
+  - [validation baris 3499] pilihan=['bilberry', 'grizzly bear'] | jawaban='grizzly bear' | topik=biology | kelas=grade4
+  - [test baris 198] pilihan=['mushroom', 'lichen'] | jawaban='mushroom' | topik=biology | kelas=grade4
+
+=== #9 group ec6314eb_df5c31 | splits=3 rows=6 jawaban_berbeda=6 ===
+Q: in this food web, which organism contains matter that eventually moves to the sea cucumber?
+  - [train baris 6703] pilihan=['sea urchin', 'black rockfish', 'kelp bass'] | jawaban='sea urchin' | topik=biology | kelas=grade6
+  - [train baris 7995] pilihan=['black rockfish', 'sea otter'] | jawaban='sea otter' | topik=biology | kelas=grade6
+  - [train baris 10311] pilihan=['black rockfish', 'bat star', 'orca', 'kelp bass'] | jawaban='orca' | topik=biology | kelas=grade6
+  - [validation baris 546] pilihan=['bat star', 'kelp', 'kelp bass', 'black rockfish'] | jawaban='kelp' | topik=biology | kelas=grade6
+  - [validation baris 4052] pilihan=['zooplankton', 'kelp bass'] | jawaban='zooplankton' | topik=biology | kelas=grade6
+  - [test baris 3023] pilihan=['bat star', 'phytoplankton', 'kelp bass'] | jawaban='phytoplankton' | topik=biology | kelas=grade6
+
+=== #10 group 74408eba_d4c970 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: select the fish below.
+  - [train baris 837] pilihan=['salmon', 'kangaroo'] | jawaban='salmon' | topik=biology | kelas=grade2
+  - [train baris 4601] pilihan=['goldfish', 'woodpecker'] | jawaban='goldfish' | topik=biology | kelas=grade2
+  - [train baris 9988] pilihan=['human', 'tiger shark'] | jawaban='tiger shark' | topik=biology | kelas=grade3
+  - [validation baris 1326] pilihan=['manta ray', 'red-tailed hawk'] | jawaban='manta ray' | topik=biology | kelas=grade2
+  - [test baris 3749] pilihan=['European green toad', 'great white shark'] | jawaban='great white shark' | topik=biology | kelas=grade3
+
+=== #11 group f8e1269f_bb0a08 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: which animal's feet are also adapted for digging?
+  - [train baris 1007] pilihan=['Malagasy giant chameleon', 'meerkat'] | jawaban='meerkat' | topik=biology | kelas=grade4
+  - [train baris 2897] pilihan=['eastern mole', 'slender-legged tree frog'] | jawaban='eastern mole' | topik=biology | kelas=grade4
+  - [train baris 7821] pilihan=['slender-legged tree frog', 'six-banded armadillo'] | jawaban='six-banded armadillo' | topik=biology | kelas=grade4
+  - [validation baris 2060] pilihan=['blue-footed booby', 'honey badger'] | jawaban='honey badger' | topik=biology | kelas=grade5
+  - [test baris 2964] pilihan=['groundhog', 'tokay gecko'] | jawaban='groundhog' | topik=biology | kelas=grade4
+
+=== #12 group 991cefef_a42cc8 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: which animal's skin is also adapted for survival in cold places?
+  - [train baris 1431] pilihan=['hairy armadillo', 'polar bear'] | jawaban='polar bear' | topik=biology | kelas=grade3
+  - [train baris 3264] pilihan=['hairy armadillo', 'caribou'] | jawaban='caribou' | topik=biology | kelas=grade3
+  - [train baris 3567] pilihan=['naked mole rat', 'snowy owl'] | jawaban='snowy owl' | topik=biology | kelas=grade3
+  - [validation baris 2064] pilihan=['armadillo lizard', 'musk ox'] | jawaban='musk ox' | topik=biology | kelas=grade5
+  - [test baris 4024] pilihan=['Amazon milk frog', 'Eurasian lynx'] | jawaban='Eurasian lynx' | topik=biology | kelas=grade4
+
+=== #13 group 92eb2daa_409389 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: select the reptile below.
+  - [train baris 3227] pilihan=['salt water crocodile', 'gray tree frog', 'whale shark', 'giraffe'] | jawaban='salt water crocodile' | topik=biology | kelas=grade4
+  - [train baris 5738] pilihan=['bull shark', 'Chinese alligator'] | jawaban='Chinese alligator' | topik=biology | kelas=grade3
+  - [train baris 12097] pilihan=['Mojave rattlesnake', 'barking tree frog'] | jawaban='Mojave rattlesnake' | topik=biology | kelas=grade3
+  - [validation baris 606] pilihan=['Nile crocodile', 'sea otter', 'arroyo toad', 'leafy seadragon'] | jawaban='Nile crocodile' | topik=biology | kelas=grade4
+  - [test baris 3268] pilihan=["Hermann's tortoise", 'gray wolf'] | jawaban="Hermann's tortoise" | topik=biology | kelas=grade3
+
+=== #14 group e16e7dbc_dfc24c | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: which animal's feet are also adapted for swimming?
+  - [train baris 5748] pilihan=['giraffe', 'platypus'] | jawaban='platypus' | topik=biology | kelas=grade4
+  - [train baris 5991] pilihan=['California gull', 'New Zealand falcon'] | jawaban='California gull' | topik=biology | kelas=grade3
+  - [validation baris 165] pilihan=['purple gallinule', 'lava gull'] | jawaban='lava gull' | topik=biology | kelas=grade3
+  - [test baris 1403] pilihan=['European beaver', 'sable'] | jawaban='European beaver' | topik=biology | kelas=grade4
+  - [test baris 3785] pilihan=['spectral tarsier', 'common guillemot'] | jawaban='common guillemot' | topik=biology | kelas=grade3
+
+=== #15 group ec6314eb_cfef26 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: in this food web, which organism contains matter that eventually moves to the bat star?
+  - [train baris 5911] pilihan=['sea otter', 'plainfin midshipman', 'sea urchin'] | jawaban='plainfin midshipman' | topik=biology | kelas=grade6
+  - [validation baris 421] pilihan=['kelp', 'sea otter', 'orca'] | jawaban='kelp' | topik=biology | kelas=grade6
+  - [validation baris 2395] pilihan=['orca', 'black rockfish'] | jawaban='black rockfish' | topik=biology | kelas=grade6
+  - [validation baris 3377] pilihan=['zooplankton', 'orca'] | jawaban='zooplankton' | topik=biology | kelas=grade6
+  - [test baris 334] pilihan=['sea cucumber', 'sea otter', 'phytoplankton'] | jawaban='phytoplankton' | topik=biology | kelas=grade6
+
+=== #16 group ec6314eb_a0349d | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: which of these organisms contains matter that was once part of the kelp?
+  - [train baris 7813] pilihan=['zooplankton', 'plainfin midshipman', 'sea urchin'] | jawaban='sea urchin' | topik=biology | kelas=grade6
+  - [train baris 12101] pilihan=['plainfin midshipman', 'zooplankton', 'orca'] | jawaban='orca' | topik=biology | kelas=grade6
+  - [validation baris 1341] pilihan=['plainfin midshipman', 'phytoplankton', 'kelp bass', 'black rockfish'] | jawaban='kelp bass' | topik=biology | kelas=grade6
+  - [test baris 2706] pilihan=['zooplankton', 'phytoplankton', 'bat star'] | jawaban='bat star' | topik=biology | kelas=grade6
+  - [test baris 3350] pilihan=['plainfin midshipman', 'sea cucumber', 'zooplankton'] | jawaban='sea cucumber' | topik=biology | kelas=grade6
+
+=== #17 group f2ec9248_02b9e3 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: select the mammal below.
+  - [train baris 8306] pilihan=['piranha', 'gorilla'] | jawaban='gorilla' | topik=biology | kelas=grade3
+  - [validation baris 1140] pilihan=['sea otter', 'salmon'] | jawaban='sea otter' | topik=biology | kelas=grade2
+  - [validation baris 1281] pilihan=['poison dart frog', 'fire salamander', 'mandarinfish', 'Canadian lynx'] | jawaban='Canadian lynx' | topik=biology | kelas=grade4
+  - [validation baris 3339] pilihan=['bison', 'American alligator'] | jawaban='bison' | topik=biology | kelas=grade2
+  - [test baris 4078] pilihan=['red howler', 'box turtle', 'flamingo', 'cassowary'] | jawaban='red howler' | topik=biology | kelas=grade4
+
+=== #18 group fc42a4d6_19ccba | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: which animal's legs are also adapted for wading?
+  - [train baris 8405] pilihan=['great egret', 'African fish eagle'] | jawaban='great egret' | topik=biology | kelas=grade5
+  - [train baris 11713] pilihan=['magnificent frigatebird', 'demoiselle crane'] | jawaban='demoiselle crane' | topik=biology | kelas=grade4
+  - [validation baris 1769] pilihan=['little bittern', 'African fish eagle'] | jawaban='little bittern' | topik=biology | kelas=grade5
+  - [validation baris 4180] pilihan=['white tern', 'hammerkop'] | jawaban='hammerkop' | topik=biology | kelas=grade3
+  - [test baris 2259] pilihan=['African sacred ibis', 'kookaburra'] | jawaban='African sacred ibis' | topik=biology | kelas=grade5
+
+=== #19 group 386910f5_2943f6 | splits=3 rows=5 jawaban_berbeda=5 ===
+Q: which animal is also adapted for climbing trees?
+  - [train baris 9120] pilihan=['lar gibbon', 'African forest elephant'] | jawaban='lar gibbon' | topik=biology | kelas=grade4
+  - [validation baris 897] pilihan=['red-handed tamarin', 'kiwi'] | jawaban='red-handed tamarin' | topik=biology | kelas=grade3
+  - [validation baris 2880] pilihan=['common marmoset', "Grevy's zebra"] | jawaban='common marmoset' | topik=biology | kelas=grade4
+  - [test baris 2641] pilihan=['lama', 'bare-eared squirrel monkey'] | jawaban='bare-eared squirrel monkey' | topik=biology | kelas=grade3
+  - [test baris 3070] pilihan=['lama', 'red-shanked douc'] | jawaban='red-shanked douc' | topik=biology | kelas=grade4
+
+=== #20 group 5e0acb69_b9cbf0 | splits=3 rows=4 jawaban_berbeda=4 ===
+Q: which property matches this object?
+  - [train baris 1674] pilihan=['opaque', 'fragile'] | jawaban='fragile' | topik=physics | kelas=grade3
+  - [train baris 7205] pilihan=['breakable', 'bumpy'] | jawaban='breakable' | topik=physics | kelas=grade2
+  - [validation baris 2111] pilihan=['smooth', 'sticky'] | jawaban='smooth' | topik=physics | kelas=grade3
+  - [test baris 252] pilihan=['stretchy', 'transparent'] | jawaban='transparent' | topik=physics | kelas=grade3

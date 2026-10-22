@@ -1,0 +1,2184 @@
+
+======================================================================
+TOPIC: SD-IPA-02 - Makhluk Hidup dan Ciri-cirinya (SD IPAS) - Total: 83
+======================================================================
+
+[SD-IPA-02 #1] SourceID: 3750 | Diff: 1 | Score: 4
+Q: Seluruh tahap pertumbuhan yang dialami makhluk hidup selama hidupnya dinamakan …
+   A. Daur hidup
+   B. Pengembangbiakan
+   C. Metamorfosis
+   D. Pertumbuhan
+Ans Key in Dataset: A
+
+[SD-IPA-02 #2] SourceID: 3921 | Diff: None | Score: 3
+Q: Ayam mempertahankan hidupnya dengan memakan tumbuhan sepert biji-bijian. Namun ayam juga bisa makan hewan lainnya seperti rayap dan belalang. Dilihat dari jenis makanannya ayam tergolong
+   A. Herbivora
+   B. Pengurai
+   C. Karnivora
+   D. Omnivora
+Ans Key in Dataset: D
+
+[SD-IPA-02 #3] SourceID: 3904 | Diff: None | Score: 3
+Q: Proses eprubahan bentuk makhluk hidup dari larva hingga menjadi bentuk dewasa dinamakan ..
+   A. Fotosintesis
+   B. Sitokinesis
+   C. Metamorfosis
+   D. Gametogenesis
+Ans Key in Dataset: C
+
+[SD-IPA-02 #4] SourceID: 3632 | Diff: 1 | Score: 3
+Q: Yang termasuk Ciri-ciri makhluk hidup, kecuali...
+   A. Tidak berubah bentuk
+   B. Bergerak
+   C. Tumbuh
+   D. Makan
+Ans Key in Dataset: A
+
+[SD-IPA-02 #5] SourceID: 3628 | Diff: 1 | Score: 3
+Q: Makhluk hidup berkembang biak bertujuan untuk
+   A. belanja
+   B. kawin
+   C. makan
+   D. melestarikan keterunan
+   E. tidur
+Ans Key in Dataset: D
+
+[SD-IPA-02 #6] SourceID: 3619 | Diff: 1 | Score: 3
+Q: yang bukan termasuk ciri-ciri makhluk hidup
+   A. bernafas
+   B. berkembang biak
+   C. bergerak
+   D. berlari
+Ans Key in Dataset: D
+
+[SD-IPA-02 #7] SourceID: 3615 | Diff: 1 | Score: 3
+Q: Sebutkan ciri-ciri makhluk hidup
+   A. Mati
+   B. Bertambah Kecil
+   C. Berkembang Biak
+   D. Tidak berkembang
+Ans Key in Dataset: C
+
+[SD-IPA-02 #8] SourceID: 3650 | Diff: 3 | Score: 2
+Q: Gunung meletus merupakan peristiwa alam yang tidak dapat kita hindari, dari peristiwa tersebut makhluk hidup akan menerima dampaknya. Dampak positif dari adanya gunung meletus adalah ....
+   A. suhu di daerah gunung lebih hangat
+   B. suhu di daerah gunung lebih sejuk
+   C. banyak lahar dingin yang dikeluarkan
+   D. tanah di sekitar gunung subur
+Ans Key in Dataset: D
+
+[SD-IPA-02 #9] SourceID: 3638 | Diff: 3 | Score: 2
+Q: Disebuah komunitas terdapat ; padi, ikan, belalang, ular, tikus dan katak. Apabila padi telah dipanen, makhluk hidup yang sangat bergantung langsung pada padi adalah ....
+   A. belalang dan katak
+   B. ikan dan tikus
+   C. ular dan katak
+   D. belalang dan tikus
+Ans Key in Dataset: D
+
+[SD-IPA-02 #10] SourceID: 3971 | Diff: None | Score: 2
+Q: Pada sebuah ekosistem terdapat padi, ikan, tikus, belalang, katak dan ular. Jika padi telah dipanen, makhluk hidup yang sangat bergantung dengan padi adalah ...
+   A. belalang dan tikus
+   B. ular dan ikan
+   C. katak dan ular
+   D. ikan dan katak
+Ans Key in Dataset: A
+
+[SD-IPA-02 #11] SourceID: 3639 | Diff: 3 | Score: 2
+Q: Tumbuhan memiliki bagian-bagian yang  berguna untuk   kelangsungan  hidup. Pernyataan yang benar berkaitan dengan bagian tumbuhan dan fungsinya adalah ....
+   A. enceng gondok memiliki daun lebar untuk mempercepat penguapan
+   B. teratai memiliki akar yang lebat untuk penyeimbang tubuh
+   C. kantung semar memiliki batang berongga untuk mengangkut O2
+   D. kaktus memiliki daun berbentuk duri untuk mengurangi penguapan
+Ans Key in Dataset: D
+
+[SD-IPA-02 #12] SourceID: 3559 | Diff: 3 | Score: 2
+Q: Komponen lingkungan yang jika tidak ada akan paling memengaruhi kehidupan makhluk hidup lainnya adalah ....
+   A. tumbuhan
+   B. hewan
+   C. manusia
+   D. hewan dan manusia
+Ans Key in Dataset: A
+
+[SD-IPA-02 #13] SourceID: 3893 | Diff: 2 | Score: 2
+Q: Bagian dari biji tumbuhan yang dijadikan sumber makanan oleh manusia adalah biji....
+   A. padi
+   B. pepaya
+   C. kangkung
+   D. singkong
+Ans Key in Dataset: A
+
+[SD-IPA-02 #14] SourceID: 3761 | Diff: 1 | Score: 2
+Q: Hubungan makhluk hidup yang saling menguntungkan terjadi antara....
+   A. Anggrek dan benalu
+   B. Kerbau dan kutu
+   C. Benalu dan tumbuhan inang
+   D. Kerbau dan burung jalak
+Ans Key in Dataset: D
+
+[SD-IPA-02 #15] SourceID: 3552 | Diff: 3 | Score: 2
+Q: Tumbuhan yang memakan serangga bertujuan memenuhi kebutuhan ....
+   A. oksigen
+   B. nitrogen
+   C. hidrogen
+   D. air
+Ans Key in Dataset: D
+
+[SD-IPA-02 #16] SourceID: 3831 | Diff: 2 | Score: 2
+Q: Angin kencang yang bergerak memutar dinamakan angin ...
+   A. Puting beliung
+   B. Topan
+   C. Laut
+   D. Darat
+Ans Key in Dataset: A
+
+[SD-IPA-02 #17] SourceID: 3553 | Diff: 3 | Score: 2
+Q: Tujuan makhluk hidup berkembang
+ biak adalah ....
+   A. melestarikan jenisnya
+   B. melestarikan lingkungannya
+   C. memperoleh nutrisi
+   D. memperoleh pasangan
+Ans Key in Dataset: A
+
+[SD-IPA-02 #18] SourceID: 3631 | Diff: 1 | Score: 2
+Q: Berikut ini termasuk makhluk hidup, kecuali ...
+   A. Bunga mawar
+   B. Kura-kura
+   C. batu karang
+   D. Manusia
+Ans Key in Dataset: C
+
+[SD-IPA-02 #19] SourceID: 3900 | Diff: None | Score: 2
+Q: Hewan pemakan tumbuhan dinamakan ...
+   A. Omnivora
+   B. Karnivora
+   C. Pengurai
+   D. Herbivora
+Ans Key in Dataset: D
+
+[SD-IPA-02 #20] SourceID: 3924 | Diff: None | Score: 1
+Q: Perhatikan contoh interaksi mahluk hidup berikut ini :
+
+1. Ikan remora dengan ikan hiu
+
+2. Bunga anggrek dengan tanaman inangnya
+
+3. Lebah madu dengan bungga mangga
+
+4. Ikan badut dengan anemon laut
+
+Contoh simbiosis komensialisme adalah...........
+   A. 1, 2 dan 4
+   B. 3, 4 dan 5
+   C. 1, 2 dan 3
+   D. 2, 3 dan 4
+Ans Key in Dataset: C
+
+[SD-IPA-02 #21] SourceID: 3643 | Diff: 3 | Score: 1
+Q: Ibu Atik akhir-akhir ini terlihat cepat lelah. Kadang-kadang juga kesemutan dan mudah mengantuk. Oleh dokter ia dianjurkan banyak makan makanan yang mengandung zat besi. Dari ciri-ciri tersebut, ibu Atik menderita penyakit....
+   A. leukemia
+   B. anemia
+   C. hipertensi
+   D. diabetes
+Ans Key in Dataset: B
+
+[SD-IPA-02 #22] SourceID: 3642 | Diff: 3 | Score: 1
+Q: Tukang becak, pekerja bangunan, buruh pabrik agar dapat bekerja secara maksimal perlu makan makanan yang banyak mengandung karbohidrat. Manfaat zat makanan tersebut sebagai ....
+   A. pelarut zat-zat makanan yang masuk dalam tubuh
+   B. mengatur suhu dan cadangan makanan bagi tubuh
+   C. pembangun dan pengganti sel-sel tubuh yang rusak
+   D. sumber tenaga dan penghasil panas dalam tubuh
+Ans Key in Dataset: D
+
+[SD-IPA-02 #23] SourceID: 3832 | Diff: 2 | Score: 1
+Q: Gempa bumi yang terjadi di dasar laut  dapat menyebabkan terjadinya gelombang air laut yang sangat besar. Gelombang air laut ini sering dinamakan ...
+   A. Episentrum
+   B. Tsunami
+   C. Vulkanik
+   D. Tektonik
+Ans Key in Dataset: B
+
+[SD-IPA-02 #24] SourceID: 3644 | Diff: 3 | Score: 1
+Q: Panas dapat mempengaruhi perubahan wujud beberapa benda. Peristiwa penguapan dalam kehidupan sehari-hari sering kita temui pada kegiatan ....
+   A. menjemur pakaian basah
+   B. pembuatan es krim
+   C. kapur barus untuk pengharum ruangan
+   D. mentega di panci panas
+Ans Key in Dataset: A
+
+[SD-IPA-02 #25] SourceID: 3550 | Diff: 3 | Score: 1
+Q: Ekolokasi adalah kemampuan yang dimiliki kelelawar untuk mengetahui arah terbang, makanan, dan keadaan lingkungannya dengan menggunakan ...
+   A. mata
+   B. bunyi
+   C. mata dan bunyi
+   D. telinga
+Ans Key in Dataset: C
+
+======================================================================
+TOPIC: SD-IPA-04 - Hewan dan Pengelompokannya (SD IPAS) - Total: 41
+======================================================================
+
+[SD-IPA-04 #1] SourceID: 3517 | Diff: 1 | Score: 2
+Q: Perhatikan pernyataan berikut!
+
+(1) Tidak membuang sampah sembarangan.
+(2) Mendirikan cagar alam.
+(3) Menanami lahan kosong di pekarangan rumah
+(4) Memburu hewan langka.
+
+Upaya yang dapat kita lakukan untuk melestarikan lingkungan ditunjukkan oleh nomor ....
+   A. (1), (2), dan (3)
+   B. (1). (2), dan (4)
+   C. (1), (3), dan (4)
+   D. (2). (3), dan (4)
+Ans Key in Dataset: A
+
+[SD-IPA-04 #2] SourceID: 3729 | Diff: 1 | Score: 2
+Q: Ayu memelihara hewan dengan ciri antara lain :
+• tidak mau makan apel
+• lahap makan ikan dan daging
+• menyukai susu
+• suka berburu tikus
+
+Berdasarkan ciri-ciri di atas, hewan yang dipelihara Ayu kemungkinan besar yaitu …
+   A. kelinci
+   B. ikan mas koki
+   C. burung perkutut
+   D. kucing
+Ans Key in Dataset: D
+
+[SD-IPA-04 #3] SourceID: 3524 | Diff: 3 | Score: 2
+Q: Perhatikan daftar berikut!
+
+I: Hyena
+II: Ular Kobra
+III: Serigala
+IV: Tupai
+
+Hewan yang memiliki bentuk adaptasi yang sama dengan berpura-pura mati ditunjukkan nomor ….
+   A. 1 dan 3
+   B. 1 dan 4
+   C. 2 dan 3
+   D. 3 dan 4
+Ans Key in Dataset: B
+
+[SD-IPA-04 #4] SourceID: 3649 | Diff: 3 | Score: 2
+Q: Rusaknya terumbu karang dapat mengakibatkan hewan laut kehilangan tempat tinggal. Salah satu upaya untuk melestarikan terumbu karang adalah ....
+   A. melarang pengambilan terumbu karang
+   B. membuat kerajinan dari terumbu karang
+   C. terumbu karang dijadikan komoditas eksport
+   D. penangkapan ikan dengan bahan peledak
+Ans Key in Dataset: A
+
+[SD-IPA-04 #5] SourceID: 3912 | Diff: None | Score: 2
+Q: Apabila suatu hewan memaka serangga, maka hewan tersebut termasuk dalam kelompok ...
+   A. Insektivora
+   B. Herbivora
+   C. Omnivora
+   D. Karnivora
+Ans Key in Dataset: A
+
+[SD-IPA-04 #6] SourceID: 3913 | Diff: None | Score: 2
+Q: Hal yang tidak digunakan untuk berburu mangsanya pada hewan karnivora adalah ..
+   A. Cakar yang tajam
+   B. Gigi yang tajam
+   C. Bulu yang tajam
+   D. Kemampuan lari yang cepat
+Ans Key in Dataset: C
+
+[SD-IPA-04 #7] SourceID: 3903 | Diff: None | Score: 2
+Q: Burung yang termasuk hewan pemakan biji-bujian adalah ...
+   A. burung pipit
+   B. burung rajawali
+   C. burung walet
+   D. burung pelikan
+Ans Key in Dataset: C
+
+[SD-IPA-04 #8] SourceID: 3910 | Diff: None | Score: 2
+Q: Hewan berkut ini yang tidak perlu dimandikan adalah ..
+   A. Kelinci
+   B. Anjing
+   C. Ikan
+   D. kucing
+Ans Key in Dataset: C
+
+[SD-IPA-04 #9] SourceID: 3618 | Diff: 1 | Score: 2
+Q: sebutkan hewan yang termasuk kedalam kelompok mamalia
+   A. ayam
+   B. katak
+   C. lumba-lumba
+   D. burung
+Ans Key in Dataset: C
+
+[SD-IPA-04 #10] SourceID: 3914 | Diff: None | Score: 2
+Q: Omnivora merupakan jenis hewan pemakan ...
+   A. Serangga
+   B. Tumbuhan dan hewan
+   C. Tumbuhan
+   D. Hewan
+Ans Key in Dataset: B
+
+[SD-IPA-04 #11] SourceID: 3630 | Diff: 1 | Score: 2
+Q: Burung hantu tergolong hewan ...
+   A. Karnivore
+   B. Herbivore
+   C. Omnivore
+   D. Humaniora
+Ans Key in Dataset: A
+
+[SD-IPA-04 #12] SourceID: 3981 | Diff: None | Score: 1
+Q: Perhatikan pernyataan tentang Hukum Pemantulan Cahaya berikut.
+
+i. sudut datang sama dengan sudut pantul
+
+ii. sudut datang lebih besar dari sudut pantul
+
+iii. Semakin besar sudut datang maka sudut pantul akan semakin kecil
+
+iv. Semakin kecil sudut datang maka sudut pantul akan semakin kecil
+
+Manakah pernyataan yang salah?
+   A. i dan ii
+   B. i dan iii
+   C. ii dan iii
+   D. ii dan iv
+Ans Key in Dataset: C
+
+[SD-IPA-04 #13] SourceID: 3922 | Diff: None | Score: 1
+Q: Beberapa siswa mengamati kolam yang ada disekitar sekolah. Di dalam kolam tersebut terdapat sejumlah ikan mas dan ikan mujahir, ada yang besar dan beberapa masih kecil. Sekolompok ikan mas dalam kolam disebut....
+   A. Individu
+   B. Komunitas
+   C. Ekosistem
+   D. Populasi
+Ans Key in Dataset: D
+
+[SD-IPA-04 #14] SourceID: 3544 | Diff: 3 | Score: 1
+Q: Perhatikan daftar berikut!Perhatikan daftar berikut ini!
+(1) perunggu
+(2) plastik
+(3) timbal
+(4) stainless
+(5) ebonit
+(6) mutiara
+
+Benda yang termasuk konduktor panas ditunjukkan nomor ....
+   A. 1, 2, dan 5
+   B. 2, 4, dan 6
+   C. 1, 3, dan 4
+   D. 2, 5, dan 6
+Ans Key in Dataset: C
+
+[SD-IPA-04 #15] SourceID: 3635 | Diff: 3 | Score: 1
+Q: Tanjung Puting adalah salah satu suaka margasatwa orang utan yang berada di Kalimantan Tengah. Tempat pelestarian hewan langka ini memiliki tujuan agar orang utan ....
+   A. tidak merusak pertanian dan mampu berkembangbiak
+   B. tidak merusak. rumah warga dan terjaga kelestariannya.
+   C. tidak punah dan mampu kembali ke habitatnya
+   D. tidak punah dan dijadikan obyek wisata
+Ans Key in Dataset: D
+
+[SD-IPA-04 #16] SourceID: 3890 | Diff: 2 | Score: 1
+Q: Perhatikan benda-benda berikut!
+A. Paku
+B. Pensil
+C. Penggaris plastik
+D. Karet penghapus
+E. Pemes
+
+Pasangan benda yang dapat ditarik oleh magnet yaitu ...
+   A. A dan D
+   B. A dan E
+   C. A dan B
+   D. A dan C
+Ans Key in Dataset: B
+
+[SD-IPA-04 #17] SourceID: 3556 | Diff: 3 | Score: 1
+Q: Perkembangbiakan pada hewan dapat terjadi secara kawin maupun tidak kawin. Perkembangbiakan secara tidak kawin pada hewan dapat dilakukan dengan ....
+   A. bertelur
+   B. melahirkan
+   C. bertelur-melahirkan
+   D. tunas
+Ans Key in Dataset: D
+
+[SD-IPA-04 #18] SourceID: 3985 | Diff: None | Score: 1
+Q: Jika kamu membeli minuman “es the” dan memperhatikannya maka akan melihat bahwa es dapat terapung di air. Peristiwa ini menunjukkan adanya sifat ….
+   A. kapilaritas air
+   B. massa jenis air
+   C. anomali air
+   D. viskositas air
+Ans Key in Dataset: C
+
+[SD-IPA-04 #19] SourceID: 3676 | Diff: 3 | Score: 1
+Q: Sisir plastik yang digosokkan pada rambut kering dapat menarik potongan kertas.Hal itu membuktikan adanya....
+   A. Gejala panas
+   B. gejala kemagnetan
+   C. Peristiwa radiasi
+   D. Gejala kelistrikan
+Ans Key in Dataset: D
+
+[SD-IPA-04 #20] SourceID: 3510 | Diff: 1 | Score: 1
+Q: Berikut ini merupakan hewan yang dapat dimanfaatkan manusia untuk diambil susu dan dagingnya adalah ....
+   A. ayam dan sapi
+   B. kuda dan bebek
+   C. kambing dan ikan
+   D. sapi dan kambing
+Ans Key in Dataset: D
+
+[SD-IPA-04 #21] SourceID: 3894 | Diff: 2 | Score: 1
+Q: Tanaman berikut ini yang dapat menyesuaikan dirinya dengan cara memperbesar penguapan yaitu tanaman ....
+   A. kaktus
+   B. kangkung
+   C. teratai
+   D. eceng gondok
+Ans Key in Dataset: C
+
+[SD-IPA-04 #22] SourceID: 3970 | Diff: None | Score: 1
+Q: Contoh simbiosis yang sama dengan simbiosis antara ikan remora dengan ikan hiu yaitu ...
+   A. burung jalak dengan kerbau
+   B. benalu dengan pohon mangga
+   C. kutu dengan kerbau
+   D. anemon laut dengan ikan badut
+Ans Key in Dataset: D
+
+[SD-IPA-04 #23] SourceID: 3508 | Diff: 1 | Score: 1
+Q: Hewan yang dimanfaatkan manusia untuk membantu menyuburkan tanah adalah ....
+   A. ayam
+   B. kelinci
+   C. ular
+   D. cacing
+Ans Key in Dataset: D
+
+[SD-IPA-04 #24] SourceID: 3814 | Diff: 3 | Score: 1
+Q: Mematikan sakelar pada meteran bertujuan untuk mencegah bahaya, pada saat ….
+   A. Banjir beras
+   B. Hujan deras
+   C. Gunung meletus
+   D. Cuaca terang
+Ans Key in Dataset: B
+
+[SD-IPA-04 #25] SourceID: 3857 | Diff: None | Score: 1
+Q: Hewan lembu dipelihara karena menghasilkan benda di bawah ini, kecuali ...
+   A. Susu
+   B. Telur
+   C. Kotoran
+   D. Daging
+Ans Key in Dataset: B
+
+======================================================================
+TOPIC: SD-IPA-10 - Energi dan Perubahannya (SD IPAS) - Total: 61
+======================================================================
+
+[SD-IPA-10 #1] SourceID: 3802 | Diff: 3 | Score: 3
+Q: Penggunaan listrik di pengaruhi oleh sumber energi listrik. Namun, cadangan sumber listrik sudah mulai berkurang. Langkah yang paling tepat untuk melakukan penghematan listrik adalah ….
+   A. Membangun sumber energi baru
+   B. Mematikan semua lampu listrik pada malam hari
+   C. Mengganti lampu pijar dengan lampu neon
+   D. Mengganti lampu listrik dengan lampu minyak
+Ans Key in Dataset: C
+
+[SD-IPA-10 #2] SourceID: 3677 | Diff: 3 | Score: 3
+Q: Sumber energi listrik yang digunakan pada kendaraan bermotor adalah....
+   A. Baterai
+   B. dinamo
+   C. Aki
+   D. Sel surya
+Ans Key in Dataset: C
+
+[SD-IPA-10 #3] SourceID: 3686 | Diff: 3 | Score: 3
+Q: Baterai merupakan sumber energi listrik yang digunakan untuk...
+   A. Mesin cuci
+   B. mobil-mobilan
+   C. Kipas angin
+   D. kendaraan
+Ans Key in Dataset: B
+
+[SD-IPA-10 #4] SourceID: 3822 | Diff: 3 | Score: 3
+Q: Perubahan energi listrik menjadi energi bunyi terjadi pada....
+   A. Kipas
+   B. Solder
+   C. Radio
+   D. Magic Jar
+Ans Key in Dataset: C
+
+[SD-IPA-10 #5] SourceID: 3801 | Diff: 3 | Score: 3
+Q: Sumber energi listrik yang terbesar dihasilkan oleh ….
+   A. Baterai
+   B. Generator
+   C. Aki
+   D. Dinamo
+Ans Key in Dataset: B
+
+[SD-IPA-10 #6] SourceID: 3965 | Diff: None | Score: 2
+Q: Peristiwa penguapan dalam kehidupan sehari-hari yang dipengaruhi oleh energi panas contohnya yaitu ...
+   A. pembuatan es krim
+   B. mentega di panci panas
+   C. menjemur pakaian basah
+   D. kapur barus untuk pengharum
+Ans Key in Dataset: C
+
+[SD-IPA-10 #7] SourceID: 3586 | Diff: 3 | Score: 2
+Q: 1. Rumah
+ 2. Pabrik
+ 3. Perkebunan
+ 4. Gedung-gedung
+
+ Energi listrik disalurkan ke ....
+   A. 1 dan 3
+   B. 1, 2, dan 3
+   C. 2, 3, dan 4
+   D. 1, 2, dan 4
+Ans Key in Dataset: D
+
+[SD-IPA-10 #8] SourceID: 3767 | Diff: None | Score: 2
+Q: Di bawah ini yang bukan merupakan manfaat energi panas bagi kehidupan manusia adalah....
+   A. memasak makanan
+   B. mendinginkan badan
+   C. untuk mengeringkan pakaian
+   D. menyetrika pakaian
+Ans Key in Dataset: B
+
+[SD-IPA-10 #9] SourceID: 3681 | Diff: 3 | Score: 2
+Q: Alat listrik yang dapat mengubah bentuk energi listrik menjadi energi gerak adalah....
+   A. Motor listrik
+   B. Solder listrik
+   C. Kompor listrik
+   D. Pesawat televisi
+Ans Key in Dataset: A
+
+[SD-IPA-10 #10] SourceID: 3778 | Diff: None | Score: 2
+Q: Sumber energi alternatif yang murah dan tidak mengakibatkan polusi adalah energi ...
+   A. air
+   B. angin
+   C. matahari
+   D. panas bumi
+Ans Key in Dataset: B
+
+[SD-IPA-10 #11] SourceID: 3792 | Diff: 3 | Score: 2
+Q: Peralatan rumah tangga yang mengubah energi listrik menjadi energi gerak adalah ….
+   A. Magic jar
+   B. Mixer
+   C. Rice cooker
+   D. Oven
+Ans Key in Dataset: B
+
+[SD-IPA-10 #12] SourceID: 3692 | Diff: 3 | Score: 2
+Q: Kelompok alat yang dapat mengubah energi listrik menjadi energi gerak adalah...
+   A. Kipas angin,mesin cuci,dan bor listrik
+   B. Teko listrik,kompor listrik,dan dispenser
+   C. Radio televisi,dan kipas angin
+   D. Pengering rambut,bor listrik,dan solder listrik
+Ans Key in Dataset: A
+
+[SD-IPA-10 #13] SourceID: 3788 | Diff: 3 | Score: 2
+Q: Alat – alat yang menggunakan energi listrik membuat pekerjaan menjadi lebih ….
+   A. Mewah
+   B. Mudah
+   C. Heboh
+   D. Praktis
+Ans Key in Dataset: B
+
+[SD-IPA-10 #14] SourceID: 3688 | Diff: 3 | Score: 2
+Q: Berikut ini yang bukan merupakan cara menghemat energi listrik  adalah....
+   A. Mematikan lampu bila tidak terpakai
+   B. Menyalakan TV seperlunya
+   C. Menyalakan lampu seperlunya
+   D. menyalakan sanyo untuk bermain-main
+Ans Key in Dataset: D
+
+[SD-IPA-10 #15] SourceID: 3776 | Diff: None | Score: 2
+Q: Yang bukan merupakan sumber energi alternatif adalah ...
+   A. bensin
+   B. angin
+   C. matahari
+   D. air
+Ans Key in Dataset: A
+
+[SD-IPA-10 #16] SourceID: 3775 | Diff: None | Score: 2
+Q: Sumber energi yang tidak dapat diperbaharui adalah ...
+   A. angin
+   B. air
+   C. minyak bumi
+   D. matahari
+Ans Key in Dataset: C
+
+[SD-IPA-10 #17] SourceID: 3860 | Diff: None | Score: 2
+Q: ... termasuk sumber energi yang tidak dapat habis
+   A. Air
+   B. Minyak bumi
+   C. Udara
+   D. Batu bara
+Ans Key in Dataset: C
+
+[SD-IPA-10 #18] SourceID: 3578 | Diff: 3 | Score: 2
+Q: Contoh sumber listrik energi kimia ialah ....
+   A. baterai
+   B. dinamo
+   C. generator
+   D. sel solar
+Ans Key in Dataset: A
+
+[SD-IPA-10 #19] SourceID: 3579 | Diff: 3 | Score: 2
+Q: Radio mengubah energi listrik menjadi ....
+   A. energi gerak
+   B. energi cahaya
+   C. energi bunyi
+   D. energi panas
+Ans Key in Dataset: C
+
+[SD-IPA-10 #20] SourceID: 3777 | Diff: None | Score: 2
+Q: Energi panas bumi disebut juga energi ...
+   A. endotermal
+   B. nontermal
+   C. eksotermal
+   D. geotermal
+Ans Key in Dataset: D
+
+[SD-IPA-10 #21] SourceID: 3581 | Diff: 3 | Score: 2
+Q: Sumber energi pada baterai ialah ....
+   A. energi kimia
+   B. energi listrik
+   C. energi panas
+   D. energi cahaya
+Ans Key in Dataset: A
+
+[SD-IPA-10 #22] SourceID: 3768 | Diff: None | Score: 2
+Q: Energi panas disebut juga ...
+   A. energi cahaya
+   B. energi kinetik
+   C. energi listrik
+   D. kalor
+Ans Key in Dataset: D
+
+[SD-IPA-10 #23] SourceID: 3773 | Diff: None | Score: 1
+Q: Saat kita menyelam di kolam renang, kita dapat mendengar langkah teman yang berada di kolam. Hal tersebut menunjukkan bahwa bunyi merambat melalui zat ...
+   A. gas
+   B. padat dan cair
+   C. padat
+   D. cair
+Ans Key in Dataset: D
+
+[SD-IPA-10 #24] SourceID: 3711 | Diff: 1 | Score: 1
+Q: Dhuarr!!! Tiba-tiba Ban sepeda Agus meletus. Sepeda Agus diletakkannya di tempat yang panas cukup lama. Peristiwa tersebut berarti bahwa....
+   A. gas dapat mengecil
+   B. gas dapat menyusut
+   C. gas dapat memuai
+   D. gas dapat membesar
+Ans Key in Dataset: C
+
+[SD-IPA-10 #25] SourceID: 3646 | Diff: 3 | Score: 1
+Q: Dewasa ini dikembangkan olah raga arung jeram dan terbang layang. Energi alternatif yang digunakan untuk olah raga tersebut adalah ....
+   A. energi air dan energi panas
+   B. energi angin dan energi matahari
+   C. energi matahari dan energi air
+   D. energi air dan energi angin
+Ans Key in Dataset: D
+
+======================================================================
+TOPIC: SMP-IPA-01 - Besaran dan Pengukuran (SMP IPA) - Total: 80
+======================================================================
+
+[SMP-IPA-01 #1] SourceID: 6900 | Diff: 1 | Score: 4
+Q: Perhatikan pernyataan berikut
+i) Dani mengukur berat buku dengan neraca pegas
+ii) Dina mengukur tinggi badannya dengan jangka sorong
+iii) Andi mengukur massa badan dengan neraca Ohauss
+iv) Ani mengukur waktu berlarinya menggunakan stopwatch
+
+Penggunaan alat ukur yang tepat dinyatakan oleh nomor ….
+   A. i) dan ii)
+   B. i) dan iv)
+   C. ii) dan iv)
+   D. iii) dan iv)
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #2] SourceID: 4022 | Diff: 1 | Score: 4
+Q: Di dalam fisika besaran dengan satuan kilogram (kg) adalah besaran massa. Sedangkan berat (w) mempunyai satuan ....
+   A. Joule
+   B. Newton
+   C. Kelvin
+   D. Ampere
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #3] SourceID: 4318 | Diff: 3 | Score: 3
+Q: Sekelompok siswa melakukan pengamatan terhadap oli dalam botol. Data yang
+diperoleh dalam pengamatan tersebut adalah....
+(1) Volume 550 ml
+(2) Tinggi botol 35 cm
+(3) Luas bidang tutup botol 3,50 cm2
+(4) Suhu oli 23 oC
+(5) Diameter dasar botol 3 cm
+(6) Massa botol beserta isinya 900 gram
+Diantara data yang dikumpulkan tersebut, yang merupakan besaran pokok adalah....
+   A. (1), (2), (3), dan (4)
+   B. (2), (4), (5), dan (6)
+   C. (1), (3), (4), dan (5)
+   D. (2), (4), (5), dan (5)
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #4] SourceID: 4249 | Diff: 3 | Score: 3
+Q: Doni melakukan beberapa kegiatan pengukuran dan diperoleh data sebagai berikut:
+(1) Massa beberapa telur dalam plastik 0,5 kg
+(2) Volume sebuah telur 40 cm3
+(3) Suhu kamar Doni 250C
+(4) Tinggi meja belajar 80 cm
+(5) Luas kantor ayah Doni 12 m2
+(6) Denyut jantung Doni 78 denyut permenit
+Hasil pengukuran Doni yang termasuk besaran pokok adalah ....
+   A. (1), (2) dan (3)
+   B. (1), (3) dan (4)
+   C. (3), (4) dan (5)
+   D. (4), (5) dan (6
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #5] SourceID: 3995 | Diff: 1 | Score: 3
+Q: Besaran panjang memiliki satuan SI berupa....
+   A. Depa
+   B. Kilogram
+   C. Meter
+   D. Kubik
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #6] SourceID: 3997 | Diff: 1 | Score: 3
+Q: Satuan SI dari besaran waktu adalah ....
+   A. Detik
+   B. Meter
+   C. Ampere
+   D. Candela
+Ans Key in Dataset: A
+
+[SMP-IPA-01 #7] SourceID: 6925 | Diff: 3 | Score: 2
+Q: Seorang kuli menarik ember berisi air sumur bermassa total 5 kg. Ember diikat tali yang kemudian ditarik dari ketinggian 5 meter sampai ketinggian 20 meter dihitung dari dasar sumur. Jika percepatan gravitasi 10 m/s2, maka besar usaha yang dilakukan adalah ... J.
+   A. 750
+   B. 1.000
+   C. 1.250
+   D. 1.500
+   E. 1.750
+Ans Key in Dataset: A
+
+[SMP-IPA-01 #8] SourceID: 6931 | Diff: 3 | Score: 2
+Q: Benda bermassa 2,5 kg jatuh bebas dari ketinggian 2 meter. Jika percepatan gravitasi 10 m/s2 ,besar energi potensial pada benda tersebut adalah .
+   A. 0 J
+   B. 10 J
+   C. 20 J
+   D. 50 J
+   E. 100 J
+Ans Key in Dataset: D
+
+[SMP-IPA-01 #9] SourceID: 3992 | Diff: 1 | Score: 2
+Q: Dahulu orang sering menggunakan anggota tubuh sebagai satuan pengukuran, misalnya seperti dibawah ini, kecuali ....
+   A. Jari, hasta, kaki
+   B. Jengkal, depa, langkah
+   C. Meter, Kilogram, Liter
+   D. Depa, hasta dan kaki
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #10] SourceID: 4020 | Diff: 1 | Score: 2
+Q: Satuan yang apabila digunakan oleh siapa pun akan menghasilkan hasil pengukuran yang
+sama dinamakan satuan ....
+   A. Resmi
+   B. Fisika
+   C. Baku
+   D. Panjang
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #11] SourceID: 4402 | Diff: 3 | Score: 2
+Q: Berikut ini merupakan pasangan besaran pokok beserta satuan Sistem Internasional (SI) yang tepat adalah….
+   A. Massa – gram (g)
+   B. Kuat arus – ampere (A)
+   C. Suhu – celcius (ºC)
+   D. Panjang – kilometer (km)
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #12] SourceID: 4004 | Diff: 1 | Score: 2
+Q: Massa standar satu kilogram didefinisikan sebagai massa satu liter air murni pada suhu ...
+   A. 4⁰C
+   B. 5⁰C
+   C. 6⁰C
+   D. 7⁰C
+Ans Key in Dataset: A
+
+[SMP-IPA-01 #13] SourceID: 3999 | Diff: 1 | Score: 2
+Q: Kecepatan merupakan salah satu besaran turunan yang mempunyai satuan ....
+   A. m/s
+   B. Kg
+   C. Newton
+   D. Km
+Ans Key in Dataset: A
+
+[SMP-IPA-01 #14] SourceID: 3993 | Diff: 1 | Score: 2
+Q: Besaran yang dapat diukur dan memiliki satuan disebut besaran ....
+   A. Biologi
+   B. Kimia
+   C. Fisika
+   D. Matematika
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #15] SourceID: 6808 | Diff: 1 | Score: 2
+Q: Besaran yang dapat diukur dan memiliki satuan disebut besaran ...
+   A. Bilogi
+   B. Kimia
+   C. Fisika
+   D. Matematika
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #16] SourceID: 4003 | Diff: 1 | Score: 2
+Q: Berikut ini yang bukan merupakan satuan panjang adalah ...
+   A. Meter
+   B. Kiloliter
+   C. Centimeter
+   D. Kilometer
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #17] SourceID: 4007 | Diff: 1 | Score: 2
+Q: Massa 20 Kg jika dinyatakan dalam satuan mg adalah ....
+   A. 2.000 mg
+   B. 20.000 mg
+   C. 20.000.000 mg
+   D. 2.000.000 mg
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #18] SourceID: 4000 | Diff: 1 | Score: 2
+Q: Besaran massa jenis dapat dijabarkan dari besaran ....
+   A. Massa : Waktu
+   B. Massa : Kecepatan
+   C. Massa : Volume
+   D. Massa : Percepatan
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #19] SourceID: 6910 | Diff: 1 | Score: 2
+Q: Jumlah panjang yang memiliki satuan SI dalam bentuk?
+   A. Kubik.
+   B. Meter.
+   C. Depa.
+   D. Sentimeter.
+Ans Key in Dataset: D
+
+[SMP-IPA-01 #20] SourceID: 3996 | Diff: 1 | Score: 2
+Q: Ampere adalah satuan SI dari besaran pkok ....
+   A. Panjang
+   B. Massa
+   C. Waktu
+   D. Kuat arus listrik
+Ans Key in Dataset: D
+
+[SMP-IPA-01 #21] SourceID: 4001 | Diff: 1 | Score: 2
+Q: Satuan Watt merupakan satuan dari besaran ....
+   A. Gaya
+   B. Volume
+   C. Tekanan
+   D. Daya
+Ans Key in Dataset: D
+
+[SMP-IPA-01 #22] SourceID: 4268 | Diff: 3 | Score: 1
+Q: Perhatikan cuplikan teks berita berikut: Pada hari Rabu 23 April 2014 pagi, diperkirakan,
+sebanyak belasan ekor gajah menyerang Desa Bergang, Kecamatan Ketol, Aceh Tengah,.
+Puluhan hektare kebun masyarakat, mulai dari kopi, coklat, pinang, termasuk cabai rusak
+diamuk binatang berbelalai panjang itu, tetapi tidak sampai menyerang rumah penduduk.
+31
+Biologi - Paket 2
+Tidak hanya gajah, satwa liar lain juga sering menyerang lahan pertanian penduduk, seperti
+landak yang merusak tanaman palawija dan kebun sawit, kasusnya belum lama ini terjadi di
+Kecamatan Langkahan dan Cot Girek. Dampak lainnya yang sangat dirasakan masyarakat
+Aceh Utara adalah abrasi bibir Sungai (Krueng) Kreuto, dipicu rusaknya daerah tangkapan
+air yang berada pada kawasan hutan lindung Cut Mutia di Bate Uleu, Kecamatan Cot Girek.
+(Tribun News.com)
+Dari cuplikan berita tersebut, faaktor-faktor yang menyebabkan i peristiwa itu terjadi lagi
+adalah....
+   A. menyempitnya habitat gajah
+   B. tidak adanya darah konservasi gajah
+   C. lahan perkebunan dan habitat gajah tidak dipisakan
+   D. tidak adanaya pos-pos penjagaan lahan perkebunan.
+Ans Key in Dataset: A
+
+[SMP-IPA-01 #23] SourceID: 6968 | Diff: 2 | Score: 1
+Q: Jarak Kota Banjarmasin ke kota banjarbaru 34,1 Km. Terdapat 4 mobil dengan kecepatan berbeda menuju banjarbaru dari banjarmasin pada waktu yang sama. Apabila mobil A melaju dengan kecepatan 72 km/jam, Mobil B melaju dengan kecepatan 90 km/jam, mobil C melaju dengan kecepatan 20 m/s dan mobil D dengan kecepatan 15 m/s. Mobil manakah yang akan sampai lebih cepat!
+   A. A
+   B. B
+   C. C
+   D. D
+Ans Key in Dataset: B
+
+[SMP-IPA-01 #24] SourceID: 4256 | Diff: 3 | Score: 1
+Q: Pada tanggal 13 April 2013, di Waduk Jatiluhur Purwakarta Jawa Barat, terjadi peristiwa
+kematian massal pada ikan-ikan yang dibudidayakan dalam karamba/jaring apung. Ikan
+berbagai ukuran mati terapung dalam jumlah yang sangat banyak (http://pulihnugraha.
+wordpress.com/). Dugaan yang paling tepat faktor-faktor yang menjadi penyebab peristiwa
+tersebut adalah....
+   A. peningkatan jumlah populasi ikan
+   B. kelebihan jumlah jaring apung di waduk
+   C. penurunan pH air karena sisa pakan
+   D. masuknya pestisida dari sungai-sungai.
+Ans Key in Dataset: C
+
+[SMP-IPA-01 #25] SourceID: 6870 | Diff: 3 | Score: 1
+Q: Agus memukul kentongan di antara dua tembok yang berhadapan. Bunyi pantul dari tembok pertama terdengar 1,5 sekon sesudah kentongan dipukul, disusul bunyi pantul dari dinding kedua 0,5 sekon setelah bunyi pantul pertama. Jika cepat rambat bunyi di udara 340 m/s, maka jarak di antara kedua tembok adalah….
+   A. 170 m
+   B. 340 m
+   C. 425 m
+   D. 595 m
+Ans Key in Dataset: D
+
+======================================================================
+TOPIC: SMP-IPA-04 - Gerak dan Gaya (SMP IPA) - Total: 82
+======================================================================
+
+[SMP-IPA-04 #1] SourceID: 4294 | Diff: 3 | Score: 3
+Q: Dua mobil A dengan B saling mendekati dari jarak 600 m. Mobil A bergerak lurus
+dengan kecepatan 10 m/s dan mobil B bergerak dengan kecepatan 15 m/s. Jika kedua
+mobil mulai bergerak pada waktu yang sama, kedua mobil saling berpapasan pada detik
+ke ….
+   A. 20
+   B. 24
+   C. 30
+   D. 40
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #2] SourceID: 6878 | Diff: 3 | Score: 3
+Q: Sebuah mobil bermassa 800 kg mulai bergerak dengan percepatan 2 m/s2. Jika muatan mobil ditambah 400 kg, agar percepatan mobil menjadi 3 m/s2, maka gaya dorong mesin mobil harus ditambah sebesar ….
+   A. 1.200 N
+   B. 1.900 N
+   C. 2.000 N
+   D. 3.600 N
+Ans Key in Dataset: C
+
+[SMP-IPA-04 #3] SourceID: 6898 | Diff: 3 | Score: 3
+Q: Sepeda motor bergerak dengan kecepatan 28 km/jam. Dalam waktu 6 sekon kecepatannya menjadi 16 km/jam. Percepatan rata-rata yang dialami sepeda motor adalah ....m/s2
+   A. -0,5
+   B. -0,6
+   C. -0,7
+   D. -1
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #4] SourceID: 4295 | Diff: 3 | Score: 3
+Q: Pada benda yang memiliki massa 4 kg bekerja gaya sebesar 8 newton, percepatan yang
+dialami benda tersebut adalah....
+   A. 0,5 m/s²
+   B. 2 m/s²
+   C. 4 m/s²
+   D. 12 m/s²
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #5] SourceID: 6929 | Diff: 3 | Score: 3
+Q: Bola 2 kg bergerak lurus dengan percepatan 2 ms-2 dari keadaan diam. Usaha setelah 3 detik adalah …
+   A. 72 J
+   B. 36 J
+   C. 24 J
+   D. 12 J
+   E. 8 J
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #6] SourceID: 4405 | Diff: 3 | Score: 3
+Q: Berdasarkan Hukum II Newton besarnya percepatan yang dialami oleh benda yang bergerak adalah….
+   A. Berbanding lurus dengan massa benda
+   B. Berbanding lurus dengan selang waktu
+   C. Gaya total sama dengan nol
+   D. Berbanding lurus dengan gaya total
+Ans Key in Dataset: D
+
+[SMP-IPA-04 #7] SourceID: 4304 | Diff: 3 | Score: 2
+Q: Perhatikan sifat fisik zat berikut:
+(1) Gerak partikel terbatas, gaya tarik antarpartikel sangat kuat, bentuk tetap, volume
+Tetap
+(2) Gerak partikel sangat bebas, gayabtarik antarpartikel sangat lemah, bentuk
+berubah, volume berubah
+(3) Gerak partikel bebas, gaya tarik antarpartikel agak kuat, bentuk berubah, volume
+Tetap
+
+Sifat fisik batu, alkohol dan asap berturut-turut adalah ....
+   A. (1), (2) dan (3)
+   B. (1), (3) dan (2)
+   C. (2), (1) dan (3)
+   D. (3), (1) dan (2)
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #8] SourceID: 6777 | Diff: 2 | Score: 2
+Q: Perhatikan pernyataan berikut.
+1) Bola yang di lemparkan vertical keatas
+2) Naik sepatu roda di jalan mendatar
+3) Buah kelapa yang jatuh dari pohon
+4) Mobil sedang di rem hingga berhenti
+Yang termasuk gerak lurus berubah beraturan di perlambat adalah ….
+   A. 1,2, dan 3
+   B. 1 dan 4
+   C. 1 dan 3
+   D. 4 saja
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #9] SourceID: 4319 | Diff: 3 | Score: 2
+Q: Perhatikan pernyataan berikut!
+1. gaya tarik antar molekulnya sangat kuat
+2. kohesi lebih besar dibanding adesinya
+3. jarak antar molekulnya sangat berjauhan
+4. molekul-molekulnya sangat mudah bergerak
+Ciri-ciri molekul pada gas ditunjukkan nomor ….
+   A. 1 dan 2 saja
+   B. 1, 2, dan 3
+   C. 1, 3, dan 4
+   D. 2, 3, dan 4
+Ans Key in Dataset: D
+
+[SMP-IPA-04 #10] SourceID: 4322 | Diff: 3 | Score: 2
+Q: Dua sepeda bergerak pada satu garis lurus saling mendekati pada jarak 600 m. Sepeda 1
+bergerak dengan kecepatan 9 m/s dan sepeda 2 dengan kecepatan 6 m/s. Jika keduanya
+berangkat pada waktu yang sama, kedua sepeda bertemu pada detik ke ....
+   A. 90
+   B. 80
+   C. 60
+   D. 40
+Ans Key in Dataset: D
+
+[SMP-IPA-04 #11] SourceID: 6879 | Diff: 3 | Score: 2
+Q: Perhatikan peristiwa berikut!
+
+Buah kelapa jatuh bebas ke bumi
+Bola menggelinding di atas lantai yang kasar
+Mengayuh sepeda pada jalan menurun
+Batu kerikil yang dilemparkan ke atas
+Contoh gerak lurus berubah beraturan dipercepat adalah ….
+   A. 1 dan 2
+   B. 1 dan 3
+   C. 2 dan 3
+   D. 2 dan 4
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #12] SourceID: 4307 | Diff: 3 | Score: 2
+Q: Dua mobil bergerak pada satu garis lurus saling mendekati pada jarak 600m. Mobil
+pertama bergerak dengan kecepatan tetap 12m/s dan mobil kedua bergerak dengan
+kecepatan 18m/s. Jarak yang ditempuh mobil pertama saat bertemu mobil kedua
+   A. 360 m
+   B. 320 m
+   C. 240 m
+   D. 180 m
+Ans Key in Dataset: C
+
+[SMP-IPA-04 #13] SourceID: 6781 | Diff: 2 | Score: 2
+Q: Sebuah benda bermassa 5 Kg diam diatas tanah. Benda tersebut mengalami percepatan gravitasi sebesar 10 m/s2 . gaya berat yang bekerja pada benda tersebut adalah sebesar ….
+   A. 15 N
+   B. 2 N
+   C. 50 N
+   D. 50 kg
+Ans Key in Dataset: C
+
+[SMP-IPA-04 #14] SourceID: 4384 | Diff: 2 | Score: 2
+Q: Dua buah gaya masing-masing besarnya 110 N dan 65 N bekerja pada sebuah benda. Besarnya resultan kedua gaya tersebut adalah ....
+   A. 175 N, jika kedua gaya tersebut berlawanan arah.
+   B. 175 N, jika kedua gaya tersebut searah.
+   C. 45 N, jika kedua gaya tersebut searah.
+   D. 45 N, jika kedua gaya tersebut tegak lurus.
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #15] SourceID: 6930 | Diff: 3 | Score: 2
+Q: Dua buah gaya saling searah ke kanan dan besarnya masing-masing 3 N dan 4 N. Besar resultan kedua gaya tersebut adalah ...
+   A. 1 N
+   B. 5 N
+   C. 7 N
+   D. 12 N
+   E. 15 N
+Ans Key in Dataset: C
+
+[SMP-IPA-04 #16] SourceID: 6885 | Diff: 3 | Score: 2
+Q: Sebuah truk yang mula-mula diam, 5 detik kemudian kecepatannya menjadi 6 m/s. Percepatan truk tersebut adalah .... m/s2
+   A. 0,83
+   B. 1,2
+   C. 5
+   D. 30
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #17] SourceID: 6782 | Diff: 2 | Score: 2
+Q: Gaya sebesar 20 N bekerja pada sebuah benda yang menyebabkan percepatan sebesar 2 m/s2, maka massa benda itu adalah ….
+   A. 10 N
+   B. 10 Kg
+   C. 12 N
+   D. 12 Kg
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #18] SourceID: 6883 | Diff: 3 | Score: 2
+Q: Sebuah mobil menempuh 20 km dalam waktu 30 menit. Dapat dipastikan bahwa mobil tersebut bergerak dengan kecepatan ....
+   A. 10 km/jam
+   B. 20 km/jam
+   C. 40 km/jam
+   D. 60 km/jam
+Ans Key in Dataset: C
+
+[SMP-IPA-04 #19] SourceID: 6938 | Diff: 3 | Score: 2
+Q: Benda bermassa 100 kg didorong dua orang dengan masing- masing gaya 40 N, berapakah percepatan benda?
+   A. 0,1 m/s2
+   B. 0,3 m/s2
+   C. 0,4 m/s2
+   D. 0,2 m/s2
+   E. 0,5 m/s2
+Ans Key in Dataset: D
+
+[SMP-IPA-04 #20] SourceID: 4017 | Diff: 1 | Score: 2
+Q: Setiap benda yang mempunyai massa bergerak dengan kecepatan tertentu sehingga memiliki energi ....
+   A. Kinetik
+   B. Listrik
+   C. Massa
+   D. Kimia
+Ans Key in Dataset: A
+
+[SMP-IPA-04 #21] SourceID: 6965 | Diff: 2 | Score: 2
+Q: Apakah benda yang diam dapat dikatakan bergerak lurus beraturan ?
+   A. Ya
+   B. Tidak
+   C. Mungkin
+   D. Bisa Jadi
+Ans Key in Dataset: B
+
+[SMP-IPA-04 #22] SourceID: 4385 | Diff: 2 | Score: 2
+Q: Resultan dua gaya yang segaris dan searah sama dengan ...
+   A. jumlah kedua gaya itu.
+   B. selisih kedua gaya itu.
+   C. perkalian kedua gaya itu.
+   D. pembagian kedua gaya itu
+Ans Key in Dataset: A
+
+[SMP-IPA-04 #23] SourceID: 6961 | Diff: 2 | Score: 2
+Q: Ciri utama gerak lurus beraturan adalah ..
+   A. Memiliki kecepatan gerak yang tetap
+   B. Memiliki kecepatan gerak yang berubah beraturan
+   C. Memiliki kecepatan gerak yang berubah terus menerus
+   D. Memiliki kecepatan gerak yang tidak tetap
+Ans Key in Dataset: A
+
+[SMP-IPA-04 #24] SourceID: 4437 | Diff: 2 | Score: 1
+Q: Putri sedang mengamati jenis-jenis gerak pada tumbuhan. Tumbuhan yang Putri amati adalah daun tumbuhan Oxalis dan bunga crokus. Daun tumbuhan Oxalis memiliki pergerakan yang unik yaitu dapat membuka pada siang hari dan menutup pada malam hari. Sedangkan bunga crokus dapat membuka saat kondisi lingkungan hangat dan menutup ketika kondisi lingkungan dingin. Kesimpulan yang tepat berdasarkan pengamatan yang dilakukan oleh Putri adalah ….
+   A. sementara membuka dan menutupnya bunga crokus termasuk gerakan nasti kompleks
+   B. daun tumbuhan Oxalis dipengaruhi rangsangan suhu, sementara gerakan pada bunga crokus dipengaruhi rangsangan cahaya matahari
+   C. daun tumbuhan Oxalis dan bunga crokus masuk ke dalam gerak tropisme
+   D. daun tumbuhan Oxalis dan bunga crokus masuk ke dalam gerak nasti
+Ans Key in Dataset: D
+
+[SMP-IPA-04 #25] SourceID: 4352 | Diff: 3 | Score: 1
+Q: Perhatikan pernyataan berikut!
+1. Gaya elektrostatika tidak dipengaruhi oleh jarak tetapi dipengaruhi oleh muatan.
+2. Makin dekat jarak dua benda bermuatan listrik, gaya elektrostatikanya makin besar
+3. Makin besar muatan kedua benda, gaya elektrostatikanya makin besar
+4. Makin besar muatan benda, gaya elektrostatikanya tetap asal jaraknya tetap
+Pernyataan yang benar berkaitan dengan gaya elektrostatika adalah ....
+   A. 1 dan 2
+   B. 2 dan 3
+   C. 2 dan 4
+   D. 3 dan 4
+Ans Key in Dataset: B
+
+======================================================================
+TOPIC: SMP-IPA-15 - Tata Surya dan Bumi (SMP IPA) - Total: 60
+======================================================================
+
+[SMP-IPA-15 #1] SourceID: 4409 | Diff: 3 | Score: 6
+Q: Perhatikan pernyataan berikut ini!
+
+1. Gerak semu harian matahari
+2. Pergantian siang dan malam
+3. Terjadinya gerhana bulan
+4. Fotoperiode
+Berdasarkan pernyataan di atas yang merupakan peristiwa yang diakibatkan oleh rotasi dan revolusi bumi adalah….
+   A. 1 dan 2
+   B. 1, 2, dan 3
+   C. 1, 2, dan 4
+   D. Semua jawaban benar
+Ans Key in Dataset: C
+
+[SMP-IPA-15 #2] SourceID: 4069 | Diff: 3 | Score: 6
+Q: Perhatikan uraian di bawah ini!
+1) Gerak semu harian matahari
+2) Pergantian siang dan malam
+3) Terjadinya gerhana bulan
+4) Fotoperiode
+
+Berdasarkan uraian di atas yang merupakan peristiwa yang diakibatkan oleh rotasi dan revolusi bumi yaitu nomor ….
+   A. 1, 2, dan 4
+   B. 1 dan 2
+   C. 1, 2, dan 3
+   D. Semua jawaban benar
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #3] SourceID: 4325 | Diff: 3 | Score: 3
+Q: Berikut pernyataan yang berhubungan dengan Matahari dan Bumi.
+1. Matahari terbit di timur dan terbenam di barat.
+2. Jari-jari bumi di khatulistiwa lebih besar daripada jari-jari ke arah kutub.
+3. Lama waktu siang dan malam di khatulistiwa berbeda.
+4. Tempat di wilayah timur dan barat memiliki perbedaan waktu.
+5. Matahari bergerak dari khatulistiwa - ke utara – ke khatulistiwa – ke selatan – ke
+khatulistiwa lagi dan seterusnya dalam satu tahun.
+Pernyataan yang benar akibat rotasi bumi adalah....
+   A. 1, 2,dan 3
+   B. 1, 2, dan 4
+   C. 2, 3, dan 4
+   D. 2, 3, dan 5
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #4] SourceID: 4421 | Diff: 3 | Score: 3
+Q: Perhatikan pernyataan berikut ini!
+
+   1. Matahari terbit di timur dan terbenam di barat
+   2. Jari-jari bumi di khatulistiwa lebih kecil daripada jari-jari ke arah kutub
+   3. Lama waktu siang dan malam di khatulistiwa berbeda
+   4. Tempat di wilayah timur dan barat memiliki perbedaan waktu
+
+Pernyataan diatas yang merupakan akibat rotasi bumi adalah....
+   A. 1 dan 3
+   B. 1 dan 4
+   C. 2 dan 3
+   D. 3 dan 4
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #5] SourceID: 4310 | Diff: 3 | Score: 3
+Q: Perhatikan pernyataan berikut!
+1. Merupakan planet luar
+2. Mengorbit diantara planet Jupiter dan Uranus
+3. Planet terbesar dalam tata surya
+4. Mempunyai cincin yang indah disekelilingnya
+5. Planet terjauh KEDUA dari matahari
+Pernyataan yang merupakan ciri-ciri planet Saturnus adalah....
+   A. 1, 2, dan 3
+   B. 1, 2, dan 4
+   C. 1, 2, dan 5
+   D. 1, 3 dan 5
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #6] SourceID: 4355 | Diff: 3 | Score: 3
+Q: Perhatikan sifat benda langit berikut!
+1. Lintasannya sangat lonjong.
+2. Lintasannya berada diantara planet Mars dengan Yupiter
+3. Dilihat dari bumi tampak seperti bintang berpindah.
+4. Ketika memasuki atmosfer bumi terbakar dan berpijar
+Meteor ditunjukkan oleh sifat nomor ....
+   A. 1 dan 2
+   B. 1 dan 3
+   C. 2 dan 3
+   D. 3 dan 4
+Ans Key in Dataset: D
+
+[SMP-IPA-15 #7] SourceID: 4193 | Diff: 1 | Score: 3
+Q: Perhatikan pernyataan berikut!
+
+1) Perbedaan lamanya siang dan malam
+
+2) Terjadinya gerak semu tahunan matahari
+
+3) Pembelokan arus air laut
+
+4) Pergantian musim
+
+Akibat revolusi bumi ditunjukkan oleh nomor ….
+   A. 1), 2), dan 3)
+   B. 1), 2), dan 4)
+   C. 2), 3), dan 4)
+   D. 1), 3), dan 4)
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #8] SourceID: 4154 | Diff: 1 | Score: 3
+Q: Planet yang memiliki keadaan hampir miirip dengan Bumi, mempunyai lapisan atmosfer tipis, dan memiliki dua satelit, yaitu Demos dan Fobos adalah ….
+   A. Merkurius
+   B. Uranus
+   C. Saturnus
+   D. Mars
+Ans Key in Dataset: D
+
+[SMP-IPA-15 #9] SourceID: 4170 | Diff: 1 | Score: 3
+Q: Ketika Bumi terletak di antara Bulan dan Matahari, seluruh bagian Bulan yang diterangi Matahari menjadi lebih tampak. Fase ini dinamakan ….
+   A. bulan purnama
+   B. bulan sabit
+   C. bulan separuh
+   D. bulan baru
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #10] SourceID: 4194 | Diff: 1 | Score: 3
+Q: Gravitasi Bulan lebih berpengaruh terhadap pasang surut air laut di bumi dibandingkan gravitasi matahari, karena ….
+   A. bulan memiliki material penyusun yang hampir sama dengan bumi
+   B. Jarak bulan relatif lebih dekat dengan bumi
+   C. bulan merupakan satelit alami bumi
+   D. matahari memiliki ukuran yang lebih besar dari bulan
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #11] SourceID: 4158 | Diff: 1 | Score: 3
+Q: Revolusi bumi merupakan perputaran Bumi mengelilingi Matahari. Akibat dari terjadinya revolusi Bumi adalah ….
+   A. terjadinya perubahan musim
+   B. terjadinya pembelokan arah angin
+   C. perbedaan percepatan gravitasi Bumi
+   D. terjadinya gerak semu bintang
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #12] SourceID: 4187 | Diff: 1 | Score: 3
+Q: Planet yang memiliki satelit alami dengan periode rotasi sama dengan periode revolusi adalah …
+   A. Merkurius
+   B. Venus
+   C. Bumi
+   D. Mars
+Ans Key in Dataset: C
+
+[SMP-IPA-15 #13] SourceID: 4297 | Diff: 3 | Score: 2
+Q: Perhatikan pernyataan tentang planet berikut.
+1. Merkurius merupan Planet paling kecil.
+2. Sabuk Asteroid terletak antara palnet Mars dan Bumi.
+3. Venus adalah planet yang paling dekat dengan bumi.
+4. Uranus terkenal sebagai planet bercincin.
+Pernyataan yang benar adalah ….
+   A. 1 dan 2
+   B. 2 dan 3
+   C. 1 dan 3
+   D. 2 dan 4
+Ans Key in Dataset: C
+
+[SMP-IPA-15 #14] SourceID: 4090 | Diff: 1 | Score: 2
+Q: Berikut ini lapisan pada atmosfer.
+
+1. Eksosfer
+
+2. Mesosfer
+
+3. Troposfer
+
+4. Stratosfer
+
+5. Termosfer
+
+Urutan lapisan atmosfer dari yang paling dekat dengan bumi adalah ….
+   A. 1 – 2 – 4 – 5 – 3
+   B. 3 – 4 – 2 – 1 – 5
+   C. 3 – 4 – 2 – 5 – 1
+   D. 4 – 5 – 2 – 1 – 3
+Ans Key in Dataset: C
+
+[SMP-IPA-15 #15] SourceID: 4388 | Diff: 2 | Score: 2
+Q: Seorang astronot di bumi beratnya 600 N. Bila percepatan gravitasi bulan 1/ 6 percepatan gravitasi bumi, maka berat astronot di bulan adalah ....
+   A. 100 N
+   B. 160 N
+   C. 200 N
+   D. 400 N
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #16] SourceID: 4191 | Diff: 1 | Score: 2
+Q: Kedudukan planet terhadap matahari kadang-kadang dekat dan kadang-kadang jauh. Hal ini disebabkan karena ….
+   A. orbit planet selalu berubah
+   B. bidang edar planet berbentuk elips
+   C. matahari merupakan pusat tata surya
+   D. bidang edar planet berbentuk lingkaran
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #17] SourceID: 4152 | Diff: 1 | Score: 2
+Q: Lapisan matahari yang terlihat seperti mahkota berwarna keabu-abuan saat gerhana Matahari total adalah …..
+   A. inti Matahari
+   B. fotosfer
+   C. kromosfer
+   D. korona
+Ans Key in Dataset: D
+
+[SMP-IPA-15 #18] SourceID: 4243 | Diff: 1 | Score: 2
+Q: Berikut ini yang tergolong ke dalam planet dalam (planet terrestrial) dalam sistem tata surya adalah .…
+   A. Mars
+   B. Jupiter
+   C. Saturnus
+   D. Uranus
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #19] SourceID: 4189 | Diff: 1 | Score: 2
+Q: Ciri khusus yang dimiliki planet ketujuh dalam tata surya adalah memiliki 5 satelit, yaitu .…
+   A. Phobos, Deimos, Umbriel, Titania, dan Oberon
+   B. Miranda, Ariel, Umbriel, Titania, dan Oberon
+   C. Umbriel, Ariel, Phobos, Deimos, dan Oberon
+   D. Ariel, Umbriel, Titania, Phobos dan Miranda
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #20] SourceID: 4235 | Diff: 1 | Score: 2
+Q: Atmosfer bumi tersusun atas banyak komponen. Komponen utama penyusun atmosfer bumi berupa .…
+   A. gas
+   B. padatan
+   C. cairan
+   D. batuan
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #21] SourceID: 4165 | Diff: 1 | Score: 2
+Q: Berdasarkan keserupaannya dengan planet Bumi, planet_x0002_ planet dikelompokkan menjadi ….
+   A. planet inferior dan planet superior
+   B. planet terestrial dan planet mayor
+   C. planet dalam dan planet luar
+   D. inner planet dan outer planet
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #22] SourceID: 4182 | Diff: 1 | Score: 2
+Q: Permukaan Bulan yang selalu menghadap Bumi selalu sama. Hal tersebut disebabkan karena ….
+   A. jarak bulan yang dekat dengan Bumi
+   B. periode rotasi dan revolusi bulan terhadap Bumi sama
+   C. bulan dan Bumi sama-sama mengelilingi matahari
+   D. bulan adalah satu-satunya satelit yang dimiliki oleh Bumi
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #23] SourceID: 4161 | Diff: 1 | Score: 2
+Q: Tidak adanya atmosfer di Bulan akan menyebabkan hal-hal berikut, kecuali ....
+   A. suhu di bulan dapat berubah sangat cepat
+   B. langit di Bulan tampak lebih cerah
+   C. bunyi tidak dapat merambat di bulan
+   D. tidak ada kehidupan di Bulan
+Ans Key in Dataset: B
+
+[SMP-IPA-15 #24] SourceID: 4176 | Diff: 1 | Score: 2
+Q: Bagian dari matahari yang hanya nampak saat gerhana matahari penuh adalah ….
+   A. korona
+   B. fotosfer
+   C. kromosfer
+   D. core
+Ans Key in Dataset: A
+
+[SMP-IPA-15 #25] SourceID: 4181 | Diff: 1 | Score: 2
+Q: Planet dalam tata surya yang mempunyai jumlah satelit terbanyak, yaitu ….
+   A. Jupiter
+   B. Saturnus
+   C. Uranus
+   D. Neptunus
+Ans Key in Dataset: A
+
+======================================================================
+TOPIC: SMA-BIO-01 - Keanekaragaman Hayati (SMA Biologi) - Total: 57
+======================================================================
+
+[SMA-BIO-01 #1] SourceID: 3099 | Diff: 3 | Score: 4
+Q: Suatu habitat ekosistem darat mempunyai ciri-ciri
+sebagai berikut :
+1. curah hujan tinggi ± 225 cm per tahun
+2. flora dan fauna heterogen
+3. terdapat iklim mikro
+4. matahari bersinar sepanjang tahun
+5. tumbuhan khas liana
+Berdasarkan ciri-ciri habitat tersebut, bioma yang sesuai adalah...
+   A. hutan gugur
+   B. hutan hujan tropik
+   C. taiga
+   D. tundra
+   E. padang rumput
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #2] SourceID: 2668 | Diff: 1 | Score: 2
+Q: Ujung Kulon memiliki spesies endemik badak bercula satu. Bentuk pemeliharaan hewan tersebut temasuk ....
+   A. koleksi
+   B. budaya
+   C. proteksi
+   D. in-situ
+   E. ex-situ
+Ans Key in Dataset: D
+
+[SMA-BIO-01 #3] SourceID: 2798 | Diff: 1 | Score: 2
+Q: Keanekaragaman hayati merupakan  keseluruhan penampakan tipis spesies. Hal ini didasarkan oleh ....
+   A. faktor genetik
+   B. faktor interaksi dengan lingkungan
+   C. faktor lingkungan
+   D. faktor habitat
+   E. Faktor genetik dan interaksi dengan lingkungan
+Ans Key in Dataset: E
+
+[SMA-BIO-01 #4] SourceID: 2666 | Diff: 1 | Score: 2
+Q: Di antara ekosistem berikut yang mempunyai tingkat keanekaragaman paling tinggi adalah ....
+   A. hutan bakau
+   B. sawah
+   C. savana
+   D. hutan hujan tropis
+   E. padang rumput
+Ans Key in Dataset: D
+
+[SMA-BIO-01 #5] SourceID: 2780 | Diff: 1 | Score: 2
+Q: Keunikan biodiversitas Indonesia selain memiliki jenis hewan dan tumbuhan endemik adalah ..
+   A. terletak di garis khatulistiwa
+   B. terdiri dari kepulauan
+   C. mempunyai hutan tropis
+   D. banyak mempunyai jenis ikan
+   E. memiliki flora bertipe Malesiana
+Ans Key in Dataset: E
+
+[SMA-BIO-01 #6] SourceID: 2774 | Diff: 1 | Score: 2
+Q: Faktor yang menentukan keanekaragaman hayati tingkat genetik adalah ....
+   A. evolusi dan adaptasi
+   B. genotipe dan lingkungan
+   C. seleksi alam dan adaptasi
+   D. adaptasi dan genotipe
+   E. evolusi
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #7] SourceID: 2682 | Diff: 1 | Score: 2
+Q: Keanekaragaman gen pada makhluk hidup dapat terjadi karena ....
+   A. adanya beberapa spesies yang berbeda dalam tempat yang sama
+   B. setiap spesies beradaptasi terhadap lingkungan yang berbeda
+   C. jumlah dan susunan materi genetik yang berbeda
+   D. dalam satu tempat dihuni oleh beberapa populasi
+   E. adanya interaksi makhluk hidup dengan lingkungan fisik
+Ans Key in Dataset: C
+
+[SMA-BIO-01 #8] SourceID: 2658 | Diff: 1 | Score: 2
+Q: Keanekaragaman spesies dapat dilihat dari perbedaan ....
+   A. tingkah laku dan gen
+   B. bentuk, warna, jumlah, ukuran, dan kenampakan
+   C. morfologi dan tingkah laku
+   D. morfologi dan anatomi
+   E. bentuk, warna, jumlah, ukuran, dan sifat keturunan
+Ans Key in Dataset: D
+
+[SMA-BIO-01 #9] SourceID: 2659 | Diff: 1 | Score: 2
+Q: Contoh keanekaragaman tingkat gen adalah ....
+   A. mangga gadung, mangga manalagi, dan mangga muda
+   B. kudu dan keledai
+   C. kucing dan harimau
+   D. kacang tanah, dan kacang buncis
+   E. kelapa dan pinang
+Ans Key in Dataset: A
+
+[SMA-BIO-01 #10] SourceID: 2930 | Diff: 2 | Score: 1
+Q: Winda mengalami kecelakaan dan mengalami kebutaan permanen, walaupun bola matanya sehat. Menurut diagnosis dokter otak besar Winda mengalami kerusakan akibat benturan keras dan mengenai daerah pada otak besar yang berperan penting dalam penglihatan. Daerah otak besar Winda yang mengalami kerusakan adalah …..
+   A. Lobus oksipitalis
+   B. Lobus parientalis
+   C. Lobus temporalis
+   D. Lobus frontalis
+   E. Lobus anterioralis
+Ans Key in Dataset: A
+
+[SMA-BIO-01 #11] SourceID: 2946 | Diff: 3 | Score: 1
+Q: Pada proses oogenesis, oosit primer y ang mengalami pembelahan meiosis menghasilkan 4 buah sel. Di antara keempat sel tersebut hanya satu yang berkembang menjadi ovum, sedangkan tiga sel lainnya menjadi ....
+   A. oogonia
+   B. badan polar
+   C. korpus luteum
+   D. sel folikel
+   E. oosit sekunder
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #12] SourceID: 2915 | Diff: 2 | Score: 1
+Q: Suatu penyakit yang dapat mengganggu proses difusi oksigen karena timbulnya bintil-bintil kecil pada dinding alveolus yang disebabkan oleh bakteri Mycobacterium tuberculosis adalah …..
+   A. Asidosis
+   B. Emfisema
+   C. Hipoksia
+   D. Tuberkulosis
+   E. Pneumonia
+Ans Key in Dataset: D
+
+[SMA-BIO-01 #13] SourceID: 2902 | Diff: 3 | Score: 1
+Q: Produksi bibit unggul hasil rekayasa genetik secara terus-menerus dalam jumlah besar menimbulkan keresahan berbagai kalangan karena memiliki dampak negatif,  yaitu ….….
+   A. Penurunan keanekaragaman plasma nutfah
+   B. Memberikan keunggulan sesaat
+   C. Sifat unggul tidak dapat dipertahankan
+   D. Sifat unggul memiliki toleransi tinggi terhadap lingkungan
+   E. Gen unggulnya akan mempengaruhi plasma nutfah yang ada
+Ans Key in Dataset: A
+
+[SMA-BIO-01 #14] SourceID: 2863 | Diff: 3 | Score: 1
+Q: Cara bernapas dapat ditempuh dengan 2 cara, yaitu pernapasan dada dan pernapasan perut. Pernyataan di bawah ini yang paling tepat mengenai pernapasan perut adalah ....
+   A. otot perut berkontraksi, rongga dada mengembang, udara masuk ke paru-paru
+   B. otot diafragma berkontraksi, rongga dada mengembang, udara masuk ke paru-paru
+   C. otot diafragma dan otot perut berkontraksi, rongga dada menyempit, udara ke luar
+   D. otot antar tulang rusuk berkontraksi, rongga dada mengambang, udara masuk ke paru-paru
+   E. otot antar tulang rusuk berkontraksi, rongga dada menyempit, udara ke luar dari paru-paru
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #15] SourceID: 2916 | Diff: 2 | Score: 1
+Q: Kelainan respirasi asma atau sesak dapat disebabkan karena faktor genetik. Penyakit ini mengakibatkan beberapa gangguan. Yang bukan termasuk gejala asma adalah …..
+   A. Sukar bernapas
+   B. Batuk-batuk
+   C. Panas dingin
+   D. Penyumbatan saluran respirasi
+   E. Bunyi mendesah
+Ans Key in Dataset: E
+
+[SMA-BIO-01 #16] SourceID: 2667 | Diff: 1 | Score: 1
+Q: Hutan bakau tersusun atas spesies-spesies tumbuhan dengan kondisi habitatnya. Salah satu bentuk adaptasi tumbuhan bakau adalah dengan memiliki ....
+   A. daun lebar
+   B. akar napas
+   C. akar serabut
+   D. daun runcing
+   E. batang berongga
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #17] SourceID: 2887 | Diff: 3 | Score: 1
+Q: Untuk mencari jawaban asal usul kehidupan dikenal ada teori Abiogenesis atau generatio spontanea. Pernyataan pada teori ini adalah…..
+   A. Kehidupan berasal dari sel eukariotik
+   B. Kehidupan berasal dari sel prokariotik
+   C. Kehidupan berasal dari kehidupan sebelumnya
+   D. Kehidupan muncul dengan sendirinya
+   E. Kehidupan berasal dari benda mati
+Ans Key in Dataset: E
+
+[SMA-BIO-01 #18] SourceID: 2751 | Diff: 1 | Score: 1
+Q: Apabila jumlah karbon dioksida di udara semakin berkurang, maka komponen ekosistem yang pertama kali terkena dampaknya adalah ....
+   A. dekomposer
+   B. konsumen I
+   C. produsen
+   D. manusia
+   E. herbivora
+Ans Key in Dataset: C
+
+[SMA-BIO-01 #19] SourceID: 2850 | Diff: 2 | Score: 1
+Q: Sebelum plasenta terbentuk, dinding rahim dipelihara oleh hormon progesteron dan estrogen yang diproduksi oleh....
+   A. korpus luteum
+   B. endometrium
+   C. plasenta
+   D. ovarium
+   E. tuba falopi
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #20] SourceID: 2974 | Diff: 2 | Score: 1
+Q: Memiliki matriks berwarna putih kebiru-biruan, mengkilat, jernih, dan homogen merupakan ciri-ciri dari ....
+   A. tulang rawan hialin
+   B. tulang rawan fibrosa
+   C. tulang rawan elastin
+   D. kartilago
+   E. osteon
+Ans Key in Dataset: A
+
+[SMA-BIO-01 #21] SourceID: 2671 | Diff: 1 | Score: 1
+Q: Kebun Raya memiliki koleksi spesies bunga Rafflesia arnoldii. Bentuk pelestarian tersebut termasuk ....
+   A. koleksi
+   B. kultur
+   C. in-situ
+   D. ex-situ
+   E. budidaya
+Ans Key in Dataset: D
+
+[SMA-BIO-01 #22] SourceID: 2677 | Diff: 1 | Score: 1
+Q: Varanus komodoensis merupakan hewan khas yang ditemukan di Indonesia. Hewan ini endemik di daerah ....
+   A. kepulauan Maluku
+   B. kawasan peralihan Indonesia
+   C. sekitar garis khatulistiwa
+   D. kawasan barat Indonesia
+   E. kawasan timur Indonesia
+Ans Key in Dataset: B
+
+[SMA-BIO-01 #23] SourceID: 2675 | Diff: 1 | Score: 1
+Q: Keunikan biodriversitas Indonesia selain memiliki jenis hewan dan tumbuhan yang endemik adalah ....
+   A. terlihat di garis khatulistiwa
+   B. terdiri atas kepulauan
+   C. mempunyai hutan hujan tropis
+   D. banyak mempunyai jenis ikan
+   E. memiliki flora bertipe Malesiana
+Ans Key in Dataset: E
+
+[SMA-BIO-01 #24] SourceID: 2888 | Diff: 3 | Score: 1
+Q: Pada teori biogenesis terdapat pernyataan Omne vivum ex vivo maksud dari konsep tersebut adalah…..
+   A. Kehidupan berasal dari benda mati
+   B. Kehidupan berasal dari telur
+   C. Kehidupan berasal dari alam
+   D. Makhluk hidup berasal dari makhluk hidup sebelumnya
+   E. Telur berasal dari makhluk hidup
+Ans Key in Dataset: D
+
+[SMA-BIO-01 #25] SourceID: 2680 | Diff: 1 | Score: 1
+Q: Berikut ini termasuk tindakan manusia yang dapat meningkatkan keanekaragaman hayati, kecuali....
+   A. penghijauan
+   B. pembuatan taman kota
+   C. seleksi
+   D. pemuliaan
+   E. melakukan kawin silang
+Ans Key in Dataset: C
+
+======================================================================
+TOPIC: SMA-BIO-03 - Virus, Bakteri, dan Protista (SMA Biologi) - Total: 32
+======================================================================
+
+[SMA-BIO-03 #1] SourceID: 3074 | Diff: 3 | Score: 2
+Q: Berikut adalah nama beberapa mikroorganismeyang hidup dalam tubuh manusia :
+I. Trypanosoma gambiense        III. Lesmania donovani            V. Escherichia coli
+
+II. Entamoeba histolytica            IV.Plasmodium vivax
+
+Protozoa yang dapat menyebabkan penyakit disentriadalah .....
+   A. I
+   B. II
+   C. III
+   D. IV
+   E. V
+Ans Key in Dataset: B
+
+[SMA-BIO-03 #2] SourceID: 3030 | Diff: 1 | Score: 2
+Q: Perhatikan ciri-ciri Protozoa di bawah ini!
+1) Mempunyai alat gerak berupa bulu cambuk
+2) Ada yang hidup bersimbiosis dan hidup sebagai parasit
+3) Menyebabkan penyakit sura pada hewan ternak
+Berdasarkan ciri-ciri di atas, spesies yang dimaksud adalah ....
+   A. Leishmania donovani
+   B. Trypanosoma vaginalis
+   C. Trypanosoma evansi
+   D. Trypanosoma cruzi
+   E. Polistomella sp.
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #3] SourceID: 2857 | Diff: 3 | Score: 2
+Q: Ganggang atau alga dikelompokkan menjadi beberapa filum berdasarkan pigmen dominan yang dikandungnya. Manakah pernyataan di bawah ini yang tepat?
+   A. Rhodophyta mengandung pigmen fikosantin
+   B. Phaeophyta mengandung pigmen xantofil
+   C. Chrysophyta mengandung pigmen fikoeritrin
+   D. Rhodophyta mengandung pigmen fikoeritrin
+   E. Chlorophyta mengandung pigmen karoten
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #4] SourceID: 3073 | Diff: 3 | Score: 1
+Q: Di bawah ini beberapa macam sifat mikroorganisme :
+1. tubuh hanya terdiri atas ADN atau ARN
+2. berkembang biak dengan membelah diri
+3. hanya dapat berkembang biak dalam sel hidup
+4. bentuk seperti bola atau batang
+5. dapat membentuk kristal
+6. hidup secara koloni atau sendiri
+Sifat yang dimiliki oleh virus ialah .......
+   A. 1, 3 dan 5
+   B. 1, 4, dan 5
+   C. 1, 4, dan 6
+   D. 2, 3, dan 5
+   E. 2, 4, dan 6
+Ans Key in Dataset: A
+
+[SMA-BIO-03 #5] SourceID: 3082 | Diff: 3 | Score: 1
+Q: Beberapa ciri hewan protozoa, antara lain .........
+1. tubuhnya mempunyai rambut getar
+2. alat untuk bergerak bulu cambuk
+3. mempunyai dua buah inti
+4. berkembang biak secara membelah dan konyugasi
+5. mempunyai bintik mata Manakah yang merupakan
+ciri-ciri hewan Ciliata ?
+   A. 1, 3, 5
+   B. 1, 2, 4
+   C. 1, 3, 4
+   D. 2, 3, 4
+   E. 2, 3, 5
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #6] SourceID: 3029 | Diff: 1 | Score: 1
+Q: Perhatikan beberapa contoh Algae yang termasuk kelompok Chlorophyta berikut ini!
+1) Spirogyra
+2) Chlamydomonas
+3) Chara
+4) Volvox
+5) Chlorococcum
+Kelompok Chlorophyta yang reproduksi aseksualnya berlangsung melalui fragmentasi ditunjukkan oleh nomor ....
+   A. 1), 2), dan dan 3)
+   B. 1), 3), dan 4)
+   C. 2), 3), dan 4)
+   D. 2), 4), dan 5)
+   E. 3), 4), dan 5)
+Ans Key in Dataset: B
+
+[SMA-BIO-03 #7] SourceID: 3016 | Diff: 1 | Score: 1
+Q: Perhatikan jenis-jenis bakteri berikut!
+1) Nitrosomonas sp.
+2) Nitrobacter sp.
+3) Escherichia coli
+4) Clostridium sporageus
+Bakteri yang memperoleh makanan dengan cara mengubah bahan organik menjadi bahan anorganik ditunjukkan oleh nomor ....
+   A. 1) dan 2)
+   B. 1) dan 3)
+   C. 1) dan 4)
+   D. 2) dan 3)
+   E. 3) dan 4)
+Ans Key in Dataset: E
+
+[SMA-BIO-03 #8] SourceID: 3013 | Diff: 1 | Score: 1
+Q: Ikan asin yang kadar garamnya tinggi ternyata menjadi agak membusuk dan rusak. Hal ini disebabkan oleh bakteri (Archaebacteria). Bakteri yang mampu hidup dalam kadar garam tinggi tergolong ke dalam kelompok ….
+   A. Spirochaeta
+   B. Proteobacteria
+   C. Termoasidofilik
+   D. Halofilik
+   E. Metanogen
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #9] SourceID: 3080 | Diff: 3 | Score: 1
+Q: Di bawah ini ada beberapa species alga :
+1.Chlorella
+2. Eucheuma
+3. Gracilaris
+4. Gelidium
+5.Navicula
+6. Spirogyra
+Manakah yang bermanfaat pada industri makanan ?
+   A. 1,2,5,6
+   B. 1,2,4,5
+   C. 1,2,3,4
+   D. 1,3,4,6
+   E. 1,5,6,3
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #10] SourceID: 3060 | Diff: 2 | Score: 1
+Q: Gangguan   pada   sistem   reproduksi   manusia   yang disebabkan adanya infeksi oleh protozoa Trichomonas vaginalis disebut dengan....
+   A. Prostatitis
+   B. Endometriosis
+   C. Infeksi trikomoniasis
+   D. Klamida
+   E. Sifilis
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #11] SourceID: 3022 | Diff: 1 | Score: 1
+Q: Spirulina merupakan alga yang bisa digunakan sebagai sumber makanan di masa yang akan datang. Alga tersebut termasuk kelompok alga ….
+   A. hijau-biru
+   B. pirang
+   C. hijau
+   D. keemasan
+   E. merah
+Ans Key in Dataset: A
+
+[SMA-BIO-03 #12] SourceID: 3012 | Diff: 1 | Score: 1
+Q: Mycobacterium tuberculosis penyebab TB adalah jenis bakteri yang hidup pada paru-paru manusia. Bakteri tersebut tergolong ….
+   A. aerobik
+   B. anaerobik
+   C. saprofit
+   D. parasit
+   E. kemoautotrof
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #13] SourceID: 3028 | Diff: 1 | Score: 1
+Q: Alga yang dapat dibuat sebagai bahan agar-agar adalah Gelidium dan Gracilaria. Alga tersebut merupakan anggota kelompok ….
+   A. Chrysophyta
+   B. Chlorophyta
+   C. Cyanophyta
+   D. Rhodophyta
+   E. Phaeophyta
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #14] SourceID: 3076 | Diff: 3 | Score: 1
+Q: Perubahan sifat protoplasma Amoeba dan fase gel
+ke fase sol sangat menguntungkan, karena bermanfaat
+untuk .......
+   A. persiapan membelah diri
+   B. memperoleh oksigen dan lingkungan
+   C. menyesuaikan diri dengan lingkungan
+   D. melindungi diri dari kekeringan
+   E. membentuk kaki semu
+Ans Key in Dataset: E
+
+[SMA-BIO-03 #15] SourceID: 3047 | Diff: 2 | Score: 1
+Q: Penyakit  paru-paru  yang  disebabkan  oleh  infeksi  bakteri
+Mycrobacterium tuberculosis adalah....
+   A. Bronchitis
+   B. Pleuritis
+   C. TBC
+   D. Pneumonia
+   E. SARS
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #16] SourceID: 3014 | Diff: 1 | Score: 1
+Q: Bakteri yang menghasilkan gas metana (CH4) dengan cara mereduksi karbon dioksida (CO2) adalah .…
+   A. Renibacterium
+   B. Termoasidofilik
+   C. Pereduksi sulfur
+   D. Halofilik
+   E. Metanogenik
+Ans Key in Dataset: E
+
+[SMA-BIO-03 #17] SourceID: 3008 | Diff: 1 | Score: 1
+Q: Penyakit yang disebabkan oleh bakteri adalah ….
+Penyakit yang disebabkan oleh bakteri adalah ….
+   A. TBC, tipus, dan polio
+   B. trakhom, cacar, dan polio
+   C. disentri, cacar, dan pes
+   D. lepra, tipus, dan sifilis
+   E. TBC, lepra, dan polio
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #18] SourceID: 3003 | Diff: 2 | Score: 1
+Q: Peranan bakteri dan hewan ciliate yang terdapat dalam lambung hewan memamah biak adalah ….
+   A. membusukkan makanan dan menghasilkan asam amino
+   B. menghasilkan asam amino dan vitamin
+   C. menghasilkan asam laktat dan mencerna selulosa
+   D. mencerna selulosa karena menghasilkan selulase
+   E. membusukkan makanan dan menghasilkan vitamin
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #19] SourceID: 2727 | Diff: 1 | Score: 1
+Q: Cacing yang bersifat parasit dalam tubuh manusia dengan hospes perantaan sapi adalah ....
+   A. Planaria sp.
+   B. Fasciola hepatica
+   C. Taenia solium
+   D. Taenia saginata
+   E. Polychaeta sp.
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #20] SourceID: 2914 | Diff: 2 | Score: 1
+Q: Penyakit radang paru-paru yang disebabkan oleh bakteri Diplococcus pneumoniae adalah …..
+   A. Asidosis
+   B. Hipoksia
+   C. Pneumonia
+   D. Emfisema
+   E. Tuberkulosis
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #21] SourceID: 3006 | Diff: 1 | Score: 1
+Q: Kelompok bakteri yang mendapat julukan “nenek moyang bakteri” adalah ….
+   A. Bakteri ungu
+   B. Eubacteria
+   C. Bakteri biru
+   D. Archaeobacteria
+   E. Cyanobacteria
+Ans Key in Dataset: D
+
+[SMA-BIO-03 #22] SourceID: 3021 | Diff: 1 | Score: 1
+Q: Rhodophyta berwarna merah, karena pada alga tersebut terdapat pigmen ….
+   A. fikosantin
+   B. fikosianin
+   C. fikoeritrin
+   D. karoten
+   E. klorofil
+Ans Key in Dataset: C
+
+[SMA-BIO-03 #23] SourceID: 3113 | Diff: 3 | Score: 1
+Q: Kelompok penyakit di bawah ini yang penyebabnya bakteri ialah ......
+   A. influensa, cacar, gila anjing
+   B. gonorhoe, TBC, sipilis
+   C. trakom, cacar, gila anjing
+   D. eltor, kanker, rabies
+   E. kolera, rabies, influensa
+Ans Key in Dataset: B
+
+[SMA-BIO-03 #24] SourceID: 3078 | Diff: 3 | Score: 1
+Q: Jenis penyakit pada ayam yang disebabkan oleh
+virus adalah ........
+   A. CVPD
+   B. Mozaik
+   C. Rabies
+   D. Tungro
+   E. Tetelo/NCD
+Ans Key in Dataset: E
+
+[SMA-BIO-03 #25] SourceID: 2856 | Diff: 3 | Score: 1
+Q: Bakteri nitrat merupakan bakteri autotrof  karena dapat hidup ....
+   A. tanpa oksigen
+   B. dari zat organik
+   C. dari zat anorganik
+   D. tanpa cahaya
+   E. dengan cahaya
+Ans Key in Dataset: C
+
+======================================================================
+TOPIC: SMA-BIO-05 - Tumbuhan (Plantae) (SMA Biologi) - Total: 41
+======================================================================
+
+[SMA-BIO-05 #1] SourceID: 3069 | Diff: 3 | Score: 3
+Q: Berikut ini adalah beberapa jenis tumbuhan :
+1. lumut hati
+2. lumut daun
+3. paku ekor
+4. paku kawat
+5. suplier
+Kelima jenis tumbuhan diatas memiliki persamaan
+tanda-tandanya yaitu :
+   A. sudah mempunyai akar, batang dan daun
+   B. dalam daur hidupnya terdapat pergiliran keturunan
+   C. habitat di darat dan air tawar
+   D. memiliki berkas pengangkut xilem dan floem
+   E. memiliki rizoid sebagai alat pelekat
+Ans Key in Dataset: B
+
+[SMA-BIO-05 #2] SourceID: 2696 | Diff: 1 | Score: 3
+Q: Dasar yang membedakan tumbuhan paku menjadi paku homospora, heterospora, dan peralihan adalah ....
+   A. cara reproduksi vegetatifnya
+   B. jumah spora yang dihasilkan
+   C. cara reproduksi generatifnya
+   D. jenis sporayang dihasilkan
+   E. masa dihasilkan spora
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #3] SourceID: 2690 | Diff: 1 | Score: 3
+Q: Di antara pernyataan berikut ini yang membedakan antara tumbuhan dikotil dan monokotil adalah....
+   A. tulang daun monokotil menyirip
+   B. bunga pada dikotil berkelipatan 2, 4, atau 5
+   C. tumbuhan monokotil berakar tunggang
+   D. ujung akar monokotil dilindungi oleh koleoptil
+   E. tulang daun dikotil melengkung
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #4] SourceID: 2782 | Diff: 1 | Score: 3
+Q: Di antara ciri-ciri berikut yang membedakan tumbuhan dikotil dengan monokotil adalah ....
+   A. warna bunga dan bentuk daun
+   B. ukuran bunga dan bentuk tulang daun
+   C. jumlah keping biji dan bentuk akar
+   D. jumlah bagian bunga dan bentuk batang
+   E. bentuk daun dan bentuk batang
+Ans Key in Dataset: C
+
+[SMA-BIO-05 #5] SourceID: 2777 | Diff: 1 | Score: 3
+Q: Pada tumbuhan paku tertentu dapat mengasilkan mikrospora, yaitu spora yang ....
+   A. berasal dari pertumbuhan zigot
+   B. dihasilkan pada pangkal batang
+   C. berukuran sangat kecil dan berkelamin jantan
+   D. dilengkapi dengan flagel
+   E. berukuran besar dan berkelamin betina
+Ans Key in Dataset: C
+
+[SMA-BIO-05 #6] SourceID: 2701 | Diff: 1 | Score: 3
+Q: Persamaan antara tumbuhan lumut dan tumbuhan paku adalah ....
+   A. kormofita sejati
+   B. struktur sporofit
+   C. struktur gametofit
+   D. rizoid dan sporofit
+   E. metagenesis
+Ans Key in Dataset: E
+
+[SMA-BIO-05 #7] SourceID: 2694 | Diff: 1 | Score: 3
+Q: Tumbuhan paku yang termasuk jenis paku homospora adalah ....
+   A. Selaginella sp.
+   B. Lycopodium sp.
+   C. Marchantia sp.
+   D. Spagnum sp.
+   E. Equisetum sp.
+Ans Key in Dataset: B
+
+[SMA-BIO-05 #8] SourceID: 2697 | Diff: 1 | Score: 2
+Q: Seorang siswa mengamati tumbuhan dengan ciri-ciri, yaitu berakar tunggang, tidak berbunga sejati, berbiji, berdaun, batang bercabang. Bakal biji terdapat pada strobilus betina dan serbuk sari dalam strobilus jantan. Maka tumbuhan itu dapat digolongkan ke dalam ....
+   A. Thallophyta
+   B. Mycota
+   C. Alga
+   D. Gymnospermae
+   E. Angiospermae
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #9] SourceID: 2687 | Diff: 1 | Score: 2
+Q: Berbagai bentuk tahapan metagenesis pada paku.
+1) Zigot
+2) Protalium
+3) Tumbuhan paku
+4) Anteridium
+5) Arkegoniuim
+
+Tahapan metagenesis tumbuhan paku yang merupakan fase gametofit adalah ....
+   A. 1, 2, dan 3
+   B. 1, 3, dan 4
+   C. 2, 3, dan 4
+   D. 2, 4, dan 5
+   E. 3, 4, dan 5
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #10] SourceID: 2692 | Diff: 1 | Score: 2
+Q: Pada pergiliran perkembangbiakan, tumbuhan lumut mengalami fase sporofit, artinya ....
+   A. pertumbuhan dari spora
+   B. generasi yang bersifat diploid
+   C. generasi yang menghasilkan spora
+   D. generasi yang menghasilkan sel kelamin
+   E. generasi yang umurnya sangat pendek
+Ans Key in Dataset: C
+
+[SMA-BIO-05 #11] SourceID: 2698 | Diff: 1 | Score: 2
+Q: Selaginella sp. jika ditinjau dari jenis spora yang dihasilkan termasuk paku ....
+   A. heterospora
+   B. homospora
+   C. isospora
+   D. zoospora
+   E. konidiospora
+Ans Key in Dataset: A
+
+[SMA-BIO-05 #12] SourceID: 2781 | Diff: 1 | Score: 2
+Q: Tumbuhan paku yang memiliki strobilus pada ujung batang atau cabang adalah ....
+   A. Pteris sp.
+   B. Equisetum sp.
+   C. Nephrolepis sp.
+   D. Adiantum sp.
+   E. Platycerium sp.
+Ans Key in Dataset: B
+
+[SMA-BIO-05 #13] SourceID: 2685 | Diff: 1 | Score: 2
+Q: Tumbuhan Ginkgo biloba dikelompokkan ke dalam tumbuhan Gymnospermae karena ...
+   A. sudah memiliki biji
+   B. berkembang biak dengan spora
+   C. dapat membentuk bunga
+   D. dapat membentuk biji yang terlindung
+   E. biji tidak dilindungi bakal buah
+Ans Key in Dataset: E
+
+[SMA-BIO-05 #14] SourceID: 2688 | Diff: 1 | Score: 2
+Q: Pada metagenesis tumbuhan lumut, generasi yang bersifat diploid adalah ....
+   A. zigot
+   B. sporogonium
+   C. protalium
+   D. sporofit
+   E. gametofit
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #15] SourceID: 2787 | Diff: 1 | Score: 2
+Q: Marchantia sp. merupakan tumbuhan lumut yang sering dimanfaatkan untuk ....
+   A. mengobati penyakit hepatitis
+   B. mambuat kasur
+   C. sayuran
+   D. mengobati penyakin gula
+   E. obat kuat
+Ans Key in Dataset: A
+
+[SMA-BIO-05 #16] SourceID: 2702 | Diff: 1 | Score: 2
+Q: Kandungan lembaga pada tumbuhan berbiji yang sudah masak terdiri atas ....
+   A. inti vegetatif, inti spermatozoid, dan inti ovum
+   B. ovum dan inti vegetatif
+   C. inti ovum, inti antipoda, dan inti sinergid
+   D. inti spermatozoid, dan inti vegetatif
+   E. inti sinergid, inti ovum, inti antipoda, dan inti kandung lembaga
+Ans Key in Dataset: C
+
+[SMA-BIO-05 #17] SourceID: 2784 | Diff: 1 | Score: 2
+Q: Berdasarkan ukuran sporanya, selaginella sp. termasuk jenis paku ....
+   A. heterospora
+   B. homospora
+   C. isospora
+   D. zoospora
+   E. konidiospora
+Ans Key in Dataset: A
+
+[SMA-BIO-05 #18] SourceID: 2683 | Diff: 1 | Score: 2
+Q: Tumbuhan yang bakal bijinya tidak dilindungi bakal buah adalah ....
+   A. Spermatophyta
+   B. Angiospermae
+   C. Gymnospermae
+   D. Pteridophyta
+   E. Embriophyta
+Ans Key in Dataset: C
+
+[SMA-BIO-05 #19] SourceID: 2689 | Diff: 1 | Score: 2
+Q: Untuk mengangkut sari-sari makanan, tumbuhan lumut menggunakan ....
+   A. pembuluh angkut vasikuler
+   B. pembuluh angkut intravasikuler
+   C. pembuluh angkut kolateral
+   D. pembuluh angkut kosentris
+   E. selapis sel yang bersekat
+Ans Key in Dataset: E
+
+[SMA-BIO-05 #20] SourceID: 2700 | Diff: 1 | Score: 2
+Q: Di antara tumbuhan berikut yang termasuk Angiospermae adalah ....
+   A. damar, alang-alang, cemara, dan pakis haji
+   B. pakis haji, pinus, damar, dan melinjo
+   C. cemara, pinus, damar, dan pinang
+   D. pakis haji, damar, melinjo, dan alang-alang
+   E. kelapa, tomat, dan pala
+Ans Key in Dataset: E
+
+[SMA-BIO-05 #21] SourceID: 2695 | Diff: 1 | Score: 2
+Q: Spora paku yang jatuh di tempat optimum akan tumbuh menjadi ....
+   A. protonema
+   B. protalium
+   C. sporofil
+   D. sporogonium
+   E. tanaman paku
+Ans Key in Dataset: B
+
+[SMA-BIO-05 #22] SourceID: 2703 | Diff: 1 | Score: 2
+Q: Pada tumbuhan paku, generasi yang bersifat diploid adalah .....
+   A. spora
+   B. sporofit
+   C. gametofit
+   D. protalium
+   E. protonema
+Ans Key in Dataset: B
+
+[SMA-BIO-05 #23] SourceID: 2706 | Diff: 1 | Score: 2
+Q: Hepaticopsida merupakan tumbuhan lumut berumah dua karena ....
+   A. gamet jantan dan gamet betina dihasilkan oleh satu individu
+   B. dalam satu individu terdapat dua macam spora
+   C. satu individu menghasilkan spora jantan dan spora betina
+   D. setiap individu menghasilkan satu macam gamet
+   E. spora yang dihasilkan berbeda bentuk dan ukurannya
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #24] SourceID: 2691 | Diff: 1 | Score: 2
+Q: Rhizoid yang ada pada tumbuhan lumut berfungsi untuk ....
+   A. menghasilkan spora
+   B. membentuk ovum
+   C. membentuk spermatozoa
+   D. menyerap air dan garam mineral
+   E. melakukan fotosintesis
+Ans Key in Dataset: D
+
+[SMA-BIO-05 #25] SourceID: 2684 | Diff: 1 | Score: 2
+Q: Tumbuhan lumut disebut tumbuhan kosmopolit, sebab ....
+   A. hidupnya saprofit
+   B. hidupnya parasit
+   C. hidupnya epifit
+   D. hidupnya dapat di mana saja
+   E. hidupnya di air saja
+Ans Key in Dataset: D

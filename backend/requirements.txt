@@ -1,0 +1,5 @@
+Django>=6.1,<6.2
+djangorestframework>=3.18,<3.19
+django-cors-headers>=4.9,<5
+python-dotenv>=1.2,<2
+Markdown>=3.11,<4

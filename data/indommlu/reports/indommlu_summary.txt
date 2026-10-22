@@ -1,0 +1,112 @@
+Baris: 14981
+Kolom: ['id', 'sumber', 'keterangan sumber', 'kelas', 'nomor', 'subject', 'level', 'soal', 'jawaban', 'kunci', 'is_for_fewshot']
+
+Contoh 3 baris:
+   id                                                                            sumber keterangan sumber kelas  nomor  subject level                                                                                                                                                                                                          soal                                                   jawaban kunci  is_for_fewshot
+0   0  60+ Contoh Soal PG Sejarah Kelas 10 SMA/MA dan Kunci Jawabnya Terbaru - Bospedia               PAS  10.0    1.0  Sejarah   SMA  Peristiwa kelahiran, penerangan agung, dan kematian Sidharta Gautama terjadi pada tanggal yang sama, yakni bulan purnama di bulan Mei. Ketiga peristiwa tersebut dirayakan umat Buddha sebagai hari raya....  A. Galungan\nB. Kuningan\nC. Paskah\nD. Waisak\nE. Nyepi     D               0
+1   1  60+ Contoh Soal PG Sejarah Kelas 10 SMA/MA dan Kunci Jawabnya Terbaru - Bospedia               PAS  10.0    2.0  Sejarah   SMA                                                                                                                      Umat Hindu memuja tiga dewa yang disebut Trimurti. Dewa pencipta alam semesta adalah....         A. Brahma\nB. Wisnu\nC. Syiwa\nD. Agni\nE. Baruna     A               0
+2   2  60+ Contoh Soal PG Sejarah Kelas 10 SMA/MA dan Kunci Jawabnya Terbaru - Bospedia               PAS  10.0    3.0  Sejarah   SMA                                                                                              Dalam agama Hindu terdapat penggolongan yang disebut kasta. Para bangsawan dan prajurit termasuk dalam kasta....   A. brahmana\nB. kesatria\nC. waisya\nD. sudra\nE. paria     B               0
+
+Nilai kosong per kolom:
+id                   0
+sumber               0
+keterangan sumber    0
+kelas                0
+nomor                0
+subject              0
+level                0
+soal                 0
+jawaban              0
+kunci                0
+is_for_fewshot       0
+
+Distribusi 'kelas' (24 nilai):
+kelas
+12.0                   2527
+11.0                   1480
+10.0                   1428
+7.0                    1343
+9.0                    1242
+8.0                    1076
+6.0                     926
+3.0                     777
+5.0                     689
+2.0                     568
+4.0                     564
+1.0                     536
+PTN                     472
+12                      349
+10                      181
+6                       176
+2023-10-12 00:00:00     174
+11                      141
+4,5,6                   132
+5                        90
+4                        71
+PTN                      20
+3                        13
+1                         6
+
+Distribusi 'subject' (25 nilai):
+subject
+Bahasa Indonesia           3213
+Bahasa Sunda               1157
+Bahasa Jawa                 992
+IPA                         970
+Biologi                     845
+Agama Islam                 703
+PPKN                        699
+Kimia                       685
+Kesenian                    601
+IPS                         599
+Sejarah                     498
+Sosiologi                   496
+Fisika                      495
+Geografi                    490
+Ekonomi                     488
+Bahasa Bali                 471
+Bahasa Madura               295
+Agama Kristen               201
+Budaya Alam Minangkabau     199
+Bahasa Makassar             186
+Agama Hindu                 150
+Penjaskes                   148
+Bahasa Lampung              147
+Bahasa Banjar               144
+Bahasa Dayak Ngaju          109
+
+Distribusi 'level' (18 nilai):
+level
+SMA              3675
+SD               2650
+SMP              2516
+Seleksi PTN      2052
+SD-SMP-SMA       1057
+Kelas X SMA       295
+VIII SMP          290
+Kelas XI SMA      288
+VII SMP           285
+IX SMP            275
+Kelas XII SMA     274
+Kelas I SD        200
+SD-SMP            199
+VI SD             197
+V SD              196
+Kelas III SD      195
+Kelas IV SD       187
+Kelas II SD       150
+
+Distribusi 'kunci' (5 nilai):
+kunci
+A    3705
+B    3673
+C    3593
+D    2917
+E    1093
+
+Distribusi 'is_for_fewshot' (2 nilai):
+is_for_fewshot
+0    14906
+1       75
+
+Baris duplikat persis: 0

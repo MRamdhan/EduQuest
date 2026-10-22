@@ -1,0 +1,2231 @@
+﻿source_id,jenjang,mapel,reasons
+79,SMA,Sejarah,prescreen:tidak_yakin
+245,SMA,Sejarah,opsi_identik
+296,SMA,Sejarah,opsi_identik
+298,SMA,Sejarah,opsi_identik
+300,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+301,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+302,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+303,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+304,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+305,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+306,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+307,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+308,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+309,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+310,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+311,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+312,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+313,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+314,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+315,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+316,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+317,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+318,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+319,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+320,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+321,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+322,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+323,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+324,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+325,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+326,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+327,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+328,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+329,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+330,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+331,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+332,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+333,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+334,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+335,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+336,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+337,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+338,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+339,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+340,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+341,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+342,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+343,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+344,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+345,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+346,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+347,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+348,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+349,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+350,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+351,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+352,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+353,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+354,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+355,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+356,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+357,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+358,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+359,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+360,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+361,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+362,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+363,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+364,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+365,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+366,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+367,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+368,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+369,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+370,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+371,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+372,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+373,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+374,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+375,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+376,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+377,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+378,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+379,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+380,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+381,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+382,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+383,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+384,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+385,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+386,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+387,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+388,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+389,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+390,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+391,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+392,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+393,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+394,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+395,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+396,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+397,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+398,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+399,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+400,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+401,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+402,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+403,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+404,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+405,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+406,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+407,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+408,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+409,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+410,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+411,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+412,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+413,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+414,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+415,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+416,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+417,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+418,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+419,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+420,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+421,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+422,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+423,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+424,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+425,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+426,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+427,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+428,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+429,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+430,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+431,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+432,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+433,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+434,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+435,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+436,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+437,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+438,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+439,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+440,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+441,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+443,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+444,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+445,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+446,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+447,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+448,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+449,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+450,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+451,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+453,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+454,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+455,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+456,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+457,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+458,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+459,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+460,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+461,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+463,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+464,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+465,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+466,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+467,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+468,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+469,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+470,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+471,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+472,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+473,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+474,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+475,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+476,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+477,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+478,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+479,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+480,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+481,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+482,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+483,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+484,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+485,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+486,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+487,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+488,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+489,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+490,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+491,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+492,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+493,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+494,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+495,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+496,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+497,PTN,Sejarah,bukan_SD_SMP_SMA:PTN
+569,SMA,Geografi,opsi_identik
+695,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+696,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+697,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+698,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+699,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+700,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+702,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+703,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+704,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+705,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+706,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+707,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+708,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+709,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+710,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+711,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+712,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+713,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+714,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+715,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+716,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+717,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+718,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+719,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+720,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+721,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+722,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+723,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+724,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+725,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+726,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+727,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+728,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+729,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+730,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+731,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+732,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+733,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+734,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+735,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+736,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+737,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+738,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+739,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+740,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+741,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+742,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+743,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+744,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+746,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+747,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+749,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+750,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+752,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+753,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+754,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+755,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+756,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+757,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+758,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+759,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+760,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+761,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+762,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+763,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+764,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+765,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+766,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+767,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+768,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+769,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+770,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+771,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+772,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+774,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+775,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+776,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+777,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+778,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+779,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+780,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+781,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+782,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+783,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+784,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+785,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+786,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+787,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+788,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+789,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+790,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+791,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+792,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+793,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+794,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+795,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+796,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+797,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+798,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+799,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+800,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+801,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+802,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+803,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+804,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+805,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+806,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+807,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+808,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+809,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+810,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+811,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+812,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+813,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+814,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+815,PTN,Geografi,bukan_SD_SMP_SMA:PTN;prescreen:kunci_diragukan
+816,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+817,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+818,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+819,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+820,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+821,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+822,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+823,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+824,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+825,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+826,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+827,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+828,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+829,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+830,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+831,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+832,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+833,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+834,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+835,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+838,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+839,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+840,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+841,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+842,PTN,Geografi,bukan_SD_SMP_SMA:PTN;opsi_identik
+843,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+844,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+845,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+846,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+847,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+848,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+849,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+850,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+851,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+852,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+853,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+854,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+855,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+856,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+857,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+858,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+859,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+860,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+861,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+862,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+863,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+864,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+865,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+866,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+867,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+868,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+869,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+870,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+871,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+872,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+873,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+874,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+875,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+876,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+877,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+878,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+879,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+880,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+881,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+882,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+883,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+884,PTN,Geografi,bukan_SD_SMP_SMA:PTN;opsi_identik
+885,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+886,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+887,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+888,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+889,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+890,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+891,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+892,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+893,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+894,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+895,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+896,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+897,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+898,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+899,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+900,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+901,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+902,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+903,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+904,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+905,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+906,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+907,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+908,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+909,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+910,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+911,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+912,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+913,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+914,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+915,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+916,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+917,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+918,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+919,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+920,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+922,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+923,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+924,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+925,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+926,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+927,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+928,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+929,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+930,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+931,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+932,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+933,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+934,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+935,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+936,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+937,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+938,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+939,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+940,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+941,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+942,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+943,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+944,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+945,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+946,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+947,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+948,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+949,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+950,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+951,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+952,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+953,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+954,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+955,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+956,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+957,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+958,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+959,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+960,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+961,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+963,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+964,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+965,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+966,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+967,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+968,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+969,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+970,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+971,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+976,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+977,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+978,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+979,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+980,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+981,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+982,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+983,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+984,PTN,Geografi,bukan_SD_SMP_SMA:PTN
+1355,SD,IPS,opsi_identik
+1613,SMP,IPS,prescreen:soal_cacat
+2260,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2261,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2262,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2263,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2264,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2265,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2266,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2267,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2268,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2269,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2270,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2271,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2272,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2273,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2274,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2275,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2276,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2277,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2278,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2279,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2280,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2281,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2282,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2283,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2284,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2285,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2286,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2287,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2288,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2289,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2290,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2291,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2292,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2293,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2294,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2295,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2296,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2297,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2298,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2299,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2300,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2301,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2302,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2303,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2304,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2305,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2306,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2307,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2308,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2309,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2310,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2311,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2312,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2313,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2314,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2315,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2316,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2317,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2318,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2319,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2320,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2321,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2322,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2323,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2324,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2325,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2326,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2327,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2328,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2329,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2330,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2331,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2332,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2333,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2334,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2335,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2336,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2337,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2338,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2339,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2340,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2341,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2342,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2343,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2344,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2345,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2346,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2347,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2348,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2349,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2350,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2351,PTN,Kimia,bukan_SD_SMP_SMA:PTN;opsi_identik
+2352,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2353,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2354,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2355,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2356,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2357,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2358,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2359,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2360,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2361,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2362,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2363,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2364,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2365,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2366,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2367,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2368,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2369,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2370,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2371,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2372,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2373,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2374,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2375,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2376,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2377,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2378,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2379,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2380,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2381,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2382,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2383,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2384,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2385,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2386,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2387,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2388,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2389,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2390,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2391,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2392,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2393,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2394,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2395,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2396,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2397,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2398,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2399,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2400,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2401,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2402,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2403,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2404,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2405,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2406,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2407,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2408,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2409,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2410,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2411,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2412,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2413,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2414,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2415,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2416,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2417,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2418,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2419,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2420,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2421,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2422,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2423,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2424,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2425,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2426,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2427,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2428,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2429,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2430,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2431,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2432,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2433,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2434,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2435,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2436,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2437,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2438,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2439,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2440,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2441,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2442,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2443,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2444,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2445,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2446,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2447,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2448,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2449,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2450,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2451,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2452,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2453,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2454,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2455,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2456,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2457,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2458,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2459,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2460,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2461,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2462,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2463,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2464,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2465,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2466,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2467,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2468,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2469,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2470,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2471,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2472,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2473,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2474,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2475,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2476,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2477,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2478,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2479,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2480,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2481,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2482,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2483,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2484,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2485,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2486,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2487,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2488,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2489,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2490,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2491,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2492,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2493,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2494,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2495,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2496,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2497,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2498,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2499,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2500,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2501,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2502,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2503,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2504,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2505,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2506,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2507,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2508,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2509,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2510,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2511,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2512,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2513,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2514,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2515,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2516,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2517,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2518,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2519,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2520,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2521,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2522,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2523,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2524,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2525,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2526,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2527,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2528,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2529,PTN,Kimia,bukan_SD_SMP_SMA:PTN;opsi_identik
+2530,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2531,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2532,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2533,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2534,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2535,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2536,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2537,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2538,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2539,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2540,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2541,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2542,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2543,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2544,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2545,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2546,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2547,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2548,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2549,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2550,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2551,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2552,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2553,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2554,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2555,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2556,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2557,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2558,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2559,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2560,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2561,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2562,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2563,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2564,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2565,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2566,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2567,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2568,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2569,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2570,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2571,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2572,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2573,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2574,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2575,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2576,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2577,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2578,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2579,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2580,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2581,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2582,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2583,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2584,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2585,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2586,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2587,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2588,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2589,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2590,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2591,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2592,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2593,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2594,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2595,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2596,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2597,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2598,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2599,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2600,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2601,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2602,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2603,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2604,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2605,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2606,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2607,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2608,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2609,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2610,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2611,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2612,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2613,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2614,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2615,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2616,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2617,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2618,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2619,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2620,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2621,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2622,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2623,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2624,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2625,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2626,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2627,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2628,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2629,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2630,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2631,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2632,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2633,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2634,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2635,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2636,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2637,PTN,Kimia,bukan_SD_SMP_SMA:PTN;prescreen:kunci_diragukan
+2638,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2639,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2640,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2641,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2642,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2643,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2644,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2645,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2646,PTN,Kimia,bukan_SD_SMP_SMA:PTN;opsi_identik
+2647,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2648,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2649,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2650,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2651,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2652,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2653,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2654,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2655,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2656,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2657,PTN,Kimia,bukan_SD_SMP_SMA:PTN
+2864,SMA,Biologi,opsi_identik
+2866,SMA,Biologi,opsi_identik
+2963,SMA,Biologi,opsi_identik
+2965,SMA,Biologi,opsi_identik
+2966,SMA,Biologi,opsi_identik
+3024,SMA,Biologi,prescreen:kunci_salah
+3095,SMA,Biologi,opsi_identik
+3096,SMA,Biologi,opsi_identik
+3115,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3116,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3117,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3118,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3119,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3120,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3121,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3122,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3123,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3124,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3125,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3126,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3127,PTN,Biologi,bukan_SD_SMP_SMA:PTN;prescreen:tidak_yakin
+3128,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3129,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3130,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3131,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3132,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3133,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3134,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3135,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3136,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3137,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3138,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3139,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3140,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3141,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3142,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3143,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3144,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3145,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3146,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3147,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3148,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3149,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3150,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3151,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3152,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3153,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3154,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3155,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3156,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3157,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3158,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3159,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3160,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3161,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3162,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3163,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3164,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3165,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3166,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3167,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3168,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3169,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3170,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3171,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3172,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3173,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3174,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3175,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3176,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3177,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3178,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3179,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3180,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3181,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3182,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3183,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3184,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3185,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3186,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3187,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3188,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3189,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3190,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3191,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3192,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3193,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3194,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3195,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3196,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3197,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3198,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3199,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3200,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3201,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3202,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3203,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3204,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3205,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3206,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3207,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3208,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3209,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3210,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3211,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3212,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3213,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3214,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3215,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3216,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3217,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3218,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3219,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3220,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3221,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3222,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3223,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3224,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3225,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3226,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3227,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3228,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3229,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3230,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3231,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3232,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3233,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3234,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3235,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3236,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3237,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3238,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3239,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3240,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3241,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3242,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3243,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3244,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3245,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3246,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3247,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3248,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3249,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3250,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3251,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3252,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3253,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3254,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3255,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3256,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3257,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3258,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3259,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3260,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3261,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3262,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3263,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3264,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3265,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3266,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3267,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3268,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3269,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3270,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3271,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3272,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3273,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3274,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3275,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3276,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3277,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3278,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3279,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3280,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3281,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3282,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3283,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3284,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3285,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3286,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3287,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3288,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3289,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3290,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3291,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3292,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3293,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3294,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3295,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3296,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3297,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3298,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3299,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3300,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3301,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3302,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3303,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3304,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3305,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3306,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3307,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3308,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3309,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3310,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3311,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3312,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3313,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3314,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3315,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3316,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3317,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3318,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3319,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3320,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3321,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3322,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3323,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3324,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3325,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3326,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3327,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3328,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3329,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3330,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3331,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3332,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3333,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3334,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3335,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3336,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3337,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3338,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3339,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3340,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3341,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3342,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3343,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3344,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3345,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3346,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3347,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3348,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3349,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3350,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3351,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3352,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3353,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3354,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3355,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3356,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3357,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3358,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3359,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3360,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3361,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3362,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3363,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3364,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3365,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3366,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3367,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3368,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3369,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3370,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3371,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3372,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3373,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3374,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3375,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3376,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3377,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3378,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3379,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3380,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3381,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3382,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3383,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3384,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3385,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3386,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3387,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3388,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3389,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3390,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3391,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3392,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3393,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3394,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3395,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3396,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3397,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3398,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3399,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3400,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3401,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3402,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3403,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3404,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3405,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3406,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3407,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3408,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3409,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3410,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3411,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3412,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3413,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3414,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3415,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3416,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3417,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3418,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3419,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3420,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3421,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3422,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3423,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3424,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3425,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3426,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3427,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3428,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3429,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3430,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3431,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3432,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3433,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3434,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3435,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3436,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3437,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3438,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3439,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3440,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3441,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3442,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3443,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3444,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3445,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3446,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3447,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3448,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3449,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3450,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3451,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3452,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3453,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3454,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3455,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3456,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3457,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3458,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3459,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3460,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3461,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3462,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3463,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3464,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3465,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3466,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3467,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3468,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3469,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3470,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3471,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3472,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3473,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3474,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3475,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3476,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3477,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3478,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3479,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3480,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3481,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3482,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3483,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3484,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3485,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3486,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3487,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3488,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3489,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3490,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3491,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3492,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3493,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3494,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3495,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3496,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3497,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3498,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3499,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3500,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3501,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3502,PTN,Biologi,bukan_SD_SMP_SMA:PTN
+3520,SD,IPA,opsi_identik
+3616,SD,IPA,opsi_identik
+3887,SD,IPA,opsi_identik
+3940,SD,IPA,opsi_identik
+4060,SMP,IPA,opsi_identik
+6649,SD,Bahasa Indonesia,needs_passage_flag
+6656,SD,Bahasa Indonesia,opsi_identik
+6674,SD,Bahasa Indonesia,needs_passage_flag
+6675,SD,Bahasa Indonesia,needs_passage_flag
+6676,SD,Bahasa Indonesia,needs_passage_flag
+6677,SD,Bahasa Indonesia,needs_passage_flag
+6685,SD,Bahasa Indonesia,opsi_identik
+6872,SMP,IPA,opsi_identik
+6992,SMA,Fisika,opsi_identik
+7201,SMA,Fisika,opsi_identik
+7203,SMA,Fisika,opsi_identik
+7233,SMA,Fisika,opsi_identik
+7300,SMA,Kimia,opsi_identik
+7420,SMA,Kimia,opsi_identik
+7487,SMA,Kimia,opsi_identik
+7543,SMA,Kimia,opsi_identik
+8028,SMA,Bahasa Indonesia,needs_passage_flag
+8068,SMA,Bahasa Indonesia,opsi_identik
+8085,SMA,Bahasa Indonesia,needs_passage_flag
+8138,SMA,Bahasa Indonesia,needs_passage_flag
+8141,SMA,Bahasa Indonesia,opsi_identik
+8182,SMA,Bahasa Indonesia,needs_passage_flag
+8186,SMA,Bahasa Indonesia,needs_passage_flag
+8187,SMA,Bahasa Indonesia,needs_passage_flag
+8204,SMA,Bahasa Indonesia,needs_passage_flag;opsi_identik
+8216,SMA,Bahasa Indonesia,opsi_identik
+8222,SMA,Bahasa Indonesia,opsi_identik
+8255,SMA,Bahasa Indonesia,needs_passage_flag
+8258,SMA,Bahasa Indonesia,needs_passage_flag
+8332,SMA,Bahasa Indonesia,prescreen:cek_teks_lengkap
+8334,SMA,Bahasa Indonesia,prescreen:cek_teks_lengkap
+8335,SMA,Bahasa Indonesia,needs_passage_flag
+8348,SMA,Bahasa Indonesia,needs_passage_flag
+8349,SMA,Bahasa Indonesia,needs_passage_flag
+8350,SMA,Bahasa Indonesia,needs_passage_flag
+8356,SMA,Bahasa Indonesia,needs_passage_flag
+8358,SMA,Bahasa Indonesia,needs_passage_flag
+8359,SMA,Bahasa Indonesia,needs_passage_flag
+8361,SMA,Bahasa Indonesia,needs_passage_flag
+8364,SMA,Bahasa Indonesia,needs_passage_flag
+8368,SMA,Bahasa Indonesia,opsi_identik
+8369,SMA,Bahasa Indonesia,opsi_identik
+8453,SMA,Bahasa Indonesia,needs_passage_flag
+8478,SMA,Bahasa Indonesia,needs_passage_flag
+8479,SMA,Bahasa Indonesia,needs_passage_flag
+8480,SMA,Bahasa Indonesia,needs_passage_flag
+8481,SMA,Bahasa Indonesia,needs_passage_flag
+8486,SMA,Bahasa Indonesia,opsi_identik
+8578,SMA,Bahasa Indonesia,opsi_identik
+8597,SMA,Bahasa Indonesia,opsi_identik
+8602,SMA,Bahasa Indonesia,opsi_identik
+8603,SMA,Bahasa Indonesia,needs_passage_flag
+8606,SMA,Bahasa Indonesia,prescreen:cek_teks_lengkap
+8614,SMA,Bahasa Indonesia,needs_passage_flag
+8616,SMA,Bahasa Indonesia,needs_passage_flag
+8617,SMA,Bahasa Indonesia,needs_passage_flag
+8637,SMA,Bahasa Indonesia,needs_passage_flag
+8640,SMA,Bahasa Indonesia,needs_passage_flag
+8641,SMA,Bahasa Indonesia,needs_passage_flag
+8658,SMA,Bahasa Indonesia,needs_passage_flag
+8659,SMA,Bahasa Indonesia,needs_passage_flag
+8660,SMA,Bahasa Indonesia,needs_passage_flag
+8698,SMA,Bahasa Indonesia,needs_passage_flag
+8702,SMA,Bahasa Indonesia,needs_passage_flag
+8742,SMA,Bahasa Indonesia,prescreen:cek_teks_lengkap
+8774,SMA,Bahasa Indonesia,opsi_identik
+8775,SMA,Bahasa Indonesia,needs_passage_flag
+8810,SMA,Bahasa Indonesia,needs_passage_flag
+8812,SMA,Bahasa Indonesia,needs_passage_flag
+8860,SMA,Bahasa Indonesia,needs_passage_flag
+9048,SMA,Sosiologi,prescreen:cek_teks_lengkap
+9049,SMA,Sosiologi,prescreen:cek_teks_lengkap
+9114,SMA,Sosiologi,opsi_identik
+9167,SMA,Sosiologi,prescreen:kunci_salah
+9193,SMA,Sosiologi,opsi_identik
+9216,SMA,Sosiologi,opsi_identik
+9286,SMA,Sosiologi,opsi_identik
+9288,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9289,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9290,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9291,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9292,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9293,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9294,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9295,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9296,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9297,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9298,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9299,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9300,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9301,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9302,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9303,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9304,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9305,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9306,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9307,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9308,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9309,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9310,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN;prescreen:kunci_diragukan
+9311,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9312,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9313,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9314,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9315,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9316,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9317,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9318,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9319,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9320,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9321,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9322,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9323,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9324,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9325,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9326,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9327,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9328,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9329,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9330,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9331,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9332,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9333,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9334,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9335,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9336,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9337,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9338,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9339,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9340,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9341,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9342,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9343,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9344,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9345,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9346,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9347,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9348,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9349,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9350,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9351,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9352,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9353,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9354,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9355,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9356,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9357,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9358,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9359,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9360,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9361,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9362,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9363,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9364,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9365,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9366,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9367,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9368,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9369,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9370,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9371,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9372,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9373,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9374,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9375,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9376,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9377,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9378,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9379,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9380,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9381,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9382,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9383,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9384,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9385,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9386,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9387,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9388,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9389,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9390,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9391,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9392,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9393,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9394,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9395,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9396,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9397,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9398,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9399,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9400,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9401,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9402,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9403,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9404,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9405,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9406,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9407,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9408,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9409,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9410,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9411,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9412,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9413,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9414,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9415,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9416,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9417,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9418,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9419,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9420,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9421,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9422,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9423,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9424,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9425,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9426,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9427,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN;prescreen:tidak_yakin
+9428,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9429,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9430,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9431,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9432,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9433,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9434,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9435,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9436,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9437,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9438,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9439,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9440,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9441,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9442,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9443,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9444,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9445,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9446,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9447,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9448,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9449,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9450,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9451,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9452,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9453,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9454,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9455,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9456,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9457,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9458,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9459,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9460,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9461,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9462,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9463,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9464,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9465,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9466,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9467,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9468,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9469,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9470,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9471,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9472,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9473,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9474,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9475,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9476,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9477,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9478,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9479,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9480,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9481,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9482,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9483,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9484,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9485,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9486,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9487,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9488,PTN,Sosiologi,bukan_SD_SMP_SMA:PTN
+9703,SMA,Ekonomi,prescreen:kunci_diragukan
+9720,SMA,Ekonomi,opsi_identik
+9783,SMA,Ekonomi,opsi_identik
+9785,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9786,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9787,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9788,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9789,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9790,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9791,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9792,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9793,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9794,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9795,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9796,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9797,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9798,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9799,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9800,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9801,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9802,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9803,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9804,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9805,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9806,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9807,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9808,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9809,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9810,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9811,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9812,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9813,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9814,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9815,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9816,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9817,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9818,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9819,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9820,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9821,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9822,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9823,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9824,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9825,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9826,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9827,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9828,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9829,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9830,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9831,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9832,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9833,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9834,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9835,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9836,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9837,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9838,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9839,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9840,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9841,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9842,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9843,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9844,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9845,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9846,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9847,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9848,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9849,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9850,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9851,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9852,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9853,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9854,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9855,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9856,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9857,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9858,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9859,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9860,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9861,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9862,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9863,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9864,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9865,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9866,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9867,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9868,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9869,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9870,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9871,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9872,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9873,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9874,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9875,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9876,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9877,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9878,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9879,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9880,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9881,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9882,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9883,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9884,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9885,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9886,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9887,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9888,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9889,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9890,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9891,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9892,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9893,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9894,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9895,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9896,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9897,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9898,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9899,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9900,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9901,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9902,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9903,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9904,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9905,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9906,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9907,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9908,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9909,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9910,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9911,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9912,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9913,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9914,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9915,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9916,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9917,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9918,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9919,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9920,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9921,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9922,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9923,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9924,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9925,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9926,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9927,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9928,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9929,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9930,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9931,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9932,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9933,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9934,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9935,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9936,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9937,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9938,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9939,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9940,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9941,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9942,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9943,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9944,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9945,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9946,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9947,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9948,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9949,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9950,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9951,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9952,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9953,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9954,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9955,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9956,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9957,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9958,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9959,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9960,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9961,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9962,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9963,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9964,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9965,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9966,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9967,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9968,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9969,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9970,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9971,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9973,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9974,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9975,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9976,PTN,Ekonomi,bukan_SD_SMP_SMA:PTN
+9987,SD,Bahasa Indonesia,opsi_identik
+9997,SD,Bahasa Indonesia,needs_passage_flag
+10007,SD,Bahasa Indonesia,opsi_identik
+10040,SD,Bahasa Indonesia,opsi_identik
+10115,SD,Bahasa Indonesia,opsi_identik
+10153,SD,Bahasa Indonesia,needs_passage_flag
+10154,SD,Bahasa Indonesia,needs_passage_flag
+10161,SD,Bahasa Indonesia,needs_passage_flag
+10198,SD,Bahasa Indonesia,needs_passage_flag
+10199,SD,Bahasa Indonesia,needs_passage_flag
+10212,SD,Bahasa Indonesia,needs_passage_flag
+10213,SD,Bahasa Indonesia,opsi_identik
+10255,SD,Bahasa Indonesia,needs_passage_flag
+10260,SD,Bahasa Indonesia,opsi_identik
+10265,SD,Bahasa Indonesia,opsi_identik
+10298,SD,Bahasa Indonesia,needs_passage_flag
+10356,SD,Bahasa Indonesia,needs_passage_flag
+10373,SMP,Bahasa Indonesia,opsi_identik
+10378,SMP,Bahasa Indonesia,needs_passage_flag
+10381,SMP,Bahasa Indonesia,opsi_identik
+10382,SMP,Bahasa Indonesia,needs_passage_flag
+10387,SMP,Bahasa Indonesia,opsi_identik
+10394,SMP,Bahasa Indonesia,needs_passage_flag
+10399,SMP,Bahasa Indonesia,needs_passage_flag
+10435,SMP,Bahasa Indonesia,needs_passage_flag
+10436,SMP,Bahasa Indonesia,needs_passage_flag
+10457,SMP,Bahasa Indonesia,needs_passage_flag
+10474,SMP,Bahasa Indonesia,prescreen:tidak_yakin
+10496,SMP,Bahasa Indonesia,needs_passage_flag
+10499,SMP,Bahasa Indonesia,needs_passage_flag
+10528,SMP,Bahasa Indonesia,needs_passage_flag
+10538,SMP,Bahasa Indonesia,needs_passage_flag
+10572,SMP,Bahasa Indonesia,needs_passage_flag
+10622,SMP,Bahasa Indonesia,needs_passage_flag
+10630,SMP,Bahasa Indonesia,needs_passage_flag
+10633,SMP,Bahasa Indonesia,needs_passage_flag;opsi_identik
+10639,SMP,Bahasa Indonesia,opsi_identik
+10659,SMP,Bahasa Indonesia,needs_passage_flag;opsi_identik
+10721,SMP,Bahasa Indonesia,needs_passage_flag
+10722,SMP,Bahasa Indonesia,needs_passage_flag
+10724,SMP,Bahasa Indonesia,needs_passage_flag
+10748,SMP,Bahasa Indonesia,opsi_identik
+10749,SMP,Bahasa Indonesia,opsi_identik
+10751,SMP,Bahasa Indonesia,needs_passage_flag
+10774,SMP,Bahasa Indonesia,opsi_identik
+10819,SMP,Bahasa Indonesia,opsi_identik
+10847,SMP,Bahasa Indonesia,opsi_identik
+10861,SMP,Bahasa Indonesia,opsi_identik
+10877,SMP,Bahasa Indonesia,needs_passage_flag
+10884,SMP,Bahasa Indonesia,opsi_identik
+10886,SMP,Bahasa Indonesia,opsi_identik
+10890,SMP,Bahasa Indonesia,opsi_identik
+10929,SMP,Bahasa Indonesia,needs_passage_flag
+10952,SMP,Bahasa Indonesia,needs_passage_flag
+10953,SMP,Bahasa Indonesia,needs_passage_flag
+10956,SMP,Bahasa Indonesia,needs_passage_flag
+10957,SMP,Bahasa Indonesia,needs_passage_flag
+10958,SMP,Bahasa Indonesia,needs_passage_flag
+10960,SMP,Bahasa Indonesia,needs_passage_flag
+10961,SMP,Bahasa Indonesia,needs_passage_flag
+10962,SMP,Bahasa Indonesia,needs_passage_flag
+10964,SMP,Bahasa Indonesia,needs_passage_flag
+11005,SMP,Bahasa Indonesia,needs_passage_flag
+11030,SMP,Bahasa Indonesia,needs_passage_flag
+11034,SMP,Bahasa Indonesia,needs_passage_flag
+11070,SMP,Bahasa Indonesia,opsi_identik
+11080,SMP,Bahasa Indonesia,needs_passage_flag
+11081,SMP,Bahasa Indonesia,needs_passage_flag
+11087,SMP,Bahasa Indonesia,needs_passage_flag
+11116,SMP,Bahasa Indonesia,needs_passage_flag
+11156,SMP,Bahasa Indonesia,needs_passage_flag
+11161,SMP,Bahasa Indonesia,needs_passage_flag
+11167,SMP,Bahasa Indonesia,needs_passage_flag
+11168,SMP,Bahasa Indonesia,needs_passage_flag
+11171,SMP,Bahasa Indonesia,needs_passage_flag
+11177,SMP,Bahasa Indonesia,needs_passage_flag
+11185,SMP,Bahasa Indonesia,needs_passage_flag
+11196,SMP,Bahasa Indonesia,needs_passage_flag
+11198,SMP,Bahasa Indonesia,opsi_identik
+11199,SMP,Bahasa Indonesia,needs_passage_flag
+11200,SMP,Bahasa Indonesia,needs_passage_flag
+11207,SMP,Bahasa Indonesia,needs_passage_flag
+11208,SMP,Bahasa Indonesia,needs_passage_flag
+11938,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11939,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11940,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11941,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11942,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11943,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11944,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11945,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11946,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11947,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11948,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11949,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11950,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11951,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11952,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11953,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11954,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11955,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11956,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11957,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11958,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11959,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11960,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11961,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11962,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11963,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11964,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11965,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11966,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11967,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11968,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11970,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11971,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11972,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11973,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11974,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11975,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11976,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11977,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11979,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11980,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11981,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11982,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN;needs_passage_flag
+11983,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11984,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11985,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11986,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11987,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11988,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11989,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11990,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11991,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11992,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11994,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11995,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11996,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11998,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+11999,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12000,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12001,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12002,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12003,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12004,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12005,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12006,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12007,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12009,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12010,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12011,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12012,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12013,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12014,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12015,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12016,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12017,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12018,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12019,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12020,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12021,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12023,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12024,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12025,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12026,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN;needs_passage_flag
+12027,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12028,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12029,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12030,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12031,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12032,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12033,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12034,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12035,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12036,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12037,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12038,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12039,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12040,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12041,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12042,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12043,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12044,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12045,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12046,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12047,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12048,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12049,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12050,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12051,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12052,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12053,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12054,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12055,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12056,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12057,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12058,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12059,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12060,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN;needs_passage_flag
+12061,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12062,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12063,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12064,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12065,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12066,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12067,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12068,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12069,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12070,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12071,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12072,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12073,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12074,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12075,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12076,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12077,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12078,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12079,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12080,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12081,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12082,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12083,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12084,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12085,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12086,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12087,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12088,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12089,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12090,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12091,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12092,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12093,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12094,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12095,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12096,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12097,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12098,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12099,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12100,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12101,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN;opsi_identik
+12102,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12103,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12104,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12105,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12106,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12107,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12108,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12109,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12110,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12111,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12112,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12113,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12114,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12115,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12116,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12117,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12118,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12119,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12120,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12121,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12122,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12123,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12124,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12125,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12126,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12127,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12128,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12129,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12130,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12131,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12132,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12133,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12134,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12135,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12136,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12137,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12138,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12139,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12140,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12141,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12142,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12143,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12144,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12145,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12146,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12147,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12148,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12149,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12150,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12151,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12152,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12153,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12154,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12155,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12156,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12157,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12158,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12159,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12160,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12161,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN;needs_passage_flag
+12162,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12163,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12164,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12165,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12166,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12167,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12168,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12169,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12170,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12171,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12172,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12173,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12174,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12175,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12176,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12177,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12178,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12179,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12181,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12182,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12183,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12184,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12185,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12186,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12187,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12188,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12189,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12190,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12191,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12192,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12193,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12194,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12195,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12196,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12197,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12198,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12199,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12200,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12201,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12203,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12204,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12205,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12206,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12207,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12208,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12209,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12210,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12211,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12212,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12213,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12214,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12215,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12216,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12217,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12218,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12219,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12220,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12221,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12222,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12223,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12224,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12226,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12227,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12228,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12229,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12230,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12231,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12232,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12233,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12234,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12235,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12236,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12237,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12238,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12239,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12240,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12241,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12242,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12243,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12244,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12245,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12246,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12247,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12249,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12250,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12251,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12252,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12253,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12254,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12256,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12257,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12258,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12259,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12260,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12261,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12262,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12263,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12264,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12265,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12267,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12268,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12269,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12270,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12271,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12272,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12273,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12274,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12275,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12276,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12277,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12278,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12279,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12280,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12281,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12282,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12283,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12284,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12285,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12286,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12287,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12288,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12289,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12290,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12291,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12292,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12293,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12295,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12296,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12297,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12298,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12299,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12300,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12301,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12302,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12303,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12305,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12306,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12307,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12308,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12310,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12311,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12312,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12313,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12314,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12315,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12316,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12317,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12318,PTN,Bahasa Indonesia,bukan_SD_SMP_SMA:PTN
+12328,SD,Bahasa Indonesia,needs_passage_flag
+12340,SD,Bahasa Indonesia,opsi_identik
+12407,SD,Bahasa Indonesia,needs_passage_flag
+12421,SD,Bahasa Indonesia,needs_passage_flag
+12441,SD,Bahasa Indonesia,needs_passage_flag
+12448,SD,Bahasa Indonesia,needs_passage_flag
+12449,SD,Bahasa Indonesia,needs_passage_flag
+12507,SD,Bahasa Indonesia,needs_passage_flag
+12509,SD,Bahasa Indonesia,needs_passage_flag
+12514,SD,Bahasa Indonesia,needs_passage_flag
+12519,SD,Bahasa Indonesia,opsi_identik
+12604,SD,Bahasa Indonesia,prescreen:cek_teks_lengkap
+12605,SD,Bahasa Indonesia,needs_passage_flag
+12628,SD,Bahasa Indonesia,needs_passage_flag
+12629,SD,Bahasa Indonesia,needs_passage_flag
+14168,SD,Bahasa Indonesia,opsi_identik
+14169,SD,Bahasa Indonesia,opsi_identik
+14178,SD,Bahasa Indonesia,opsi_identik
+14179,SD,Bahasa Indonesia,opsi_identik
+14185,SD,Bahasa Indonesia,opsi_identik
+14201,SD,Bahasa Indonesia,needs_passage_flag
+14244,SD,Bahasa Indonesia,opsi_identik
+14250,SD,Bahasa Indonesia,opsi_identik
+14260,SD,Bahasa Indonesia,opsi_identik
+14269,SD,Bahasa Indonesia,opsi_identik
+14359,SD,PPKN,prescreen:tidak_yakin
+14855,SMA,PPKN,prescreen:ambigu
+14867,SMA,PPKN,opsi_identik
+14897,SMA,PPKN,prescreen:tidak_yakin
+14951,SMA,PPKN,needs_passage_flag
+14969,SMA,PPKN,needs_passage_flag

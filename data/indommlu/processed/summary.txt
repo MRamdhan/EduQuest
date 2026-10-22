@@ -1,0 +1,61 @@
+Valid: 9476 | Ditolak: 2
+
+Per jenjang:
+  SMA: 3285
+  SMP: 2128
+  PTN: 2052
+  SD: 2011
+
+Per jenjang x mapel:
+  PTN              Bahasa Indonesia   381
+  PTN              Biologi            388
+  PTN              Ekonomi            192
+  PTN              Geografi           294
+  PTN              Kimia              398
+  PTN              Sejarah            198
+  PTN              Sosiologi          201
+  SD               Bahasa Indonesia   1124
+  SD               IPA                488
+  SD               IPS                300
+  SD               PPKN               99
+  SMA              Bahasa Indonesia   857
+  SMA              Biologi            457
+  SMA              Ekonomi            296
+  SMA              Fisika             297
+  SMA              Geografi           196
+  SMA              Kimia              287
+  SMA              PPKN               300
+  SMA              Sejarah            300
+  SMA              Sosiologi          295
+  SMP              Bahasa Indonesia   850
+  SMP              Fisika             198
+  SMP              IPA                481
+  SMP              IPS                299
+  SMP              PPKN               300
+
+Kelas tidak jelas/rentang:
+  PTN: 492
+  tidak_jelas:2023-10-12 00:00:00: 174
+  rentang:4,5,6: 132
+
+Jumlah opsi:
+  3 opsi: 491
+  4 opsi: 3610
+  5 opsi: 5375
+
+15 sumber teratas:
+   381  https://simak.ui.ac.id/download-2.html
+   134  https://banksoal.belajar.kemdikbud.go.id/Evaluasi/GuidedLearning?kelasID=129&mataPelajaran
+   114  https://www.bospedia.com/2018/08/soal.uas.biologi.kelas.x.sma.ma.k-2013.2018.2019.2020.202
+   105  https://www.bospedia.com/2018/09/soal.pg.sejarah.kelas.xii.sma.ma.k13.2019.2020.2021.2022.
+   105  Lengkap - 105+ Contoh Soal PG Geografi Kelas 11 SMA/MA dan Kunci Jawabnya Terbaru - Bosped
+    93  100 Soal & Jawaban PAS/UAS IPS Kelas 9 Semester 1 & 2 - Kherysuryawan.id
+    80  https://www.bospedia.com/2018/10/soal.uts.ipa.kelas.7.smp.mts.2019.2020.2021.2022.html
+    65  https://www.academia.edu/33890486/Kumpulan_soal_IPA_SD_Kelas
+    60  60+ Contoh Soal PG Sejarah Kelas 10 SMA/MA dan Kunci Jawabnya Terbaru - Bospedia
+    60  70 Soal UAS/PAS IPS Kelas 8 SMP Semester 1&2 Tahun 2022 - Kherysuryawan.id
+    58  https://www.bospedia.com/2018/07/soal.uts.sosiologi.kelas.10.sma.ma.semester.1.k-2013.html
+    54  https://www.bospedia.com/2019/03/soal.uts.ekonomi.kelas.xi.sma.ma.2019.2020.2021.2022.2023
+    49  https://majalahpendidikan.com/soal-bahasa-indonesia-kelas-10/
+    49  https://id.scribd.com/document/486776120/PAS-BINDO-XI
+    48  https://www.academia.edu/23211169/Pembahasan_400_soal_pelajaran_biologi_SMA

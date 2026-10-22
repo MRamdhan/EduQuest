@@ -1,0 +1,455 @@
+﻿group_id,label,reason,n_rows,n_splits,n_distinct_choice_sets,image_reuse_rows_total,gambar_template,template_key,topic,grade,splits,question
+d8c79918_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,7,2,7,7,True,40ee894937,biology,grade5,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+853bc6e1_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,7,3,7,7,True,fb3f5725eb,biology,grade3,test/train/validation,Select the mammal below.
+f224b6a0_19ccba,variasi_valid,himpunan pilihan berbeda di semua baris,7,2,7,12,True,806a03b6ca,biology,grade3,test/train,Which animal's legs are also adapted for wading?
+73c8c97c_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,7,3,7,7,True,750e886f61,biology,grade2,test/train/validation,Select the fish below.
+59286830_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,7,3,7,7,True,fb3f5725eb,biology,grade4,test/train/validation,Select the mammal below.
+240e403d_409389,variasi_valid,himpunan pilihan berbeda di semua baris,6,3,6,6,True,8aacdf6c53,biology,grade2,test/train/validation,Select the reptile below.
+3e059505_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,6,3,6,6,True,40ee894937,biology,grade4,test/train/validation,Which animal's skin is better adapted as a warning sign to ward off predators?
+2985d19a_5518c8,variasi_valid,himpunan pilihan berbeda di semua baris,6,3,6,6,True,5f6c8b8e7c,biology,grade5,test/train/validation,Which animal is also adapted to be camouflaged in the snow?
+c42668f7_067f89,variasi_valid,himpunan pilihan berbeda di semua baris,6,3,6,6,True,e1b982a687,biology,grade3,test/train/validation,Which animal is also adapted to be camouflaged among green leaves?
+6f9edef7_e095bd,variasi_valid,himpunan pilihan berbeda di semua baris,6,2,6,37,True,cc06e1bc74,biology,grade7,train/validation,Which of these organisms contains matter that was once part of the bilberry?
+8cc38545_4a7590,variasi_valid,himpunan pilihan berbeda di semua baris,6,2,6,34,True,cf3a37e262,biology,grade8,train/validation,Which of these organisms contains matter that was once part of the persimmon tree?
+199dc80b_409389,variasi_valid,himpunan pilihan berbeda di semua baris,6,2,6,6,True,8aacdf6c53,biology,grade2,train/validation,Select the reptile below.
+8e83298a_8085ea,variasi_valid,himpunan pilihan berbeda di semua baris,6,3,6,26,True,cb9ac60239,biology,grade4,test/train/validation,"Based on the arrows, which of the following organisms is a consumer?"
+ec6314eb_df5c31,variasi_valid,himpunan pilihan berbeda di semua baris,6,3,6,36,True,614494e82a,biology,grade6,test/train/validation,"In this food web, which organism contains matter that eventually moves to the sea cucumber?"
+10688e85_5518c8,variasi_valid,himpunan pilihan berbeda di semua baris,6,2,6,6,True,5f6c8b8e7c,biology,grade3,test/train,Which animal is also adapted to be camouflaged in the snow?
+21056cb1_a42cc8,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,8,True,b4fe0c1c6f,biology,grade3,test/train,Which animal's skin is also adapted for survival in cold places?
+bce05d8c_818c81,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,11,True,81a60de391,biology,grade3,train/validation,"Based on the arrows, which of the following living things is a consumer?"
+74408eba_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,750e886f61,biology,grade2,test/train/validation,Select the fish below.
+0e824455_574c16,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,2b3a8ca2b6,biology,grade3,test/train,Which animal's feet are also adapted for grabbing prey?
+f8e1269f_bb0a08,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,62a500c4cc,biology,grade4,test/train/validation,Which animal's feet are also adapted for digging?
+3e5b23b1_595d0f,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,7e7b41eec8,us-history,grade8,test/train,Which continent was involved in the Seven Years' War?
+991cefef_a42cc8,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,7,True,b4fe0c1c6f,biology,grade3,test/train/validation,Which animal's skin is also adapted for survival in cold places?
+78029fbc_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,750e886f61,biology,grade2,test/train,Select the fish below.
+6f9edef7_224d44,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,37,True,8168ada6ff,biology,grade7,test/train,"In this food web, which organism contains matter that eventually moves to the earthworm?"
+d5902582_409389,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,8aacdf6c53,biology,grade3,test/train,Select the reptile below.
+24c6016e_44b959,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,b9f0ab003d,biology,grade5,train/validation,Which animal is also adapted for flight?
+6254a096_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,20b6ae8233,biology,grade5,test/train,Which animal is also adapted to be camouflaged in a sandy desert?
+f6b094f9_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,cffa999047,biology,grade2,test/train,Select the bird below.
+fe66db31_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,fb3f5725eb,biology,grade3,test/train,Select the mammal below.
+87c7719b_44b959,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,5,True,b9f0ab003d,biology,grade3,train/validation,Which animal is also adapted for flight?
+8cc38545_bcdc9f,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,34,True,a8109eef85,biology,grade7,train/validation,Which of the following organisms is the secondary consumer in this food web?
+92eb2daa_409389,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,8aacdf6c53,biology,grade4,test/train/validation,Select the reptile below.
+5d279667_b233ba,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,17,True,8558fc815c,us-history,grade7,train/validation,Which of these colonies was Southern Colonies?
+8cc38545_16e6f9,variasi_valid,himpunan pilihan berbeda di semua baris,5,2,5,34,True,0a7d039c2f,biology,grade8,train/validation,"In this food web, which organism contains matter that eventually moves to the parasol fungus?"
+e16e7dbc_dfc24c,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,f19fa864f0,biology,grade4,test/train/validation,Which animal's feet are also adapted for swimming?
+ec6314eb_cfef26,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,36,True,0675284d39,biology,grade6,test/train/validation,"In this food web, which organism contains matter that eventually moves to the bat star?"
+ec6314eb_a0349d,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,36,True,7866d41cd5,biology,grade6,test/train/validation,Which of these organisms contains matter that was once part of the kelp?
+f2ec9248_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,fb3f5725eb,biology,grade3,test/train/validation,Select the mammal below.
+fc42a4d6_19ccba,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,806a03b6ca,biology,grade5,test/train/validation,Which animal's legs are also adapted for wading?
+386910f5_2943f6,variasi_valid,himpunan pilihan berbeda di semua baris,5,3,5,5,True,00a99200be,biology,grade4,test/train/validation,Which animal is also adapted for climbing trees?
+ec6314eb_ed4851,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,36,True,ce0dce0c6c,biology,grade6,test/train,Which of these organisms contains matter that was once part of the phytoplankton?
+f8cd867a_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,750e886f61,biology,grade3,train/validation,Select the fish below.
+8ba46208_2943f6,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,00a99200be,biology,grade4,test/train,Which animal is also adapted for climbing trees?
+ae5993f5_dfc24c,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,f19fa864f0,biology,grade3,test/train,Which animal's feet are also adapted for swimming?
+ec6314eb_bcdc9f,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,36,True,a8109eef85,biology,grade8,test/train,Which of the following organisms is the secondary consumer in this food web?
+52f85af1_5518c8,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,8,True,5f6c8b8e7c,biology,grade5,test/train,Which animal is also adapted to be camouflaged in the snow?
+8dc6a8d9_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,40ee894937,biology,grade5,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+671ed294_a6d744,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,986ece094f,biology,grade3,train/validation,Which animal's mouth is also adapted for bottom feeding?
+c2d39f7e_f5924f,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,55735597e4,biology,grade3,train/validation,Which animal's limbs are also adapted for gliding?
+c994e37c_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,750e886f61,biology,grade2,train/validation,Select the fish below.
+a0e83378_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,20b6ae8233,biology,grade5,train/validation,Which animal is also adapted to be camouflaged in a sandy desert?
+5e0acb69_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,824b0e338a,physics,grade3,test/train/validation,Which property matches this object?
+7b56774a_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,40ee894937,biology,grade5,train/validation,Which animal's skin is better adapted as a warning sign to ward off predators?
+511f221f_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,750e886f61,biology,grade2,test/train,Select the fish below.
+a9e2dd14_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,42fcfdf79b,biology,grade3,test/train,Select the amphibian below.
+2ee8ca41_a851ff,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,64d6f6ff52,biology,grade5,test/train/validation,Which animal's neck is also adapted for hunting prey while keeping the rest of its body still?
+db616b88_067f89,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,e1b982a687,biology,grade3,test/train,Which animal is also adapted to be camouflaged among green leaves?
+ff9e169d_43ae50,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,973fdd6957,biology,grade5,train/validation,Which animal's feet are also adapted to walk on snow and ice?
+7a2b5ad0_b49820,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,badfcfea0d,biology,grade4,test/train,"Which animal's feet are also adapted for walking on large, floating leaves?"
+e802a132_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,fb3f5725eb,biology,grade2,train/validation,Select the mammal below.
+c72d8dbd_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,20b6ae8233,biology,grade5,train/validation,Which animal is also adapted to be camouflaged in a sandy desert?
+0796a871_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,40ee894937,biology,grade4,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+8cc38545_03d067,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,34,True,948bdc74ac,biology,grade7,train/validation,Which of the following organisms is the primary consumer in this food web?
+e75586f4_bcdc9f,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,15,True,a8109eef85,biology,grade5,train/validation,Which of the following organisms is the secondary consumer in this food web?
+52f85af1_a42cc8,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,8,True,b4fe0c1c6f,biology,grade3,test/train,Which animal's skin is also adapted for survival in cold places?
+82db563d_d1aeb7,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,5,True,0f832a47f7,biology,grade6,test/train,Select the organism in the same genus as the gray heron.
+2ea96bd7_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,6,True,20b6ae8233,biology,grade3,train/validation,Which animal is also adapted to be camouflaged in a sandy desert?
+bca338e8_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,fb3f5725eb,biology,grade2,test/train/validation,Select the mammal below.
+ec6314eb_03d067,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,36,True,948bdc74ac,biology,grade8,test/train,Which of the following organisms is the primary consumer in this food web?
+6f9edef7_03d067,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,37,True,948bdc74ac,biology,grade6,test/train,Which of the following organisms is the primary consumer in this food web?
+5d279667_99bfbd,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,17,True,1d65148eac,us-history,grade4,test/train/validation,Which colony was Middle Colonies?
+a5dc214b_574c16,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,2b3a8ca2b6,biology,grade3,train/validation,Which animal's feet are also adapted for grabbing prey?
+5d279667_150cae,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,17,True,f4636f7e20,us-history,grade7,train/validation,Which of these colonies was Middle Colonies?
+5d279667_82149d,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,17,True,3a736e7cef,us-history,grade7,train/validation,Which of these colonies was in New England?
+6f7dfb57_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,750e886f61,biology,grade4,test/train/validation,Select the fish below.
+6cfed6fc_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,750e886f61,biology,grade4,test/train/validation,Select the fish below.
+88006d38_409389,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,8aacdf6c53,biology,grade2,test/train/validation,Select the reptile below.
+e8330d4b_2b5898,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,f0953dc146,biology,grade5,test/train,Which animal's limbs are also adapted for climbing trees?
+5da40a07_b49820,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,badfcfea0d,biology,grade4,test/train/validation,"Which animal's feet are also adapted for walking on large, floating leaves?"
+6f9edef7_69727a,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,37,True,1d6cd99867,biology,grade7,test/train/validation,"In this food web, which organism contains matter that eventually moves to the mushroom?"
+fa16878e_3e18bb,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,4b90ba2c21,biology,grade4,test/train,Which bird's beak is also adapted to crack hard seeds?
+3bb2d707_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,4,3,4,4,False,cffa999047,biology,grade3,test/train/validation,Select the bird below.
+c16ab469_8dc47a,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,a540e54fa2,us-history,grade7,test/validation,What location was involved in the triangular trade?
+da07c866_df489d,variasi_valid,himpunan pilihan berbeda di semua baris,4,2,4,4,False,061831e2fc,world-history,grade6,test/validation,"Based on the map, which of the following areas did the Mongol Empire control?"
+5306d5c3_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,cffa999047,biology,grade2,train/validation,Select the bird below.
+ed083c3c_f0a08a,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,15,True,64bab6978d,geography,grade3,train/validation,Which i in row C?
+70625f48_531769,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,7f9df8b81f,earth-science,grade6,test/train,Which air temperature was measured within the outlined area shown?
+7fe43306_ad23c1,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,869a2317f5,biology,grade5,test/train,Which animal is also adapted to be camouflaged among dead leaves?
+30e09542_32569e,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,39c1853a9a,biology,grade4,train/validation,Which better describes the Bering Land Bridge National Preserve ecosystem?
+8d77f664_dd3314,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,989ecca027,earth-science,grade6,test/train/validation,Which trait did Meiolania have? Select the trait you can observe on the fossil.
+d384fbca_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+24087c1e_ad23c1,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,869a2317f5,biology,grade5,train/validation,Which animal is also adapted to be camouflaged among dead leaves?
+727c3619_bb0a08,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,62a500c4cc,biology,grade4,test/train,Which animal's feet are also adapted for digging?
+e042bad2_81d492,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,460f87598e,biology,grade4,test/train/validation,Which bird's beak is also adapted to tear through meat?
+8e83298a_e095bd,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,26,True,cc06e1bc74,biology,grade5,test/train,Which of these organisms contains matter that was once part of the bilberry?
+143c4571_a1ace3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,642ab233a4,earth-science,grade7,test/train,Which specific humidity level was measured within the outlined area shown?
+270edb2e_c3cf8d,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,47ddb1d377,biology,grade8,test/train,Which statement describes the Mount Rainier National Park ecosystem?
+77aaca70_ad23c1,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,869a2317f5,biology,grade3,train/validation,Which animal is also adapted to be camouflaged among dead leaves?
+7e450113_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+bcb0e157_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,cffa999047,biology,grade3,test/train,Select the bird below.
+b4a71854_60e23d,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,e4f5583e38,biology,grade4,test/train,Which better describes the Gobi Desert ecosystem?
+5e323158_a11c29,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,6f8cbbaa19,biology,grade3,train/validation,Which better describes the Monongahela National Forest ecosystem?
+e00e5f9e_a10441,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,ffc60c11e5,biology,grade8,test/train,Which statement describes the Steigerwald Forest ecosystem?
+02421123_b30c32,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,592a7f19dd,biology,grade3,train/validation,Which animal's limbs are also adapted for swimming?
+af088ace_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,fb3f5725eb,biology,grade4,test/train/validation,Select the mammal below.
+c60898bc_662ba4,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,51f6d22a1f,biology,grade5,test/train,Which animal's mouth is also adapted for gnawing?
+4e2de5fa_dfc24c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,f19fa864f0,biology,grade5,test/train,Which animal's feet are also adapted for swimming?
+5a94da76_a1ace3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,642ab233a4,earth-science,grade8,train/validation,Which specific humidity level was measured within the outlined area shown?
+e49273de_531769,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,7f9df8b81f,earth-science,grade6,test/train/validation,Which air temperature was measured within the outlined area shown?
+0274ab1b_124ae2,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,a068a65ede,biology,grade6,test/train,Select the organism in the same genus as the great gray owl.
+bcd6a6ee_8554d8,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,6,True,d740a62b9e,biology,grade5,test/train,Which statement describes the Tibetan Plateau ecosystem?
+af882a89_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,20b6ae8233,biology,grade5,test/train,Which animal is also adapted to be camouflaged in a sandy desert?
+8a9788ef_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,40ee894937,biology,grade4,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+6f9edef7_47d56b,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,37,True,6e187d74ac,biology,grade7,test/train,Which of these organisms contains matter that was once part of the lichen?
+dde829f1_ff50d2,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,46f9e3d556,biology,grade4,test/train,Which animal's neck is also adapted for reaching high branches?
+f7da8cc4_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,42fcfdf79b,biology,grade4,test/train/validation,Select the amphibian below.
+b5612a2a_267c04,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,3c77316bae,earth-science,grade6,test/train/validation,Which trait did Coelodonta have? Select the trait you can observe on the fossil.
+38bf5fdc_1abce7,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,9ec40a9dd2,earth-science,grade6,test/train,Which trait did this aurochs have? Select the trait you can observe on the fossil.
+7c8ca57b_b66f6e,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,1f275b4c5e,literacy-in-science,grade8,test/train,"According to the text, what evidence of a volcanic eruption did the captain observe?"
+5a0a9e48_8d78d9,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,40d686507c,biology,grade3,test/train,Which animal's body is better adapted for protection against a predator with sharp teeth?
+680e0063_66bada,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,be355db746,biology,grade8,train/validation,Which statement describes the Oglala National Grassland ecosystem?
+d91b41fb_a851ff,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,64d6f6ff52,biology,grade5,train/validation,Which animal's neck is also adapted for hunting prey while keeping the rest of its body still?
+cd140af5_bb0a08,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,62a500c4cc,biology,grade3,train/validation,Which animal's feet are also adapted for digging?
+dc6b9edb_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,20b6ae8233,biology,grade5,train/validation,Which animal is also adapted to be camouflaged in a sandy desert?
+ee79b801_c1c41a,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,e28be4e921,biology,grade4,train/validation,Which bird's beak is also adapted to catch insects?
+fb956357_067f89,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,e1b982a687,biology,grade5,train/validation,Which animal is also adapted to be camouflaged among green leaves?
+5a5e8930_a1ace3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,642ab233a4,earth-science,grade7,train/validation,Which specific humidity level was measured within the outlined area shown?
+664d6a3e_ebca1b,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,deff5d90cf,biology,grade3,train/validation,Which better describes the Kaeng Krachan National Park ecosystem?
+ac7c4209_409389,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,8aacdf6c53,biology,grade3,test/train,Select the reptile below.
+cb26acc2_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,40ee894937,biology,grade3,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+8436abb9_ea0493,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,a8cd476c4c,biology,grade4,train/validation,Which bird's beak is also adapted to filter through mud?
+c364862e_8da08b,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,4005a9d2a7,biology,grade4,test/train/validation,Which animal's mouth is also adapted to get insects out of burrows?
+29d73a08_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,750e886f61,biology,grade3,test/train,Select the fish below.
+c25d4646_cd7783,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,cc76423912,biology,grade3,test/train/validation,Which animal's skin is better adapted for protection against a predator with sharp teeth?
+c6bbedb2_2cead2,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,1f151973a6,biology,grade3,test/train,Which better describes the Gunung Leuser National Park ecosystem?
+ae47261d_ca4112,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,74b7426de3,biology,grade8,test/train,Select the organism in the same genus as the common kestrel.
+86c18155_a42cc8,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,b4fe0c1c6f,biology,grade4,train/validation,Which animal's skin is also adapted for survival in cold places?
+bb3be2fa_a1ace3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,642ab233a4,earth-science,grade7,test/train,Which specific humidity level was measured within the outlined area shown?
+ff6f7efb_1d05b6,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,235013a772,biology,grade3,test/train/validation,Which better describes the Daintree rain forest ecosystem?
+396a0b4e_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,cffa999047,biology,grade3,test/train,Select the bird below.
+35103ad6_9a06e4,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,b99576ba19,earth-science,grade6,test/train/validation,Which trait did Ichthyornis have? Select the trait you can observe in the drawing.
+27c38a0e_b99a1e,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,28653f93ca,biology,grade6,train/validation,Which statement describes the Cerrado ecosystem?
+4dc0dac7_531769,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,7f9df8b81f,earth-science,grade6,train/validation,Which air temperature was measured within the outlined area shown?
+06a31224_6af85c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,aedb4101e5,biology,grade6,test/train,Which statement describes the Peary Land ecosystem?
+978a7571_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,42fcfdf79b,biology,grade2,test/train/validation,Select the amphibian below.
+184c7191_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,42fcfdf79b,biology,grade2,train/validation,Select the amphibian below.
+3d4c4c56_2b5898,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,f0953dc146,biology,grade3,train/validation,Which animal's limbs are also adapted for climbing trees?
+4f00a522_dc767d,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,ecc285d8cb,biology,grade5,test/train,"Which bird's beak is also adapted to crack large, hard nuts?"
+9588513f_a851ff,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,64d6f6ff52,biology,grade5,train/validation,Which animal's neck is also adapted for hunting prey while keeping the rest of its body still?
+e40f1cbc_574c16,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,2b3a8ca2b6,biology,grade3,test/train/validation,Which animal's feet are also adapted for grabbing prey?
+2ec9696d_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,824b0e338a,physics,grade3,test/train,Which property matches this object?
+163aa377_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,750e886f61,biology,grade4,train/validation,Select the fish below.
+bcd6a6ee_d48ec9,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,6,True,0799613f6d,biology,grade4,train/validation,Which better describes the Tibetan Plateau ecosystem?
+81c147f6_a3f683,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,d636d4a2be,chemistry,grade7,test/train/validation,Which of the following statements is true?
+0ab3a4e2_531769,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,7f9df8b81f,earth-science,grade6,test/train,Which air temperature was measured within the outlined area shown?
+7806edd5_14324a,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,6,True,a3c058b6c9,biology,grade6,test/train,Select the true statement.
+d1085cb6_19ccba,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,806a03b6ca,biology,grade5,train/validation,Which animal's legs are also adapted for wading?
+25080e88_262250,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,abc3a9d688,biology,grade4,test/train,Which animal's mouth is also adapted to tear through meat?
+7806edd5_a3f683,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,6,True,8f73c42e9b,biology,grade7,train/validation,Which of the following statements is true?
+50af9d33_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,656c2d6f11,geography,grade4,train/validation,Which of these continents does the prime meridian intersect?
+e75586f4_03d067,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,15,True,948bdc74ac,biology,grade5,test/train/validation,Which of the following organisms is the primary consumer in this food web?
+d45587fc_531769,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,7f9df8b81f,earth-science,grade6,train/validation,Which air temperature was measured within the outlined area shown?
+d9941685_a851ff,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,64d6f6ff52,biology,grade5,test/train,Which animal's neck is also adapted for hunting prey while keeping the rest of its body still?
+f4251889_a6d744,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,986ece094f,biology,grade5,test/train/validation,Which animal's mouth is also adapted for bottom feeding?
+e049be3f_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,cffa999047,biology,grade3,test/train,Select the bird below.
+74711142_262250,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,abc3a9d688,biology,grade4,train/validation,Which animal's mouth is also adapted to tear through meat?
+c87bcd52_5518c8,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,6,True,5f6c8b8e7c,biology,grade5,test/train,Which animal is also adapted to be camouflaged in the snow?
+daec3379_7898cb,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,13,True,4342c8e76d,geography,grade2,train/validation,Which i in column 1?
+60b68b88_067f89,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,e1b982a687,biology,grade5,train/validation,Which animal is also adapted to be camouflaged among green leaves?
+06e15c96_ea0493,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,a8cd476c4c,biology,grade4,train/validation,Which bird's beak is also adapted to filter through mud?
+1368482a_531769,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,7f9df8b81f,earth-science,grade6,train/validation,Which air temperature was measured within the outlined area shown?
+81cdf0e7_16ce1c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,8fbcd0bb9e,biology,grade7,train/validation,Which statement describes the Sahara Desert ecosystem?
+3ff16623_142ae0,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,699da243e2,earth-science,grade6,train/validation,Which trait did Glyptodon have? Select the trait you can observe on the fossil.
+98f3c217_1bee67,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,8752351ad1,biology,grade4,train/validation,Select the organism in the same genus as the black-footed cat.
+471c6bc2_d9aa98,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,ebd4651a58,biology,grade8,test/train,Which statement describes the Kaeng Krachan National Park ecosystem?
+2d150ed8_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,656c2d6f11,geography,grade4,train/validation,Which of these continents does the prime meridian intersect?
+f505c063_fd4089,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,eb45c789dd,biology,grade3,train/validation,Which better describes the Great Victoria Desert ecosystem?
+48ad3061_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,42fcfdf79b,biology,grade2,train/validation,Select the amphibian below.
+b8070127_6b181e,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,a198b63f46,earth-science,grade6,test/train/validation,Earth's organisms rely on the atmosphere for which of the following?
+566618b5_97b809,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,552031a974,biology,grade3,test/train,Which better describes the tide pool ecosystems in Montaña De Oro State Park?
+e7655c7c_592d4b,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,4,False,a7c619d137,biology,grade8,test/train,Select the organism in the same genus as the agile wallaby.
+4cdf030a_bafa98,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,7580774a2c,literacy-in-science,grade4,train/validation,Select the time the lunchroom is most likely to flood.
+07344668_b30c32,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,592a7f19dd,biology,grade5,train/validation,Which animal's limbs are also adapted for swimming?
+d9581595_b3df66,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,9c1cca0f9e,biology,grade3,test/train,Which better describes the tide pool ecosystems in Tongue Point Marine Life Sanctuary?
+09635a5d_a1ace3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,642ab233a4,earth-science,grade7,train/validation,Which specific humidity level was measured within the outlined area shown?
+ae293b17_409389,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,8aacdf6c53,biology,grade3,test/train,Select the reptile below.
+db40c9f1_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,cffa999047,biology,grade3,train/validation,Select the bird below.
+c87bcd52_a42cc8,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,6,True,b4fe0c1c6f,biology,grade3,train/validation,Which animal's skin is also adapted for survival in cold places?
+1becb825_dfc24c,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,f19fa864f0,biology,grade4,test/train/validation,Which animal's feet are also adapted for swimming?
+a9e49ae2_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,40ee894937,biology,grade5,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+b2d73ef8_320985,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,508b194efd,biology,grade5,test/train,Which fish's mouth is also adapted for tearing through meat?
+d109b2f4_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,fb3f5725eb,biology,grade2,test/train,Select the mammal below.
+3b54d67a_ff50d2,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,46f9e3d556,biology,grade4,test/train/validation,Which animal's neck is also adapted for reaching high branches?
+ecd7f62e_409389,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,8aacdf6c53,biology,grade3,test/train/validation,Select the reptile below.
+7b7f60df_ad23c1,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,869a2317f5,biology,grade5,test/train,Which animal is also adapted to be camouflaged among dead leaves?
+856312f7_dc767d,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,ecc285d8cb,biology,grade5,train/validation,"Which bird's beak is also adapted to crack large, hard nuts?"
+6030b8f1_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,cffa999047,biology,grade3,test/train/validation,Select the bird below.
+e2666ced_b30c32,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,592a7f19dd,biology,grade3,train/validation,Which animal's limbs are also adapted for swimming?
+025c9b28_dc767d,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,ecc285d8cb,biology,grade3,test/train/validation,"Which bird's beak is also adapted to crack large, hard nuts?"
+d66ca814_bb0a08,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,62a500c4cc,biology,grade5,test/train,Which animal's feet are also adapted for digging?
+6f9edef7_9d5f25,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,37,True,6fa929dc55,biology,grade6,train/validation,Which of the following organisms is the producer in this food web?
+1d2b9a12_5582d1,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,808f6a4505,us-history,grade7,test/train/validation,"According to the map, which of the following statements is true about North America in the early colonial era?"
+2ea87ee7_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,750e886f61,biology,grade4,test/train/validation,Select the fish below.
+8e83298a_922aa4,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,26,True,4df4e1c2a2,biology,grade4,test/train/validation,"Based on the arrows, which of the following organisms is a producer?"
+8cc38545_40c9e4,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,34,True,11d0caa0df,biology,grade7,train/validation,Which of the following organisms is the tertiary consumer in this food web?
+39795bb5_2943f6,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,00a99200be,biology,grade4,test/train,Which animal is also adapted for climbing trees?
+7b29d369_db7af8,variasi_valid,himpunan pilihan berbeda di semua baris,3,3,3,3,False,90f1e39164,biology,grade3,test/train/validation,Which better describes the Kermadec Arc ecosystem?
+dc5b83c9_a453d7,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,1a10290e4c,biology,grade8,train/validation,Which statement describes the Białowieża Forest ecosystem?
+ed083c3c_7898cb,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,15,True,4342c8e76d,geography,grade3,train/validation,Which i in column 1?
+8e83298a_47d56b,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,26,True,6e187d74ac,biology,grade5,test/validation,Which of these organisms contains matter that was once part of the lichen?
+be0b9cdb_e72c54,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,ee6fffc884,earth-science,grade5,test/validation,Which of the following is on the map?
+f6dacc7c_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,fb3f5725eb,biology,grade3,test/validation,Select the mammal below.
+8e83298a_d91690,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,26,True,7a57d8026d,biology,grade5,test/validation,Which of these organisms contains matter that was once part of the bear sedge?
+52bfab95_03bb8e,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,d47f4401f9,literacy-in-science,grade3,test/validation,Which trait do African wild dogs have?
+e04bb450_7dbea1,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,5,True,acefed825f,biology,grade6,test/validation,Which statement describes the Sonoran Desert ecosystem?
+517502b5_b3dfc7,variasi_valid,himpunan pilihan berbeda di semua baris,3,2,3,3,False,9ae6eed632,biology,grade5,test/validation,Which animal is also adapted to use its neck to appear large and scary to a predator?
+2d5fb1ea_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,test/train,Which property matches this object?
+b46d465f_399d05,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,e90ab6d793,earth-science,grade8,test/train,Which of the following fossils is older? Select the more likely answer.
+93ede0f7_6ca07b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,b7d26418a1,physics,grade2,train/validation,Which material is this screw driver made of?
+bcc43199_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,6,True,656c2d6f11,geography,grade5,test/train,Which of these continents does the prime meridian intersect?
+f6bcc063_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade2,test/train,Select the bird below.
+bda811b4_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+8e83298a_88490a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,26,True,c694bc552e,biology,grade4,train/validation,"Based on the arrows, which of the following organisms is an omnivore?"
+d2cd624b_43ae50,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,973fdd6957,biology,grade3,test/train,Which animal's feet are also adapted to walk on snow and ice?
+fc9143c2_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+289f5aba_ad271a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,6,True,ca41c309da,geography,grade4,test/train,Which of these oceans does the prime meridian intersect?
+03857c63_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+36c95f7a_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,5,True,656c2d6f11,geography,grade5,test/train,Which of these continents does the prime meridian intersect?
+b6b9e4f4_219fb9,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,2fa7849384,physics,grade2,test/train,Which material is these jeans made of?
+e75586f4_604fdd,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,15,True,52cb2d3b1c,biology,grade5,train/validation,Which of the following organisms is the omnivore in this food web?
+99afa349_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+81e2e4c8_11a3f0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,fb733e3a34,geography,grade5,train/validation,Which of these continents does the equator intersect?
+bd79ef25_320985,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,508b194efd,biology,grade3,test/train,Which fish's mouth is also adapted for tearing through meat?
+6e671181_a3f683,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,8f73c42e9b,biology,grade6,test/train,Which of the following statements is true?
+556f58eb_93311d,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,70b5312a30,earth-science,grade4,train/validation,Which trait did Eryma have? Select the trait you can observe on the fossil.
+8e83298a_619415,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,26,True,6e74e55cb0,biology,grade4,test/train,"Based on the arrows, which of the following organisms is a decomposer?"
+9dadc94d_320985,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,508b194efd,biology,grade3,test/train,Which fish's mouth is also adapted for tearing through meat?
+b9f702dc_b4b3ec,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,40ee894937,biology,grade4,test/train,Which animal's skin is better adapted as a warning sign to ward off predators?
+b05f4028_3b10f4,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,c912623613,biology,grade5,train/validation,Which bird's beak is also adapted to get nectar out of long flowers?
+96b7e537_64b5bb,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,8fd5150f8d,physics,grade2,test/train,Which material is this toilet plunger made of?
+16e38962_399d05,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,e90ab6d793,earth-science,grade8,train/validation,Which of the following fossils is older? Select the more likely answer.
+6a67f70b_308aef,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,deee313adb,literacy-in-science,grade2,test/train,Which trait does this red squirrel have?
+270edb2e_8f1717,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,5,True,550d020267,biology,grade4,test/train,Which better describes the Mount Rainier National Park ecosystem?
+e04bb450_9cac31,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,5,True,fdd1d67286,biology,grade3,train/validation,Which better describes the Sonoran Desert ecosystem?
+4cabf052_622314,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,ea21d9aaa5,biology,grade5,test/train,Select the organism in the same genus as the sand cat.
+7ad2c3b6_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,train/validation,Which property matches this object?
+7d3bd011_6eaa9f,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,f7d8907209,biology,grade4,train/validation,Which better describes the Eastern Siberian Taiga ecosystem?
+4fa9e262_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+10fdae62_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade3,test/train,Does this passage describe the weather or the climate?
+dea20cac_4144f8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,0d9bbbf76b,world-history,grade6,train/validation,"Based on the timeline, which of the following statements is true?"
+033d4adf_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,test/train,Which property matches this object?
+fb7b4460_562c9d,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,e6fd09cdca,biology,grade4,test/train,Select the organism in the same genus as the mouflon.
+021da5fe_378cb1,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf31581bb2,physics,grade2,test/train,Which material is these shoes made of?
+6f9edef7_de9fd0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,37,True,dfdec8cd52,biology,grade6,train/validation,Which of the following organisms is the decomposer in this food web?
+2ea96bd7_ca0618,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,6,True,c806f313bf,biology,grade5,train/validation,Which animal's skin is better adapted to hurt an attacking predator?
+e75586f4_de9fd0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,15,True,dfdec8cd52,biology,grade5,test/train,Which of the following organisms is the decomposer in this food web?
+a3a353b2_9f169a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,2701655fda,physics,grade2,test/train,Which material is this box made of?
+d499baa8_399d05,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,e90ab6d793,earth-science,grade8,train/validation,Which of the following fossils is older? Select the more likely answer.
+991cefef_5518c8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,7,True,5f6c8b8e7c,biology,grade3,test/train,Which animal is also adapted to be camouflaged in the snow?
+d903ae8a_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+6fc75b89_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade4,train/validation,Select the amphibian below.
+26eb2847_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+291e823c_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+ca36e362_ad271a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,7,True,ca41c309da,geography,grade4,train/validation,Which of these oceans does the prime meridian intersect?
+00ff524c_8d78d9,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,40d686507c,biology,grade3,train/validation,Which animal's body is better adapted for protection against a predator with sharp teeth?
+ecade097_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+7d3bd011_83e3b8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,9e116d1c87,biology,grade8,test/train,Which statement describes the Eastern Siberian Taiga ecosystem?
+689037a8_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,test/train,Does this passage describe the weather or the climate?
+699fa4cf_c1c41a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,e28be4e921,biology,grade3,train/validation,Which bird's beak is also adapted to catch insects?
+8e83298a_224d44,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,26,True,8168ada6ff,biology,grade5,test/train,"In this food web, which organism contains matter that eventually moves to the earthworm?"
+422c4d4b_320985,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,508b194efd,biology,grade5,test/train,Which fish's mouth is also adapted for tearing through meat?
+1cc968ad_7d53a8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,c8642fbb04,physics,grade2,train/validation,Which material is this binder made of?
+98db70f1_b3dfc7,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,9ae6eed632,biology,grade5,train/validation,Which animal is also adapted to use its neck to appear large and scary to a predator?
+1c0604da_a42cc8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,b4fe0c1c6f,biology,grade4,train/validation,Which animal's skin is also adapted for survival in cold places?
+771ebbb1_a9d806,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,fa9de93c7d,biology,grade7,train/validation,Which statement describes the Gran Sabana ecosystem?
+daec3379_c9a036,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,13,True,29c1f450d7,geography,grade3,test/train,Which i in column 3?
+5354140f_305c65,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,0ec7330275,biology,grade8,train/validation,Select the organism in the same genus as the eastern gray kangaroo.
+41f225b3_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+1b7cd684_a147f2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,20f1706889,earth-science,grade8,train/validation,Which of the following fossils is younger? Select the more likely answer.
+da15791f_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+ec6314eb_604fdd,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,36,True,52cb2d3b1c,biology,grade8,train/validation,Which of the following organisms is the omnivore in this food web?
+c58f7129_7fa659,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,1e72840ab8,physics,grade2,train/validation,Which material is this handsaw made of?
+b2fb3c51_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+405c8284_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,fb3f5725eb,biology,grade3,train/validation,Select the mammal below.
+061f6c3d_19ccba,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,806a03b6ca,biology,grade3,train/validation,Which animal's legs are also adapted for wading?
+cc7bbc6b_567733,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,7e51fd5016,earth-science,grade6,test/train,Which trait did Megaloceros have? Select the trait you can observe on the fossil.
+b4856e6e_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade3,test/train,Select the bird below.
+703cbce7_399d05,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,e90ab6d793,earth-science,grade7,test/train,Which of the following fossils is older? Select the more likely answer.
+0a48e2c2_c3cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,d7d223f07b,biology,grade6,test/train,Select the organism in the same genus as the bobcat.
+18d6c116_6af85c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,aedb4101e5,biology,grade8,train/validation,Which statement describes the Peary Land ecosystem?
+970d4243_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade4,test/train,Select the bird below.
+ec6314eb_de9fd0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,36,True,dfdec8cd52,biology,grade8,test/train,Which of the following organisms is the decomposer in this food web?
+206ed674_9cac31,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,fdd1d67286,biology,grade4,train/validation,Which better describes the Sonoran Desert ecosystem?
+055e831d_3b10f4,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,c912623613,biology,grade4,train/validation,Which bird's beak is also adapted to get nectar out of long flowers?
+3d9dcda7_a9a550,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,290733f412,biology,grade4,train/validation,Which better describes the Gran Sabana ecosystem?
+09e7b8fb_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+c39f7b50_cf8651,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,1abcaf3bb8,physics,grade2,train/validation,Which material is this bridge made of?
+4873dae7_ad271a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,ca41c309da,geography,grade4,train/validation,Which of these oceans does the prime meridian intersect?
+4efec337_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade5,test/train,Does this passage describe the weather or the climate?
+c95cd875_19ccba,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,806a03b6ca,biology,grade4,test/train,Which animal's legs are also adapted for wading?
+bd826072_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade5,test/train,Does this passage describe the weather or the climate?
+869612fd_d4c970,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,750e886f61,biology,grade4,test/train,Select the fish below.
+8eebba38_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade4,train/validation,Select the bird below.
+77cc67f0_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade5,test/train,Does this passage describe the weather or the climate?
+8d0f1d6d_d12ca3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,a83c105a16,physics,grade2,train/validation,Which material is these crayons made of?
+e11ec9bc_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade4,test/train,Select the amphibian below.
+cea5931e_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade3,train/validation,Select the amphibian below.
+8d325f48_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,test/train,Does this passage describe the weather or the climate?
+49f7b746_83a00e,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,5e93b2c634,biology,grade5,test/train,Select the organism in the same genus as the green tree frog.
+e03f7f0d_409389,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,8aacdf6c53,biology,grade4,train/validation,Select the reptile below.
+e75586f4_40c9e4,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,15,True,11d0caa0df,biology,grade5,train/validation,Which of the following organisms is the tertiary consumer in this food web?
+686ee050_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+98fe84c5_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,fb3f5725eb,biology,grade3,train/validation,Select the mammal below.
+7a41cd18_ef1191,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,595d9436cb,biology,grade4,test/train,Which better describes the Masoala National Park ecosystem?
+ce610f3c_7ea9fd,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,ea5c63cd69,earth-science,grade4,test/train,Which trait did Diplomystus have? Select the trait you can observe on the fossil.
+3f4de654_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+23833fdd_dfc24c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,f19fa864f0,biology,grade5,test/train,Which animal's feet are also adapted for swimming?
+bfb95867_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+5de7f411_8da08b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,4005a9d2a7,biology,grade4,train/validation,Which animal's mouth is also adapted to get insects out of burrows?
+a56d3f93_598a0f,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,0d651df9ea,world-history,grade7,train/validation,Which statement is supported by the map?
+00cd66fc_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+67fc0e69_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade4,test/train,Select the bird below.
+a129d8a1_399d05,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,e90ab6d793,earth-science,grade8,test/train,Which of the following fossils is older? Select the more likely answer.
+7f7e1e7d_23f953,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,54cd11a00c,biology,grade6,train/validation,Select the organism in the same genus as the silver gull.
+6539e496_f97ec3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,90f333bcc5,biology,grade6,test/train,Which statement describes the Cape Breton Highlands National Park ecosystem?
+97ff14c3_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,train/validation,Which property matches this object?
+eeabc0e9_cd7783,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cc76423912,biology,grade3,train/validation,Which animal's skin is better adapted for protection against a predator with sharp teeth?
+771ebbb1_a9a550,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,290733f412,biology,grade4,train/validation,Which better describes the Gran Sabana ecosystem?
+54e8ebdd_b30c32,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,592a7f19dd,biology,grade3,train/validation,Which animal's limbs are also adapted for swimming?
+810af87f_3ac792,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,10,True,fd81a5674b,geography,grade3,train/validation,Which i in column 2?
+c6e40fe6_1dc274,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,bdfefc59fc,biology,grade4,train/validation,Which better describes the Kibale National Forest ecosystem?
+bc7fc1e0_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+831ba453_44b959,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,b9f0ab003d,biology,grade5,train/validation,Which animal is also adapted for flight?
+334da975_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+810af87f_f0a08a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,10,True,64bab6978d,geography,grade3,train/validation,Which i in row C?
+622fb4cd_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,test/train,Which property matches this object?
+959e0491_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+eac2173e_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,test/train,Does this passage describe the weather or the climate?
+5d5b8d6f_8c1044,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,e13c9a8e5d,earth-science,grade6,test/train,Which trait did Holophagus have? Select the trait you can observe on the fossil.
+ba7ee5ea_f0a08a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,13,True,64bab6978d,geography,grade2,train/validation,Which i in row C?
+2a9ea3cb_27ce7c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,462c208b7f,biology,grade4,train/validation,Select the organism in the same genus as the western crowned pigeon.
+5c68ffa7_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade3,test/train,Does this passage describe the weather or the climate?
+810af87f_ab0ac9,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,10,True,ae086b3f6d,geography,grade3,train/validation,Which i in row B?
+8cc38545_9d5f25,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,34,True,6fa929dc55,biology,grade7,test/train,Which of the following organisms is the producer in this food web?
+d6b44c31_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+80fd13f1_8d78d9,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,40d686507c,biology,grade4,train/validation,Which animal's body is better adapted for protection against a predator with sharp teeth?
+2c8ed6b4_b3caad,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,8556113f05,biology,grade4,test/train,Which better describes the Serengeti National Park ecosystem?
+33da7a37_632458,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,0d500eb72a,biology,grade4,train/validation,Which animal's mouth is also adapted to eat plant matter?
+aa7237bf_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+4bb0e028_ce1000,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,904133daeb,physics,grade3,test/train,Which material is this spatula made of?
+d1059288_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+5d9abcdc_b3caad,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,8556113f05,biology,grade4,train/validation,Which better describes the Serengeti National Park ecosystem?
+29c62035_58dfa6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,ce1633c534,biology,grade3,test/train,Which better describes the Amazon rain forest ecosystem?
+c65a6a0f_662ba4,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,51f6d22a1f,biology,grade4,train/validation,Which animal's mouth is also adapted for gnawing?
+da474da9_14324a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,a3c058b6c9,biology,grade6,test/train,Select the true statement.
+064b989a_c2ac6e,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,f04b746d47,biology,grade6,train/validation,Select the organism in the same genus as the American white pelican.
+c628acf5_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+0988caa3_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade4,test/train,Select the amphibian below.
+b22dd1ad_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade2,test/train,Select the amphibian below.
+bf5cee16_a28c23,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,c394927df3,biology,grade4,train/validation,Select the organism in the same genus as the mountain zebra.
+8cc38545_604fdd,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,34,True,52cb2d3b1c,biology,grade7,test/train,Which of the following organisms is the omnivore in this food web?
+fd1123fc_8da08b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,4005a9d2a7,biology,grade5,test/train,Which animal's mouth is also adapted to get insects out of burrows?
+c6e40fe6_68cc01,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,c9bc0c353e,biology,grade7,test/train,Which statement describes the Kibale National Forest ecosystem?
+42eb8e45_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+57b384af_cb3a94,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,61852a98b3,biology,grade5,train/validation,Select the organism in the same genus as the bighorn sheep.
+b4effa54_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,test/train,Which property matches this object?
+df71b171_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,6,True,656c2d6f11,geography,grade4,train/validation,Which of these continents does the prime meridian intersect?
+aa4506f5_b5c75b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,9ca2f3ddce,biology,grade8,test/train,Select the organism in the same genus as the European nightjar.
+1011efa5_360c2b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,3b259ad0e5,physics,grade2,train/validation,Which material is this jar made of?
+daec3379_f0a08a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,13,True,64bab6978d,geography,grade3,train/validation,Which i in row C?
+96681834_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,train/validation,Which property matches this object?
+b90a8db7_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,test/train,Does this passage describe the weather or the climate?
+46f1e8b5_662ba4,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,51f6d22a1f,biology,grade5,train/validation,Which animal's mouth is also adapted for gnawing?
+0f729da1_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade4,test/train,Select the amphibian below.
+2555acfd_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,test/train,Which property matches this object?
+0860894a_b4bdbe,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,6fee1d8f0b,earth-science,grade6,test/train,Which of the following statements is supported by the passage?
+fc1d5608_5e3157,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,bcb91ab979,biology,grade4,train/validation,Select the organism in the same genus as the Grevy's zebra.
+6d5f3265_079cbf,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,d88d3c123e,biology,grade3,test/train,Which better describes the tide pool ecosystems in Little Corona Beach?
+29c62035_38abd6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,a697356f16,biology,grade6,test/train,Which statement describes the Yasuni National Park ecosystem?
+bce05d8c_65396c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,11,True,36c8453cc3,biology,grade3,test/train,"Based on the arrows, which of the following living things is a decomposer?"
+ad67bdcb_b3df66,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,9c1cca0f9e,biology,grade3,test/train,Which better describes the tide pool ecosystems in Tongue Point Marine Life Sanctuary?
+bcc43199_ad271a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,6,True,ca41c309da,geography,grade4,test/train,Which of these oceans does the prime meridian intersect?
+577daeb8_8554d8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,d740a62b9e,biology,grade6,train/validation,Which statement describes the Tibetan Plateau ecosystem?
+fc29a97b_67072b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,66bd0fe4d7,earth-science,grade4,test/train,Which trait did Curculioides adompha have? Select the trait you can observe on the fossil.
+187f62ac_02b9e3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,fb3f5725eb,biology,grade4,train/validation,Select the mammal below.
+b7e4057e_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+0c397ec2_1b81b6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,6c2407d094,biology,grade3,test/train,Which better describes the Everglades National Park ecosystem?
+ed083c3c_3ac792,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,15,True,fd81a5674b,geography,grade3,train/validation,Which i in column 2?
+79a31843_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+019b087b_cb0a83,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,0e77c42110,us-history,grade4,test/train,In which region did the Republican candidate do the best?
+55c9f90d_b01c11,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,82fe90da21,biology,grade5,test/train,Which statement describes the Buffalo Gap National Grassland ecosystem?
+66a53c2c_04aabd,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,4a7f9a2ae8,reading-comprehension,grade5,train/validation,"Based on the text, how does a sloth's fur help protect it?"
+bdf1daf9_ed06c5,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,605fef5c13,biology,grade5,test/train,Select the organism in the same genus as the Chinese alligator.
+69ad1b25_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade5,train/validation,Does this passage describe the weather or the climate?
+fb0fb70f_53d09c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,2b72c9742e,biology,grade3,test/train,Which better describes the Catoctin Mountain Park ecosystem?
+8533debc_399d05,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,e90ab6d793,earth-science,grade8,test/train,Which of the following fossils is older? Select the more likely answer.
+d029b681_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,train/validation,Which property matches this object?
+69fc80c1_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+5332e4b9_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,train/validation,Does this passage describe the weather or the climate?
+458f66a1_320985,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,508b194efd,biology,grade5,train/validation,Which fish's mouth is also adapted for tearing through meat?
+8ad75a46_a2a1e8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,92b9ce592f,biology,grade6,test/train,Select the organism in the same genus as the great egret.
+cedbca7f_744ed3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,7b3e503a49,world-history,grade6,train/validation,Which of the following statements describes the Roman Empire during the Pax Romana?
+d667f445_a147f2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,20f1706889,earth-science,grade8,test/train,Which of the following fossils is younger? Select the more likely answer.
+a9df0382_11a3f0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,fb733e3a34,geography,grade4,test/train,Which of these continents does the equator intersect?
+4791d527_7d1cf8,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,88c2fef8ae,biology,grade4,train/validation,Which animal's feet are also adapted for sticking to smooth surfaces?
+0919ab10_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,train/validation,Which property matches this object?
+39b54b8e_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/train,Which property matches this object?
+1da06f8f_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/train,Does this passage describe the weather or the climate?
+9ff2c2d7_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,train/validation,Which property matches this object?
+c8d0856c_f1869c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,f79872f3e5,physics,grade2,test/train,Which material is this coat made of?
+6987e2b3_72663d,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,5,True,d7497c6371,biology,grade8,test/train,Which statement describes the Catoctin Mountain Park ecosystem?
+3c1ffa2f_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade4,train/validation,Select the bird below.
+b4a71854_49f3da,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,5,True,251b905da5,biology,grade5,train/validation,Which statement describes the Gobi Desert ecosystem?
+f849e76f_4febe3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,ec8162420d,biology,grade3,test/train,Which better describes the tide pool ecosystems in Salt Point State Park?
+29b8c748_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,train/validation,Does this passage describe the weather or the climate?
+8d43a546_a26f42,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,20b6ae8233,biology,grade5,test/train,Which animal is also adapted to be camouflaged in a sandy desert?
+cd34f3be_c922e3,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,1bbdfa2797,reading-comprehension,grade5,test/train,"Based on the text, how are fruit bats different from most other animals?"
+ed083c3c_ab0ac9,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,15,True,ae086b3f6d,geography,grade3,test/train,Which i in row B?
+51815a36_81d492,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,460f87598e,biology,grade4,train/validation,Which bird's beak is also adapted to tear through meat?
+b282e123_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/validation,Does this passage describe the weather or the climate?
+0c54337d_a6d744,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,986ece094f,biology,grade3,test/validation,Which animal's mouth is also adapted for bottom feeding?
+7decd18d_f1869c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,f79872f3e5,physics,grade3,test/validation,Which material is this coat made of?
+6c92448f_a8930e,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,5,True,d783e60a4c,biology,grade4,test/validation,Which better describes the Taklamakan Desert ecosystem?
+0f253c8f_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/validation,Does this passage describe the weather or the climate?
+248f0127_fd8cb9,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,771ce9ad40,physics,grade2,test/validation,Which material is this magnifying glass made of?
+26714100_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/validation,Which property matches this object?
+f3a8c753_743b7a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,97014bfd9f,biology,grade3,test/validation,Which better describes the New England Seamount Chain ecosystem?
+810af87f_c9a036,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,10,True,29c1f450d7,geography,grade3,test/validation,Which i in column 3?
+60665163_592d4b,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,a7c619d137,biology,grade7,test/validation,Select the organism in the same genus as the agile wallaby.
+d499baa8_a147f2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,4,False,20f1706889,earth-science,grade8,test/validation,Which of the following fossils is younger? Select the more likely answer.
+37e6094a_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,test/validation,Does this passage describe the weather or the climate?
+2e0c2f3e_c1c41a,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,e28be4e921,biology,grade3,test/validation,Which bird's beak is also adapted to catch insects?
+50362ad4_2a37af,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,42fcfdf79b,biology,grade3,test/validation,Select the amphibian below.
+d03f2655_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/validation,Does this passage describe the weather or the climate?
+d78c391b_2b5898,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,f0953dc146,biology,grade3,test/validation,Which animal's limbs are also adapted for climbing trees?
+ca36e362_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,7,True,656c2d6f11,geography,grade4,test/validation,Which of these continents does the prime meridian intersect?
+0e6faae5_e7a6b7,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,64d46f48a0,physics,grade2,test/validation,Which material is this bucket made of?
+1283bb05_15a10c,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cffa999047,biology,grade4,test/validation,Select the bird below.
+72920501_44b959,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,b9f0ab003d,biology,grade4,test/validation,Which animal is also adapted for flight?
+eb00c53b_192f85,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,ca660d12f4,biology,grade3,test/validation,Which better describes the De Biesbosch National Park ecosystem?
+6ce751d5_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/validation,Which property matches this object?
+dc15ec17_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade3,test/validation,Which property matches this object?
+ffb10694_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade6,test/validation,Does this passage describe the weather or the climate?
+271f5f32_b9cbf0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,824b0e338a,physics,grade2,test/validation,Which property matches this object?
+5dcba164_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade4,test/validation,Does this passage describe the weather or the climate?
+95b6c16f_b3dfc7,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,9ae6eed632,biology,grade5,test/validation,Which animal is also adapted to use its neck to appear large and scary to a predator?
+ab89ab07_11a3f0,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,fb733e3a34,geography,grade5,test/validation,Which of these continents does the equator intersect?
+ca2f943c_3b10f4,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,c912623613,biology,grade5,test/validation,Which bird's beak is also adapted to get nectar out of long flowers?
+8c599ae4_e493a6,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,3,False,656c2d6f11,geography,grade4,test/validation,Which of these continents does the prime meridian intersect?
+ed584a33_56a4d2,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,cf6d1dc538,earth-science,grade5,test/validation,Does this passage describe the weather or the climate?
+5447cf42_4b11db,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,790f6f7c49,biology,grade4,test/validation,Select the organism in the same genus as the gray tree frog.
+f1ccb8fe_3e18bb,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,4b90ba2c21,biology,grade3,test/validation,Which bird's beak is also adapted to crack hard seeds?
+18888395_578220,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,09aab377fa,physics,grade3,test/validation,Which material is this jacket made of?
+12a9af21_632458,variasi_valid,himpunan pilihan berbeda di semua baris,2,2,2,2,False,0d500eb72a,biology,grade5,test/validation,Which animal's mouth is also adapted to eat plant matter?

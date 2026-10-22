@@ -1,0 +1,589 @@
+﻿rank,group_id,n_splits,n_rows,n_distinct_answer_text,split,line_no,grade,subject,topic,skill,question,choices,answer_idx,answer_text,hint,solution,image_path,image_sha256
+1,853bc6e1_02b9e3,3,7,7,train,1656,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""piranha"", ""koala""]",1,koala,Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.,"A koala is a mammal. It has fur and feeds its young milk.
+Koalas sleep for up to 20 hours a day!
+A piranha is a fish. It lives underwater. It has fins, not limbs.
+Piranhas have sharp teeth. Piranhas hunt in groups. A group of piranhas can eat a large animal.",images/001655.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+1,853bc6e1_02b9e3,3,7,7,train,8809,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""fruit bat"", ""bull shark""]",0,fruit bat,Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.,"A bull shark is a fish. It lives underwater. It has fins, not limbs.
+Bull sharks can live in both fresh and salt water. They are found in rivers and in shallow parts of the ocean.
+A fruit bat is a mammal. It has hair and feeds its young milk.
+Fruit bats eat fruit and drink nectar from flowers. They have special teeth to help them bite through fruit skins.",images/008808.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+1,853bc6e1_02b9e3,3,7,7,train,10332,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""rabbit"", ""box turtle""]",0,rabbit,Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.,"A rabbit is a mammal. It has fur and feeds its young milk.
+A box turtle is a reptile. It has scaly, waterproof skin.",images/010331.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+1,853bc6e1_02b9e3,3,7,7,validation,481,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""green moray eel"", ""red kangaroo"", ""catfish"", ""robin""]",1,red kangaroo,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A giraffe is an example of a mammal.","A robin is a bird. It has feathers, two wings, and a beak.
+A robin is a songbird. It sings different songs at different times of the day.
+A catfish is a fish. It lives underwater. It has fins, not limbs.
+Unlike most other fish, catfish do not have scales! They have slimy skin.
+A green moray eel is a fish. It lives underwater. It has fins, not limbs.
+Eels are long and thin. They may have small fins. They look like snakes, but they are fish!
+A red kangaroo is a mammal. It has fur and feeds its young milk.
+Kangaroos hop to move around. They use their large tails for balance while hopping.",images/000480.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+1,853bc6e1_02b9e3,3,7,7,test,3342,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""eastern newt"", ""black howler""]",1,black howler,Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.,"An eastern newt is an amphibian. It has moist skin and begins its life in water.
+Some newts live in water. Other newts live on land but lay their eggs in water.
+A black howler is a mammal. It has hair and feeds its young milk.
+Howler monkeys have loud calls, or howls. Their calls can be heard over three miles away!",images/003341.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+1,853bc6e1_02b9e3,3,7,7,test,3720,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""bull shark"", ""yak"", ""shoebill"", ""eastern newt""]",1,yak,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A giraffe is an example of a mammal.","A bull shark is a fish. It lives underwater. It has fins, not limbs.
+Bull sharks can live in both fresh and salt water. They are found in rivers and in shallow parts of the ocean.
+A shoebill is a bird. It has feathers, two wings, and a beak.
+Shoebills live in tropical East Africa. Shoebills get their name from their shoe-shaped beaks.
+A yak is a mammal. It has hair and feeds its young milk.
+Yaks live in cold places. Their long hair helps keep them warm.
+An eastern newt is an amphibian. It has moist skin and begins its life in water.
+Some newts live in water. Other newts live on land but lay their eggs in water.",images/003719.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+1,853bc6e1_02b9e3,3,7,7,test,4124,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""barn owl"", ""sea otter""]",1,sea otter,Mammals have hair or fur and feed their young milk. A giraffe is an example of a mammal.,"A sea otter is a mammal. It has fur and feeds its young milk.
+A barn owl is a bird. It has feathers, two wings, and a beak.",images/004123.png,853bc6e1d46564e92d837e4a47476d639822d03977f11375943291416383efbf
+2,73c8c97c_d4c970,3,7,7,train,3701,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""salmon"", ""box turtle""]",0,salmon,"Fish live underwater. They have fins, not limbs. A manta ray is an example of a fish.","A box turtle is a reptile. It has scaly, waterproof skin.
+A salmon is a fish. It lives underwater. It has fins, not limbs.",images/003700.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+2,73c8c97c_d4c970,3,7,7,train,3876,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""coral snake"", ""cardinalfish""]",1,cardinalfish,"Fish live underwater. They have fins, not limbs. A manta ray is an example of a fish.","A cardinalfish is a fish. It lives underwater. It has fins, not limbs.
+Cardinalfish often live near coral reefs. They are nocturnal, which means that they are active mostly at night.
+A coral snake is a reptile. It has scaly, waterproof skin.
+Coral snakes spend most of their time underground or hiding under leaves.",images/003875.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+2,73c8c97c_d4c970,3,7,7,train,5590,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""piranha"", ""zebra""]",0,piranha,"Fish live underwater. They have fins, not limbs. A manta ray is an example of a fish.","A piranha is a fish. It lives underwater. It has fins, not limbs.
+A zebra is a mammal. It has hair and feeds its young milk.",images/005589.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+2,73c8c97c_d4c970,3,7,7,train,11159,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""Nile crocodile"", ""painted stork"", ""cane toad"", ""seahorse""]",3,seahorse,"Fish live underwater. They have fins, not limbs.
+Fish are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A manta ray is an example of a fish.","A seahorse is a fish. It lives underwater. It has fins, not limbs.
+Seahorses live in shallow, warm water. They can use their tails to hold on to plants.
+A painted stork is a bird. It has feathers, two wings, and a beak.
+Storks wade in shallow water to look for food. Storks eat fish, insects, worms, and other small animals.
+A cane toad is an amphibian. It has moist skin and begins its life in water.
+Toads do not have teeth! They swallow their food whole.
+A Nile crocodile is a reptile. It has scaly, waterproof skin.
+Crocodiles hunt their prey in or near water.",images/011158.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+2,73c8c97c_d4c970,3,7,7,validation,1355,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""box turtle"", ""Canadian lynx"", ""albatross"", ""leafy seadragon""]",3,leafy seadragon,"Fish live underwater. They have fins, not limbs.
+Fish are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A manta ray is an example of a fish.","A Canadian lynx is a mammal. It has fur and feeds its young milk.
+Canadian lynx have padded feet to help them walk on snow.
+A box turtle is a reptile. It has scaly, waterproof skin.
+Box turtles can live to be over 100 years old!
+A leafy seadragon is a fish. It lives underwater. It has fins, not limbs.
+A seadragon's body looks like a clump of seaweed. This helps the seadragon hide from its predators.
+An albatross is a bird. It has feathers, two wings, and a beak.
+Albatrosses live near the ocean. They hunt squid, fish, and other small animals.",images/001354.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+2,73c8c97c_d4c970,3,7,7,test,1435,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""tiger shark"", ""leaf-tailed gecko"", ""Hermann's tortoise"", ""dwarf crocodile""]",0,tiger shark,"Fish live underwater. They have fins, not limbs.
+Fish are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A manta ray is an example of a fish.","A tiger shark is a fish. It lives underwater. It has fins, not limbs.
+Tiger sharks are nocturnal. This means that they are active mostly at night.
+A leaf-tailed gecko is a reptile. It has scaly, waterproof skin.
+Many geckos have special pads on their toes. The pads help them climb up plants and rocks.
+A dwarf crocodile is a reptile. It has scaly, waterproof skin.
+Crocodiles hunt their prey in or near water.
+A Hermann's tortoise is a reptile. It has scaly, waterproof skin.
+A tortoise's shell protects it from predators. When a tortoise feels threatened, it can pull its head and legs inside its shell.",images/001434.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+2,73c8c97c_d4c970,3,7,7,test,2612,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""clownfish"", ""American alligator""]",0,clownfish,"Fish live underwater. They have fins, not limbs. A manta ray is an example of a fish.","A clownfish is a fish. It lives underwater. It has fins, not limbs.
+An American alligator is a reptile. It has scaly, waterproof skin.",images/002611.png,73c8c97c1d5df0468293dfaa219336559210b5f49988840faeebe2c4d0e4d49f
+3,59286830_02b9e3,3,7,7,train,6472,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""kangaroo"", ""loon"", ""great crested newt"", ""poison dart frog""]",0,kangaroo,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A koala is an example of a mammal.","A kangaroo is a mammal. It has fur and feeds its young milk.
+Kangaroos hop to move around. They use their large tails for balance while hopping.
+A loon is a bird. It has feathers, two wings, and a beak.
+Loons usually live near lakes. They dive in the water to hunt for food.
+A great crested newt is an amphibian. It has moist skin and begins its life in water.
+Some newts live in water. Other newts live on land but lay their eggs in water.
+A poison dart frog is an amphibian. It has moist skin and begins its life in water.
+Poison dart frogs come in many bright colors. Their bright color warns other animals that these frogs are poisonous.",images/006471.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+3,59286830_02b9e3,3,7,7,train,9536,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""Galapagos giant tortoise"", ""zebra""]",1,zebra,Mammals have hair or fur and feed their young milk. A koala is an example of a mammal.,"A zebra is a mammal. It has hair and feeds its young milk.
+Zebras eat mostly grass. But they sometimes eat other types of plants, such as shrubs or tree bark.
+A Galapagos giant tortoise is a reptile. It has scaly, waterproof skin.
+Galapagos tortoises live on the Galapagos Islands in the Pacific Ocean. They can live to be over 150 years old!",images/009535.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+3,59286830_02b9e3,3,7,7,train,11593,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""African bullfrog"", ""rabbit""]",1,rabbit,Mammals have hair or fur and feed their young milk. A koala is an example of a mammal.,"A rabbit is a mammal. It has fur and feeds its young milk.
+Rabbits live underground in burrows. A group of rabbit burrows is called a warren.
+An African bullfrog is an amphibian. It has moist skin and begins its life in water.
+Frogs live near water or in damp places. Most frogs lay their eggs in water.",images/011592.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+3,59286830_02b9e3,3,7,7,validation,2743,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""American toad"", ""robin"", ""sugar glider"", ""ostrich""]",2,sugar glider,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A koala is an example of a mammal.","A sugar glider is a mammal. It has fur and feeds its young milk.
+Sugar gliders can jump long distances from tree to tree. They have flaps of loose skin on their sides. These flaps help them stay in the air.
+A robin is a bird. It has feathers, two wings, and a beak.
+A robin is a songbird. It sings different songs at different times of the day.
+An ostrich is a bird. It has feathers, two wings, and a beak.
+The ostrich is the largest bird alive today. Ostriches cannot fly, but they can run very fast.
+An American toad is an amphibian. It has moist skin and begins its life in water.
+Toads do not have teeth! They swallow their food whole.",images/002742.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+3,59286830_02b9e3,3,7,7,test,788,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""brown tree frog"", ""red crowned crane"", ""great white shark"", ""red kangaroo""]",3,red kangaroo,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A koala is an example of a mammal.","A brown tree frog is an amphibian. It has moist skin and begins its life in water.
+There are many kinds of tree frogs. Most tree frogs are very small. They can walk on thin branches.
+A great white shark is a fish. It lives underwater. It has fins, not limbs.
+Great white sharks can live for up to 70 years.
+A red crowned crane is a bird. It has feathers, two wings, and a beak.
+Cranes wade in shallow water to look for food. Cranes eat insects, worms, and plants.
+A red kangaroo is a mammal. It has fur and feeds its young milk.
+Kangaroos hop to move around. They use their large tails for balance while hopping.",images/000787.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+3,59286830_02b9e3,3,7,7,test,2141,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""common toad"", ""human"", ""box turtle"", ""clownfish""]",1,human,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A koala is an example of a mammal.","A common toad is an amphibian. It has moist skin and begins its life in water.
+Toads do not have teeth! They swallow their food whole.
+A box turtle is a reptile. It has scaly, waterproof skin.
+Box turtles can live to be over 100 years old!
+A clownfish is a fish. It lives underwater. It has fins, not limbs.
+Clownfish live with animals called anemones. In the image of the clownfish, you can see the green anemone behind the clownfish.
+A human is a mammal. It has hair and feeds its young milk.
+Humans are a type of animal called a primate. Monkeys and apes are also primates.",images/002140.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+3,59286830_02b9e3,3,7,7,test,3051,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""loon"", ""great white shark"", ""albatross"", ""Tasmanian devil""]",3,Tasmanian devil,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A koala is an example of a mammal.","A loon is a bird. It has feathers, two wings, and a beak.
+Loons usually live near lakes. They dive in the water to hunt for food.
+An albatross is a bird. It has feathers, two wings, and a beak.
+Albatrosses live near the ocean. They hunt squid, fish, and other small animals.
+A Tasmanian devil is a mammal. It has fur and feeds its young milk.
+Tasmanian devils are meat-eating marsupials. They live on the island of Tasmania, near Australia.
+A great white shark is a fish. It lives underwater. It has fins, not limbs.
+Great white sharks can live for up to 70 years.",images/003050.png,5928683069918fb4404ae92f0e1d75bdbe3423ced9e4c4be505f39e44e1c183f
+4,240e403d_409389,3,6,6,train,452,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""American alligator"", ""manta ray""]",0,American alligator,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","An American alligator is a reptile. It has scaly, waterproof skin.
+A manta ray is a fish. It lives underwater. It has fins, not limbs.",images/000451.png,240e403d4dca31a1c810af17ee04f2067877a1325aadd51cfaf45d1a976804dc
+4,240e403d_409389,3,6,6,train,1895,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""western rattlesnake"", ""western toad""]",0,western rattlesnake,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","A western toad is an amphibian. It has moist skin and begins its life in water.
+A western rattlesnake is a reptile. It has scaly, waterproof skin.",images/001894.png,240e403d4dca31a1c810af17ee04f2067877a1325aadd51cfaf45d1a976804dc
+4,240e403d_409389,3,6,6,train,8200,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""Tasmanian devil"", ""olive toad"", ""western gorilla"", ""tokay gecko""]",3,tokay gecko,"Reptiles have scaly, waterproof skin. Most reptiles live on land.
+Reptiles are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A box turtle is an example of a reptile.","A Tasmanian devil is a mammal. It has fur and feeds its young milk.
+Tasmanian devils are meat-eating marsupials. They live on the island of Tasmania, near Australia.
+A western gorilla is a mammal. It has fur and feeds its young milk.
+Gorillas live in groups called troops. The largest male in the troop is usually the leader.
+A tokay gecko is a reptile. It has scaly, waterproof skin.
+Many geckos have special pads on their toes. The pads help them climb up plants and rocks.
+An olive toad is an amphibian. It has moist skin and begins its life in water.
+Toads do not have teeth! They swallow their food whole.",images/008199.png,240e403d4dca31a1c810af17ee04f2067877a1325aadd51cfaf45d1a976804dc
+4,240e403d_409389,3,6,6,train,9277,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""gray tree frog"", ""coral snake""]",1,coral snake,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","A gray tree frog is an amphibian. It has moist skin and begins its life in water.
+There are many kinds of tree frogs. Most tree frogs are very small. They can walk on thin branches.
+A coral snake is a reptile. It has scaly, waterproof skin.
+Coral snakes spend most of their time underground or hiding under leaves.",images/009276.png,240e403d4dca31a1c810af17ee04f2067877a1325aadd51cfaf45d1a976804dc
+4,240e403d_409389,3,6,6,validation,110,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""leaf-tailed gecko"", ""Banggai cardinalfish"", ""red-eyed tree frog"", ""clownfish""]",0,leaf-tailed gecko,"Reptiles have scaly, waterproof skin. Most reptiles live on land.
+Reptiles are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A box turtle is an example of a reptile.","A leaf-tailed gecko is a reptile. It has scaly, waterproof skin.
+Many geckos have special pads on their toes. The pads help them climb up plants and rocks.
+A clownfish is a fish. It lives underwater. It has fins, not limbs.
+Clownfish live with animals called anemones. In the image of the clownfish, you can see the brown anemone surrounding the clownfish.
+A red-eyed tree frog is an amphibian. It has moist skin and begins its life in water.
+A red-eyed tree frog has sticky pads on its toes. The sticky pads help the red-eyed tree frog hold on to leaves.
+A Banggai cardinalfish is a fish. It lives underwater. It has fins, not limbs.
+Cardinalfish often live near coral reefs. They are nocturnal, which means that they are active mostly at night.",images/000109.png,240e403d4dca31a1c810af17ee04f2067877a1325aadd51cfaf45d1a976804dc
+4,240e403d_409389,3,6,6,test,638,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""sea otter"", ""tortoise""]",1,tortoise,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","A tortoise is a reptile. It has scaly, waterproof skin.
+A tortoise's shell protects it from predators. When a tortoise feels threatened, it can pull its head and legs inside its shell.
+A sea otter is a mammal. It has fur and feeds its young milk.
+Sea otters have very thick fur. Their fur keeps them warm in cold water.",images/000637.png,240e403d4dca31a1c810af17ee04f2067877a1325aadd51cfaf45d1a976804dc
+5,3e059505_b4b3ec,3,6,6,train,588,grade4,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is better adapted as a warning sign to ward off predators?,"[""sharpnose-puffer"", ""lechwe""]",0,sharpnose-puffer,"Opalescent nudibranchs have stinging cells in their brightly colored skin. The bright colors serve as a warning sign that the animal is toxic and dangerous. The 's skin is adapted to ward off predators.
+Figure: opalescent nudibranch.","Look at the picture of the opalescent nudibranch.
+The opalescent nudibranch has stinging cells in its brightly colored skin. Its skin is adapted to ward off predators. The bright colors serve as a warning sign that the opalescent nudibranch is toxic and dangerous.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The sharpnose-puffer has a poisonous body with brightly colored skin. Its skin is adapted to ward off predators.
+The lechwe has light-brown fur covering its skin. Its skin is not adapted to be a warning sign that wards off predators.",images/000587.png,3e059505818f7cfee938b7195612f839cd73901a34c54c7bf3b62803786c5463
+5,3e059505_b4b3ec,3,6,6,train,1221,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is better adapted as a warning sign to ward off predators?,"[""fire salamander"", ""fantastic leaf-tailed gecko""]",0,fire salamander,"Opalescent nudibranchs have stinging cells in their brightly colored skin. The bright colors serve as a warning sign that the animal is toxic and dangerous. The 's skin is adapted to ward off predators.
+Figure: opalescent nudibranch.","Look at the picture of the opalescent nudibranch.
+The opalescent nudibranch has stinging cells in its brightly colored skin. Its skin is adapted to ward off predators. The bright colors serve as a warning sign that the opalescent nudibranch is toxic and dangerous.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The fire salamander has a poisonous body with brightly colored skin. Its skin is adapted to ward off predators.
+The fantastic leaf-tailed gecko has reddish-brown skin. Its skin is not adapted to be a warning sign that wards off predators.",images/001220.png,3e059505818f7cfee938b7195612f839cd73901a34c54c7bf3b62803786c5463
+5,3e059505_b4b3ec,3,6,6,train,4570,grade4,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is better adapted as a warning sign to ward off predators?,"[""golden dart frog"", ""lichen katydid""]",0,golden dart frog,"Opalescent nudibranchs have stinging cells in their brightly colored skin. The bright colors serve as a warning sign that the animal is toxic and dangerous. The 's skin is adapted to ward off predators.
+Figure: opalescent nudibranch.","Look at the picture of the opalescent nudibranch.
+The opalescent nudibranch has stinging cells in its brightly colored skin. Its skin is adapted to ward off predators. The bright colors serve as a warning sign that the opalescent nudibranch is toxic and dangerous.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The golden dart frog has poisonous glands in its brightly colored skin. Its skin is adapted to ward off predators.
+The lichen katydid has green and white patches on its body. Its skin is not adapted to be a warning sign that wards off predators.",images/004569.png,3e059505818f7cfee938b7195612f839cd73901a34c54c7bf3b62803786c5463
+5,3e059505_b4b3ec,3,6,6,train,10640,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is better adapted as a warning sign to ward off predators?,"[""peppered moth"", ""crown-of-thorns sea star""]",1,crown-of-thorns sea star,"Opalescent nudibranchs have stinging cells in their brightly colored skin. The bright colors serve as a warning sign that the animal is toxic and dangerous. The 's skin is adapted to ward off predators.
+Figure: opalescent nudibranch.","Look at the picture of the opalescent nudibranch.
+The opalescent nudibranch has stinging cells in its brightly colored skin. Its skin is adapted to ward off predators. The bright colors serve as a warning sign that the opalescent nudibranch is toxic and dangerous.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The crown-of-thorns sea star has venomous spines and brightly colored skin. Its skin is adapted to ward off predators.
+The peppered moth has gray and brown patches on its body. Its skin is not adapted to be a warning sign that wards off predators.",images/010639.png,3e059505818f7cfee938b7195612f839cd73901a34c54c7bf3b62803786c5463
+5,3e059505_b4b3ec,3,6,6,validation,192,grade4,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is better adapted as a warning sign to ward off predators?,"[""flamboyant cuttlefish"", ""impala""]",0,flamboyant cuttlefish,"Opalescent nudibranchs have stinging cells in their brightly colored skin. The bright colors serve as a warning sign that the animal is toxic and dangerous. The 's skin is adapted to ward off predators.
+Figure: opalescent nudibranch.","Look at the picture of the opalescent nudibranch.
+The opalescent nudibranch has stinging cells in its brightly colored skin. Its skin is adapted to ward off predators. The bright colors serve as a warning sign that the opalescent nudibranch is toxic and dangerous.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The flamboyant cuttlefish has a poisonous body with brightly colored skin. Its skin is adapted to ward off predators.
+The impala has yellow-brown fur. Its skin is not adapted to be a warning sign that wards off predators.",images/000191.png,3e059505818f7cfee938b7195612f839cd73901a34c54c7bf3b62803786c5463
+5,3e059505_b4b3ec,3,6,6,test,1672,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is better adapted as a warning sign to ward off predators?,"[""lechwe"", ""blue poison dart frog""]",1,blue poison dart frog,"Opalescent nudibranchs have stinging cells in their brightly colored skin. The bright colors serve as a warning sign that the animal is toxic and dangerous. The 's skin is adapted to ward off predators.
+Figure: opalescent nudibranch.","Look at the picture of the opalescent nudibranch.
+The opalescent nudibranch has stinging cells in its brightly colored skin. Its skin is adapted to ward off predators. The bright colors serve as a warning sign that the opalescent nudibranch is toxic and dangerous.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The blue poison dart frog has poisonous glands in its brightly colored skin. Its skin is adapted to ward off predators.
+The lechwe has light-brown fur covering its skin. Its skin is not adapted to be a warning sign that wards off predators.",images/001671.png,3e059505818f7cfee938b7195612f839cd73901a34c54c7bf3b62803786c5463
+6,2985d19a_5518c8,3,6,6,train,810,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged in the snow?,"[""Arctic hare"", ""lion""]",0,Arctic hare,"Ptarmigans live in cold, snowy places. The  is adapted to be camouflaged in the snow.
+Figure: ptarmigan.","Look at the picture of the ptarmigan.
+During the winter, the ptarmigan has white feathers covering its body. It is adapted to be camouflaged in the snow. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+During the winter, the Arctic hare has white fur covering its body. It is adapted to be camouflaged in the snow.
+The lion has yellow-brown fur. It is not adapted to be camouflaged in the snow.",images/000809.png,2985d19aadd318f1a0979170d996100e38dc89959afc0ff4c5780e3384a0cdfd
+6,2985d19a_5518c8,3,6,6,train,2756,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged in the snow?,"[""polar bear"", ""Grant's gazelle""]",0,polar bear,"Ptarmigans live in cold, snowy places. The  is adapted to be camouflaged in the snow.
+Figure: ptarmigan.","Look at the picture of the ptarmigan.
+During the winter, the ptarmigan has white feathers covering its body. It is adapted to be camouflaged in the snow. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The polar bear has white fur covering its body. It is adapted to be camouflaged in the snow.
+The Grant's gazelle has light-brown fur covering its skin. It is not adapted to be camouflaged in the snow.",images/002755.png,2985d19aadd318f1a0979170d996100e38dc89959afc0ff4c5780e3384a0cdfd
+6,2985d19a_5518c8,3,6,6,train,5164,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged in the snow?,"[""lechwe"", ""short-tailed weasel""]",1,short-tailed weasel,"Ptarmigans live in cold, snowy places. The  is adapted to be camouflaged in the snow.
+Figure: ptarmigan.","Look at the picture of the ptarmigan.
+During the winter, the ptarmigan has white feathers covering its body. It is adapted to be camouflaged in the snow. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+During the winter, the short-tailed weasel has white fur covering its body. It is adapted to be camouflaged in the snow.
+The lechwe has light-brown fur covering its skin. It is not adapted to be camouflaged in the snow.",images/005163.png,2985d19aadd318f1a0979170d996100e38dc89959afc0ff4c5780e3384a0cdfd
+6,2985d19a_5518c8,3,6,6,validation,2084,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged in the snow?,"[""Arctic wolf"", ""porcupine""]",0,Arctic wolf,"Ptarmigans live in cold, snowy places. The  is adapted to be camouflaged in the snow.
+Figure: ptarmigan.","Look at the picture of the ptarmigan.
+During the winter, the ptarmigan has white feathers covering its body. It is adapted to be camouflaged in the snow. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+This Arctic wolf has white fur covering its body. It is adapted to be camouflaged in the snow.
+The porcupine has black-and-white spines covering its body. It is not adapted to be camouflaged in the snow.",images/002083.png,2985d19aadd318f1a0979170d996100e38dc89959afc0ff4c5780e3384a0cdfd
+6,2985d19a_5518c8,3,6,6,validation,3974,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged in the snow?,"[""camel"", ""snowy owl""]",1,snowy owl,"Ptarmigans live in cold, snowy places. The  is adapted to be camouflaged in the snow.
+Figure: ptarmigan.","Look at the picture of the ptarmigan.
+During the winter, the ptarmigan has white feathers covering its body. It is adapted to be camouflaged in the snow. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The snowy owl has white feathers covering its body. It is adapted to be camouflaged in the snow.
+The camel has sand-colored fur covering its skin. It is not adapted to be camouflaged in the snow.",images/003973.png,2985d19aadd318f1a0979170d996100e38dc89959afc0ff4c5780e3384a0cdfd
+6,2985d19a_5518c8,3,6,6,test,2901,grade4,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged in the snow?,"[""echidna"", ""Arctic fox""]",1,Arctic fox,"Ptarmigans live in cold, snowy places. The  is adapted to be camouflaged in the snow.
+Figure: ptarmigan.","Look at the picture of the ptarmigan.
+During the winter, the ptarmigan has white feathers covering its body. It is adapted to be camouflaged in the snow. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+During the winter, the Arctic fox has white fur covering its body. It is adapted to be camouflaged in the snow.
+The echidna has a yellow and brown body. It is not adapted to be camouflaged in the snow.",images/002900.png,2985d19aadd318f1a0979170d996100e38dc89959afc0ff4c5780e3384a0cdfd
+7,c42668f7_067f89,3,6,6,train,1396,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged among green leaves?,"[""green mantis"", ""Namaqua chameleon""]",0,green mantis,"Leaf insects live in the forests of Asia and Australia. The  is adapted to be camouflaged among green leaves.
+Figure: leaf insect.","Look at the picture of the leaf insect.
+The leaf insect has a green leaf-shaped body. It is adapted to be camouflaged among green leaves. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The green mantis has a green body. It is adapted to be camouflaged among green leaves.
+The Namaqua chameleon has sand-colored scales covering its body. It is not adapted to be camouflaged among green leaves.",images/001395.png,c42668f7f42d8e36d58c826f802654394a338c784ab26776ba17c73ac676577c
+7,c42668f7_067f89,3,6,6,train,1846,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged among green leaves?,"[""huntsman spider"", ""blue poison dart frog""]",0,huntsman spider,"Leaf insects live in the forests of Asia and Australia. The  is adapted to be camouflaged among green leaves.
+Figure: leaf insect.","Look at the picture of the leaf insect.
+The leaf insect has a green leaf-shaped body. It is adapted to be camouflaged among green leaves. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+This huntsman spider has a green body. It is adapted to be camouflaged among green leaves.
+The blue poison dart frog has brightly colored skin. It is not adapted to be camouflaged among green leaves.",images/001845.png,c42668f7f42d8e36d58c826f802654394a338c784ab26776ba17c73ac676577c
+7,c42668f7_067f89,3,6,6,train,3721,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged among green leaves?,"[""shield mantis"", ""black widow spider""]",0,shield mantis,"Leaf insects live in the forests of Asia and Australia. The  is adapted to be camouflaged among green leaves.
+Figure: leaf insect.","Look at the picture of the leaf insect.
+The leaf insect has a green leaf-shaped body. It is adapted to be camouflaged among green leaves. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The shield mantis has a green leaf-shaped body. It is adapted to be camouflaged among green leaves.
+The black widow spider has a red-and-black body. It is not adapted to be camouflaged among green leaves.",images/003720.png,c42668f7f42d8e36d58c826f802654394a338c784ab26776ba17c73ac676577c
+7,c42668f7_067f89,3,6,6,train,4073,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged among green leaves?,"[""green silver-line"", ""blue poison dart frog""]",0,green silver-line,"Leaf insects live in the forests of Asia and Australia. The  is adapted to be camouflaged among green leaves.
+Figure: leaf insect.","Look at the picture of the leaf insect.
+The leaf insect has a green leaf-shaped body. It is adapted to be camouflaged among green leaves. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The green silver-line has a green body. It is adapted to be camouflaged among green leaves.
+The blue poison dart frog has brightly colored skin. It is not adapted to be camouflaged among green leaves.",images/004072.png,c42668f7f42d8e36d58c826f802654394a338c784ab26776ba17c73ac676577c
+7,c42668f7_067f89,3,6,6,validation,2779,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged among green leaves?,"[""leaf-mimic katydid"", ""hoverfly""]",0,leaf-mimic katydid,"Leaf insects live in the forests of Asia and Australia. The  is adapted to be camouflaged among green leaves.
+Figure: leaf insect.","Look at the picture of the leaf insect.
+The leaf insect has a green leaf-shaped body. It is adapted to be camouflaged among green leaves. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The leaf-mimic katydid has a green leaf-shaped body. It is adapted to be camouflaged among green leaves.
+The hoverfly has a yellow-and-black pattern on its body. It is not adapted to be camouflaged among green leaves.",images/002778.png,c42668f7f42d8e36d58c826f802654394a338c784ab26776ba17c73ac676577c
+7,c42668f7_067f89,3,6,6,test,2953,grade4,natural science,biology,Animal adaptations: skins and body coverings,Which animal is also adapted to be camouflaged among green leaves?,"[""fox snake"", ""emerald tree boa""]",1,emerald tree boa,"Leaf insects live in the forests of Asia and Australia. The  is adapted to be camouflaged among green leaves.
+Figure: leaf insect.","Look at the picture of the leaf insect.
+The leaf insect has a green leaf-shaped body. It is adapted to be camouflaged among green leaves. The word camouflage means to blend in.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The emerald tree boa has bright green scales covering its body. It is adapted to be camouflaged among green leaves.
+The fox snake has a tan body with large brown spots. It is not adapted to be camouflaged among green leaves.",images/002952.png,c42668f7f42d8e36d58c826f802654394a338c784ab26776ba17c73ac676577c
+8,8e83298a_8085ea,3,6,6,train,4639,grade4,natural science,biology,Interpret food webs,"Based on the arrows, which of the following organisms is a consumer?","[""collared lemming"", ""bilberry""]",0,collared lemming,"Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Consumers eat other organisms. So, there are arrows in a food web that point from other organisms to consumers.
+The collared lemming has arrows pointing to it from the bear sedge and the lichen. So, the collared lemming is a consumer.
+The bilberry does not have any arrows pointing to it. So, the bilberry is a producer, not a consumer.",images/004638.png,8e83298accaa185e45801e19703a04593d4b3d90f7fccbe4f97d1c2d75b061a6
+8,8e83298a_8085ea,3,6,6,train,6439,grade4,natural science,biology,Interpret food webs,"Based on the arrows, which of the following organisms is a consumer?","[""bilberry"", ""earthworm""]",1,earthworm,"Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Consumers eat other organisms. So, there are arrows in a food web that point from other organisms to consumers.
+The bilberry does not have any arrows pointing to it. So, the bilberry is a producer, not a consumer.
+The earthworm has arrows pointing to it from the Arctic fox and the collared lemming. So, the earthworm is a consumer.",images/006438.png,8e83298accaa185e45801e19703a04593d4b3d90f7fccbe4f97d1c2d75b061a6
+8,8e83298a_8085ea,3,6,6,train,10055,grade4,natural science,biology,Interpret food webs,"Based on the arrows, which of the following organisms is a consumer?","[""Arctic fox"", ""lichen""]",0,Arctic fox,"Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Consumers eat other organisms. So, there are arrows in a food web that point from other organisms to consumers.
+The lichen does not have any arrows pointing to it. So, the lichen is a producer, not a consumer.
+The Arctic fox has arrows pointing to it from the bilberry and the collared lemming. So, the Arctic fox is a consumer.",images/010054.png,8e83298accaa185e45801e19703a04593d4b3d90f7fccbe4f97d1c2d75b061a6
+8,8e83298a_8085ea,3,6,6,validation,26,grade4,natural science,biology,Interpret food webs,"Based on the arrows, which of the following organisms is a consumer?","[""barren-ground caribou"", ""bear sedge""]",0,barren-ground caribou,"Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Consumers eat other organisms. So, there are arrows in a food web that point from other organisms to consumers.
+The barren-ground caribou has an arrow pointing to it from the lichen. So, the barren-ground caribou is a consumer.
+The bear sedge does not have any arrows pointing to it. So, the bear sedge is a producer, not a consumer.",images/000025.png,8e83298accaa185e45801e19703a04593d4b3d90f7fccbe4f97d1c2d75b061a6
+8,8e83298a_8085ea,3,6,6,validation,3499,grade4,natural science,biology,Interpret food webs,"Based on the arrows, which of the following organisms is a consumer?","[""bilberry"", ""grizzly bear""]",1,grizzly bear,"Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Consumers eat other organisms. So, there are arrows in a food web that point from other organisms to consumers.
+The bilberry does not have any arrows pointing to it. So, the bilberry is a producer, not a consumer.
+The grizzly bear has arrows pointing to it from the barren-ground caribou and the bilberry. So, the grizzly bear is a consumer.",images/003498.png,8e83298accaa185e45801e19703a04593d4b3d90f7fccbe4f97d1c2d75b061a6
+8,8e83298a_8085ea,3,6,6,test,198,grade4,natural science,biology,Interpret food webs,"Based on the arrows, which of the following organisms is a consumer?","[""mushroom"", ""lichen""]",0,mushroom,"Below is a food web from a tundra ecosystem in Nunavut, a territory in Northern Canada.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Consumers eat other organisms. So, there are arrows in a food web that point from other organisms to consumers.
+The mushroom has arrows pointing to it from the barren-ground caribou and the grizzly bear. So, the mushroom is a consumer.
+The lichen does not have any arrows pointing to it. So, the lichen is a producer, not a consumer.",images/000197.png,8e83298accaa185e45801e19703a04593d4b3d90f7fccbe4f97d1c2d75b061a6
+9,ec6314eb_df5c31,3,6,6,train,6703,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the sea cucumber?","[""sea urchin"", ""black rockfish"", ""kelp bass""]",0,sea urchin,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the sea cucumber.There is one path matter can take from the sea urchin to the sea cucumber: sea urchin->sea otter->orca->sea cucumber. There is one path matter can take from the plainfin midshipman to the sea cucumber: plainfin midshipman->sea cucumber. black rockfish. The only arrow pointing from the black rockfish leads to the kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the black rockfish to the sea cucumber.. kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the kelp bass to the sea cucumber..",images/006702.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+9,ec6314eb_df5c31,3,6,6,train,7995,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the sea cucumber?","[""black rockfish"", ""sea otter""]",1,sea otter,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the sea cucumber.
+The only arrow pointing from the black rockfish leads to the kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the black rockfish to the sea cucumber.There is one path matter can take from the zooplankton to the sea cucumber: zooplankton->plainfin midshipman->sea cucumber. There is one path matter can take from the plainfin midshipman to the sea cucumber: plainfin midshipman->sea cucumber. There is one path matter can take from the sea otter to the sea cucumber: sea otter->orca->sea cucumber.",images/007994.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+9,ec6314eb_df5c31,3,6,6,train,10311,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the sea cucumber?","[""black rockfish"", ""bat star"", ""orca"", ""kelp bass""]",2,orca,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the sea cucumber.
+No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the bat star to the sea cucumber.
+The only arrow pointing from the black rockfish leads to the kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the black rockfish to the sea cucumber.There is one path matter can take from the orca to the sea cucumber: orca->sea cucumber. kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the kelp bass to the sea cucumber..",images/010310.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+9,ec6314eb_df5c31,3,6,6,validation,546,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the sea cucumber?","[""bat star"", ""kelp"", ""kelp bass"", ""black rockfish""]",1,kelp,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the sea cucumber.There is one path matter can take from the kelp to the sea cucumber: kelp->sea urchin->sea otter->orca->sea cucumber. black rockfish. The only arrow pointing from the black rockfish leads to the kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the black rockfish to the sea cucumber.. kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the kelp bass to the sea cucumber.. bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the bat star to the sea cucumber..",images/000545.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+9,ec6314eb_df5c31,3,6,6,validation,4052,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the sea cucumber?","[""zooplankton"", ""kelp bass""]",0,zooplankton,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the sea cucumber.
+The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the kelp bass to the sea cucumber.There is one path matter can take from the orca to the sea cucumber: orca->sea cucumber. There is one path matter can take from the sea otter to the sea cucumber: sea otter->orca->sea cucumber. There is one path matter can take from the zooplankton to the sea cucumber: zooplankton->plainfin midshipman->sea cucumber.",images/004051.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+9,ec6314eb_df5c31,3,6,6,test,3023,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the sea cucumber?","[""bat star"", ""phytoplankton"", ""kelp bass""]",1,phytoplankton,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the sea cucumber.There is one path matter can take from the kelp to the sea cucumber: kelp->sea urchin->sea otter->orca->sea cucumber. kelp bass. The only arrow pointing from the kelp bass leads to the bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the kelp bass to the sea cucumber.. bat star. No arrows point from the bat star to any other organisms. So, in this food web, matter does not move from the bat star to the sea cucumber.. There are two paths matter can take from the phytoplankton to the sea cucumber: phytoplankton->plainfin midshipman->sea cucumber. phytoplankton->zooplankton->plainfin midshipman->sea cucumber.",images/003022.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+10,74408eba_d4c970,3,5,5,train,837,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""salmon"", ""kangaroo""]",0,salmon,"Fish live underwater. They have fins, not limbs. A catfish is an example of a fish.","A salmon is a fish. It lives underwater. It has fins, not limbs.
+A kangaroo is a mammal. It has fur and feeds its young milk.",images/000836.png,74408ebaee17559cc7daa6b285c31f0acb4faeed3c64fe57f6625c7f4ba3f3e9
+10,74408eba_d4c970,3,5,5,train,4601,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""goldfish"", ""woodpecker""]",0,goldfish,"Fish live underwater. They have fins, not limbs. A catfish is an example of a fish.","A goldfish is a fish. It lives underwater. It has fins, not limbs.
+A woodpecker is a bird. It has feathers, two wings, and a beak.",images/004600.png,74408ebaee17559cc7daa6b285c31f0acb4faeed3c64fe57f6625c7f4ba3f3e9
+10,74408eba_d4c970,3,5,5,train,9988,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""human"", ""tiger shark""]",1,tiger shark,"Fish live underwater. They have fins, not limbs. A catfish is an example of a fish.","A human is a mammal. It has hair and feeds its young milk.
+Humans are a type of animal called a primate. Monkeys and apes are also primates.
+A tiger shark is a fish. It lives underwater. It has fins, not limbs.
+Tiger sharks are nocturnal. This means that they are active mostly at night.",images/009987.png,74408ebaee17559cc7daa6b285c31f0acb4faeed3c64fe57f6625c7f4ba3f3e9
+10,74408eba_d4c970,3,5,5,validation,1326,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""manta ray"", ""red-tailed hawk""]",0,manta ray,"Fish live underwater. They have fins, not limbs. A catfish is an example of a fish.","A manta ray is a fish. It lives underwater. It has fins, not limbs.
+A red-tailed hawk is a bird. It has feathers, two wings, and a beak.",images/001325.png,74408ebaee17559cc7daa6b285c31f0acb4faeed3c64fe57f6625c7f4ba3f3e9
+10,74408eba_d4c970,3,5,5,test,3749,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the fish below.,"[""European green toad"", ""great white shark""]",1,great white shark,"Fish live underwater. They have fins, not limbs. A catfish is an example of a fish.","A great white shark is a fish. It lives underwater. It has fins, not limbs.
+Great white sharks can live for up to 70 years.
+A European green toad is an amphibian. It has moist skin and begins its life in water.
+Toads do not have teeth! They swallow their food whole.",images/003748.png,74408ebaee17559cc7daa6b285c31f0acb4faeed3c64fe57f6625c7f4ba3f3e9
+11,f8e1269f_bb0a08,3,5,5,train,1007,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for digging?,"[""Malagasy giant chameleon"", ""meerkat""]",1,meerkat,"Star-nosed moles are found in many parts of North America. They live in burrows. The moles eat earthworms and nuts, which they find in the soil. The feet of the  are adapted for digging.
+Figure: star-nosed mole.","Look at the picture of the star-nosed mole.
+The star-nosed mole has long, straight claws. Its feet are adapted for digging. The star-nosed mole uses its claws to break up soil and move it out of the way.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The meerkat has long, straight claws. Its feet are adapted for digging.
+The Malagasy giant chameleon has thick toes and very small claws. Its feet are not adapted for digging. The Malagasy giant chameleon uses its feet to climb twigs and branches.",images/001006.png,f8e1269fa14c53eddf0d5647654a3e0e067c7f42c367662e74c2a67f245a5c6d
+11,f8e1269f_bb0a08,3,5,5,train,2897,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for digging?,"[""eastern mole"", ""slender-legged tree frog""]",0,eastern mole,"Star-nosed moles are found in many parts of North America. They live in burrows. The moles eat earthworms and nuts, which they find in the soil. The feet of the  are adapted for digging.
+Figure: star-nosed mole.","Look at the picture of the star-nosed mole.
+The star-nosed mole has long, straight claws. Its feet are adapted for digging. The star-nosed mole uses its claws to break up soil and move it out of the way.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The eastern mole has long, straight claws. Its feet are adapted for digging.
+The slender-legged tree frog has wide, sticky toes. Its feet are not adapted for digging. The slender-legged tree frog uses its feet to climb trees and walk on leaves.",images/002896.png,f8e1269fa14c53eddf0d5647654a3e0e067c7f42c367662e74c2a67f245a5c6d
+11,f8e1269f_bb0a08,3,5,5,train,7821,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for digging?,"[""slender-legged tree frog"", ""six-banded armadillo""]",1,six-banded armadillo,"Star-nosed moles are found in many parts of North America. They live in burrows. The moles eat earthworms and nuts, which they find in the soil. The feet of the  are adapted for digging.
+Figure: star-nosed mole.","Look at the picture of the star-nosed mole.
+The star-nosed mole has long, straight claws. Its feet are adapted for digging. The star-nosed mole uses its claws to break up soil and move it out of the way.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The six-banded armadillo has long, straight claws. Its feet are adapted for digging.
+The slender-legged tree frog has wide, sticky toes. Its feet are not adapted for digging. The slender-legged tree frog uses its feet to climb trees and walk on leaves.",images/007820.png,f8e1269fa14c53eddf0d5647654a3e0e067c7f42c367662e74c2a67f245a5c6d
+11,f8e1269f_bb0a08,3,5,5,validation,2060,grade5,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for digging?,"[""blue-footed booby"", ""honey badger""]",1,honey badger,"Star-nosed moles are found in many parts of North America. They live in burrows. The moles eat earthworms and nuts, which they find in the soil. The feet of the  are adapted for digging.
+Figure: star-nosed mole.","Look at the picture of the star-nosed mole.
+The star-nosed mole has long, straight claws. Its feet are adapted for digging. The star-nosed mole uses its claws to break up soil and move it out of the way.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The honey badger has long, straight claws. Its feet are adapted for digging.
+The blue-footed booby has small claws and webbed feet. Its feet are not adapted for digging. The blue-footed booby uses its feet to swim.",images/002059.png,f8e1269fa14c53eddf0d5647654a3e0e067c7f42c367662e74c2a67f245a5c6d
+11,f8e1269f_bb0a08,3,5,5,test,2964,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for digging?,"[""groundhog"", ""tokay gecko""]",0,groundhog,"Star-nosed moles are found in many parts of North America. They live in burrows. The moles eat earthworms and nuts, which they find in the soil. The feet of the  are adapted for digging.
+Figure: star-nosed mole.","Look at the picture of the star-nosed mole.
+The star-nosed mole has long, straight claws. Its feet are adapted for digging. The star-nosed mole uses its claws to break up soil and move it out of the way.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The groundhog has long, straight claws. Its feet are adapted for digging.
+The tokay gecko has wide, sticky toes. Its feet are not adapted for digging. The tokay gecko uses its feet to climb trees and walk on leaves.",images/002963.png,f8e1269fa14c53eddf0d5647654a3e0e067c7f42c367662e74c2a67f245a5c6d
+12,991cefef_a42cc8,3,5,5,train,1431,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is also adapted for survival in cold places?,"[""hairy armadillo"", ""polar bear""]",1,polar bear,"Arctic wolves live in the Canadian Arctic and Greenland. The 's skin is adapted to help the animal survive in cold places.
+Figure: Arctic wolf.","Look at the picture of the Arctic wolf.
+The Arctic wolf has thick fur covering its skin. Its skin is adapted for survival in cold places. The Arctic wolf uses its fur to keep warm in cold weather.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The polar bear has skin with thick fur on top and a thick layer of fat underneath it. Its skin is adapted for survival in cold places.
+The hairy armadillo has scales covering much of its skin. Its skin is not adapted for survival in cold places.",images/001430.png,991cefefb8c75b9e7fed253d60f993c3722d42dc604b41dc96bdc469b1a5de19
+12,991cefef_a42cc8,3,5,5,train,3264,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is also adapted for survival in cold places?,"[""hairy armadillo"", ""caribou""]",1,caribou,"Arctic wolves live in the Canadian Arctic and Greenland. The 's skin is adapted to help the animal survive in cold places.
+Figure: Arctic wolf.","Look at the picture of the Arctic wolf.
+The Arctic wolf has thick fur covering its skin. Its skin is adapted for survival in cold places. The Arctic wolf uses its fur to keep warm in cold weather.
+Now look at each animal. Figure out which animal has a similar adaptation.
+During the winter, the caribou has thick fur covering its skin. Its skin is adapted for survival in cold places.
+The hairy armadillo has scales covering much of its skin. Its skin is not adapted for survival in cold places.",images/003263.png,991cefefb8c75b9e7fed253d60f993c3722d42dc604b41dc96bdc469b1a5de19
+12,991cefef_a42cc8,3,5,5,train,3567,grade3,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is also adapted for survival in cold places?,"[""naked mole rat"", ""snowy owl""]",1,snowy owl,"Arctic wolves live in the Canadian Arctic and Greenland. The 's skin is adapted to help the animal survive in cold places.
+Figure: Arctic wolf.","Look at the picture of the Arctic wolf.
+The Arctic wolf has thick fur covering its skin. Its skin is adapted for survival in cold places. The Arctic wolf uses its fur to keep warm in cold weather.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The snowy owl has a thick coat of feathers covering its skin. Its skin is adapted for survival in cold places.
+The naked mole rat has thin skin covering its body. Its skin is not adapted for survival in cold places.",images/003566.png,991cefefb8c75b9e7fed253d60f993c3722d42dc604b41dc96bdc469b1a5de19
+12,991cefef_a42cc8,3,5,5,validation,2064,grade5,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is also adapted for survival in cold places?,"[""armadillo lizard"", ""musk ox""]",1,musk ox,"Arctic wolves live in the Canadian Arctic and Greenland. The 's skin is adapted to help the animal survive in cold places.
+Figure: Arctic wolf.","Look at the picture of the Arctic wolf.
+The Arctic wolf has thick fur covering its skin. Its skin is adapted for survival in cold places. The Arctic wolf uses its fur to keep warm in cold weather.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The musk ox has skin with thick fur on top and a thick layer of fat underneath it. Its skin is adapted for survival in cold places.
+The armadillo lizard has scales covering much of its skin. Its skin is not adapted for survival in cold places.",images/002063.png,991cefefb8c75b9e7fed253d60f993c3722d42dc604b41dc96bdc469b1a5de19
+12,991cefef_a42cc8,3,5,5,test,4024,grade4,natural science,biology,Animal adaptations: skins and body coverings,Which animal's skin is also adapted for survival in cold places?,"[""Amazon milk frog"", ""Eurasian lynx""]",1,Eurasian lynx,"Arctic wolves live in the Canadian Arctic and Greenland. The 's skin is adapted to help the animal survive in cold places.
+Figure: Arctic wolf.","Look at the picture of the Arctic wolf.
+The Arctic wolf has thick fur covering its skin. Its skin is adapted for survival in cold places. The Arctic wolf uses its fur to keep warm in cold weather.
+Now look at each animal. Figure out which animal has a similar adaptation.
+During the winter, the Eurasian lynx has thick fur covering its skin. Its skin is adapted for survival in cold places.
+The Amazon milk frog has thin, moist skin. Its skin is not adapted for survival in cold places.",images/004023.png,991cefefb8c75b9e7fed253d60f993c3722d42dc604b41dc96bdc469b1a5de19
+13,92eb2daa_409389,3,5,5,train,3227,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""salt water crocodile"", ""gray tree frog"", ""whale shark"", ""giraffe""]",0,salt water crocodile,"Reptiles have scaly, waterproof skin. Most reptiles live on land.
+Reptiles are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A box turtle is an example of a reptile.","A gray tree frog is an amphibian. It has moist skin and begins its life in water.
+There are many kinds of tree frogs. Most tree frogs are very small. They can walk on thin branches.
+A salt water crocodile is a reptile. It has scaly, waterproof skin.
+Crocodiles hunt their prey in or near water.
+A whale shark is a fish. It lives underwater. It has fins, not limbs.
+Whale sharks are the largest fish in the world! Adult whale sharks can weigh over 21 tons—as much as seven elephants!
+A giraffe is a mammal. It has hair and feeds its young milk.
+Giraffes eat mostly leaves that are too high up for other animals to reach.",images/003226.png,92eb2daa51f35da44e75c11b010038aa7e6843d7fcfedbd37ad63ce94d9ccfea
+13,92eb2daa_409389,3,5,5,train,5738,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""bull shark"", ""Chinese alligator""]",1,Chinese alligator,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","A Chinese alligator is a reptile. It has scaly, waterproof skin.
+Alligators live in and around water. They can live near ponds, rivers, marshes, and lakes.
+A bull shark is a fish. It lives underwater. It has fins, not limbs.
+Bull sharks can live in both fresh and salt water. They are found in rivers and in shallow parts of the ocean.",images/005737.png,92eb2daa51f35da44e75c11b010038aa7e6843d7fcfedbd37ad63ce94d9ccfea
+13,92eb2daa_409389,3,5,5,train,12097,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""Mojave rattlesnake"", ""barking tree frog""]",0,Mojave rattlesnake,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","A barking tree frog is an amphibian. It has moist skin and begins its life in water.
+There are many kinds of tree frogs. Most tree frogs are very small. They can walk on thin branches.
+A Mojave rattlesnake is a reptile. It has scaly, waterproof skin.
+Rattlesnakes have fangs they can use to inject venom into their prey.",images/012096.png,92eb2daa51f35da44e75c11b010038aa7e6843d7fcfedbd37ad63ce94d9ccfea
+13,92eb2daa_409389,3,5,5,validation,606,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""Nile crocodile"", ""sea otter"", ""arroyo toad"", ""leafy seadragon""]",0,Nile crocodile,"Reptiles have scaly, waterproof skin. Most reptiles live on land.
+Reptiles are cold-blooded. The body temperature of cold-blooded animals depends on their environment.
+A box turtle is an example of a reptile.","A Nile crocodile is a reptile. It has scaly, waterproof skin.
+Crocodiles hunt their prey in or near water.
+A leafy seadragon is a fish. It lives underwater. It has fins, not limbs.
+A seadragon's body looks like a clump of seaweed. This helps the seadragon hide from its predators.
+An arroyo toad is an amphibian. It has moist skin and begins its life in water.
+Toads do not have teeth! They swallow their food whole.
+A sea otter is a mammal. It has fur and feeds its young milk.
+Sea otters have very thick fur. Their fur keeps them warm in cold water.",images/000605.png,92eb2daa51f35da44e75c11b010038aa7e6843d7fcfedbd37ad63ce94d9ccfea
+13,92eb2daa_409389,3,5,5,test,3268,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the reptile below.,"[""Hermann's tortoise"", ""gray wolf""]",0,Hermann's tortoise,"Reptiles have scaly, waterproof skin. Most reptiles live on land. A box turtle is an example of a reptile.","A gray wolf is a mammal. It has fur and feeds its young milk.
+Wolves often live in family groups. A wolf mother, father, and their children travel together.
+A Hermann's tortoise is a reptile. It has scaly, waterproof skin.
+A tortoise's shell protects it from predators. When a tortoise feels threatened, it can pull its head and legs inside its shell.",images/003267.png,92eb2daa51f35da44e75c11b010038aa7e6843d7fcfedbd37ad63ce94d9ccfea
+14,e16e7dbc_dfc24c,3,5,5,train,5748,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for swimming?,"[""giraffe"", ""platypus""]",1,platypus,"Black-bellied whistling ducks live near lakes and streams in North America. They find most of their food in shallow water. The feet of the  are adapted for swimming.
+Figure: black-bellied whistling duck.","Look at the picture of the black-bellied whistling duck.
+The black-bellied whistling duck has webbed feet. Its feet are adapted for swimming. As it swims, the black-bellied whistling duck uses its webbed feet to push itself through water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The platypus has webbed feet. Its feet are adapted for swimming.
+The giraffe has large, heavy, hoofed feet. Its feet are not adapted for swimming. The giraffe uses its feet to walk and run on hard ground.",images/005747.png,e16e7dbc0e133923d3dbf8cd19fac6c1a7107571298023f0f1a7f81e8a7cd956
+14,e16e7dbc_dfc24c,3,5,5,train,5991,grade3,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for swimming?,"[""California gull"", ""New Zealand falcon""]",0,California gull,"Black-bellied whistling ducks live near lakes and streams in North America. They find most of their food in shallow water. The feet of the  are adapted for swimming.
+Figure: black-bellied whistling duck.","Look at the picture of the black-bellied whistling duck.
+The black-bellied whistling duck has webbed feet. Its feet are adapted for swimming. As it swims, the black-bellied whistling duck uses its webbed feet to push itself through water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The California gull has small claws and webbed feet. Its feet are adapted for swimming.
+The New Zealand falcon has long toes with sharp claws. Its feet are not adapted for swimming. The New Zealand falcon uses its feet to grab prey.",images/005990.png,e16e7dbc0e133923d3dbf8cd19fac6c1a7107571298023f0f1a7f81e8a7cd956
+14,e16e7dbc_dfc24c,3,5,5,validation,165,grade3,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for swimming?,"[""purple gallinule"", ""lava gull""]",1,lava gull,"Black-bellied whistling ducks live near lakes and streams in North America. They find most of their food in shallow water. The feet of the  are adapted for swimming.
+Figure: black-bellied whistling duck.","Look at the picture of the black-bellied whistling duck.
+The black-bellied whistling duck has webbed feet. Its feet are adapted for swimming. As it swims, the black-bellied whistling duck uses its webbed feet to push itself through water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The lava gull has webbed feet. Its feet are adapted for swimming.
+The purple gallinule has long, thin toes on its feet. Its feet are not adapted for swimming. The purple gallinule uses its feet to walk on large leaves floating on the surface of the water.",images/000164.png,e16e7dbc0e133923d3dbf8cd19fac6c1a7107571298023f0f1a7f81e8a7cd956
+14,e16e7dbc_dfc24c,3,5,5,test,1403,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for swimming?,"[""European beaver"", ""sable""]",0,European beaver,"Black-bellied whistling ducks live near lakes and streams in North America. They find most of their food in shallow water. The feet of the  are adapted for swimming.
+Figure: black-bellied whistling duck.","Look at the picture of the black-bellied whistling duck.
+The black-bellied whistling duck has webbed feet. Its feet are adapted for swimming. As it swims, the black-bellied whistling duck uses its webbed feet to push itself through water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The European beaver has webbed feet. Its feet are adapted for swimming.
+The sable has hoofed feet. Its feet are not adapted for swimming. The sable uses its feet to walk and run on hard ground.",images/001402.png,e16e7dbc0e133923d3dbf8cd19fac6c1a7107571298023f0f1a7f81e8a7cd956
+14,e16e7dbc_dfc24c,3,5,5,test,3785,grade3,natural science,biology,Animal adaptations: feet and limbs,Which animal's feet are also adapted for swimming?,"[""spectral tarsier"", ""common guillemot""]",1,common guillemot,"Black-bellied whistling ducks live near lakes and streams in North America. They find most of their food in shallow water. The feet of the  are adapted for swimming.
+Figure: black-bellied whistling duck.","Look at the picture of the black-bellied whistling duck.
+The black-bellied whistling duck has webbed feet. Its feet are adapted for swimming. As it swims, the black-bellied whistling duck uses its webbed feet to push itself through water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The common guillemot has webbed feet. Its feet are adapted for swimming.
+The spectral tarsier has long fingers. Its feet are not adapted for swimming. The spectral tarsier uses its feet for climbing trees.",images/003784.png,e16e7dbc0e133923d3dbf8cd19fac6c1a7107571298023f0f1a7f81e8a7cd956
+15,ec6314eb_cfef26,3,5,5,train,5911,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the bat star?","[""sea otter"", ""plainfin midshipman"", ""sea urchin""]",1,plainfin midshipman,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the bat star.
+The only arrow pointing from the sea otter leads to the orca. The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the sea otter to the bat star.
+The only arrow pointing from the sea urchin leads to the sea otter. The only arrow pointing from the sea otter leads to the orca. The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the sea urchin to the bat star.There is one path matter can take from the plainfin midshipman to the bat star: plainfin midshipman->kelp bass->bat star. There is one path matter can take from the kelp to the bat star: kelp->kelp bass->bat star.",images/005910.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+15,ec6314eb_cfef26,3,5,5,validation,421,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the bat star?","[""kelp"", ""sea otter"", ""orca""]",0,kelp,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the bat star.
+The only arrow pointing from the sea otter leads to the orca. The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the sea otter to the bat star.There are three paths matter can take from the zooplankton to the bat star: zooplankton->kelp bass->bat star. zooplankton->plainfin midshipman->kelp bass->bat star. zooplankton->black rockfish->kelp bass->bat star. There is one path matter can take from the kelp to the bat star: kelp->kelp bass->bat star. orca. The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the orca to the bat star..",images/000420.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+15,ec6314eb_cfef26,3,5,5,validation,2395,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the bat star?","[""orca"", ""black rockfish""]",1,black rockfish,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the bat star.There is one path matter can take from the black rockfish to the bat star: black rockfish->kelp bass->bat star. There is one path matter can take from the kelp to the bat star: kelp->kelp bass->bat star. There are four paths matter can take from the phytoplankton to the bat star: phytoplankton->zooplankton->kelp bass->bat star. phytoplankton->zooplankton->plainfin midshipman->kelp bass->bat star. phytoplankton->zooplankton->black rockfish->kelp bass->bat star. phytoplankton->plainfin midshipman->kelp bass->bat star. orca. The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the orca to the bat star..",images/002394.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+15,ec6314eb_cfef26,3,5,5,validation,3377,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the bat star?","[""zooplankton"", ""orca""]",0,zooplankton,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the bat star.
+The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the orca to the bat star.There is one path matter can take from the black rockfish to the bat star: black rockfish->kelp bass->bat star. There are three paths matter can take from the zooplankton to the bat star: zooplankton->kelp bass->bat star. zooplankton->plainfin midshipman->kelp bass->bat star. zooplankton->black rockfish->kelp bass->bat star. There is one path matter can take from the plainfin midshipman to the bat star: plainfin midshipman->kelp bass->bat star.",images/003376.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+15,ec6314eb_cfef26,3,5,5,test,334,grade6,natural science,biology,Interpret food webs II,"In this food web, which organism contains matter that eventually moves to the bat star?","[""sea cucumber"", ""sea otter"", ""phytoplankton""]",2,phytoplankton,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows to the bat star.There are four paths matter can take from the phytoplankton to the bat star: phytoplankton->zooplankton->kelp bass->bat star. phytoplankton->zooplankton->plainfin midshipman->kelp bass->bat star. phytoplankton->zooplankton->black rockfish->kelp bass->bat star. phytoplankton->plainfin midshipman->kelp bass->bat star. There are three paths matter can take from the zooplankton to the bat star: zooplankton->kelp bass->bat star. zooplankton->plainfin midshipman->kelp bass->bat star. zooplankton->black rockfish->kelp bass->bat star. sea otter. The only arrow pointing from the sea otter leads to the orca. The only arrow pointing from the orca leads to the sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the sea otter to the bat star.. sea cucumber. No arrows point from the sea cucumber to any other organisms. So, in this food web, matter does not move from the sea cucumber to the bat star..",images/000333.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+16,ec6314eb_a0349d,3,5,5,train,7813,grade6,natural science,biology,Interpret food webs II,Which of these organisms contains matter that was once part of the kelp?,"[""zooplankton"", ""plainfin midshipman"", ""sea urchin""]",2,sea urchin,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows that starts from the kelp.There is one path matter can take from the kelp to the sea urchin: kelp->sea urchin. There is one path matter can take from the kelp to the orca: kelp->sea urchin->sea otter->orca. zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the zooplankton.. plainfin midshipman. There are two arrows pointing to the plainfin midshipman. These start from the phytoplankton and the zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the plainfin midshipman..",images/007812.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+16,ec6314eb_a0349d,3,5,5,train,12101,grade6,natural science,biology,Interpret food webs II,Which of these organisms contains matter that was once part of the kelp?,"[""plainfin midshipman"", ""zooplankton"", ""orca""]",2,orca,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows that starts from the kelp.
+There are two arrows pointing to the plainfin midshipman. These start from the phytoplankton and the zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the plainfin midshipman.
+The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the zooplankton.There is one path matter can take from the kelp to the orca: kelp->sea urchin->sea otter->orca. There is one path matter can take from the kelp to the sea urchin: kelp->sea urchin.",images/012100.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+16,ec6314eb_a0349d,3,5,5,validation,1341,grade6,natural science,biology,Interpret food webs II,Which of these organisms contains matter that was once part of the kelp?,"[""plainfin midshipman"", ""phytoplankton"", ""kelp bass"", ""black rockfish""]",2,kelp bass,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows that starts from the kelp.
+The only arrow pointing to the black rockfish starts from the zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the black rockfish.
+There are two arrows pointing to the plainfin midshipman. These start from the phytoplankton and the zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the plainfin midshipman.
+No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the phytoplankton.There is one path matter can take from the kelp to the kelp bass: kelp->kelp bass.",images/001340.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+16,ec6314eb_a0349d,3,5,5,test,2706,grade6,natural science,biology,Interpret food webs II,Which of these organisms contains matter that was once part of the kelp?,"[""zooplankton"", ""phytoplankton"", ""bat star""]",2,bat star,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows that starts from the kelp.There is one path matter can take from the kelp to the sea cucumber: kelp->sea urchin->sea otter->orca->sea cucumber. There is one path matter can take from the kelp to the bat star: kelp->kelp bass->bat star. phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the phytoplankton.. zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the zooplankton..",images/002705.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+16,ec6314eb_a0349d,3,5,5,test,3350,grade6,natural science,biology,Interpret food webs II,Which of these organisms contains matter that was once part of the kelp?,"[""plainfin midshipman"", ""sea cucumber"", ""zooplankton""]",1,sea cucumber,"Below is a food web from an ocean ecosystem in Monterey Bay, off the coast of California.
+A food web models how the matter eaten by organisms moves through an ecosystem. The arrows in a food web represent how matter moves between organisms in an ecosystem.","Use the arrows to follow how matter moves through this food web. For each answer choice, try to find a path of arrows that starts from the kelp.There is one path matter can take from the kelp to the sea otter: kelp    sea urchin    sea otter. There is one path matter can take from the kelp to the sea cucumber: kelp    sea urchin    sea otter    orca    sea cucumber. zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the zooplankton.. plainfin midshipman. There are two arrows pointing to the plainfin midshipman. These start from the phytoplankton and the zooplankton. The only arrow pointing to the zooplankton starts from the phytoplankton. No arrow points to the phytoplankton. So, in this food web, matter does not move from the kelp to the plainfin midshipman..",images/003349.png,ec6314eb5c59b583a0bd321763baee5000814633f9526d4a78b67fa402594200
+17,f2ec9248_02b9e3,3,5,5,train,8306,grade3,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""piranha"", ""gorilla""]",1,gorilla,Mammals have hair or fur and feed their young milk. A gray wolf is an example of a mammal.,"A gorilla is a mammal. It has fur and feeds its young milk.
+Gorillas live in groups called troops. The largest male in the troop is usually the leader.
+A piranha is a fish. It lives underwater. It has fins, not limbs.
+Piranhas have sharp teeth. Piranhas hunt in groups. A group of piranhas can eat a large animal.",images/008305.png,f2ec92485437a43f8d0f7722643b9aad8ca923ec840cf77eb5d281a9b350576f
+17,f2ec9248_02b9e3,3,5,5,validation,1140,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""sea otter"", ""salmon""]",0,sea otter,Mammals have hair or fur and feed their young milk. A gray wolf is an example of a mammal.,"A sea otter is a mammal. It has fur and feeds its young milk.
+A salmon is a fish. It lives underwater. It has fins, not limbs.",images/001139.png,f2ec92485437a43f8d0f7722643b9aad8ca923ec840cf77eb5d281a9b350576f
+17,f2ec9248_02b9e3,3,5,5,validation,1281,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""poison dart frog"", ""fire salamander"", ""mandarinfish"", ""Canadian lynx""]",3,Canadian lynx,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A gray wolf is an example of a mammal.","A poison dart frog is an amphibian. It has moist skin and begins its life in water.
+Poison dart frogs come in many bright colors. Their bright color warns other animals that these frogs are poisonous.
+A mandarinfish is a fish. It lives underwater. It has fins, not limbs.
+Mandarinfish often live near coral reefs. They eat small worms, snails, and fish eggs.
+A fire salamander is an amphibian. It has moist skin and begins its life in water.
+Fire salamanders can release poison from their skin. This poison helps protect them from predators.
+A Canadian lynx is a mammal. It has fur and feeds its young milk.
+Canadian lynx have padded feet to help them walk on snow.",images/001280.png,f2ec92485437a43f8d0f7722643b9aad8ca923ec840cf77eb5d281a9b350576f
+17,f2ec9248_02b9e3,3,5,5,validation,3339,grade2,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""bison"", ""American alligator""]",0,bison,Mammals have hair or fur and feed their young milk. A gray wolf is an example of a mammal.,"A bison is a mammal. It has fur and feeds its young milk.
+An American alligator is a reptile. It has scaly, waterproof skin.",images/003338.png,f2ec92485437a43f8d0f7722643b9aad8ca923ec840cf77eb5d281a9b350576f
+17,f2ec9248_02b9e3,3,5,5,test,4078,grade4,natural science,biology,"Identify mammals, birds, fish, reptiles, and amphibians",Select the mammal below.,"[""red howler"", ""box turtle"", ""flamingo"", ""cassowary""]",0,red howler,"Mammals have hair or fur and feed their young milk.
+Mammals are warm-blooded. Warm-blooded animals can control their body temperature.
+A gray wolf is an example of a mammal.","A box turtle is a reptile. It has scaly, waterproof skin.
+Box turtles can live to be over 100 years old!
+A red howler is a mammal. It has hair and feeds its young milk.
+Howler monkeys have loud calls, or howls. Their calls can be heard over three miles away!
+A flamingo is a bird. It has feathers, two wings, and a beak.
+Flamingos live in large groups. These groups are called flocks.
+A cassowary is a bird. It has feathers, two wings, and a beak.
+Cassowaries have wings, but they cannot fly! They can run very fast.",images/004077.png,f2ec92485437a43f8d0f7722643b9aad8ca923ec840cf77eb5d281a9b350576f
+18,fc42a4d6_19ccba,3,5,5,train,8405,grade5,natural science,biology,Animal adaptations: feet and limbs,Which animal's legs are also adapted for wading?,"[""great egret"", ""African fish eagle""]",0,great egret,"Shoebills live near marshes and lakes in Africa. They eat fish, frogs, and small reptiles that live in shallow water. Shoebills hunt their prey by walking through water, or wading.
+The 's legs are adapted for wading. They are lightweight and keep the bird's body above the water.
+Figure: shoebill.","Look at the picture of the shoebill.
+Long legs help the shoebill keep its body above the surface of the water while wading. Thin legs are easier to move through the water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The great egret has long, thin legs. Its legs are adapted for wading.
+The African fish eagle has short legs. Its legs are not adapted for wading. The African fish eagle uses its legs to walk and perch.",images/008404.png,fc42a4d608c86192ae0e6e4b541796835b32d609bd7b363561daac449942bf9a
+18,fc42a4d6_19ccba,3,5,5,train,11713,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal's legs are also adapted for wading?,"[""magnificent frigatebird"", ""demoiselle crane""]",1,demoiselle crane,"Shoebills live near marshes and lakes in Africa. They eat fish, frogs, and small reptiles that live in shallow water. Shoebills hunt their prey by walking through water, or wading.
+The 's legs are adapted for wading. They are lightweight and keep the bird's body above the water.
+Figure: shoebill.","Look at the picture of the shoebill.
+Long legs help the shoebill keep its body above the surface of the water while wading. Thin legs are easier to move through the water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The demoiselle crane has long, thin legs. Its legs are adapted for wading.
+The magnificent frigatebird has short legs. Its legs are not adapted for wading. The magnificent frigatebird uses its legs to walk, swim, and perch.",images/011712.png,fc42a4d608c86192ae0e6e4b541796835b32d609bd7b363561daac449942bf9a
+18,fc42a4d6_19ccba,3,5,5,validation,1769,grade5,natural science,biology,Animal adaptations: feet and limbs,Which animal's legs are also adapted for wading?,"[""little bittern"", ""African fish eagle""]",0,little bittern,"Shoebills live near marshes and lakes in Africa. They eat fish, frogs, and small reptiles that live in shallow water. Shoebills hunt their prey by walking through water, or wading.
+The 's legs are adapted for wading. They are lightweight and keep the bird's body above the water.
+Figure: shoebill.","Look at the picture of the shoebill.
+Long legs help the shoebill keep its body above the surface of the water while wading. Thin legs are easier to move through the water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The little bittern has long, thin legs. Its legs are adapted for wading.
+The African fish eagle has short legs. Its legs are not adapted for wading. The African fish eagle uses its legs to walk and perch.",images/001768.png,fc42a4d608c86192ae0e6e4b541796835b32d609bd7b363561daac449942bf9a
+18,fc42a4d6_19ccba,3,5,5,validation,4180,grade3,natural science,biology,Animal adaptations: feet and limbs,Which animal's legs are also adapted for wading?,"[""white tern"", ""hammerkop""]",1,hammerkop,"Shoebills live near marshes and lakes in Africa. They eat fish, frogs, and small reptiles that live in shallow water. Shoebills hunt their prey by walking through water, or wading.
+The 's legs are adapted for wading. They are lightweight and keep the bird's body above the water.
+Figure: shoebill.","Look at the picture of the shoebill.
+Long legs help the shoebill keep its body above the surface of the water while wading. Thin legs are easier to move through the water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The hammerkop has long, thin legs. Its legs are adapted for wading.
+The white tern has short legs. Its legs are not adapted for wading. The white tern uses its legs to walk, perch, and swim.",images/004179.png,fc42a4d608c86192ae0e6e4b541796835b32d609bd7b363561daac449942bf9a
+18,fc42a4d6_19ccba,3,5,5,test,2259,grade5,natural science,biology,Animal adaptations: feet and limbs,Which animal's legs are also adapted for wading?,"[""African sacred ibis"", ""kookaburra""]",0,African sacred ibis,"Shoebills live near marshes and lakes in Africa. They eat fish, frogs, and small reptiles that live in shallow water. Shoebills hunt their prey by walking through water, or wading.
+The 's legs are adapted for wading. They are lightweight and keep the bird's body above the water.
+Figure: shoebill.","Look at the picture of the shoebill.
+Long legs help the shoebill keep its body above the surface of the water while wading. Thin legs are easier to move through the water.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The African sacred ibis has long, thin legs. Its legs are adapted for wading.
+The kookaburra has short legs. Its legs are not adapted for wading. The kookaburra uses its legs to walk and perch.",images/002258.png,fc42a4d608c86192ae0e6e4b541796835b32d609bd7b363561daac449942bf9a
+19,386910f5_2943f6,3,5,5,train,9120,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal is also adapted for climbing trees?,"[""lar gibbon"", ""African forest elephant""]",0,lar gibbon,"Vervet monkeys live in the grasslands and forests of Africa. They climb trees to find food and shelter. The 's hands and feet are adapted for climbing trees.
+Figure: vervet monkey.","Look at the picture of the vervet monkey.
+The vervet monkey has long fingers and toes. It is adapted for climbing trees. The vervet monkey uses its long fingers and toes to hold on to branches while climbing.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The lar gibbon has long fingers and toes. It is adapted for climbing trees.
+The African forest elephant has four large, heavy feet. It is not adapted for climbing trees. The African forest elephant uses its feet to walk and run.",images/009119.png,386910f595a2a99561e39b1b8c2d465afbd1481b632379488c2b62c6a7f7a9cb
+19,386910f5_2943f6,3,5,5,validation,897,grade3,natural science,biology,Animal adaptations: feet and limbs,Which animal is also adapted for climbing trees?,"[""red-handed tamarin"", ""kiwi""]",0,red-handed tamarin,"Vervet monkeys live in the grasslands and forests of Africa. They climb trees to find food and shelter. The 's hands and feet are adapted for climbing trees.
+Figure: vervet monkey.","Look at the picture of the vervet monkey.
+The vervet monkey has long fingers and toes. It is adapted for climbing trees. The vervet monkey uses its long fingers and toes to hold on to branches while climbing.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The red-handed tamarin has long fingers and toes. It is adapted for climbing trees.
+The kiwi has short toes and small wings instead of arms. It is not adapted for climbing trees. The kiwi uses its feet to walk and run.",images/000896.png,386910f595a2a99561e39b1b8c2d465afbd1481b632379488c2b62c6a7f7a9cb
+19,386910f5_2943f6,3,5,5,validation,2880,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal is also adapted for climbing trees?,"[""common marmoset"", ""Grevy's zebra""]",0,common marmoset,"Vervet monkeys live in the grasslands and forests of Africa. They climb trees to find food and shelter. The 's hands and feet are adapted for climbing trees.
+Figure: vervet monkey.","Look at the picture of the vervet monkey.
+The vervet monkey has long fingers and toes. It is adapted for climbing trees. The vervet monkey uses its long fingers and toes to hold on to branches while climbing.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The common marmoset has long fingers and toes. It is adapted for climbing trees.
+The Grevy's zebra has four hoofed feet. It is not adapted for climbing trees. The Grevy's zebra uses its feet to walk and run.",images/002879.png,386910f595a2a99561e39b1b8c2d465afbd1481b632379488c2b62c6a7f7a9cb
+19,386910f5_2943f6,3,5,5,test,2641,grade3,natural science,biology,Animal adaptations: feet and limbs,Which animal is also adapted for climbing trees?,"[""lama"", ""bare-eared squirrel monkey""]",1,bare-eared squirrel monkey,"Vervet monkeys live in the grasslands and forests of Africa. They climb trees to find food and shelter. The 's hands and feet are adapted for climbing trees.
+Figure: vervet monkey.","Look at the picture of the vervet monkey.
+The vervet monkey has long fingers and toes. It is adapted for climbing trees. The vervet monkey uses its long fingers and toes to hold on to branches while climbing.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The bare-eared squirrel monkey has long fingers and toes. It is adapted for climbing trees.
+The lama has four hoofed feet. It is not adapted for climbing trees. The lama uses its feet to walk and run.",images/002640.png,386910f595a2a99561e39b1b8c2d465afbd1481b632379488c2b62c6a7f7a9cb
+19,386910f5_2943f6,3,5,5,test,3070,grade4,natural science,biology,Animal adaptations: feet and limbs,Which animal is also adapted for climbing trees?,"[""lama"", ""red-shanked douc""]",1,red-shanked douc,"Vervet monkeys live in the grasslands and forests of Africa. They climb trees to find food and shelter. The 's hands and feet are adapted for climbing trees.
+Figure: vervet monkey.","Look at the picture of the vervet monkey.
+The vervet monkey has long fingers and toes. It is adapted for climbing trees. The vervet monkey uses its long fingers and toes to hold on to branches while climbing.
+Now look at each animal. Figure out which animal has a similar adaptation.
+The red-shanked douc has long fingers and toes. It is adapted for climbing trees.
+The lama has four hoofed feet. It is not adapted for climbing trees. The lama uses its feet to walk and run.",images/003069.png,386910f595a2a99561e39b1b8c2d465afbd1481b632379488c2b62c6a7f7a9cb
+20,5e0acb69_b9cbf0,3,4,4,train,1674,grade3,natural science,physics,Identify properties of an object,Which property matches this object?,"[""opaque"", ""fragile""]",1,fragile,Select the better answer.,"Look at the object.
+Think about each property.
+An opaque object does not let light through. The fish bowl is not opaque.
+A fragile object will break into pieces if you drop it. The fish bowl is fragile.",images/001673.png,5e0acb69dfd613a2a7ec210b6ee483a281509e29583a2ee154deff6933f0fae9
+20,5e0acb69_b9cbf0,3,4,4,train,7205,grade2,natural science,physics,Identify properties of an object,Which property matches this object?,"[""breakable"", ""bumpy""]",0,breakable,Select the better answer.,"Look at the object.
+Think about each property.
+A bumpy object is covered in lumps and bumps. The fish bowl is not bumpy.
+A breakable object will break into pieces if you drop it. The fish bowl is breakable.",images/007204.png,5e0acb69dfd613a2a7ec210b6ee483a281509e29583a2ee154deff6933f0fae9
+20,5e0acb69_b9cbf0,3,4,4,validation,2111,grade3,natural science,physics,Identify properties of an object,Which property matches this object?,"[""smooth"", ""sticky""]",0,smooth,Select the better answer.,"Look at the object.
+Think about each property.
+A sticky object can attach or stick to other things. The fish bowl is not sticky.
+A smooth object is not scratchy or rough. The fish bowl is smooth.",images/002110.png,5e0acb69dfd613a2a7ec210b6ee483a281509e29583a2ee154deff6933f0fae9
+20,5e0acb69_b9cbf0,3,4,4,test,252,grade3,natural science,physics,Identify properties of an object,Which property matches this object?,"[""stretchy"", ""transparent""]",1,transparent,Select the better answer.,"Look at the object.
+Think about each property.
+You can see clearly through a transparent object. The fish bowl is transparent.
+A stretchy object gets longer when you pull on it. The fish bowl is not stretchy.",images/000251.png,5e0acb69dfd613a2a7ec210b6ee483a281509e29583a2ee154deff6933f0fae9
