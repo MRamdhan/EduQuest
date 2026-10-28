@@ -17,6 +17,7 @@ from eduquest_logic.adaptive_engine import DEFAULT_CONFIG as ADAPTIVE_CONFIG
 from eduquest_logic.adaptive_engine import Attempt, decide
 from eduquest_logic.gamification import DEFAULT as GAMIFICATION, level_from_xp
 from eduquest_logic.question_selector import ALLOWED_STATUS, public_view, select_questions
+from eduquest_logic.relevance import build_idf_from_terms, keywords, score_terms
 
 from apps.core.errors import (
     InvalidAnswerPayload,
@@ -156,6 +157,52 @@ def _context_payload(user, attempt: QuizAttempt, subject_progress, rank_info: di
 
 
 @transaction.atomic
+def _question_document(question) -> str:
+    options = " ".join(
+        str(option.get("text", "")) for option in question.options or []
+    )
+    return f"{question.question_text} {options}".strip()
+
+
+def _material_text(material) -> str:
+    return " ".join(
+        part
+        for part in (material.title, material.topic or "", material.content or "")
+        if part
+    )
+
+
+def _material_relevance(pool, material) -> dict[int, float]:
+    """Skor kecocokan tiap soal dengan materi (0..1) memakai IDF bank soal.
+
+    Soal yang ternyata lebih cocok dengan materi lain pada mapel yang sama
+    diberi skor negatif, agar tidak muncul di kuis materi ini.
+    """
+    questions = list(pool)
+    documents = [_question_document(question) for question in questions]
+    document_terms = [keywords(document) for document in documents]
+    idf = build_idf_from_terms(document_terms)
+    own_terms = set(keywords(_material_text(material)))
+
+    siblings = list(
+        Material.objects.filter(
+            subject=material.subject,
+            status=Material.Status.PUBLISHED,
+        ).exclude(pk=material.pk)
+    )
+    sibling_terms = [set(keywords(_material_text(sibling))) for sibling in siblings]
+
+    relevance: dict[int, float] = {}
+    for question, terms in zip(questions, document_terms):
+        own = score_terms(terms, own_terms, idf)
+        best_other = max(
+            (score_terms(terms, terms_other, idf) for terms_other in sibling_terms),
+            default=0.0,
+        )
+        relevance[question.pk] = own if own >= best_other else own - best_other
+    return relevance
+
+
 def start_quiz(user, material: Material, *, requested_difficulty: int | None = None) -> dict:
     """Membuat (atau melanjutkan) sesi kuis 5 soal untuk satu materi."""
     if material.status != Material.Status.PUBLISHED:
@@ -217,6 +264,8 @@ def start_quiz(user, material: Material, *, requested_difficulty: int | None = N
         n=settings.QUIZ_QUESTIONS_PER_SESSION,
         recent_ids=_recent_question_ids(user),
         rng=random.Random(),
+        relevance=_material_relevance(pool, material),
+        min_relevance=settings.QUIZ_MIN_RELEVANCE,
     )
 
     if not selection.questions:

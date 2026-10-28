@@ -41,7 +41,9 @@ def select_questions(bank: Iterable[dict], jenjang: str, mapel: str,
                      target_difficulty: Optional[int], n: int,
                      recent_ids: Iterable = (), allowed_status=ALLOWED_STATUS,
                      allow_unrated: bool = True, levels=(1, 2, 3),
-                     rng: Optional[random.Random] = None) -> Selection:
+                     rng: Optional[random.Random] = None,
+                     relevance: Optional[dict] = None,
+                     min_relevance: float = 0.30) -> Selection:
     rng = rng or random.Random()
     recent = set(recent_ids)
     pool = [q for q in bank
@@ -53,19 +55,47 @@ def select_questions(bank: Iterable[dict], jenjang: str, mapel: str,
     else:
         order = sorted(levels, key=lambda d: (abs(d - target_difficulty), d))
 
+    def ordered(cands: List[dict]) -> List[dict]:
+        """Acak, lalu dahulukan soal yang paling nyambung dengan materi."""
+        rng.shuffle(cands)
+        if relevance:
+            cands.sort(key=lambda q: -relevance.get(q["source_id"], 0.0))
+        return cands
+
     def run(relax: bool) -> List[dict]:
         chosen: List[dict] = []
         taken = set()
         steps = list(order) + ([None] if allow_unrated else [])
-        for d in steps:
-            if len(chosen) >= n:
-                break
-            cands = [q for q in pool
+
+        def candidates(d):
+            items = [q for q in pool
                      if q.get("difficulty") == d
                      and q["source_id"] not in taken
                      and (relax or q["source_id"] not in recent)]
-            rng.shuffle(cands)
-            for q in cands[: n - len(chosen)]:
+            return ordered(items)
+
+        # Pass 1: dahulukan soal yang relevan dengan materi, walau tingkatnya
+        # bergeser satu-dua langkah, agar kuis tidak keluar topik.
+        if relevance:
+            for d in steps:
+                if len(chosen) >= n:
+                    break
+                for q in candidates(d):
+                    if len(chosen) >= n:
+                        break
+                    if relevance.get(q["source_id"], 0.0) >= min_relevance:
+                        chosen.append(q)
+                        taken.add(q["source_id"])
+
+        # Pass 2: lengkapi sisa kuota dari tingkat terdekat.
+        for d in steps:
+            if len(chosen) >= n:
+                break
+            for q in candidates(d):
+                if len(chosen) >= n:
+                    break
+                if q["source_id"] in taken:
+                    continue
                 chosen.append(q)
                 taken.add(q["source_id"])
         return chosen
@@ -85,6 +115,16 @@ def select_questions(bank: Iterable[dict], jenjang: str, mapel: str,
         notes.append(f"Stok tingkat {target_difficulty} kurang; memakai tingkat {levels_used}.")
     if relaxed:
         notes.append("Soal yang baru dikerjakan terpaksa dipakai ulang (stok kurang).")
+    if relevance:
+        less_relevant = sum(
+            1 for q in chosen
+            if relevance.get(q["source_id"], 0) < min_relevance
+        )
+        if less_relevant:
+            notes.append(
+                f"{less_relevant} dari {len(chosen)} soal kurang nyambung dengan materi "
+                "(stok soal yang relevan terbatas)."
+            )
     if len(chosen) < n:
         notes.append(f"Hanya {len(chosen)} dari {n} soal tersedia.")
     return Selection(chosen, target_difficulty, levels_used, fallback,

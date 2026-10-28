@@ -143,11 +143,23 @@ AI_MODEL = os.getenv("AI_MODEL", "")
 AI_TIMEOUT_SECONDS = int(os.getenv("AI_TIMEOUT_SECONDS", "20"))
 AI_MAX_INPUT_CHARS = int(os.getenv("AI_MAX_INPUT_CHARS", "1000"))
 AI_MAX_CONTEXT_CHARS = int(os.getenv("AI_MAX_CONTEXT_CHARS", "4000"))
+# Model penalaran (mis. gpt-oss) memakai sebagian token untuk reasoning, jadi
+# batas keluaran harus lebih longgar daripada panjang jawaban yang diinginkan.
+AI_MAX_OUTPUT_TOKENS = int(os.getenv("AI_MAX_OUTPUT_TOKENS", "1200"))
+# Kosongkan untuk provider/model yang tidak mendukung parameter ini.
+AI_REASONING_EFFORT = os.getenv("AI_REASONING_EFFORT", "").strip().lower()
+# Retry singkat untuk 429/5xx; kuota Groq free tier dihitung per token/menit.
+AI_MAX_RETRIES = int(os.getenv("AI_MAX_RETRIES", "2"))
+# Hint cukup dua kalimat, jadi lebih hemat token daripada jawaban tutor.
+AI_HINT_MAX_OUTPUT_TOKENS = int(os.getenv("AI_HINT_MAX_OUTPUT_TOKENS", "400"))
+AI_HINT_MAX_CONTEXT_CHARS = int(os.getenv("AI_HINT_MAX_CONTEXT_CHARS", "2000"))
 
 # --- Aturan gamifikasi & konten -------------------------------------------
 QUIZ_QUESTIONS_PER_SESSION = int(os.getenv("QUIZ_QUESTIONS_PER_SESSION", "5"))
 QUIZ_RECENT_QUESTION_WINDOW = int(os.getenv("QUIZ_RECENT_QUESTION_WINDOW", "30"))
-
+# Ambang skor relevansi soal terhadap materi (0..1). Soal di bawah ambang tetap
+# dipakai jika stok soal yang relevan tidak cukup.
+QUIZ_MIN_RELEVANCE = float(os.getenv("QUIZ_MIN_RELEVANCE", "0.30"))
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
