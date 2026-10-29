@@ -91,6 +91,7 @@ def answer(api, attempt_id, question_id, option):
 
 @pytest.mark.django_db
 def test_register_login_and_me(api):
+    level = EducationLevel.objects.create(code="SMP", name="SMP", order=2)
     response = api.post(
         "/api/auth/register/",
         {
@@ -98,17 +99,24 @@ def test_register_login_and_me(api):
             "password": PASSWORD,
             "password_confirm": PASSWORD,
             "email": "baru@example.com",
+            "education_level": "smp",
         },
         format="json",
     )
     assert response.status_code == 201
     assert response.data["token"]
+    assert response.data["user"]["education_level"] == {
+        "id": level.pk,
+        "code": "SMP",
+        "name": "SMP",
+    }
     assert UserProgress.objects.filter(user__username="baru").exists()
 
     api.credentials(HTTP_AUTHORIZATION=f"Token {response.data['token']}")
     me = api.get("/api/auth/me/")
     assert me.status_code == 200
     assert me.data["username"] == "baru"
+    assert me.data["education_level"]["code"] == "SMP"
 
     api.credentials()
     login = api.post(
@@ -118,6 +126,78 @@ def test_register_login_and_me(api):
     )
     assert login.status_code == 200
     assert login.data["token"]
+
+
+@pytest.mark.django_db
+def test_register_requires_known_jenjang(api):
+    EducationLevel.objects.create(code="SD", name="SD", order=1)
+
+    missing = api.post(
+        "/api/auth/register/",
+        {
+            "username": "tanpa-jenjang",
+            "password": PASSWORD,
+            "password_confirm": PASSWORD,
+        },
+        format="json",
+    )
+    assert missing.status_code == 400
+    assert "education_level" in missing.data
+
+    unknown = api.post(
+        "/api/auth/register/",
+        {
+            "username": "jenjang-asing",
+            "password": PASSWORD,
+            "password_confirm": PASSWORD,
+            "education_level": "S1",
+        },
+        format="json",
+    )
+    assert unknown.status_code == 400
+    assert "education_level" in unknown.data
+    assert not User.objects.filter(username__in=["tanpa-jenjang", "jenjang-asing"]).exists()
+
+
+@pytest.mark.django_db
+def test_me_can_change_and_clear_jenjang(api, student):
+    sd = EducationLevel.objects.create(code="SD", name="SD", order=1)
+    sma = EducationLevel.objects.create(code="SMA", name="SMA/SMK", order=3)
+    api.force_authenticate(student)
+
+    changed = api.patch(
+        "/api/auth/me/", {"education_level": sma.pk}, format="json"
+    )
+    assert changed.status_code == 200
+    assert changed.data["education_level"]["code"] == "SMA"
+
+    cleared = api.patch(
+        "/api/auth/me/", {"education_level": None}, format="json"
+    )
+    assert cleared.status_code == 200
+    assert cleared.data["education_level"] is None
+
+    invalid = api.patch(
+        "/api/auth/me/", {"education_level": sd.pk, "username": "diubah"}, format="json"
+    )
+    assert invalid.status_code == 200
+    assert invalid.data["username"] == student.username
+    assert invalid.data["education_level"]["code"] == "SD"
+
+
+@pytest.mark.django_db
+def test_every_user_gets_student_profile(student):
+    assert student.student_profile.education_level is None
+
+
+@pytest.mark.django_db
+def test_levels_endpoint_is_public(api):
+    EducationLevel.objects.create(code="SD", name="SD", order=1)
+
+    response = api.get("/api/levels/")
+
+    assert response.status_code == 200
+    assert response.data[0]["code"] == "SD"
 
 
 @pytest.mark.django_db

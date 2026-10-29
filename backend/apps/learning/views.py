@@ -1,6 +1,7 @@
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -22,6 +23,10 @@ from apps.progress.services import complete_material, subject_lives_map
 
 
 class EducationLevelListView(APIView):
+    # Publik: halaman daftar akun butuh pilihan jenjang sebelum login.
+    authentication_classes = []
+    permission_classes = [AllowAny]
+
     def get(self, request):
         levels = EducationLevel.objects.annotate(
             subject_count=Count("subjects", distinct=True)

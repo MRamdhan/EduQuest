@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
+from apps.accounts.models import StudentProfile
 from apps.learning.constants import ACHIEVEMENTS
 from apps.learning.services.content_service import ensure_levels
 from apps.progress.constants import RANKS
@@ -27,7 +28,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        ensure_levels()
+        levels = ensure_levels()
 
         for item in ACHIEVEMENTS:
             Achievement.objects.update_or_create(code=item["code"], defaults=item)
@@ -47,6 +48,10 @@ class Command(BaseCommand):
         if created:
             student.set_password(options["password"])
             student.save()
+        profile, _ = StudentProfile.objects.get_or_create(user=student)
+        if profile.education_level_id is None:
+            profile.education_level = levels.get("SMP")
+            profile.save(update_fields=["education_level", "updated_at"])
         get_or_create_progress(student)
 
         admin, admin_created = User.objects.get_or_create(
