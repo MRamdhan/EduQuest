@@ -17,18 +17,18 @@ ACHIEVEMENTS = [
         "code": "first-quiz",
         "title": "Langkah Pertama",
         "description": "Menyelesaikan kuis pertamamu.",
-        "xp_reward": 0,
+        "xp_reward": 20,
     },
     {
         "code": "perfect-score",
         "title": "Sempurna",
         "description": "Menjawab semua soal dengan benar dalam satu sesi.",
-        "xp_reward": 0,
+        "xp_reward": 50,
     },
     {
         "code": "material-explorer",
         "title": "Penjelajah Materi",
         "description": "Menyelesaikan lima materi berbeda.",
-        "xp_reward": 0,
+        "xp_reward": 30,
     },
 ]

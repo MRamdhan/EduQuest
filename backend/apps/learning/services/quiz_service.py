@@ -39,6 +39,7 @@ from apps.learning.models import (
 )
 from apps.progress.constants import MAX_LIVES
 from apps.progress.services import (
+    award_achievement,
     award_xp,
     current_difficulty,
     get_or_create_progress,
@@ -458,6 +459,16 @@ def _finalize_attempt(user, attempt: QuizAttempt, *, ended_early: bool) -> dict:
         max_level=unlocked,
     )
     record_adaptation(user, attempt.material, attempt, decision)
+
+    xp_before = get_or_create_progress(user).xp
+    award_achievement(user, "first-quiz")
+    if total and correct == total:
+        award_achievement(user, "perfect-score")
+    bonus_xp = max(0, get_or_create_progress(user).xp - xp_before)
+    if bonus_xp:
+        attempt.xp_gained += bonus_xp
+        attempt.save(update_fields=["xp_gained"])
+
     return _summary_payload(user, attempt)
 
 

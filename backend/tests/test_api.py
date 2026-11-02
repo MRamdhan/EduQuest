@@ -5,9 +5,10 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 from rest_framework.test import APIClient
 
+from apps.learning.constants import ACHIEVEMENTS
 from apps.learning.models import EducationLevel, Material, Question, Subject
 from apps.progress.constants import RANKS
-from apps.progress.models import Rank, SubjectProgress, UserProgress
+from apps.progress.models import Achievement, Rank, SubjectProgress, UserProgress
 from apps.tutor.services.hint_service import generate_hint
 
 User = get_user_model()
@@ -19,6 +20,8 @@ PASSWORD = "SiswaKuat2026!"
 def seeded_ranks(db):
     for item in RANKS:
         Rank.objects.update_or_create(code=item["code"], defaults=item)
+    for item in ACHIEVEMENTS:
+        Achievement.objects.update_or_create(code=item["code"], defaults=item)
 
 
 @pytest.fixture
@@ -209,7 +212,7 @@ def test_start_quiz_returns_lives_and_rank(api, student, material, questions):
     data = response.data
     assert data["lives"] == 3
     assert data["max_lives"] == 3
-    assert data["rank"]["name"] == "Ayam"
+    assert data["rank"]["name"] == "Bronze"
     assert data["unlocked_difficulty"] == 1
     assert data["levels"][0]["locked"] is False
     assert data["levels"][1]["locked"] is True
@@ -252,9 +255,9 @@ def test_correct_answers_award_xp_and_finish_session(api, student, material, que
     assert last.data["session_ended"] is True
     assert last.data["summary"]["score"]["correct"] == 5
     assert last.data["summary"]["score"]["percent"] == 100
-    assert last.data["summary"]["reward"]["xp_gained"] == 50
+    assert last.data["summary"]["reward"]["xp_gained"] == 120
     assert last.data["summary"]["adaptation"]["next_difficulty"] == 1
-    assert UserProgress.objects.get(user=student).xp == 50
+    assert UserProgress.objects.get(user=student).xp == 120
 
     detail = api.get(f"/api/quizzes/{attempt_id}/")
     assert detail.status_code == 200
@@ -370,7 +373,7 @@ def test_rank_unlocks_quiz_level(api, student, material, questions):
     UserProgress.objects.update_or_create(user=student, defaults={"xp": 100})
     unlocked = start_quiz(api, material, difficulty=2)
     assert unlocked.status_code == 201
-    assert unlocked.data["rank"]["name"] == "Rank 2"
+    assert unlocked.data["rank"]["name"] == "Silver"
     assert unlocked.data["unlocked_difficulty"] == 2
     assert unlocked.data["attempt"]["target_difficulty"] == 2
     assert unlocked.data["levels"][1]["locked"] is False
@@ -458,15 +461,18 @@ def test_progress_and_subject_lives_payload(api, student, material, questions):
     assert progress.status_code == 200
     assert progress.data["xp"] == 0
     assert progress.data["level"] == 1
-    assert progress.data["rank"]["name"] == "Ayam"
+    assert progress.data["rank"]["name"] == "Bronze"
     assert "lives" not in progress.data
     assert progress.data["subject_lives"][0]["subject"] == "IPA"
     assert progress.data["subject_lives"][0]["lives"] == 3
 
     ranks = api.get("/api/ranks/")
     assert ranks.status_code == 200
-    assert ranks.data[0]["name"] == "Ayam"
+    assert ranks.data[0]["name"] == "Bronze"
+    assert ranks.data[1]["name"] == "Silver"
     assert ranks.data[1]["unlocked_difficulty"] == 2
+    assert ranks.data[2]["name"] == "Gold"
+    assert ranks.data[2]["unlocked_difficulty"] == 3
 
 
 @pytest.mark.django_db
@@ -520,3 +526,74 @@ def test_tutor_falls_back_without_provider(api, student, material, settings):
 def test_health_and_authentication_required(api):
     assert api.get("/api/health/").status_code == 200
     assert api.get("/api/progress/").status_code == 401
+
+
+@pytest.mark.django_db
+def test_perfect_quiz_unlocks_first_quiz_and_perfect_score(api, student, material, questions):
+    api.force_authenticate(student)
+    started = start_quiz(api, material)
+    attempt_id = started.data["attempt"]["id"]
+
+    last = None
+    for question in started.data["attempt"]["questions"]:
+        last = answer(api, attempt_id, question["id"], "A")
+
+    assert last.data["summary"]["score"]["correct"] == 5
+    # 5 jawaban benar x 10 XP + first-quiz 20 XP + perfect-score 50 XP.
+    assert last.data["summary"]["reward"]["xp_gained"] == 120
+    assert UserProgress.objects.get(user=student).xp == 120
+
+    codes = set(
+        student.achievements.values_list("achievement__code", flat=True)
+    )
+    assert codes == {"first-quiz", "perfect-score"}
+
+    progress = api.get("/api/progress/")
+    assert {item["code"] for item in progress.data["achievements"]} == {
+        "first-quiz",
+        "perfect-score",
+    }
+
+
+@pytest.mark.django_db
+def test_achievement_xp_is_awarded_to_every_user(api, student, material, questions):
+    api.force_authenticate(student)
+    started = start_quiz(api, material)
+    attempt_id = started.data["attempt"]["id"]
+    for question in started.data["attempt"]["questions"]:
+        answer(api, attempt_id, question["id"], "A")
+
+    other = User.objects.create_user(username="siswa-lain", password=PASSWORD)
+    api.force_authenticate(other)
+    started = start_quiz(api, material)
+    attempt_id = started.data["attempt"]["id"]
+    for question in started.data["attempt"]["questions"]:
+        answer(api, attempt_id, question["id"], "A")
+
+    # User kedua juga mendapat XP achievement yang sama.
+    assert UserProgress.objects.get(user=other).xp == 120
+    assert other.achievements.filter(achievement__code="perfect-score").exists()
+
+
+@pytest.mark.django_db
+def test_material_explorer_unlocks_after_five_materials(api, student, material):
+    api.force_authenticate(student)
+    materials = [material]
+    for index in range(2, 6):
+        materials.append(
+            Material.objects.create(
+                subject=material.subject,
+                title=f"Materi Tambahan {index}",
+                slug=f"smp-ipa-materi-tambahan-{index}",
+                content="# Materi\n\nIsi.",
+                status=Material.Status.PUBLISHED,
+            )
+        )
+
+    for item in materials:
+        response = api.post(f"/api/materials/{item.pk}/complete/")
+        assert response.status_code == 200
+
+    # 5 materi x 15 XP + material-explorer 30 XP.
+    assert UserProgress.objects.get(user=student).xp == 105
+    assert student.achievements.filter(achievement__code="material-explorer").exists()
