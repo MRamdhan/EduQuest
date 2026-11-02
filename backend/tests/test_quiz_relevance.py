@@ -54,7 +54,7 @@ def test_selector_prefers_material_relevance():
     assert not selection.notes
 
 
-def test_selector_falls_back_and_reports_when_relevant_stock_is_short():
+def test_selector_returns_fewer_questions_instead_of_padding():
     bank = [_question_dict(index) for index in range(1, 9)]
     relevance = {1: 0.90, **{index: 0.05 for index in range(2, 9)}}
 
@@ -69,10 +69,9 @@ def test_selector_falls_back_and_reports_when_relevant_stock_is_short():
         min_relevance=0.30,
     )
 
-    ids = {q["source_id"] for q in selection.questions}
-    assert 1 in ids
-    assert len(ids) == 3
-    assert any("kurang nyambung" in note for note in selection.notes)
+    assert [q["source_id"] for q in selection.questions] == [1]
+    assert selection.shortage == 2
+    assert any("Hanya 1 dari 3 soal tersedia" in note for note in selection.notes)
 
 
 def test_selector_still_works_without_relevance():
@@ -151,3 +150,98 @@ def test_start_quiz_chooses_questions_related_to_material(settings):
     assert len(selected) == 5
     assert all("fotosintesis" in text.lower() for text in selected)
     assert not any("kurang nyambung" in note for note in result["attempt"]["selection_notes"])
+
+
+@pytest.mark.django_db
+def test_topic_mapping_overrides_keyword_similarity():
+    level = EducationLevel.objects.create(code="SMP", name="SMP", order=2)
+    subject = Subject.objects.create(level=level, name="IPA", slug="ipa")
+    material = Material.objects.create(
+        subject=subject,
+        title="Tata Surya dan Bumi",
+        slug="smp-ipa-tata-surya",
+        topic="Tata Surya dan Bumi",
+        topic_code="SMP-IPA-15",
+        content="Materi tentang planet, matahari, rotasi, dan revolusi bumi.",
+        status=Material.Status.PUBLISHED,
+    )
+
+    # Teksnya sangat mirip materi, tetapi kode topiknya lain (Gerak dan Gaya).
+    for index in range(1, 6):
+        Question.objects.create(
+            source_id=f"topic-other-{index}",
+            level=level,
+            subject=subject,
+            difficulty=1,
+            topic="Gerak dan Gaya",
+            topic_code="SMP-IPA-04",
+            question_text=f"Planet dan matahari pada soal mirip materi nomor {index}?",
+            options=[{"key": "A", "text": "A"}, {"key": "B", "text": "B"}],
+            correct_option="A",
+            review_status=Question.ReviewStatus.VALIDATED,
+        )
+
+    for index in range(1, 4):
+        Question.objects.create(
+            source_id=f"topic-match-{index}",
+            level=level,
+            subject=subject,
+            difficulty=1,
+            topic="Tata Surya dan Bumi",
+            topic_code="SMP-IPA-15",
+            question_text=f"Soal tata surya nomor {index}?",
+            options=[{"key": "A", "text": "A"}, {"key": "B", "text": "B"}],
+            correct_option="A",
+            review_status=Question.ReviewStatus.VALIDATED,
+        )
+
+    user = User.objects.create_user(username="siswa-topic", password="SiswaKuat2026!")
+    result = quiz_service.start_quiz(user, material)
+
+    selected = result["attempt"]["questions"]
+    assert len(selected) == 3
+    assert all(question["question_text"].startswith("Soal tata surya") for question in selected)
+    assert any("Hanya 3 dari 5 soal tersedia" in note for note in result["attempt"]["selection_notes"])
+
+
+@pytest.mark.django_db
+def test_material_relevance_uses_topic_codes():
+    level = EducationLevel.objects.create(code="SMP", name="SMP", order=2)
+    subject = Subject.objects.create(level=level, name="IPA", slug="ipa")
+    material = Material.objects.create(
+        subject=subject,
+        title="Tata Surya",
+        slug="smp-ipa-tata-surya-2",
+        topic="Tata Surya dan Bumi",
+        topic_code="SMP-IPA-15",
+        content="Planet, matahari, rotasi, revolusi.",
+        status=Material.Status.PUBLISHED,
+    )
+
+    def make(source_id, topic_code, text):
+        return Question.objects.create(
+            source_id=source_id,
+            level=level,
+            subject=subject,
+            difficulty=1,
+            topic=topic_code,
+            topic_code=topic_code,
+            question_text=text,
+            options=[{"key": "A", "text": "A"}, {"key": "B", "text": "B"}],
+            correct_option="A",
+            review_status=Question.ReviewStatus.VALIDATED,
+        )
+
+    matching = make("rel-topic-1", "SMP-IPA-15", "Planet terdekat dari matahari?")
+    other = make("rel-topic-2", "SMP-IPA-04", "Planet dan matahari pada gerak benda?")
+    unmapped = make("rel-topic-3", "", "Planet dan matahari tanpa topik?")
+
+    relevance = quiz_service._material_relevance(
+        Question.objects.filter(subject=subject, level=level),
+        material,
+    )
+
+    assert relevance[matching.pk] >= quiz_service.TOPIC_MATCH_BOOST
+    assert relevance[other.pk] == quiz_service.TOPIC_MISMATCH_SCORE
+    # Soal tanpa kode topik tetap dinilai dengan kemiripan kata kunci.
+    assert relevance[unmapped.pk] > quiz_service.TOPIC_MISMATCH_SCORE

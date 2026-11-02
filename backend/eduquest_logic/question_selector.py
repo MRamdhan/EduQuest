@@ -62,7 +62,7 @@ def select_questions(bank: Iterable[dict], jenjang: str, mapel: str,
             cands.sort(key=lambda q: -relevance.get(q["source_id"], 0.0))
         return cands
 
-    def run(relax: bool) -> List[dict]:
+    def run(relax: bool, pad: bool = False) -> List[dict]:
         chosen: List[dict] = []
         taken = set()
         steps = list(order) + ([None] if allow_unrated else [])
@@ -87,23 +87,28 @@ def select_questions(bank: Iterable[dict], jenjang: str, mapel: str,
                         chosen.append(q)
                         taken.add(q["source_id"])
 
-        # Pass 2: lengkapi sisa kuota dari tingkat terdekat.
-        for d in steps:
-            if len(chosen) >= n:
-                break
-            for q in candidates(d):
+        # Pass 2: lengkapi sisa kuota dari tingkat terdekat. Jika ada skor
+        # materi, penambalan hanya dilakukan pada percobaan terakhir dan saat
+        # belum ada satu pun soal relevan (mis. materi baru yang soalnya belum
+        # dipetakan) agar alur kuis tidak kosong. Soal relevan yang sudah
+        # pernah dikerjakan tetap didahulukan lewat `relax`.
+        if relevance is None or (pad and not chosen):
+            for d in steps:
                 if len(chosen) >= n:
                     break
-                if q["source_id"] in taken:
-                    continue
-                chosen.append(q)
-                taken.add(q["source_id"])
+                for q in candidates(d):
+                    if len(chosen) >= n:
+                        break
+                    if q["source_id"] in taken:
+                        continue
+                    chosen.append(q)
+                    taken.add(q["source_id"])
         return chosen
 
     chosen = run(relax=False)
     relaxed = False
     if len(chosen) < n:
-        chosen = run(relax=True)
+        chosen = run(relax=True, pad=True)
         relaxed = len(chosen) > 0 and any(q["source_id"] in recent for q in chosen)
 
     notes = []
@@ -115,16 +120,6 @@ def select_questions(bank: Iterable[dict], jenjang: str, mapel: str,
         notes.append(f"Stok tingkat {target_difficulty} kurang; memakai tingkat {levels_used}.")
     if relaxed:
         notes.append("Soal yang baru dikerjakan terpaksa dipakai ulang (stok kurang).")
-    if relevance:
-        less_relevant = sum(
-            1 for q in chosen
-            if relevance.get(q["source_id"], 0) < min_relevance
-        )
-        if less_relevant:
-            notes.append(
-                f"{less_relevant} dari {len(chosen)} soal kurang nyambung dengan materi "
-                "(stok soal yang relevan terbatas)."
-            )
     if len(chosen) < n:
         notes.append(f"Hanya {len(chosen)} dari {n} soal tersedia.")
     return Selection(chosen, target_difficulty, levels_used, fallback,

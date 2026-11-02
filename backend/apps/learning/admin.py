@@ -48,9 +48,9 @@ class MaterialPrerequisiteAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ["id", "short_text", "subject", "difficulty", "review_status", "is_active"]
+    list_display = ["id", "short_text", "subject", "topic_code", "difficulty", "review_status", "is_active"]
     list_filter = ["review_status", "subject__level", "subject", "difficulty", "is_active"]
-    search_fields = ["question_text", "source_id", "topic", "hint"]
+    search_fields = ["question_text", "source_id", "topic", "topic_code", "hint"]
     readonly_fields = ["created_at", "updated_at"]
 
     @admin.display(description="Soal")
