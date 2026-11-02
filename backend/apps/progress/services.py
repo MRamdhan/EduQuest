@@ -164,6 +164,16 @@ def complete_material(user, material):
     else:
         gained = 0
 
+    completed_count = UserMaterialProgress.objects.filter(
+        user=user,
+        status=UserMaterialProgress.Status.COMPLETED,
+    ).count()
+    if completed_count >= 5:
+        award_achievement(user, "material-explorer")
+
+    # XP achievement (jika baru terbuka) menambah saldo, jadi segarkan objek.
+    progress.refresh_from_db(fields=["xp", "updated_at"])
+
     return {
         "already_completed": False,
         "xp_gained": gained,
@@ -222,7 +232,7 @@ def award_achievement(user, code: str) -> UserAchievement | None:
             achievement.xp_reward,
             reason=XPTransaction.Reason.ACHIEVEMENT,
             reference=f"achievement:{achievement.pk}",
-            idempotency_key=f"achievement:{achievement.pk}",
+            idempotency_key=f"achievement:{user.pk}:{achievement.pk}",
         )
 
     return unlocked

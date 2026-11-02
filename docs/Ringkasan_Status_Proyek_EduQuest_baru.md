@@ -56,8 +56,8 @@ Dokumen lama menyebut Flask; **framework yang berlaku adalah Django**.
 | 14 | Laporan audit dataset ditunda sampai pekerjaan dataset beres | Diputuskan |
 | 15 | Nyawa disimpan per mata pelajaran, maksimal 3, pulih 1 nyawa setiap 2 jam | Diputuskan dan diimplementasikan |
 | 16 | Kuis memberi umpan balik per soal; salah pertama −1 nyawa + satu hint, salah kedua −1 nyawa + kunci/penjelasan lalu lanjut | Diputuskan dan diimplementasikan |
-| 17 | Tingkat kuis 2/3 terbuka berdasarkan rank; rank disimpan di tabel `Rank` yang dapat diedit lewat admin; rank terendah **Ayam** | Diputuskan; nama rank di atas Ayam masih placeholder |
-| 18 | Rank diturunkan dari XP; ambang awal 0/100/300/600/1.000 XP | Diputuskan sebagai nilai awal |
+| 17 | Tingkat kuis 2/3 terbuka berdasarkan rank; rank disimpan di tabel `Rank` yang dapat diedit lewat admin; tier rank **Bronze/Silver/Gold** | Diputuskan dan diimplementasikan |
+| 18 | Rank diturunkan dari XP; ambang **0/100/300 XP** untuk Bronze/Silver/Gold | Diputuskan dan diimplementasikan |
 
 ## 4. Yang sudah dikerjakan
 
@@ -122,7 +122,10 @@ Distribusi akhir bank inti (jenjang × mapel, total | tingkat 1/2/3/kosong):
 | SMA | Sejarah | 286 | 109 / 73 / 104 / 0 |
 | SMA | Sosiologi | 286 | 108 / 53 / 125 / 0 |
 
-**Keterbatasan bank:** tidak ada topik, penjelasan jawaban, atau gambar; tidak ada Matematika dan Bahasa Inggris; kunci jawaban belum diverifikasi; SD PPKN (tingkat 3 hanya 20 soal) dan SMA Geografi (tingkat 3 hanya 39 soal) tipis.
+**Keterbatasan bank:** topik baru terpetakan untuk 1.215 soal (command
+`backfill_topics`); belum ada penjelasan jawaban atau gambar; tidak ada
+Matematika dan Bahasa Inggris; kunci jawaban belum diverifikasi; SD PPKN
+(tingkat 3 hanya 20 soal) dan SMA Geografi (tingkat 3 hanya 39 soal) tipis.
 
 ### 4.4 Modul logika inti (Python murni, tanpa Django)
 Lokasi: `EduQuest/eduquest_logic/`, tes di `EduQuest/tests/`. **39 tes lulus** (dikonfirmasi di komputer pengembang).
@@ -160,10 +163,12 @@ diisi pada tahap ini.
 |---|---|---|
 | Nyawa per mapel | `SubjectProgress` menyimpan maksimal 3 nyawa per mata pelajaran; 1 nyawa pulih tiap 2 jam; timer tidak di-reset saat kehilangan nyawa berikutnya | Selesai |
 | Alur kuis per soal | `POST /api/quizzes/<id>/answer/` menilai satu jawaban dan langsung mengembalikan hasil, hint, nyawa, dan soal berikutnya | Selesai |
+| Relevansi soal | Seleksi memprioritaskan `topic_code` materi; soal bertopik lain diberi skor negatif; kuis boleh berisi kurang dari 5 soal daripada ditambal soal di luar topik | Selesai |
 | Salah pertama | Nyawa mapel −1, soal tidak maju, satu hint dari `Question.hint` → AI Tutor → aturan materi | Selesai |
 | Salah kedua | Nyawa mapel −1, kunci dan penjelasan dibuka, lalu sesi lanjut ke soal berikutnya | Selesai |
 | Nyawa habis | Sesi langsung selesai; soal tersisa dihitung tidak dijawab; kuis baru pada mapel tersebut ditolak sampai nyawa pulih | Selesai |
-| Rank | Tabel `Rank` (nama, urutan, `min_xp`, `unlocked_difficulty`, ikon, deskripsi, aktif) tersedia di admin; rank terendah Ayam | Selesai; nama rank di atas Ayam placeholder |
+| Rank | Tabel `Rank` (nama, urutan, `min_xp`, `unlocked_difficulty`, ikon, deskripsi, aktif) tersedia di admin; tier Bronze/Silver/Gold (0/100/300 XP) | Selesai |
+| Achievement | `Achievement` + `UserAchievement`; `first-quiz` 20 XP, `perfect-score` 50 XP, `material-explorer` 30 XP; terbuka otomatis dan XP sekali per pengguna | Selesai |
 | Rank gate | Tingkat 1/2/3 hanya dapat dimulai jika `unlocked_difficulty` rank mencukupi; pelanggaran menghasilkan 403 `level_locked` | Selesai |
 | XP | +10 per jawaban benar (idempoten per `QuizQuestion`), +15 per materi selesai (sekali per materi) | Selesai |
 | Progres | `GET /api/progress/` mengembalikan XP, level, rank, rank berikutnya, XP menuju rank berikutnya, dan nyawa semua mapel | Selesai |
@@ -177,9 +182,10 @@ diisi pada tahap ini.
   ringkasan lama tetap benar.
 - Provider AI belum dikonfigurasi, sehingga hint saat ini memakai
   fallback aturan; jalur AI sudah tersedia di kode.
-- Soal bank belum dipetakan ke topik materi, jadi sebuah materi masih
-  dapat menerima soal yang tidak sepenuhnya cocok. Ini pekerjaan
-  pemetaan berikutnya.
+- Soal bank sudah dipetakan sebagian ke topik (1.215 soal lewat command
+  `backfill_topics`). Seleksi memprioritaskan `topic_code` materi, memberi
+  skor negatif untuk soal bertopik lain, dan tidak menambal kuota dengan soal
+  ngawur. Soal yang belum dipetakan masih memakai kemiripan kata kunci.
 - `POST /api/quizzes/<id>/submit/` sudah tidak dipakai; gunakan endpoint
   `answer/`.
 
@@ -201,7 +207,7 @@ diisi pada tahap ini.
 4. **Tinjau 14 soal bermasalah**/tidak yakin dan **cek teks 7 soal terpotong**.
 5. **Bagikan keputusan produk ke desainer** agar layar kuis, nyawa, dan hasil sesi sesuai.
 6. **Finalisasi ERD dan model Django** (implementasi awal sudah ada; jadwal proposal: 25 Okt–1 Nov) dan dokumentasikan relasi `Rank`/`SubjectProgress`.
-7. **Finalisasi nama rank di atas Ayam** dan teruskan aturan nyawa
+7. **Teruskan aturan rank (Bronze/Silver/Gold) dan nyawa**
    per mapel (maksimal 3, pulih 1 tiap 2 jam) ke desainer; saat nyawa 0
    siswa tetap bisa membaca materi dan memakai Tutor.
 
@@ -236,7 +242,7 @@ Papan "EduQuest": To Do (6), Doing (3), Done (1).
 
 ## 8. Keputusan yang masih terbuka
 
-1. Nama final rank di atas **Ayam**; nama saat ini placeholder dan dapat diubah di admin. Perilaku saat nyawa 0 sudah ditetapkan: sesi berhenti, materi/Tutor tetap dapat diakses.
+1. Apakah tier rank perlu ditambah di atas **Gold** (mis. Platinum); tiga tier saat ini sudah final. Perilaku saat nyawa 0 sudah ditetapkan: sesi berhenti, materi/Tutor tetap dapat diakses.
 2. Apakah XP perlu dibedakan menurut tingkat soal; implementasi saat ini memberi +10 XP per jawaban benar tanpa membedakan tingkat.
 3. `min_attempts` 5 (keputusan tiap sesi, lebih berisik) atau 10 (tiap dua sesi).
 4. Jawaban kosong: tetap netral (asumsi saat ini) atau dihitung salah.

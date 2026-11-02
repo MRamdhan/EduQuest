@@ -39,6 +39,7 @@ from apps.learning.models import (
 )
 from apps.progress.constants import MAX_LIVES
 from apps.progress.services import (
+    award_achievement,
     award_xp,
     current_difficulty,
     get_or_create_progress,
@@ -172,17 +173,27 @@ def _material_text(material) -> str:
     )
 
 
+TOPIC_MATCH_BOOST = 1.0
+TOPIC_MISMATCH_SCORE = -1.0
+# Pemetaan topik otomatis ada yang lemah (mis. satu kata kunci kebetulan sama),
+# jadi soal bertopik sama tetap harus punya sedikit kemiripan dengan materi.
+TOPIC_KEYWORD_MIN = 0.20
+
+
 def _material_relevance(pool, material) -> dict[int, float]:
     """Skor kecocokan tiap soal dengan materi (0..1) memakai IDF bank soal.
 
-    Soal yang ternyata lebih cocok dengan materi lain pada mapel yang sama
-    diberi skor negatif, agar tidak muncul di kuis materi ini.
+    Soal yang punya kode topik berbeda dengan materi diberi skor negatif agar
+    tidak muncul di kuis materi ini. Soal tanpa kode topik (belum dipetakan)
+    tetap dinilai dari kemiripan kata kunci. Soal yang ternyata lebih cocok
+    dengan materi lain pada mapel yang sama juga diberi skor negatif.
     """
     questions = list(pool)
     documents = [_question_document(question) for question in questions]
     document_terms = [keywords(document) for document in documents]
     idf = build_idf_from_terms(document_terms)
     own_terms = set(keywords(_material_text(material)))
+    material_topic = (material.topic_code or "").strip().lower()
 
     siblings = list(
         Material.objects.filter(
@@ -195,6 +206,17 @@ def _material_relevance(pool, material) -> dict[int, float]:
     relevance: dict[int, float] = {}
     for question, terms in zip(questions, document_terms):
         own = score_terms(terms, own_terms, idf)
+        question_topic = (question.topic_code or "").strip().lower()
+
+        if material_topic and question_topic:
+            if question_topic == material_topic:
+                relevance[question.pk] = (
+                    TOPIC_MATCH_BOOST + own if own >= TOPIC_KEYWORD_MIN else own
+                )
+            else:
+                relevance[question.pk] = TOPIC_MISMATCH_SCORE
+            continue
+
         best_other = max(
             (score_terms(terms, terms_other, idf) for terms_other in sibling_terms),
             default=0.0,
@@ -458,6 +480,16 @@ def _finalize_attempt(user, attempt: QuizAttempt, *, ended_early: bool) -> dict:
         max_level=unlocked,
     )
     record_adaptation(user, attempt.material, attempt, decision)
+
+    xp_before = get_or_create_progress(user).xp
+    award_achievement(user, "first-quiz")
+    if total and correct == total:
+        award_achievement(user, "perfect-score")
+    bonus_xp = max(0, get_or_create_progress(user).xp - xp_before)
+    if bonus_xp:
+        attempt.xp_gained += bonus_xp
+        attempt.save(update_fields=["xp_gained"])
+
     return _summary_payload(user, attempt)
 
 
