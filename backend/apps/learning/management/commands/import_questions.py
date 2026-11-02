@@ -99,6 +99,7 @@ class Command(BaseCommand):
                     "kelas": item.get("kelas") if isinstance(item.get("kelas"), int) else None,
                     "mapel_asli": str(item.get("mapel_asli", ""))[:80],
                     "topic": str(item.get("topic") or "")[:160],
+                    "topic_code": str(item.get("topic_id") or item.get("topic_code") or "")[:40],
                     "concept_tags": item.get("concept_tags") or [],
                     "difficulty": difficulty,
                     "difficulty_source": str(item.get("difficulty_source", ""))[:80],

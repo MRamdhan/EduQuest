@@ -145,6 +145,7 @@ class Question(models.Model):
     kelas = models.PositiveSmallIntegerField(null=True, blank=True)
     mapel_asli = models.CharField(max_length=80, blank=True)
     topic = models.CharField(max_length=160, blank=True)
+    topic_code = models.CharField(max_length=40, blank=True, db_index=True)
     concept_tags = models.JSONField(default=list, blank=True)
 
     difficulty = models.PositiveSmallIntegerField(
