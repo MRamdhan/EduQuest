@@ -373,11 +373,16 @@ Aturan yang berlaku pada implementasi backend saat ini:
   100 XP total, level 3 = 300 XP, level 4 = 600 XP, level 5 = 1.000 XP.
 - **Rank:** diturunkan dari XP melalui tabel `Rank` yang dapat diubah di
   Django Admin (`name`, `order`, `min_xp`, `unlocked_difficulty`, `icon`,
-  `description`, `is_active`). Rank terendah adalah **Ayam** (0 XP).
-  Nama rank di atas Ayam masih placeholder dan belum final.
-- **Buka tingkat kuis:** tingkat 1 (Dasar) terbuka pada rank awal;
-  tingkat 2 (Menengah) terbuka saat rank dengan `unlocked_difficulty=2`;
-  tingkat 3 (Lanjut) terbuka saat rank dengan `unlocked_difficulty=3`.
+  `description`, `is_active`). Tiga tier rank: **Bronze** (0 XP),
+  **Silver** (100 XP), **Gold** (300 XP).
+- **Buka tingkat kuis:** tingkat 1 (Dasar) terbuka pada rank Bronze;
+  tingkat 2 (Menengah) terbuka pada rank Silver (`unlocked_difficulty=2`);
+  tingkat 3 (Lanjut) terbuka pada rank Gold (`unlocked_difficulty=3`).
+- **Achievement:** tabel `Achievement` + `UserAchievement`, berisi
+  `first-quiz` (Langkah Pertama, 20 XP), `perfect-score` (Sempurna, 50 XP),
+  dan `material-explorer` (Penjelajah Materi, 30 XP). Achievement terbuka
+  otomatis saat syaratnya terpenuhi dan XP-nya hanya diberikan sekali per
+  pengguna.
 - **Nyawa:** maksimal 3 per mata pelajaran. Jawaban salah pertama dan
   kedua masing-masing mengurangi 1 nyawa mapel tersebut.
 - **Regenerasi:** 1 nyawa pulih setiap 2 jam per mapel, dihitung malas
@@ -405,7 +410,9 @@ diubah tanpa menyalin logika di banyak tempat.
 5.  Membaca materi dan prasyarat yang relevan.
 6.  Memulai latihan; sistem menampilkan tingkat yang terbuka sesuai rank.
 7.  Sistem memilih soal dari bank atau hasil generator yang telah
-    divalidasi.
+    divalidasi. Soal diprioritaskan berdasarkan `topic_code` materi; soal
+    bertopik lain tidak dipakai, dan sesi boleh berisi lebih sedikit dari 5
+    soal jika stok topik tersebut terbatas.
 8.  Pengguna menjawab satu soal; backend langsung menilai.
 9.  Jika salah pertama: nyawa mapel −1, tampilkan satu hint, soal yang
     sama tetap aktif.
@@ -683,18 +690,16 @@ Keputusan gamifikasi utama (XP, ambang level, rank, nyawa per mapel, dan
 regenerasi 2 jam) sudah diterapkan seperti pada §8. Tim masih perlu
 memutuskan dan mencatat:
 
-1. Nama final rank di atas **Ayam**; nama saat ini placeholder dan dapat
-   diubah di Django Admin.
-2. Jumlah soal per sesi dan jumlah percobaan (implementasi saat ini: 5
+1. Jumlah soal per sesi dan jumlah percobaan (implementasi saat ini: 5
    soal per sesi, maksimal 2 jawaban per soal sebelum kunci dibuka).
-3. Format soal awal (implementasi saat ini: pilihan ganda).
-4. Provider AI dan anggaran pemakaian.
-5. Apakah generator AI masuk MVP atau menjadi fase berikutnya.
-6. Siapa yang meninjau materi dan bank soal.
-7. Sumber kurikulum dan kebijakan lisensi.
-8. Retensi data percakapan AI.
-9. Target performa terukur.
-10. Kriteria kapan ML boleh diuji dan/atau digunakan.
+2. Format soal awal (implementasi saat ini: pilihan ganda).
+3. Provider AI dan anggaran pemakaian.
+4. Apakah generator AI masuk MVP atau menjadi fase berikutnya.
+5. Siapa yang meninjau materi dan bank soal.
+6. Sumber kurikulum dan kebijakan lisensi.
+7. Retensi data percakapan AI.
+8. Target performa terukur.
+9. Kriteria kapan ML boleh diuji dan/atau digunakan.
 
 ## 19. Referensi dan dokumen terkait
 
