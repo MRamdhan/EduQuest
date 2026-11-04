@@ -4,6 +4,7 @@
 **Mata Pelajaran:** Biologi  
 **ID Topik:** SMA-BIO-03  
 **Fase:** E (Kelas 10)  
+**Kelas:** 10  
 **Referensi:** Buku Biologi SMA Kelas X Kurikulum Merdeka (Kemdikbudristek) — Bab Mikroorganisme *(lisensi terbuka BSE, perlu verifikasi)*
 
 ---

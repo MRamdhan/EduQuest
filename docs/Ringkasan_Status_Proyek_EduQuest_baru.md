@@ -16,7 +16,7 @@
 
 ## 1. Gambaran proyek
 
-EduQuest adalah website pembelajaran interaktif untuk siswa SD, SMP, dan SMA/SMK. Siswa memilih jenjang dan mata pelajaran, membaca materi, lalu menguji pemahaman lewat kuis dengan sistem XP, level, rank, dan nyawa per mata pelajaran. Tingkat kesulitan latihan menyesuaikan hasil siswa dan dibatasi rank. AI Tutor direncanakan membantu menjelaskan materi dan memberi petunjuk.
+EduQuest adalah website pembelajaran interaktif untuk siswa SD, SMP, dan SMA/SMK. Siswa memilih jenjang, kelas, dan mata pelajaran, membaca materi, lalu menguji pemahaman lewat kuis dengan sistem XP, level, rank, dan nyawa per mata pelajaran. Tingkat kesulitan latihan menyesuaikan hasil siswa dan dibatasi rank. AI Tutor membantu menjelaskan materi dan memberi petunjuk.
 
 Prinsip yang tidak berubah:
 - Penilaian, XP, level, rank, dan nyawa per mata pelajaran dihitung di backend; kunci jawaban tidak dikirim ke browser sebelum soal diselesaikan.
@@ -45,19 +45,20 @@ Dokumen lama menyebut Flask; **framework yang berlaku adalah Django**.
 | 3 | Ambang adaptasi: minimum 5 percobaan, jendela 10, naik jika akurasi ≥ 80%, turun jika < 50% | Diputuskan sebagai nilai awal (diuji kemudian) |
 | 4 | 10 XP per jawaban benar; 15 XP selesai materi (sekali per materi) | Diputuskan dan diimplementasikan |
 | 5 | Ambang level: XP dari level L ke L+1 = 100 × L (level 2 = 100 XP total, level 3 = 300, level 4 = 600, level 5 = 1.000) | Diputuskan dan diimplementasikan |
-| 6 | Nyawa maksimal 3 per mata pelajaran; jawaban salah −1; pulih 1 nyawa tiap 2 jam | Diputuskan dan diimplementasikan |
+| 6 | Nyawa maksimal 3 per mata pelajaran; jawaban salah −1; pulih 1 nyawa tiap 1 jam | Diputuskan dan diimplementasikan |
 | 7 | AI Tutor di MVP; generator soal AI di fase berikutnya | Diputuskan |
-| 8 | Layanan AI: memakai model/API yang sudah ada (tier gratis), bukan melatih model sendiri | Arah diputuskan; penyedia belum final |
+| 8 | Layanan AI: Google AI Studio free tier (Gemini, endpoint kompatibel OpenAI); provider lain tetap didukung lewat `AI_PROVIDER` | Diputuskan dan diimplementasikan |
 | 9 | Peninjauan soal dan materi: tim membagi per mata pelajaran | Diputuskan; penanggung jawab per mapel belum ditulis |
 | 10 | Jalur PTN masuk fase berikutnya (bukan bank inti demo) | Diputuskan |
 | 11 | Konten memakai kurikulum Indonesia | Diputuskan |
 | 12 | Bank inti demo: SD sampai SMA, dari IndoMMLU, status `imported`/`validated` | Diputuskan |
 | 13 | Database dan model Django ditunda sampai struktur data final | Sudah diimplementasikan: SQLite + Django ORM |
 | 14 | Laporan audit dataset ditunda sampai pekerjaan dataset beres | Diputuskan |
-| 15 | Nyawa disimpan per mata pelajaran, maksimal 3, pulih 1 nyawa setiap 2 jam | Diputuskan dan diimplementasikan |
-| 16 | Kuis memberi umpan balik per soal; salah pertama −1 nyawa + satu hint, salah kedua −1 nyawa + kunci/penjelasan lalu lanjut | Diputuskan dan diimplementasikan |
+| 15 | Nyawa disimpan per mata pelajaran, maksimal 3, pulih 1 nyawa setiap 1 jam | Diputuskan dan diimplementasikan |
+| 16 | Kuis tidak lanjut sampai jawaban benar; salah −1 nyawa tanpa hint; hint + pembahasan muncul saat nyawa habis atau semua soal selesai | Diputuskan dan diimplementasikan |
 | 17 | Tingkat kuis 2/3 terbuka berdasarkan rank; rank disimpan di tabel `Rank` yang dapat diedit lewat admin; tier rank **Bronze/Silver/Gold** | Diputuskan dan diimplementasikan |
 | 18 | Rank diturunkan dari XP; ambang **0/100/300 XP** untuk Bronze/Silver/Gold | Diputuskan dan diimplementasikan |
+| 19 | Siswa memilih kelas sesuai jenjang (SD 1-6, SMP 7-9, SMA/SMK 10-12); materi dapat difilter per kelas | Diputuskan dan diimplementasikan |
 
 ## 4. Yang sudah dikerjakan
 
@@ -154,38 +155,43 @@ Pemetaan kesulitan sementara (kelas → tingkat): SD 1–2 → 1, 3–4 → 2, 5
 | `build_core_bank.py` | `dataset/` | Bangun bank inti → `indommlu/core/bank_inti.jsonl`, `excluded.csv`, `summary.txt` |
 | `adaptive_engine.py`, `question_selector.py`, `scoring.py`, `gamification.py` | `eduquest_logic/` | Modul logika inti |
 
-### 4.6 Implementasi backend Django (pembaruan 22 Oktober 2026)
+### 4.6 Implementasi backend Django (pembaruan 4 November 2026)
 
 Backend Django sudah menerapkan alur bermain baru. Frontend sengaja belum
 diisi pada tahap ini.
 
 | Area | Hasil | Status |
 |---|---|---|
-| Nyawa per mapel | `SubjectProgress` menyimpan maksimal 3 nyawa per mata pelajaran; 1 nyawa pulih tiap 2 jam; timer tidak di-reset saat kehilangan nyawa berikutnya | Selesai |
-| Alur kuis per soal | `POST /api/quizzes/<id>/answer/` menilai satu jawaban dan langsung mengembalikan hasil, hint, nyawa, dan soal berikutnya | Selesai |
-| Relevansi soal | Seleksi memprioritaskan `topic_code` materi; soal bertopik lain diberi skor negatif; kuis boleh berisi kurang dari 5 soal daripada ditambal soal di luar topik | Selesai |
-| Salah pertama | Nyawa mapel −1, soal tidak maju, satu hint dari `Question.hint` → AI Tutor → aturan materi | Selesai |
-| Salah kedua | Nyawa mapel −1, kunci dan penjelasan dibuka, lalu sesi lanjut ke soal berikutnya | Selesai |
-| Nyawa habis | Sesi langsung selesai; soal tersisa dihitung tidak dijawab; kuis baru pada mapel tersebut ditolak sampai nyawa pulih | Selesai |
+| Nyawa per mapel | `SubjectProgress` menyimpan maksimal 3 nyawa per mata pelajaran; 1 nyawa pulih tiap 1 jam; timer tidak di-reset saat kehilangan nyawa berikutnya | Selesai |
+| Alur kuis per soal | `POST /api/quizzes/<id>/answer/` menilai satu jawaban dan mengembalikan hasil, nyawa, soal berikutnya, serta ringkasan saat sesi selesai | Selesai |
+| Relevansi soal | Seleksi memprioritaskan `topic_code` dan `kelas` materi; soal bertopik lain diberi skor negatif; kuis boleh berisi kurang dari 5 soal daripada ditambal soal di luar topik | Selesai |
+| Salah | Nyawa mapel −1, soal yang sama tetap aktif, tanpa hint; siswa mencoba lagi sampai benar | Selesai |
+| Hint & pembahasan | Baru muncul saat nyawa habis atau semua soal selesai. Hint mencakup semua soal yang pernah dijawab salah, termasuk yang akhirnya benar. Penjelasan kosong memakai fallback `Jawaban benar: A. <teks opsi>` | Selesai |
+| Nyawa habis | Sesi langsung selesai; soal yang pernah dicoba tetapi belum benar dihitung salah, soal yang belum pernah dicoba dihitung tidak dijawab; kuis baru pada mapel tersebut ditolak sampai nyawa pulih | Selesai |
+| Kelas siswa | `StudentProfile.kelas` (1-12) divalidasi terhadap jenjang; registrasi dan `PATCH /api/auth/me/` menerima `kelas`; `GET /api/levels/` mengembalikan `kelas_options` | Selesai |
+| Filter materi kelas | `Material.kelas`; `GET /api/materials/?level=SMP&kelas=8` memfilter dashboard. Import Markdown membaca metadata `**Kelas:**` | Selesai |
 | Rank | Tabel `Rank` (nama, urutan, `min_xp`, `unlocked_difficulty`, ikon, deskripsi, aktif) tersedia di admin; tier Bronze/Silver/Gold (0/100/300 XP) | Selesai |
 | Achievement | `Achievement` + `UserAchievement`; `first-quiz` 20 XP, `perfect-score` 50 XP, `material-explorer` 30 XP; terbuka otomatis dan XP sekali per pengguna | Selesai |
 | Rank gate | Tingkat 1/2/3 hanya dapat dimulai jika `unlocked_difficulty` rank mencukupi; pelanggaran menghasilkan 403 `level_locked` | Selesai |
 | XP | +10 per jawaban benar (idempoten per `QuizQuestion`), +15 per materi selesai (sekali per materi) | Selesai |
 | Progres | `GET /api/progress/` mengembalikan XP, level, rank, rank berikutnya, XP menuju rank berikutnya, dan nyawa semua mapel | Selesai |
-| Daftar rank | `GET /api/ranks/` | Selesai |
-| Migrasi | `learning.0002`, `learning.0003` (backfill soal lama), `progress.0002`, `progress.0003` (seed rank) | Selesai |
-| CLI | `quiz_cli` mengikuti alur hint/nyawa baru; `materials_cli` menampilkan rank | Selesai |
-| Pengujian | 55 tes API/logika lulus; `manage.py check` bersih; migrasi diterapkan | Selesai |
+| AI Tutor | Adapter `AI_PROVIDER=gemini` memakai Google AI Studio free tier (`gemini-3.5-flash-lite`) lewat endpoint kompatibel OpenAI; fallback aturan tetap tersedia | Selesai |
+| Migrasi | `learning.0002`–`learning.0005`, `accounts.0002`, `progress.0002`, `progress.0003` | Selesai |
+| CLI | `quiz_cli` mengikuti alur coba-sampai-benar dan hint saat nyawa habis; `quiz_cli`/`materials_cli` menampilkan kelas | Selesai |
+| Pengujian | 94 tes API/logika/provider lulus; `manage.py check` bersih; migrasi diterapkan | Selesai |
 
 **Catatan implementasi:**
 - Percobaan kuis lama sudah di-backfill menjadi soal terselesaikan agar
   ringkasan lama tetap benar.
-- Provider AI belum dikonfigurasi, sehingga hint saat ini memakai
-  fallback aturan; jalur AI sudah tersedia di kode.
+- Provider AI perlu diisi `AI_PROVIDER=gemini` dan `AI_API_KEY` dari Google AI
+  Studio; tanpa kunci, hint dan Tutor memakai fallback aturan.
 - Soal bank sudah dipetakan sebagian ke topik (1.215 soal lewat command
   `backfill_topics`). Seleksi memprioritaskan `topic_code` materi, memberi
   skor negatif untuk soal bertopik lain, dan tidak menambal kuota dengan soal
   ngawur. Soal yang belum dipetakan masih memakai kemiripan kata kunci.
+- Materi yang sudah ada mencakup SD kelas 4, SMP kelas 7/8, serta SMA kelas
+  10 dan 11 (termasuk contoh materi SMA kelas 11 `SMA-BIO-09`). Kelas lain
+  masih kosong sampai konten ditambahkan.
 - `POST /api/quizzes/<id>/submit/` sudah tidak dipakai; gunakan endpoint
   `answer/`.
 
@@ -208,7 +214,7 @@ diisi pada tahap ini.
 5. **Bagikan keputusan produk ke desainer** agar layar kuis, nyawa, dan hasil sesi sesuai.
 6. **Finalisasi ERD dan model Django** (implementasi awal sudah ada; jadwal proposal: 25 Okt–1 Nov) dan dokumentasikan relasi `Rank`/`SubjectProgress`.
 7. **Teruskan aturan rank (Bronze/Silver/Gold) dan nyawa**
-   per mapel (maksimal 3, pulih 1 tiap 2 jam) ke desainer; saat nyawa 0
+   per mapel (maksimal 3, pulih 1 tiap 1 jam) ke desainer; saat nyawa 0
    siswa tetap bisa membaca materi dan memakai Tutor.
 
 ### 6.2 Fase pengembangan (mengikuti jadwal proposal)

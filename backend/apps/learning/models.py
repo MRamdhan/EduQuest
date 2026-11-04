@@ -7,6 +7,7 @@ from django.utils.text import slugify
 
 import markdown
 
+from apps.learning.constants import is_valid_kelas
 from eduquest_logic.question_selector import ALLOWED_STATUS
 
 
@@ -60,6 +61,13 @@ class Material(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.PROTECT, related_name="materials")
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=220, unique=True)
+    kelas = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        db_index=True,
+        verbose_name="Kelas",
+        help_text="Kelas 1-12 sesuai jenjang. Kosong berarti belum diklasifikasi.",
+    )
     topic = models.CharField(max_length=160, blank=True)
     topic_code = models.CharField(max_length=40, blank=True, db_index=True)
     summary = models.TextField(blank=True)
@@ -90,6 +98,29 @@ class Material(models.Model):
     @property
     def level(self) -> EducationLevel:
         return self.subject.level
+
+    @property
+    def kelas_label(self) -> str:
+        return f"Kelas {self.kelas}" if self.kelas else ""
+
+    def clean(self):
+        super().clean()
+        if self.kelas is None:
+            return
+        if not 1 <= self.kelas <= 12:
+            raise ValidationError({"kelas": "Kelas harus berada di antara 1 dan 12."})
+        if self.subject_id and not is_valid_kelas(
+            self.subject.level.code,
+            self.kelas,
+        ):
+            raise ValidationError(
+                {
+                    "kelas": (
+                        f"Kelas {self.kelas} tidak sesuai untuk jenjang "
+                        f"{self.subject.level.name}."
+                    )
+                }
+            )
 
     @property
     def content_html(self) -> str:
@@ -200,6 +231,18 @@ class Question(models.Model):
             raise ValidationError({"options": "Kunci opsi tidak boleh duplikat."})
         if self.correct_option.strip().upper() not in keys:
             raise ValidationError({"correct_option": "Kunci jawaban harus salah satu opsi."})
+        if self.kelas is not None:
+            if not 1 <= self.kelas <= 12:
+                raise ValidationError({"kelas": "Kelas harus berada di antara 1 dan 12."})
+            if self.level_id and not is_valid_kelas(self.level.code, self.kelas):
+                raise ValidationError(
+                    {
+                        "kelas": (
+                            f"Kelas {self.kelas} tidak sesuai untuk jenjang "
+                            f"{self.level.name}."
+                        )
+                    }
+                )
 
     def selection_dict(self) -> dict:
         """Format yang dipakai modul logika murni (eduquest_logic)."""

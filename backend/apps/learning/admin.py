@@ -34,8 +34,8 @@ class SubjectAdmin(admin.ModelAdmin):
 
 @admin.register(Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = ["title", "subject", "topic_code", "status", "order", "updated_at"]
-    list_filter = ["status", "subject__level", "subject"]
+    list_display = ["title", "subject", "kelas", "topic_code", "status", "order", "updated_at"]
+    list_filter = ["status", "subject__level", "subject", "kelas"]
     search_fields = ["title", "topic", "topic_code", "content"]
     prepopulated_fields = {"slug": ("title",)}
     inlines = [MaterialPrerequisiteInline]
@@ -48,8 +48,17 @@ class MaterialPrerequisiteAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ["id", "short_text", "subject", "topic_code", "difficulty", "review_status", "is_active"]
-    list_filter = ["review_status", "subject__level", "subject", "difficulty", "is_active"]
+    list_display = [
+        "id",
+        "short_text",
+        "subject",
+        "kelas",
+        "topic_code",
+        "difficulty",
+        "review_status",
+        "is_active",
+    ]
+    list_filter = ["review_status", "subject__level", "subject", "kelas", "difficulty", "is_active"]
     search_fields = ["question_text", "source_id", "topic", "topic_code", "hint"]
     readonly_fields = ["created_at", "updated_at"]
 

@@ -3,6 +3,7 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 
 from apps.accounts.models import StudentProfile
+from apps.learning.constants import is_valid_kelas, kelas_options
 from apps.learning.models import EducationLevel
 
 User = get_user_model()
@@ -54,6 +55,13 @@ class UserSerializer(serializers.ModelSerializer):
         required=False,
         allow_null=True,
     )
+    kelas = serializers.IntegerField(
+        source="student_profile.kelas",
+        required=False,
+        allow_null=True,
+        min_value=1,
+        max_value=12,
+    )
 
     class Meta:
         model = User
@@ -64,17 +72,60 @@ class UserSerializer(serializers.ModelSerializer):
             "first_name",
             "date_joined",
             "education_level",
+            "kelas",
         ]
         read_only_fields = ["id", "username", "date_joined"]
+
+    def validate(self, attrs):
+        profile_data = attrs.get("student_profile", {})
+        profile = getattr(self.instance, "student_profile", None)
+        current_level = profile.education_level if profile else None
+        current_kelas = profile.kelas if profile else None
+
+        level_supplied = "education_level" in profile_data
+        kelas_supplied = "kelas" in profile_data
+        level = profile_data.get("education_level", current_level)
+        kelas = profile_data.get("kelas", current_kelas)
+
+        if level is None:
+            if kelas_supplied and kelas is not None:
+                raise serializers.ValidationError(
+                    {"kelas": "Pilih jenjang sebelum memilih kelas."}
+                )
+            # Menghapus jenjang otomatis menghapus kelas agar tidak tersisa
+            # kombinasi yang tidak valid.
+            if level_supplied:
+                profile_data["kelas"] = None
+                attrs["student_profile"] = profile_data
+            return attrs
+
+        if kelas is not None and not is_valid_kelas(level.code, kelas):
+            raise serializers.ValidationError(
+                {
+                    "kelas": (
+                        f"Kelas {kelas} tidak sesuai untuk jenjang {level.name}. "
+                        f"Pilihan yang tersedia: "
+                        f"{', '.join(str(item) for item in kelas_options(level.code))}."
+                    )
+                }
+            )
+        return attrs
 
     def update(self, instance, validated_data):
         profile_data = validated_data.pop("student_profile", None)
         user = super().update(instance, validated_data)
 
-        if profile_data and "education_level" in profile_data:
+        if profile_data:
             profile, _ = StudentProfile.objects.get_or_create(user=user)
-            profile.education_level = profile_data["education_level"]
-            profile.save(update_fields=["education_level", "updated_at"])
+            changed = []
+            if "education_level" in profile_data:
+                profile.education_level = profile_data["education_level"]
+                changed.append("education_level")
+            if "kelas" in profile_data:
+                profile.kelas = profile_data["kelas"]
+                changed.append("kelas")
+            if changed:
+                profile.save(update_fields=[*changed, "updated_at"])
             # Segarkan cache one-to-one supaya respons PATCH langsung benar.
             user.student_profile = profile
         return user
@@ -87,6 +138,11 @@ class RegisterSerializer(serializers.Serializer):
     education_level = EducationLevelChoiceField(
         error_messages={"required": "Jenjang wajib dipilih."}
     )
+    kelas = serializers.IntegerField(
+        min_value=1,
+        max_value=12,
+        error_messages={"required": "Kelas wajib dipilih."},
+    )
     password = serializers.CharField(write_only=True, trim_whitespace=False)
     password_confirm = serializers.CharField(write_only=True, trim_whitespace=False)
 
@@ -98,6 +154,18 @@ class RegisterSerializer(serializers.Serializer):
     def validate(self, attrs):
         if attrs["password"] != attrs["password_confirm"]:
             raise serializers.ValidationError({"password_confirm": "Konfirmasi kata sandi tidak sama."})
+        level = attrs.get("education_level")
+        kelas = attrs.get("kelas")
+        if level is not None and kelas is not None and not is_valid_kelas(level.code, kelas):
+            raise serializers.ValidationError(
+                {
+                    "kelas": (
+                        f"Kelas {kelas} tidak sesuai untuk jenjang {level.name}. "
+                        f"Pilihan yang tersedia: "
+                        f"{', '.join(str(item) for item in kelas_options(level.code))}."
+                    )
+                }
+            )
         # Validator Django memakai atribut user sementara agar mirip username.
         candidate = User(username=attrs.get("username", ""), email=attrs.get("email", ""))
         validate_password(attrs["password"], user=candidate)
@@ -107,12 +175,14 @@ class RegisterSerializer(serializers.Serializer):
         validated_data.pop("password_confirm")
         password = validated_data.pop("password")
         education_level = validated_data.pop("education_level")
+        kelas = validated_data.pop("kelas")
         user = User.objects.create_user(password=password, **validated_data)
 
-        # Profil sudah dibuat oleh signal; isi jenjang yang dipilih saat daftar.
+        # Profil sudah dibuat oleh signal; isi jenjang dan kelas saat daftar.
         profile, _ = StudentProfile.objects.get_or_create(user=user)
         profile.education_level = education_level
-        profile.save(update_fields=["education_level", "updated_at"])
+        profile.kelas = kelas
+        profile.save(update_fields=["education_level", "kelas", "updated_at"])
         # Segarkan cache one-to-one agar respons registrasi memuat jenjang.
         user.student_profile = profile
 

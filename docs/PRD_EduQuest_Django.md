@@ -28,14 +28,14 @@ produk; status implementasi terbaru dirujuk ke `Ringkasan_Status_Proyek_EduQuest
 ## 2. Ringkasan produk
 
 EduQuest adalah website pembelajaran interaktif untuk siswa SD, SMP,
-SMA/SMK. Pengguna memilih jenjang, mata pelajaran, dan materi;
+SMA/SMK. Pengguna memilih jenjang, kelas, mata pelajaran, dan materi;
 mempelajari konten; lalu menguji pemahaman melalui kuis atau permainan
 edukatif. Sistem menampilkan hasil, progres, XP, level, rank, dan nyawa
-per mata pelajaran. Kuis memberi umpan balik langsung per soal; jawaban
-salah pertama memunculkan satu hint, sedangkan jawaban salah kedua
-membuka kunci dan penjelasan sebelum lanjut. AI direncanakan mendukung
-penjelasan belajar, pembuatan soal, hint kuis, serta rekomendasi latihan
-adaptif.
+per mata pelajaran. Kuis memberi umpan balik langsung per soal: jawaban
+salah mengurangi satu nyawa dan soal yang sama harus dijawab lagi sampai
+benar; hint dan penjelasan baru muncul saat nyawa habis atau seluruh soal
+selesai. AI mendukung penjelasan belajar, pembuatan soal, hint kuis, serta
+rekomendasi latihan adaptif.
 
 ### 2.1 Masalah yang ingin diselesaikan
 
@@ -104,7 +104,11 @@ harus mengikuti keputusan produk yang terdokumentasi.
   UI/UX               Figma
   Pengelolaan kerja   Trello
   Dokumentasi         Markdown/Google Drive
-  AI                  Provider/model tersedia, belum ditentukan
+  AI                  Google AI Studio free tier
+                      (Gemini, endpoint kompatibel
+                      OpenAI) atau provider lain
+                      yang kompatibel; fallback
+                      non-AI selalu tersedia
   Model ML kustom     Tidak diperlukan untuk MVP
 
 ### 4.1 Prinsip arsitektur
@@ -177,14 +181,18 @@ dan AI Tutor tidak boleh menghambat alur belajar dasar.
   ID                Fitur             Persyaratan            Prioritas
   ----------------- ----------------- ---------------------- -----------------
   FR-01             Pemilihan jenjang Pengguna dapat memilih Must
-                                      SD, SMP, SMA/SMK       
+                    dan kelas         SD, SMP, SMA/SMK dan
+                                      kelas yang sesuai
+                                      (SD 1-6, SMP 7-9,
+                                      SMA/SMK 10-12)
 
   FR-02             Katalog pelajaran Pelajaran ditampilkan  Must
-                                      berdasarkan jenjang    
+                                      berdasarkan jenjang
 
   FR-03             Katalog materi    Materi dikelompokkan   Must
-                                      menurut                
-                                      pelajaran/topik        
+                                      menurut
+                                      pelajaran/topik dan
+                                      dapat difilter kelas
 
   FR-04             Detail materi     Pengguna dapat membaca Must
                                       materi dan melihat     
@@ -236,7 +244,7 @@ dan AI Tutor tidak boleh menghambat alur belajar dasar.
   FR-15             Nyawa per mapel   Nyawa berubah          Must
                                       berdasarkan aturan     
                                       kuis dan pulih 1 per   
-                                      2 jam                  
+                                      1 jam                  
 
   FR-16             Adaptasi          Tingkat latihan        Must
                                       berikutnya ditentukan  
@@ -274,13 +282,15 @@ dan AI Tutor tidak boleh menghambat alur belajar dasar.
 
 ### US-01 --- Memilih materi
 
-**Sebagai siswa**, saya ingin memilih jenjang dan mata pelajaran agar
+**Sebagai siswa**, saya ingin memilih jenjang, kelas, dan mata pelajaran agar
 menemukan materi yang relevan.
 
-Kriteria: - Pilihan jenjang tampil dengan jelas. - Mata pelajaran yang
-tampil terkait dengan jenjang. - Materi memiliki judul, topik, dan
-konten yang dapat dibuka. - Kondisi katalog kosong ditangani dengan
-pesan yang jelas.
+Kriteria: - Pilihan jenjang tampil dengan jelas. - Pilihan kelas mengikuti
+jenjang (SD 1-6, SMP 7-9, SMA/SMK 10-12) dan divalidasi server. - Mata
+pelajaran yang tampil terkait dengan jenjang. - Materi memiliki judul, topik,
+dan konten yang dapat dibuka. - Dashboard hanya menampilkan materi untuk kelas
+siswa, dan mendukung filter `?kelas=`. - Kondisi katalog kosong ditangani
+dengan pesan yang jelas.
 
 ### US-02 --- Mempelajari materi
 
@@ -297,16 +307,16 @@ tidak dapat dipalsukan hanya melalui perubahan data di browser.
 
 Kriteria:
 - Sistem menampilkan soal dan opsi yang valid.
-- Kunci jawaban tidak dikirim ke frontend sebelum soal diselesaikan.
+- Kunci jawaban tidak dikirim ke frontend sebelum sesi selesai.
 - Jawaban dinilai di backend dan umpan balik diberikan langsung per soal.
-- Soal tidak boleh dilewati; soal yang belum selesai harus dijawab lebih dulu.
-- Jawaban salah pertama mengurangi 1 nyawa mata pelajaran, menampilkan
-  tepat satu hint yang tidak membocorkan kunci, dan mempertahankan soal
-  yang sama.
-- Jawaban salah kedua mengurangi 1 nyawa lagi, membuka kunci dan
-  penjelasan, lalu melanjutkan ke soal berikutnya.
+- Soal tidak boleh dilewati atau lanjut sebelum dijawab benar.
+- Jawaban salah mengurangi 1 nyawa mata pelajaran dan mempertahankan soal
+  yang sama. Tidak ada hint selama nyawa masih tersedia.
 - Jawaban benar memberi XP dan melanjutkan ke soal berikutnya.
-- Sesi berakhir saat semua soal selesai atau nyawa mata pelajaran habis.
+- Sesi berakhir saat semua soal dijawab benar atau nyawa mata pelajaran habis.
+- Saat nyawa habis atau semua soal selesai, sistem menampilkan kunci,
+  penjelasan (fallback `Jawaban benar: A. <teks opsi>` bila kosong), dan hint
+  untuk setiap soal yang pernah dijawab salah.
 - Percobaan dan hasil tersimpan; pengiriman jawaban ganda tidak
   menggandakan reward.
 
@@ -321,7 +331,7 @@ Kriteria:
 - Rank diturunkan dari XP dan dapat diubah melalui tabel rank di admin.
 - Nyawa disimpan per mata pelajaran; kehilangan nyawa di satu mapel tidak
   mengurangi nyawa mapel lain.
-- Satu nyawa pulih setiap 2 jam per mapel, maksimal 3 nyawa.
+- Satu nyawa pulih setiap 1 jam per mapel, maksimal 3 nyawa.
 - Tingkat kuis 2 dan 3 terkunci sampai rank tertentu tercapai.
 - Perubahan progres tersimpan secara konsisten.
 - Jika pengguna belum login, perilaku progres mengikuti keputusan produk
@@ -348,8 +358,8 @@ menjawab dengan bahasa sesuai usia/jenjang jika dapat dikendalikan. -
 Tutor tidak mengklaim kepastian saat konteks tidak cukup. -
 Kegagalan/timeout provider menampilkan pesan yang jelas. - Tersedia
 jalur bantuan non-AI seperti materi dan soal bank. - Hint kuis memakai
-urutan manual (`Question.hint`) → AI Tutor → aturan berbasis materi, dan
-tidak boleh menyebut kunci jawaban.
+urutan manual (`Question.hint`) → AI Tutor → aturan berbasis materi, tidak
+boleh menyebut kunci jawaban, dan baru ditampilkan saat nyawa habis.
 
 ### US-07 --- Pembuatan soal AI
 
@@ -367,7 +377,7 @@ otomatis dianggap bank soal terverifikasi.
 Aturan yang berlaku pada implementasi backend saat ini:
 
 - **XP jawaban benar:** +10 XP per soal yang akhirnya dijawab benar.
-  Hint dan percobaan kedua tetap boleh mendapat XP.
+  Percobaan salah sebelumnya tidak membatalkan XP saat soal akhirnya benar.
 - **XP materi:** +15 XP saat materi ditandai selesai, sekali per materi.
 - **Level:** XP dari level L ke L+1 = 100 × L. Level 1 = 0 XP, level 2 =
   100 XP total, level 3 = 300 XP, level 4 = 600 XP, level 5 = 1.000 XP.
@@ -383,14 +393,20 @@ Aturan yang berlaku pada implementasi backend saat ini:
   dan `material-explorer` (Penjelajah Materi, 30 XP). Achievement terbuka
   otomatis saat syaratnya terpenuhi dan XP-nya hanya diberikan sekali per
   pengguna.
-- **Nyawa:** maksimal 3 per mata pelajaran. Jawaban salah pertama dan
-  kedua masing-masing mengurangi 1 nyawa mapel tersebut.
-- **Regenerasi:** 1 nyawa pulih setiap 2 jam per mapel, dihitung malas
+- **Nyawa:** maksimal 3 per mata pelajaran. Setiap jawaban salah mengurangi
+  1 nyawa mapel tersebut; soal tetap sama sampai dijawab benar.
+- **Hint:** hanya muncul saat nyawa mapel habis. Hint dibuat untuk semua soal
+  yang pernah dijawab salah, termasuk soal yang akhirnya dijawab benar.
+- **Regenerasi:** 1 nyawa pulih setiap 1 jam per mapel, dihitung malas
   saat progres dibaca. Timer tidak di-reset ketika nyawa kembali
   berkurang selama interval berjalan.
-- **Nyawa habis:** sesi kuis langsung selesai; soal yang belum dijawab
-  dihitung tidak dijawab. Memulai kuis baru pada mapel dengan 0 nyawa
-  ditolak sampai nyawa pulih.
+- **Nyawa habis:** sesi kuis langsung selesai; soal yang pernah dicoba tetapi
+  belum benar dihitung salah, soal yang belum pernah dicoba dihitung tidak
+  dijawab. Memulai kuis baru pada mapel dengan 0 nyawa ditolak sampai nyawa
+  pulih.
+- **Pembahasan:** kunci dan penjelasan ditampilkan saat nyawa habis atau semua
+  soal selesai. Jika `Question.explanation` kosong, backend memakai fallback
+  `Jawaban benar: <kunci>. <teks opsi benar>`.
 - **Anti-farming:** XP jawaban benar idempoten per `QuizQuestion`; XP
   materi idempoten per materi; jawaban ganda pada soal yang sama ditolak.
 - **Adaptasi:** keputusan tetap memakai mesin aturan dengan jendela
@@ -404,23 +420,22 @@ diubah tanpa menyalin logika di banyak tempat.
 ## 9. Alur pengguna utama
 
 1.  Pengguna membuka EduQuest.
-2.  Memilih jenjang.
+2.  Memilih jenjang dan kelas (SD 1-6, SMP 7-9, SMA/SMK 10-12).
 3.  Memilih mata pelajaran.
-4.  Memilih materi.
+4.  Memilih materi yang sesuai kelas.
 5.  Membaca materi dan prasyarat yang relevan.
 6.  Memulai latihan; sistem menampilkan tingkat yang terbuka sesuai rank.
 7.  Sistem memilih soal dari bank atau hasil generator yang telah
-    divalidasi. Soal diprioritaskan berdasarkan `topic_code` materi; soal
-    bertopik lain tidak dipakai, dan sesi boleh berisi lebih sedikit dari 5
-    soal jika stok topik tersebut terbatas.
+    divalidasi. Soal diprioritaskan berdasarkan `topic_code` materi dan
+    `kelas` materi; soal bertopik lain tidak dipakai, dan sesi boleh berisi
+    lebih sedikit dari 5 soal jika stok topik tersebut terbatas.
 8.  Pengguna menjawab satu soal; backend langsung menilai.
-9.  Jika salah pertama: nyawa mapel −1, tampilkan satu hint, soal yang
-    sama tetap aktif.
-10. Jika salah kedua: nyawa mapel −1, buka kunci dan penjelasan, lalu
-    lanjut ke soal berikutnya.
-11. Jika benar: beri XP, lalu lanjut ke soal berikutnya.
-12. Sesi selesai saat semua soal selesai atau nyawa mapel habis; sistem
+9.  Jika salah: nyawa mapel −1 dan soal yang sama tetap aktif tanpa hint.
+10. Jika benar: beri XP, lalu lanjut ke soal berikutnya.
+11. Sesi selesai saat semua soal dijawab benar atau nyawa mapel habis; sistem
     menyimpan percobaan dan memperbarui progres/gamifikasi.
+12. Saat sesi selesai, tampilkan kunci, pembahasan, dan hint untuk semua soal
+    yang pernah dijawab salah.
 13. Mesin adaptasi memilih rekomendasi atau tingkat berikutnya, dibatasi
     rank yang terbuka.
 14. Pengguna melihat hasil dan dapat meminta bantuan AI Tutor.
@@ -441,7 +456,10 @@ model Django dibuat.
 
   `Subject`                           Mata pelajaran dan jenjang
 
-  `Material`                          Judul, isi, topik, status
+  `StudentProfile`                    Jenjang dan kelas siswa
+                                      (SD 1-6, SMP 7-9, SMA/SMK 10-12)
+
+  `Material`                          Judul, isi, topik, kelas, status
                                       publikasi, jenjang/pelajaran
 
   `MaterialPrerequisite`              Relasi materi dan prasyarat
@@ -450,8 +468,8 @@ model Django dibuat.
                                       penyelesaian
 
   `Question`                          Pertanyaan, opsi, kunci, topik,
-                                       kesulitan, sumber, status tinjauan,
-                                       hint manual opsional
+                                       kelas, kesulitan, sumber, status
+                                       tinjauan, hint manual opsional
 
   `QuestionGeneration`                Metadata proses generasi, provider,
                                        status validasi, pesan error
@@ -465,7 +483,7 @@ model Django dibuat.
                                        hint yang dipakai dan sumbernya
 
   `SubjectProgress`                   Nyawa per mata pelajaran dan timer
-                                       regenerasi 2 jam
+                                       regenerasi 1 jam
 
   `UserProgress`                      XP, level, dan ringkasan progres
 
@@ -602,8 +620,10 @@ status. - Berikan loading, empty, error, dan success states.
 -   Riwayat dan progres tersimpan konsisten.
 -   XP/level/rank dan nyawa per mata pelajaran mengikuti aturan yang
     telah disepakati.
--   Kuis memberi hint pada salah pertama dan membuka kunci pada salah
-    kedua tanpa mengirim kunci sebelum soal diselesaikan.
+-   Kuis tidak lanjut sampai jawaban benar; hint dan pembahasan muncul saat
+    nyawa habis atau semua soal selesai, tanpa mengirim kunci lebih awal.
+-   Siswa dapat memilih kelas sesuai jenjang dan dashboard memfilter materi
+    berdasarkan kelas.
 -   Tingkat kuis 2 dan 3 hanya terbuka sesuai rank.
 -   Kegagalan AI tidak memblokir kuis berbasis bank soal.
 -   Tidak ada masalah kritis pada alur belajar utama.
@@ -687,7 +707,7 @@ dependensi dan kapasitas tim.
 ## 18. Asumsi dan keputusan yang masih terbuka
 
 Keputusan gamifikasi utama (XP, ambang level, rank, nyawa per mapel, dan
-regenerasi 2 jam) sudah diterapkan seperti pada §8. Tim masih perlu
+regenerasi 1 jam) sudah diterapkan seperti pada §8. Tim masih perlu
 memutuskan dan mencatat:
 
 1. Jumlah soal per sesi dan jumlah percobaan (implementasi saat ini: 5

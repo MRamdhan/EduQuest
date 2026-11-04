@@ -7,7 +7,7 @@ from datetime import timedelta
 from eduquest_logic.gamification import DEFAULT
 
 MAX_LIVES = DEFAULT.max_lives
-LIFE_REGEN_INTERVAL = timedelta(hours=2)
+LIFE_REGEN_INTERVAL = timedelta(hours=1)
 
 # Tiga tier rank: Bronze → Silver → Gold. Setiap tier membuka satu tingkat kuis.
 RANKS = [

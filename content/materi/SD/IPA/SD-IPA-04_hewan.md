@@ -4,6 +4,7 @@
 **Mata Pelajaran:** IPAS (Sains)  
 **ID Topik:** SD-IPA-04  
 **Fase:** B–C (Kelas 3–6)  
+**Kelas:** 4  
 **Referensi:** Buku IPAS SD Kurikulum Merdeka (Kemdikbudristek) — bab Hewan *(lisensi perlu diverifikasi)*
 
 ---

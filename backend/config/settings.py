@@ -136,8 +136,12 @@ CORS_ALLOWED_ORIGINS = env_list(
 CORS_ALLOW_CREDENTIALS = False
 
 # --- AI provider (belum final) --------------------------------------------
-AI_PROVIDER = os.getenv("AI_PROVIDER", "")  # contoh: openai-compatible
+AI_PROVIDER = os.getenv("AI_PROVIDER", "")  # contoh: gemini (Google AI Studio) atau openai-compatible
 AI_API_KEY = os.getenv("AI_API_KEY", "")
+# Untuk AI_PROVIDER=gemini, base URL dan model punya nilai bawaan:
+#   https://generativelanguage.googleapis.com/v1beta/openai
+#   gemini-2.5-flash
+# Isi keduanya hanya bila ingin menimpanya.
 AI_BASE_URL = os.getenv("AI_BASE_URL", "")
 AI_MODEL = os.getenv("AI_MODEL", "")
 AI_TIMEOUT_SECONDS = int(os.getenv("AI_TIMEOUT_SECONDS", "20"))

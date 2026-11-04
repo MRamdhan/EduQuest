@@ -4,6 +4,7 @@
 **Mata Pelajaran:** IPA  
 **ID Topik:** SMP-IPA-04  
 **Fase:** D (Kelas 7–9)  
+**Kelas:** 8  
 **Referensi:** Buku IPA SMP Kurikulum Merdeka (Kemdikbudristek) — bab Gerak dan Gaya *(lisensi perlu diverifikasi)*
 
 ---

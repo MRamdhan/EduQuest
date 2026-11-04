@@ -6,6 +6,7 @@ Modul ini menjadi batas antara Django/ORM dan logika murni di
 
 from __future__ import annotations
 
+import logging
 import random
 from dataclasses import replace
 
@@ -51,6 +52,8 @@ from apps.progress.services import (
 from apps.progress.models import XPTransaction
 from apps.tutor.services.hint_service import generate_hint
 
+logger = logging.getLogger(__name__)
+
 RECENT_HISTORY_WINDOW = 30
 
 
@@ -64,10 +67,31 @@ def _recent_question_ids(user, limit: int | None = None) -> set[int]:
     return set(ids)
 
 
+def question_explanation(question: Question) -> str:
+    """Penjelasan jawaban dengan fallback dari opsi yang benar."""
+    explanation = (question.explanation or "").strip()
+    if explanation:
+        return explanation
+
+    correct_key = (question.correct_option or "").strip().upper()
+    if not correct_key:
+        return ""
+
+    correct_text = ""
+    for option in question.options or []:
+        if str(option.get("key", "")).strip().upper() == correct_key:
+            correct_text = str(option.get("text", "")).strip()
+            break
+
+    if correct_text:
+        return f"Jawaban benar: {correct_key}. {correct_text}"
+    return f"Jawaban benar: {correct_key}."
+
+
 def question_dto(quiz_question: QuizQuestion, *, include_review: bool = False) -> dict:
     """DTO soal yang aman dikirim ke browser.
 
-    Kunci jawaban hanya muncul setelah soal diselesaikan atau sesi selesai.
+    Kunci jawaban dan penjelasan hanya muncul saat sesi sudah selesai.
     """
     question = quiz_question.question
     payload = public_view(question.selection_dict())
@@ -78,15 +102,15 @@ def question_dto(quiz_question: QuizQuestion, *, include_review: bool = False) -
     payload["is_resolved"] = quiz_question.is_resolved
     payload["hint_used"] = quiz_question.hint_used
 
-    if quiz_question.hint_used:
+    if include_review and quiz_question.hint_used:
         payload["hint"] = quiz_question.hint_text
         payload["hint_source"] = quiz_question.hint_source
 
-    if include_review or quiz_question.is_resolved:
+    if include_review:
         payload["selected_option"] = quiz_question.selected_option
         payload["is_correct"] = quiz_question.is_correct
         payload["correct_option"] = question.correct_option
-        payload["explanation"] = question.explanation
+        payload["explanation"] = question_explanation(question)
 
     return payload
 
@@ -270,25 +294,44 @@ def start_quiz(user, material: Material, *, requested_difficulty: int | None = N
     target = min(target, unlocked)
     target = max(1, target)
 
+    def select_from(pool):
+        bank = [question.selection_dict() for question in pool]
+        return select_questions(
+            bank,
+            jenjang=material.subject.level.code,
+            mapel=material.subject.name,
+            target_difficulty=target,
+            n=settings.QUIZ_QUESTIONS_PER_SESSION,
+            recent_ids=_recent_question_ids(user),
+            rng=random.Random(),
+            relevance=_material_relevance(pool, material),
+            min_relevance=settings.QUIZ_MIN_RELEVANCE,
+        )
+
     pool = Question.objects.filter(
         subject=material.subject,
         level=material.subject.level,
         is_active=True,
         review_status__in=ALLOWED_STATUS,
     )
-    bank = [question.selection_dict() for question in pool]
+    selection = None
+    if material.kelas:
+        selection = select_from(pool.filter(kelas=material.kelas))
+        if selection.questions:
+            selection.notes.insert(
+                0,
+                f"Soal diprioritaskan untuk kelas {material.kelas}.",
+            )
 
-    selection = select_questions(
-        bank,
-        jenjang=material.subject.level.code,
-        mapel=material.subject.name,
-        target_difficulty=target,
-        n=settings.QUIZ_QUESTIONS_PER_SESSION,
-        recent_ids=_recent_question_ids(user),
-        rng=random.Random(),
-        relevance=_material_relevance(pool, material),
-        min_relevance=settings.QUIZ_MIN_RELEVANCE,
-    )
+    if selection is None or not selection.questions:
+        selection = select_from(pool)
+        if material.kelas:
+            selection.fallback = True
+            selection.notes.insert(
+                0,
+                f"Soal kelas {material.kelas} belum tersedia; memakai soal lain "
+                "pada jenjang yang sama.",
+            )
 
     if not selection.questions:
         raise NoQuestionsAvailable(
@@ -375,10 +418,14 @@ def _summary_payload(user, attempt: QuizAttempt) -> dict:
     correct = sum(
         1 for qq in quiz_questions if qq.is_resolved and qq.is_correct is True
     )
+    # Soal yang sudah dicoba tetapi belum selesai dihitung salah. Soal yang
+    # belum pernah dicoba tetap dihitung tidak dijawab.
     wrong = sum(
-        1 for qq in quiz_questions if qq.is_resolved and qq.is_correct is False
+        1
+        for qq in quiz_questions
+        if qq.attempts > 0 and not (qq.is_resolved and qq.is_correct is True)
     )
-    unanswered = sum(1 for qq in quiz_questions if not qq.is_resolved)
+    unanswered = sum(1 for qq in quiz_questions if qq.attempts == 0)
     percent = round(correct / total * 100, 2) if total else 0.0
 
     progress = get_or_create_progress(user)
@@ -427,13 +474,51 @@ def _summary_payload(user, attempt: QuizAttempt) -> dict:
                 "order": qq.order,
                 "selected_option": qq.selected_option,
                 "correct_option": qq.question.correct_option,
-                "is_correct": qq.is_correct,
+                "is_correct": (
+                    qq.is_correct
+                    if qq.is_resolved
+                    else (False if qq.attempts else None)
+                ),
                 "is_resolved": qq.is_resolved,
-                "explanation": qq.question.explanation,
+                "attempts": qq.attempts,
+                "wrong_attempts": qq.attempts - (1 if qq.is_correct is True else 0),
+                "hint": qq.hint_text if qq.hint_used else "",
+                "hint_source": qq.hint_source if qq.hint_used else "",
+                "explanation": question_explanation(qq.question),
             }
             for qq in quiz_questions
         ],
     }
+
+
+def _had_wrong_attempt(quiz_question: QuizQuestion) -> bool:
+    """Benar bila soal pernah dijawab salah, termasuk yang akhirnya benar."""
+    if quiz_question.attempts <= 0:
+        return False
+    if quiz_question.is_resolved and quiz_question.is_correct is True:
+        return quiz_question.attempts > 1
+    return True
+
+
+def _ensure_review_hints(user, attempt: QuizAttempt, quiz_questions: list[QuizQuestion]) -> None:
+    """Buat hint untuk soal yang pernah salah saat sesi berakhir karena nyawa habis."""
+    material = attempt.material
+    for quiz_question in quiz_questions:
+        if quiz_question.hint_used or not _had_wrong_attempt(quiz_question):
+            continue
+        try:
+            hint, source = generate_hint(user, quiz_question.question, material)
+        except Exception:
+            logger.exception(
+                "Gagal membuat hint review untuk quiz_question=%s", quiz_question.pk
+            )
+            continue
+        quiz_question.hint_used = True
+        quiz_question.hint_text = hint
+        quiz_question.hint_source = source
+        quiz_question.save(
+            update_fields=["hint_used", "hint_text", "hint_source"]
+        )
 
 
 def _finalize_attempt(user, attempt: QuizAttempt, *, ended_early: bool) -> dict:
@@ -445,9 +530,11 @@ def _finalize_attempt(user, attempt: QuizAttempt, *, ended_early: bool) -> dict:
         1 for qq in quiz_questions if qq.is_resolved and qq.is_correct is True
     )
     wrong = sum(
-        1 for qq in quiz_questions if qq.is_resolved and qq.is_correct is False
+        1
+        for qq in quiz_questions
+        if qq.attempts > 0 and not (qq.is_resolved and qq.is_correct is True)
     )
-    unanswered = sum(1 for qq in quiz_questions if not qq.is_resolved)
+    unanswered = sum(1 for qq in quiz_questions if qq.attempts == 0)
     previous_difficulty = attempt.target_difficulty
     unlocked = rank_context(user)["unlocked_difficulty"]
 
@@ -471,6 +558,11 @@ def _finalize_attempt(user, attempt: QuizAttempt, *, ended_early: bool) -> dict:
             "ended_early",
         ]
     )
+
+    # Saat nyawa habis, tampilkan hint untuk semua soal yang pernah dijawab
+    # salah supaya siswa bisa belajar dari kesalahannya.
+    if ended_early:
+        _ensure_review_hints(user, attempt, quiz_questions)
 
     decision = _decide_adaptation(
         user=user,
@@ -529,7 +621,7 @@ def _answer_context(
             else None
         ),
         "explanation": (
-            answered_question.question.explanation
+            question_explanation(answered_question.question)
             if revealed and answered_question
             else None
         ),
@@ -639,38 +731,40 @@ def answer_question(user, attempt_id: int, question_id: int, option: str) -> dic
     else:
         lost = subject_progress.lose_life(now=now)
         attempt.lives_lost += lost
+        quiz_question.is_correct = False
+        quiz_question.answered_at = now
 
-        if quiz_question.attempts >= 2 or subject_progress.lives <= 0:
-            quiz_question.is_correct = False
-            quiz_question.is_resolved = True
-            quiz_question.answered_at = now
-            quiz_question.save()
-            attempt.wrong_count += 1
-            revealed = True
-            ended_early = subject_progress.lives <= 0
-        else:
-            hint, hint_source = generate_hint(
-                user,
-                quiz_question.question,
-                attempt.material,
-            )
-            quiz_question.hint_used = True
-            quiz_question.hint_text = hint
-            quiz_question.hint_source = hint_source
-            quiz_question.save()
+        if subject_progress.lives > 0:
+            # Jawaban salah: soal tetap sama dan siswa mencoba lagi tanpa hint.
             retry = True
+        else:
+            # Nyawa habis: sesi berakhir, soal ini tetap belum terselesaikan.
+            ended_early = True
+
+        # Soal yang masih salah tetap belum terselesaikan sehingga bisa diulang.
+        quiz_question.is_resolved = False
+        quiz_question.save(
+            update_fields=[
+                "attempts",
+                "selected_option",
+                "is_correct",
+                "is_resolved",
+                "answered_at",
+            ]
+        )
 
     attempt.save(
         update_fields=[
             "xp_gained",
             "correct_count",
-            "wrong_count",
             "lives_lost",
         ]
     )
 
     all_resolved = not attempt.quiz_questions.filter(is_resolved=False).exists()
     session_ended = ended_early or all_resolved
+    if session_ended:
+        revealed = True
     summary = None
     if session_ended:
         summary = _finalize_attempt(user, attempt, ended_early=ended_early)
@@ -725,7 +819,11 @@ def _decide_adaptation(
     attempts.extend(
         Attempt(
             difficulty=qq.difficulty,
-            is_correct=qq.is_correct if qq.is_resolved else None,
+            is_correct=(
+                qq.is_correct
+                if qq.is_resolved
+                else (False if qq.attempts else None)
+            ),
             excluded=qq.question_id in reported_ids,
         )
         for qq in quiz_questions

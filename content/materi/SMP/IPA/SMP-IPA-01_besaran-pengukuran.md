@@ -4,6 +4,7 @@
 **Mata Pelajaran:** IPA  
 **ID Topik:** SMP-IPA-01  
 **Fase:** D (Kelas 7–9)  
+**Kelas:** 7  
 **Referensi:** Buku IPA SMP Kurikulum Merdeka (Kemdikbudristek) — bab Besaran dan Pengukuran *(lisensi perlu diverifikasi)*
 
 ---

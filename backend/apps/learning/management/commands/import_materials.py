@@ -10,6 +10,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.utils.text import slugify
 
+from apps.learning.constants import is_valid_kelas
 from apps.learning.models import Material
 from apps.learning.services.content_service import ensure_levels, get_or_create_subject
 
@@ -25,6 +26,8 @@ def parse_material(path: Path) -> dict:
 
     title = _extract(r"^#\s+(.+)$", text, default=path.stem.replace("_", " ").title())
     topic_code = _extract(r"\*\*ID Topik:\*\*\s*(.+)$", text)
+    kelas_raw = _extract(r"\*\*Kelas:\*\*\s*(\d+)", text)
+    kelas = int(kelas_raw) if kelas_raw else None
     source = _extract(r"\*\*Referensi:\*\*\s*(.+)$", text)[:255]
 
     body_lines = lines[1:] if lines and lines[0].startswith("# ") else lines
@@ -48,6 +51,7 @@ def parse_material(path: Path) -> dict:
     return {
         "title": title,
         "slug": slugify(path.stem)[:220],
+        "kelas": kelas,
         "topic": title[:160],
         "topic_code": topic_code[:40],
         "summary": summary,
@@ -98,6 +102,15 @@ class Command(BaseCommand):
             data = parse_material(path)
             if not data["content"]:
                 self.stderr.write(f"Lewati (isi kosong): {relative}")
+                continue
+            if data["kelas"] is None:
+                self.stderr.write(
+                    f"Peringatan (kelas belum diisi, materi tidak akan muncul di filter kelas): {relative}"
+                )
+            elif not is_valid_kelas(level_code, data["kelas"]):
+                self.stderr.write(
+                    f"Lewati (kelas {data['kelas']} tidak sesuai jenjang {level_code}): {relative}"
+                )
                 continue
 
             if options["dry_run"]:

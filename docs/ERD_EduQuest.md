@@ -67,6 +67,7 @@ erDiagram
         int subject_id FK
         string title
         string slug UK
+        int kelas "nullable, 1-12"
         string topic
         string topic_code "indeks, mis. SMP-IPA-15"
         string status "draft/published/archived"
@@ -83,6 +84,7 @@ erDiagram
         string source_id UK
         int level_id FK
         int subject_id FK
+        int kelas "nullable, 1-12"
         string topic
         string topic_code "indeks, pasangan Material.topic_code"
         int difficulty "1/2/3, boleh null"
@@ -173,6 +175,7 @@ erDiagram
         int id PK
         int user_id FK "UK"
         int education_level_id FK "nullable"
+        int kelas "nullable, 1-12 sesuai jenjang"
     }
     USER_PROGRESS {
         int id PK
@@ -347,12 +350,18 @@ saat memulai kuis.
 `QuizQuestion.difficulty` menyalin `Question.difficulty` saat kuis dibuat.
 Tujuannya agar penilaian dan laporan historis tidak berubah kalau metadata soal
 diedit setelahnya. `QuizQuestion` juga menyimpan `attempts`, `is_resolved`,
-`hint_used`, dan `hint_source` untuk alur dua-kesalahan per soal.
+`selected_option`, `hint_used`, dan `hint_source`.
+
+Alur baru: jawaban salah mengurangi 1 nyawa dan soal yang sama tetap tampil
+sampai dijawab benar. Hint tidak diberikan saat masih ada nyawa. Hint dan
+pembahasan baru muncul ketika nyawa habis atau semua soal selesai. Saat nyawa
+habis, hint dibuat untuk setiap soal yang pernah dijawab salah (termasuk yang
+akhirnya dijawab benar).
 
 ### 6.4 Nyawa per mata pelajaran
 
 Nyawa **tidak** disimpan di `UserProgress`, melainkan di `SubjectProgress`
-(unik per `user` + `subject`). Regenerasi: 1 nyawa per 2 jam
+(unik per `user` + `subject`). Regenerasi: 1 nyawa per 1 jam
 (`LIFE_REGEN_INTERVAL`), maksimum `MAX_LIVES = 3`. `life_regen_started_at`
 adalah awal interval berikutnya dan tidak di-reset saat kehilangan nyawa lagi.
 
@@ -368,7 +377,24 @@ achievement:{user_id}:{achievement_id}
 
 Unique constraint inilah yang mencegah XP dobel saat request diulang.
 
-### 6.6 Achievement
+### 6.6 `kelas` sebagai filter konten
+
+`StudentProfile.kelas`, `Material.kelas`, dan `Question.kelas` menyimpan angka
+1-12. Rentang yang sah ditentukan jenjang:
+
+| Jenjang | Kelas |
+|---|---|
+| SD | 1-6 |
+| SMP | 7-9 |
+| SMA/SMK | 10-12 |
+
+Validasi ada di `apps/learning/constants.py` (`LEVEL_KELAS`, `is_valid_kelas`),
+lalu dipakai oleh serializer profil/registrasi, model `Material`, command
+`import_materials`, dan filter `GET /api/materials/?level=SMP&kelas=8`.
+`kelas` sengaja bukan tabel/foreign key tersendiri agar import konten dan
+filter dashboard tetap sederhana.
+
+### 6.7 Achievement
 
 Hanya tiga achievement aktif, masing-masing dengan `xp_reward`:
 

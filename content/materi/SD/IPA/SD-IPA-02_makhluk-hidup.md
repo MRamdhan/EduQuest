@@ -4,6 +4,7 @@
 **Mata Pelajaran:** IPAS (Sains)  
 **ID Topik:** SD-IPA-02  
 **Fase:** A–B (Kelas 1–4)  
+**Kelas:** 4  
 **Referensi:** Buku IPAS SD Kurikulum Merdeka (Kemdikbudristek) — bab Makhluk Hidup *(lisensi perlu diverifikasi)*
 
 ---

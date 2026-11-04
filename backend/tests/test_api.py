@@ -43,6 +43,7 @@ def material(db):
         subject=subject,
         title="Gerak dan Gaya",
         slug="smp-ipa-gerak-dan-gaya",
+        kelas=8,
         topic="Gerak dan Gaya",
         topic_code="SMP-IPA-04",
         summary="Materi uji.",
@@ -61,6 +62,7 @@ def questions(material):
                 source_id=f"test-{index}",
                 level=level,
                 subject=material.subject,
+                kelas=material.kelas,
                 difficulty=1,
                 question_text=f"Soal nomor {index}?",
                 options=[
@@ -103,6 +105,7 @@ def test_register_login_and_me(api):
             "password_confirm": PASSWORD,
             "email": "baru@example.com",
             "education_level": "smp",
+            "kelas": 8,
         },
         format="json",
     )
@@ -113,6 +116,7 @@ def test_register_login_and_me(api):
         "code": "SMP",
         "name": "SMP",
     }
+    assert response.data["user"]["kelas"] == 8
     assert UserProgress.objects.filter(user__username="baru").exists()
 
     api.credentials(HTTP_AUTHORIZATION=f"Token {response.data['token']}")
@@ -120,6 +124,7 @@ def test_register_login_and_me(api):
     assert me.status_code == 200
     assert me.data["username"] == "baru"
     assert me.data["education_level"]["code"] == "SMP"
+    assert me.data["kelas"] == 8
 
     api.credentials()
     login = api.post(
@@ -141,6 +146,7 @@ def test_register_requires_known_jenjang(api):
             "username": "tanpa-jenjang",
             "password": PASSWORD,
             "password_confirm": PASSWORD,
+            "kelas": 4,
         },
         format="json",
     )
@@ -154,12 +160,46 @@ def test_register_requires_known_jenjang(api):
             "password": PASSWORD,
             "password_confirm": PASSWORD,
             "education_level": "S1",
+            "kelas": 4,
         },
         format="json",
     )
     assert unknown.status_code == 400
     assert "education_level" in unknown.data
     assert not User.objects.filter(username__in=["tanpa-jenjang", "jenjang-asing"]).exists()
+
+
+@pytest.mark.django_db
+def test_register_requires_kelas_matching_jenjang(api):
+    EducationLevel.objects.create(code="SD", name="SD", order=1)
+
+    missing = api.post(
+        "/api/auth/register/",
+        {
+            "username": "tanpa-kelas",
+            "password": PASSWORD,
+            "password_confirm": PASSWORD,
+            "education_level": "SD",
+        },
+        format="json",
+    )
+    assert missing.status_code == 400
+    assert "kelas" in missing.data
+
+    mismatch = api.post(
+        "/api/auth/register/",
+        {
+            "username": "kelas-asing",
+            "password": PASSWORD,
+            "password_confirm": PASSWORD,
+            "education_level": "SD",
+            "kelas": 10,
+        },
+        format="json",
+    )
+    assert mismatch.status_code == 400
+    assert "kelas" in mismatch.data
+    assert not User.objects.filter(username__in=["tanpa-kelas", "kelas-asing"]).exists()
 
 
 @pytest.mark.django_db
@@ -189,6 +229,27 @@ def test_me_can_change_and_clear_jenjang(api, student):
 
 
 @pytest.mark.django_db
+def test_me_can_change_kelas_within_jenjang(api, student):
+    smp = EducationLevel.objects.create(code="SMP", name="SMP", order=2)
+    student.student_profile.education_level = smp
+    student.student_profile.kelas = 7
+    student.student_profile.save(update_fields=["education_level", "kelas"])
+    api.force_authenticate(student)
+
+    changed = api.patch("/api/auth/me/", {"kelas": 9}, format="json")
+    assert changed.status_code == 200
+    assert changed.data["kelas"] == 9
+
+    mismatch = api.patch("/api/auth/me/", {"kelas": 10}, format="json")
+    assert mismatch.status_code == 400
+    assert "kelas" in mismatch.data
+
+    cleared = api.patch("/api/auth/me/", {"kelas": None}, format="json")
+    assert cleared.status_code == 200
+    assert cleared.data["kelas"] is None
+
+
+@pytest.mark.django_db
 def test_every_user_gets_student_profile(student):
     assert student.student_profile.education_level is None
 
@@ -201,6 +262,7 @@ def test_levels_endpoint_is_public(api):
 
     assert response.status_code == 200
     assert response.data[0]["code"] == "SD"
+    assert response.data[0]["kelas_options"] == [1, 2, 3, 4, 5, 6]
 
 
 @pytest.mark.django_db
@@ -267,7 +329,7 @@ def test_correct_answers_award_xp_and_finish_session(api, student, material, que
 
 
 @pytest.mark.django_db
-def test_wrong_answer_gives_hint_and_does_not_advance(api, student, material, questions):
+def test_wrong_answer_keeps_question_without_hint(api, student, material, questions):
     api.force_authenticate(student)
     started = start_quiz(api, material)
     attempt_id = started.data["attempt"]["id"]
@@ -278,13 +340,16 @@ def test_wrong_answer_gives_hint_and_does_not_advance(api, student, material, qu
     assert response.status_code == 200
     assert response.data["correct"] is False
     assert response.data["retry"] is True
+    assert response.data["revealed"] is False
     assert response.data["session_ended"] is False
     assert response.data["lives"] == 2
-    assert response.data["hint"]
-    assert response.data["hint_source"] in {"rule", "ai", "manual"}
+    # Hint baru muncul ketika nyawa habis.
+    assert response.data["hint"] is None
+    assert response.data["correct_option"] is None
     assert response.data["next_question"]["id"] == first["id"]
     assert response.data["next_question"]["attempts"] == 1
-    assert response.data["next_question"]["hint"] == response.data["hint"]
+    assert response.data["next_question"]["hint_used"] is False
+    assert "hint" not in response.data["next_question"]
     assert response.data["next_question"]["id"] != second["id"]
     assert response.data["xp_gained"] == 0
 
@@ -302,46 +367,74 @@ def test_wrong_answer_gives_hint_and_does_not_advance(api, student, material, qu
 
 
 @pytest.mark.django_db
-def test_second_wrong_reveals_key_and_advances(api, student, material, questions):
+def test_lives_out_reveals_hints_for_every_wrong_attempt(
+    api, student, material, questions, settings
+):
+    settings.AI_PROVIDER = ""
+
     api.force_authenticate(student)
     started = start_quiz(api, material)
     attempt_id = started.data["attempt"]["id"]
-    first = started.data["attempt"]["questions"][0]
-    second = started.data["attempt"]["questions"][1]
+    first, second = [
+        item["id"] for item in started.data["attempt"]["questions"][:2]
+    ]
+    # Kosongkan penjelasan soal kedua untuk menguji fallback.
+    Question.objects.filter(pk=second).update(explanation="")
 
-    first_wrong = answer(api, attempt_id, first["id"], "B")
-    assert first_wrong.data["retry"] is True
+    # Soal 1 salah lalu benar. Soal 2 salah sampai nyawa habis.
+    assert answer(api, attempt_id, first, "B").data["retry"] is True
+    assert answer(api, attempt_id, first, "A").data["correct"] is True
+    assert answer(api, attempt_id, second, "B").data["retry"] is True
+    ended = answer(api, attempt_id, second, "C")
 
-    second_wrong = answer(api, attempt_id, first["id"], "C")
-    assert second_wrong.status_code == 200
-    assert second_wrong.data["correct"] is False
-    assert second_wrong.data["retry"] is False
-    assert second_wrong.data["revealed"] is True
-    assert second_wrong.data["correct_option"] == "A"
-    assert second_wrong.data["explanation"] == "Karena A benar."
-    assert second_wrong.data["lives"] == 1
-    assert second_wrong.data["session_ended"] is False
-    assert second_wrong.data["next_question"]["id"] == second["id"]
-    assert second_wrong.data["summary"] is None
+    assert ended.status_code == 200
+    assert ended.data["lives"] == 0
+    assert ended.data["session_ended"] is True
+    assert ended.data["revealed"] is True
+    summary = ended.data["summary"]
+    assert summary["reward"]["ended_early"] is True
+    assert summary["score"]["correct"] == 1
+    assert summary["score"]["wrong"] == 1
+    assert summary["score"]["unanswered"] == 3
+
+    by_order = {item["order"]: item for item in summary["answers"]}
+    # Hint diberikan untuk soal yang pernah dijawab salah, termasuk yang
+    # akhirnya dijawab benar.
+    assert by_order[1]["hint"]
+    assert by_order[2]["hint"]
+    assert by_order[3]["hint"] == ""
+    assert by_order[1]["explanation"] == "Karena A benar."
+    # Penjelasan kosong memakai fallback dari opsi yang benar.
+    assert by_order[2]["explanation"] == "Jawaban benar: A. Jawaban benar"
+
+    detail = api.get(f"/api/quizzes/{attempt_id}/")
+    assert detail.status_code == 200
+    detail_answers = {
+        item["order"]: item for item in detail.data["summary"]["answers"]
+    }
+    assert detail_answers[1]["hint"] == by_order[1]["hint"]
+    assert detail_answers[2]["hint"] == by_order[2]["hint"]
+    assert detail_answers[2]["selected_option"] == "C"
 
 
 @pytest.mark.django_db
-def test_lives_run_out_and_regenerate_after_two_hours(api, student, material, questions):
+def test_lives_run_out_and_regenerate_after_one_hour(api, student, material, questions):
     api.force_authenticate(student)
     started = start_quiz(api, material)
     attempt_id = started.data["attempt"]["id"]
     quiz_questions = started.data["attempt"]["questions"]
+    first = quiz_questions[0]["id"]
 
-    answer(api, attempt_id, quiz_questions[0]["id"], "B")
-    answer(api, attempt_id, quiz_questions[0]["id"], "C")
-    ended = answer(api, attempt_id, quiz_questions[1]["id"], "B")
+    answer(api, attempt_id, first, "B")
+    answer(api, attempt_id, first, "C")
+    ended = answer(api, attempt_id, first, "D")
 
     assert ended.status_code == 200
     assert ended.data["lives"] == 0
     assert ended.data["session_ended"] is True
     assert ended.data["summary"]["reward"]["ended_early"] is True
-    assert ended.data["summary"]["score"]["wrong"] == 2
-    assert ended.data["summary"]["score"]["unanswered"] == 3
+    assert ended.data["summary"]["score"]["wrong"] == 1
+    assert ended.data["summary"]["score"]["unanswered"] == 4
 
     blocked = start_quiz(api, material)
     assert blocked.status_code == 409
@@ -349,7 +442,7 @@ def test_lives_run_out_and_regenerate_after_two_hours(api, student, material, qu
 
     subject_progress = SubjectProgress.objects.get(user=student, subject=material.subject)
     assert subject_progress.lives == 0
-    subject_progress.life_regen_started_at = timezone.now() - timedelta(hours=2, seconds=1)
+    subject_progress.life_regen_started_at = timezone.now() - timedelta(hours=1, seconds=1)
     subject_progress.save(update_fields=["life_regen_started_at"])
 
     subjects = api.get("/api/subjects/")
@@ -473,6 +566,43 @@ def test_progress_and_subject_lives_payload(api, student, material, questions):
     assert ranks.data[1]["unlocked_difficulty"] == 2
     assert ranks.data[2]["name"] == "Gold"
     assert ranks.data[2]["unlocked_difficulty"] == 3
+
+
+@pytest.mark.django_db
+def test_materials_can_be_filtered_by_kelas(api, student, material):
+    other = Material.objects.create(
+        subject=material.subject,
+        title="Materi Kelas 7",
+        slug="smp-ipa-materi-kelas-7",
+        kelas=7,
+        content="# Materi\n\nIsi.",
+        status=Material.Status.PUBLISHED,
+    )
+    api.force_authenticate(student)
+
+    filtered = api.get("/api/materials/?level=SMP&kelas=8")
+    assert filtered.status_code == 200
+    assert [item["id"] for item in filtered.data] == [material.pk]
+    assert filtered.data[0]["kelas"] == 8
+    assert filtered.data[0]["kelas_label"] == "Kelas 8"
+
+    all_items = api.get("/api/materials/?level=SMP")
+    assert {item["id"] for item in all_items.data} == {material.pk, other.pk}
+
+    subjects = api.get("/api/subjects/?level=SMP&kelas=8")
+    assert subjects.status_code == 200
+    assert [(item["name"], item["material_count"]) for item in subjects.data] == [
+        ("IPA", 1)
+    ]
+    empty = api.get("/api/subjects/?level=SMP&kelas=9")
+    assert empty.status_code == 200
+    assert empty.data == []
+
+    mismatch = api.get("/api/materials/?level=SMP&kelas=10")
+    assert mismatch.status_code == 400
+
+    invalid = api.get("/api/materials/?kelas=13")
+    assert invalid.status_code == 400
 
 
 @pytest.mark.django_db

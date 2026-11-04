@@ -70,6 +70,8 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS("=" * 66))
         self.stdout.write(f"Materi      : {material.title}")
         self.stdout.write(f"Jenjang     : {material.subject.level.name} — {material.subject.name}")
+        if material.kelas:
+            self.stdout.write(f"Kelas       : {material.kelas}")
         self.stdout.write(
             f"Tingkat     : {attempt['target_difficulty']} "
             f"({QUIZ_LEVEL_LABELS.get(attempt['target_difficulty'], '-')})"
@@ -93,7 +95,12 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.WARNING(f"Catatan: {note}"))
         self.stdout.write("")
         self.stdout.write("Jawab dengan A, B, C, atau D.")
-        self.stdout.write("Jika salah, kamu akan mendapat satu hint dan boleh mencoba lagi.")
+        self.stdout.write(
+            "Jawaban salah mengurangi 1 nyawa dan soal yang sama harus dijawab lagi."
+        )
+        self.stdout.write(
+            "Hint dan pembahasan muncul saat nyawa habis atau semua soal selesai."
+        )
         self.stdout.write("")
 
         current = next(
@@ -134,8 +141,11 @@ class Command(BaseCommand):
             )
 
             if answer["retry"]:
-                self.stdout.write(self.style.WARNING("Belum tepat. Nyawa berkurang 1."))
-                self.stdout.write(self.style.SUCCESS(f"Hint: {clean(answer['hint'])}"))
+                self.stdout.write(
+                    self.style.WARNING(
+                        "Belum tepat. Nyawa berkurang 1. Coba lagi pada soal yang sama."
+                    )
+                )
                 current = answer.get("next_question")
                 continue
 
@@ -180,7 +190,8 @@ class Command(BaseCommand):
 
     def _print_question(self, question: dict, total: int):
         self.stdout.write("-" * 66)
-        status = "kesempatan kedua" if question.get("attempts", 0) > 0 else "soal baru"
+        attempts = question.get("attempts", 0)
+        status = f"percobaan ke-{attempts + 1}" if attempts else "soal baru"
         self.stdout.write(f"Soal {question['order']} dari {total} — {status}")
         self.stdout.write(clean(question["question_text"]))
         if question.get("hint"):
@@ -247,6 +258,8 @@ class Command(BaseCommand):
             )
             if question.get("question_text"):
                 self.stdout.write(f"   {clean(question['question_text'])}")
+            if answer.get("hint"):
+                self.stdout.write(f"   Hint    : {clean(answer['hint'])}")
             if answer.get("explanation"):
                 self.stdout.write(f"   Penjelasan: {clean(answer['explanation'])}")
 
@@ -276,9 +289,10 @@ class Command(BaseCommand):
         self.stdout.write("")
         self.stdout.write("Materi yang tersedia:")
         for material in materials:
+            kelas = f" Kelas {material.kelas}" if material.kelas else ""
             self.stdout.write(
                 f"  [{material.pk:>2}] {material.subject.level.code} "
-                f"{material.subject.name} — {material.title}"
+                f"{material.subject.name}{kelas} — {material.title}"
             )
 
         while True:

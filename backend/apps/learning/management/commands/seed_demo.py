@@ -7,7 +7,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from apps.accounts.models import StudentProfile
-from apps.learning.constants import ACHIEVEMENTS
+from apps.learning.constants import ACHIEVEMENTS, is_valid_kelas
 from apps.learning.services.content_service import ensure_levels
 from apps.progress.constants import RANKS
 from apps.progress.models import Achievement, Rank
@@ -23,6 +23,7 @@ class Command(BaseCommand):
         parser.add_argument("--no-users", action="store_true", help="Hanya siapkan data referensi.")
         parser.add_argument("--username", default="siswa")
         parser.add_argument("--password", default="siswa12345")
+        parser.add_argument("--kelas", type=int, default=8, help="Kelas untuk akun demo siswa.")
         parser.add_argument("--admin-username", default="admin")
         parser.add_argument("--admin-password", default="admin12345")
 
@@ -49,9 +50,20 @@ class Command(BaseCommand):
             student.set_password(options["password"])
             student.save()
         profile, _ = StudentProfile.objects.get_or_create(user=student)
+        changed = []
         if profile.education_level_id is None:
             profile.education_level = levels.get("SMP")
-            profile.save(update_fields=["education_level", "updated_at"])
+            changed.append("education_level")
+        if profile.kelas is None:
+            if not is_valid_kelas(profile.education_level.code, options["kelas"]):
+                raise CommandError(
+                    f"Kelas {options['kelas']} tidak sesuai untuk jenjang "
+                    f"{profile.education_level.name}."
+                )
+            profile.kelas = options["kelas"]
+            changed.append("kelas")
+        if changed:
+            profile.save(update_fields=[*changed, "updated_at"])
         get_or_create_progress(student)
 
         admin, admin_created = User.objects.get_or_create(

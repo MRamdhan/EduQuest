@@ -1,14 +1,19 @@
 from rest_framework import serializers
 
+from apps.learning.constants import kelas_options
 from apps.learning.models import EducationLevel, Material, Subject
 
 
 class EducationLevelSerializer(serializers.ModelSerializer):
     subject_count = serializers.IntegerField(read_only=True, default=0)
+    kelas_options = serializers.SerializerMethodField()
 
     class Meta:
         model = EducationLevel
-        fields = ["id", "code", "name", "order", "subject_count"]
+        fields = ["id", "code", "name", "order", "subject_count", "kelas_options"]
+
+    def get_kelas_options(self, obj) -> list[int]:
+        return kelas_options(obj.code)
 
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -56,6 +61,7 @@ class MaterialListSerializer(serializers.ModelSerializer):
     subject = serializers.CharField(source="subject.name", read_only=True)
     subject_id = serializers.IntegerField(read_only=True)
     level = serializers.CharField(source="subject.level.code", read_only=True)
+    kelas_label = serializers.CharField(read_only=True)
     is_completed = serializers.SerializerMethodField()
 
     class Meta:
@@ -69,6 +75,8 @@ class MaterialListSerializer(serializers.ModelSerializer):
             "subject",
             "subject_id",
             "level",
+            "kelas",
+            "kelas_label",
             "estimated_minutes",
             "is_completed",
         ]

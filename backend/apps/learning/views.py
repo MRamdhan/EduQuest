@@ -5,6 +5,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from apps.learning.constants import is_valid_kelas
 from apps.learning.models import EducationLevel, Material, Question, QuestionReport, QuizAttempt, Subject
 from apps.learning.serializers import (
     AnswerQuestionSerializer,
@@ -36,22 +37,44 @@ class EducationLevelListView(APIView):
 
 class SubjectListView(APIView):
     def get(self, request):
+        level = request.query_params.get("level")
+        kelas = request.query_params.get("kelas")
+        kelas_value = None
+        if kelas:
+            if not kelas.isdigit() or not 1 <= int(kelas) <= 12:
+                return Response(
+                    {"detail": "Parameter kelas harus berupa angka 1-12."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            kelas_value = int(kelas)
+            if level and level.isalpha() and not is_valid_kelas(level, kelas_value):
+                return Response(
+                    {"detail": f"Kelas {kelas_value} tidak sesuai untuk jenjang {level}."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        material_filter = Q(materials__status=Material.Status.PUBLISHED)
+        if kelas_value is not None:
+            material_filter &= Q(materials__kelas=kelas_value)
+
         subjects = (
             Subject.objects.select_related("level")
             .annotate(
                 material_count=Count(
                     "materials",
-                    filter=Q(materials__status=Material.Status.PUBLISHED),
+                    filter=material_filter,
                     distinct=True,
                 )
             )
             .order_by("level__order", "name")
         )
-        level = request.query_params.get("level")
         if level:
             subjects = subjects.filter(
                 Q(level__code__iexact=level) | Q(level_id=level if level.isdigit() else None)
             )
+        if kelas_value is not None:
+            # Sembunyikan mapel yang tidak punya materi untuk kelas tersebut.
+            subjects = subjects.filter(material_count__gt=0)
         subject_list = list(subjects)
         return Response(
             SubjectSerializer(
@@ -80,6 +103,21 @@ class MaterialListView(APIView):
         level = request.query_params.get("level")
         if level:
             materials = materials.filter(subject__level__code__iexact=level)
+
+        kelas = request.query_params.get("kelas")
+        if kelas:
+            if not kelas.isdigit() or not 1 <= int(kelas) <= 12:
+                return Response(
+                    {"detail": "Parameter kelas harus berupa angka 1-12."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            kelas_value = int(kelas)
+            if level and not is_valid_kelas(level, kelas_value):
+                return Response(
+                    {"detail": f"Kelas {kelas_value} tidak sesuai untuk jenjang {level}."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            materials = materials.filter(kelas=kelas_value)
 
         subject = request.query_params.get("subject")
         if subject:

@@ -142,6 +142,47 @@ def test_null_provider_when_not_configured(settings):
     assert get_provider().name == "none"
 
 
+def test_gemini_provider_uses_google_ai_studio_defaults(settings, monkeypatch):
+    settings.AI_PROVIDER = "gemini"
+    settings.AI_API_KEY = "gemini-key"
+    settings.AI_BASE_URL = ""
+    settings.AI_MODEL = ""
+    settings.AI_REASONING_EFFORT = ""
+    settings.AI_MAX_RETRIES = 0
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["body"] = json.loads(request.data.decode("utf-8"))
+        captured["auth"] = request.get_header("Authorization")
+        return FakeResponse(_completion("Halo dari Gemini!"))
+
+    monkeypatch.setattr(provider_module.urllib.request, "urlopen", fake_urlopen)
+
+    provider = get_provider()
+    assert provider.name == "gemini"
+    assert provider.complete(system_prompt="sistem", user_prompt="halo") == (
+        "Halo dari Gemini!"
+    )
+    assert captured["url"] == (
+        "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+    )
+    assert captured["body"]["model"] == "gemini-3.5-flash-lite"
+    assert captured["auth"] == "Bearer gemini-key"
+    assert "reasoning_effort" not in captured["body"]
+
+
+def test_gemini_provider_allows_base_url_and_model_override(settings):
+    settings.AI_PROVIDER = "gemini"
+    settings.AI_API_KEY = "gemini-key"
+    settings.AI_BASE_URL = "https://example.test/gemini/openai/"
+    settings.AI_MODEL = "gemini-custom"
+
+    provider = get_provider()
+    assert provider.base_url == "https://example.test/gemini/openai"
+    assert provider.model == "gemini-custom"
+
+
 def test_per_call_max_tokens_overrides_default(ai_settings, monkeypatch):
     captured = {}
 

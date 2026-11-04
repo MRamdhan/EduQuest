@@ -77,6 +77,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(f"  {material.title}"))
         self.stdout.write(self.style.SUCCESS("=" * 66))
         self.stdout.write(f"Jenjang       : {material.subject.level.name}")
+        self.stdout.write(f"Kelas         : {material.kelas or '-'}")
         self.stdout.write(f"Mata pelajaran: {material.subject.name}")
         self.stdout.write(f"Topik         : {material.topic or '-'} ({material.topic_code or '-'})")
         self.stdout.write(f"Estimasi baca : {material.estimated_minutes} menit")
@@ -146,6 +147,8 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.SUCCESS(group))
                 current_group = group
             self.stdout.write(f"  [{material.pk:>2}] {material.title} ({material.estimated_minutes} menit)")
+            if material.kelas:
+                self.stdout.write(f"       Kelas {material.kelas}")
 
     def _choose_material(self, materials: list[Material], material_id: int | None) -> Material:
         if material_id:

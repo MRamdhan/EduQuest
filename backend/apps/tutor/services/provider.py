@@ -96,10 +96,13 @@ class OpenAICompatibleProvider(TutorProvider):
 
     name = "openai-compatible"
 
+    default_base_url = ""
+    default_model = ""
+
     def __init__(self):
         self.api_key = settings.AI_API_KEY
-        self.base_url = settings.AI_BASE_URL.rstrip("/")
-        self.model = settings.AI_MODEL
+        self.base_url = (settings.AI_BASE_URL or self.default_base_url).rstrip("/")
+        self.model = settings.AI_MODEL or self.default_model
         if not (self.api_key and self.base_url and self.model):
             raise ProviderUnavailable("Konfigurasi provider AI belum lengkap.")
 
@@ -202,8 +205,23 @@ class OpenAICompatibleProvider(TutorProvider):
         raise ProviderUnavailable("Provider AI tidak dapat dihubungi.")
 
 
+class GeminiProvider(OpenAICompatibleProvider):
+    """Google AI Studio (Gemini) lewat endpoint kompatibel OpenAI.
+
+    Free tier Google AI Studio menyediakan kuota harian/per menit. Kunci API
+    dibuat di https://aistudio.google.com/apikey. Base URL dan model punya
+    nilai bawaan sehingga cukup isi AI_PROVIDER=gemini dan AI_API_KEY.
+    """
+
+    name = "gemini"
+    default_base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+    default_model = "gemini-3.5-flash-lite"
+
+
 def get_provider() -> TutorProvider:
     provider = settings.AI_PROVIDER.strip().lower()
+    if provider in {"gemini", "google", "google-ai", "google-ai-studio"}:
+        return GeminiProvider()
     if provider in {"openai-compatible", "openai", "compatible"}:
         return OpenAICompatibleProvider()
     return NullProvider()

@@ -284,7 +284,10 @@ retrieval yang lebih kompleks.
 
 ### 8.5 Hint otomatis pada kuis
 
-Saat siswa salah pertama, backend memanggil layanan hint dengan urutan:
+Hint tidak ditampilkan saat siswa masih punya nyawa. Setelah jawaban salah,
+backend hanya mengurangi nyawa dan mempertahankan soal yang sama. Hint baru
+dibuat ketika nyawa mapel habis (sesi berakhir), untuk semua soal yang pernah
+dijawab salah, dengan urutan:
 
 1. **Manual** --- isi `Question.hint` jika tersedia.
 2. **AI Tutor** --- jika provider dikonfigurasi; prompt hanya memuat
@@ -297,6 +300,10 @@ opsi benar, dan tidak menyalin penjelasan jawaban. Jika output AI
 berpotensi membocorkan kunci, sistem menolaknya dan memakai fallback
 aturan. Hint yang dipakai disimpan pada `QuizQuestion.hint_text` beserta
 `hint_source` (`manual`, `ai`, atau `rule`) untuk audit.
+
+Provider yang dipakai adalah Google AI Studio free tier lewat endpoint
+kompatibel OpenAI (`AI_PROVIDER=gemini`, model bawaan `gemini-3.5-flash-lite`).
+Tanpa kunci API, hint otomatis memakai aturan.
 
 ## 9. Adaptive Learning Engine
 
