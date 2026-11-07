@@ -1,134 +1,743 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduQuest - Frontend Playground & Starter</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>EduQuest &mdash; Mulai Quest, Kuasai Pengetahuan!</title>
+  <meta name="description" content="Jalankan quest edukatif melalui materi, latihan, dan kuis. Dapatkan petunjuk AI Tutor saat layanan tersedia.">
+
+  <!-- Google Fonts: Baloo 2 & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'system-ui', 'sans-serif'],
+            display: ['Baloo 2', 'cursive', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f2ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd',
+              400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9',
+              800: '#5b21b6', 900: '#4c1d95',
+            },
+            ink: { 700: '#3c2e82', 800: '#2a1f6b', 900: '#1e1650', 950: '#150d3a' },
+          },
+          boxShadow: {
+            card: '0 8px 24px -12px rgba(109, 40, 217, 0.18)',
+            btn: '0 4px 0 0 #4c1d95',
+          },
+          keyframes: {
+            modalZoom: {
+              '0%': { opacity: '0', transform: 'scale(0.96) translateY(12px)' },
+              '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+            }
+          },
+          animation: { modalZoom: 'modalZoom 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards' }
+        }
+      }
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer components {
+      .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-700 text-white font-display font-bold text-sm shadow-btn transition hover:bg-brand-600 hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none cursor-pointer; }
+      .btn-lg { @apply px-8 py-4 text-base; }
+      .btn-sm { @apply px-4 py-2 text-sm; }
+      .btn-outline { @apply inline-flex w-full items-center justify-center rounded-xl border-2 border-brand-700 bg-white px-4 py-2.5 font-display text-sm font-bold text-brand-700 transition hover:bg-brand-50 cursor-pointer; }
+      .pill { @apply inline-block rounded-full border border-brand-200 bg-white px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-700; }
+      .card { @apply rounded-2xl border border-brand-100 bg-white p-6 shadow-card; }
+      .section-title { @apply font-display text-3xl font-extrabold text-ink-900 sm:text-4xl leading-tight; }
+    }
+  </style>
+
+  <!-- Script Aset Maskot & API Client -->
+  <script src="js/mascot_asset.js"></script>
+  <script src="js/api.js"></script>
 </head>
-<body>
+<body class="bg-[#f8f6ff] text-slate-700 antialiased font-sans min-h-screen flex flex-col">
 
-  <div class="container">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="brand">
-        <h1>🎓 EduQuest Frontend</h1>
-        <span class="badge" id="backendStatus">Memeriksa Backend...</span>
+  <!-- ================= NOTIFIKASI TOAST ================= -->
+  <div id="toast" class="fixed top-5 right-5 z-[100] hidden max-w-sm rounded-2xl border border-brand-200 bg-white p-4 shadow-2xl transition-all duration-300">
+    <div class="flex items-start gap-3">
+      <span id="toast-icon" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-700 text-sm font-bold">✓</span>
+      <div>
+        <h4 id="toast-title" class="font-display text-sm font-extrabold text-ink-900">Pemberitahuan</h4>
+        <p id="toast-message" class="text-xs text-slate-500 mt-0.5 leading-relaxed">Pesan notifikasi.</p>
       </div>
-      <div id="authActions">
-        <button id="btnLogout" class="btn btn-outline btn-sm" style="display: none;">Logout</button>
-      </div>
-    </header>
-
-    <!-- Bar Status User (Nyawa, XP, Level, Rank) -->
-    <div class="stats-bar" id="userStatsBar" style="display: none;">
-      <div class="stat-pill">❤️ Nyawa: <span id="statLives">3/3</span></div>
-      <div class="stat-pill">⭐ XP: <span id="statXP">0</span></div>
-      <div class="stat-pill">🏆 Level: <span id="statLevel">1</span></div>
-      <div class="stat-pill">🎖️ Rank: <span id="statRank">Bronze</span></div>
-      <div class="stat-pill">👤 User: <span id="statUsername">-</span></div>
-    </div>
-
-    <!-- Main Grid -->
-    <div class="grid">
-      
-      <!-- Panel 1: Autentikasi (Login / Register) -->
-      <section class="card" id="authCard">
-        <h2>🔐 Autentikasi Siswa</h2>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">
-          Login dengan akun yang sudah ada atau buat akun murid baru untuk menguji API.
-        </p>
-
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="loginUsername">Username</label>
-            <input type="text" id="loginUsername" placeholder="Contoh: murid1" required>
-          </div>
-          <div class="form-group">
-            <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" placeholder="Password kamu" required>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Masuk / Login</button>
-        </form>
-
-        <div id="authMessage" style="margin-top: 12px; font-size: 0.85rem;"></div>
-      </section>
-
-      <!-- Panel 2: Eksplorasi Materi & Mapel -->
-      <section class="card">
-        <h2>📚 Materi Pembelajaran</h2>
-        <div class="form-group">
-          <label for="selectLevel">Pilih Jenjang</label>
-          <select id="selectLevel">
-            <option value="">Semua Jenjang</option>
-            <option value="SD">SD (Sekolah Dasar)</option>
-            <option value="SMP">SMP</option>
-            <option value="SMA">SMA</option>
-          </select>
-        </div>
-
-        <button id="btnLoadMaterials" class="btn btn-outline btn-sm" style="margin-bottom: 12px;">Muat Daftar Materi</button>
-        
-        <div id="materialsList" style="max-height: 250px; overflow-y: auto; font-size: 0.9rem;">
-          <p style="color: var(--text-muted);">Klik tombol di atas untuk memuat materi dari backend.</p>
-        </div>
-      </section>
-
-      <!-- Panel 3: Interactive AI Tutor -->
-      <section class="card">
-        <h2>🤖 AI Tutor EduQuest</h2>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 10px;">
-          Tutor cerdas berbasis metode sokratik menggunakan Google Gemini.
-        </p>
-
-        <div class="form-group">
-          <label for="tutorMaterialId">Pilih ID Materi</label>
-          <input type="number" id="tutorMaterialId" value="1" placeholder="ID Materi (cth: 1)">
-        </div>
-
-        <div class="chat-window">
-          <div class="chat-messages" id="chatMessages">
-            <div class="chat-bubble chat-ai">
-              Halo! Aku tutor belajarmu. Ada materi atau konsep yang ingin kamu diskusikan hari ini?
-            </div>
-          </div>
-          <form id="chatForm" class="chat-input-bar">
-            <input type="text" id="chatInput" placeholder="Tanya sesuatu tentang materi..." required autocomplete="off">
-            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
-          </form>
-        </div>
-      </section>
-
-      <!-- Panel 4: Kuis Adaptif Tester -->
-      <section class="card">
-        <h2>🎯 Kuis Adaptif & Nyawa</h2>
-        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 12px;">
-          Uji flow kuis adaptif, pengurangan nyawa, regenerasi nyawa (1 jam = 1 nyawa), dan evaluasi soal.
-        </p>
-
-        <div class="form-group">
-          <label for="quizMaterialId">ID Materi Kuis</label>
-          <input type="number" id="quizMaterialId" value="1">
-        </div>
-
-        <button id="btnStartQuiz" class="btn btn-primary btn-sm">Mulai Sesi Kuis</button>
-
-        <div id="quizArea" style="margin-top: 14px; display: none;">
-          <div style="background: #eef2ff; padding: 12px; border-radius: 8px; margin-bottom: 10px;">
-            <strong id="quizQuestionText">Pertanyaan kuis akan tampil di sini...</strong>
-          </div>
-          <div id="quizOptions" style="display: flex; flex-direction: column; gap: 8px;"></div>
-        </div>
-
-        <div id="quizResult" style="margin-top: 12px; font-size: 0.85rem;"></div>
-      </section>
-
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/api.js"></script>
+  <!-- ================= MODAL AUTENTIKASI ================= -->
+  <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-950/60 backdrop-blur-sm hidden overflow-y-auto">
+    <div class="relative w-full max-w-2xl my-auto animate-modalZoom">
+      <!-- VIEW CHOICE -->
+      <div id="view-choice" class="hidden rounded-3xl border border-brand-100 bg-white p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <button type="button" class="btn-close-modal absolute top-5 left-5 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50 cursor-pointer">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-10 pt-6 sm:pt-4">
+          <div class="flex-shrink-0 flex justify-center items-center">
+            <img id="mascot-img-choice" src="" alt="EduQuest Mascot" class="w-48 sm:w-60 h-auto object-contain select-none pointer-events-none drop-shadow-md">
+          </div>
+          <div class="flex-1 text-center md:text-left flex flex-col justify-center w-full">
+            <h2 class="font-display text-3xl font-extrabold text-ink-900 leading-tight">Mulai Quest, Kuasai Pengetahuan!</h2>
+            <div class="mt-8 space-y-4 w-full">
+              <button type="button" id="btn-choice-register" class="w-full flex items-center justify-center gap-2 rounded-2xl border-2 border-brand-300 bg-[#f8f6ff] py-3.5 px-6 font-display font-extrabold text-brand-700 shadow-[0_4px_0_0_#ddd6fe] hover:bg-brand-100 cursor-pointer">
+                <span>⚔️</span> Daftar &mdash; Petualang Baru
+              </button>
+              <button type="button" id="btn-choice-login" class="w-full flex items-center justify-center gap-2 rounded-2xl bg-brand-700 py-3.5 px-6 font-display font-extrabold text-white shadow-btn hover:bg-brand-600 cursor-pointer">
+                <span>🗡️</span> Masuk &mdash; Sudah Punya Akun
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW REGISTER -->
+      <div id="view-register" class="hidden max-w-xl mx-auto rounded-3xl border border-brand-100 bg-white p-6 sm:p-10 shadow-2xl relative">
+        <button type="button" class="btn-close-modal absolute top-5 left-5 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50 cursor-pointer">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="pt-6 text-left">
+          <span class="inline-block rounded-full bg-brand-100 px-3.5 py-1 text-xs font-extrabold text-brand-700">Portal Pendaftaran Petualang</span>
+          <h2 class="mt-3 font-display text-2xl sm:text-3xl font-extrabold text-ink-900">Buat Akun EduQuest</h2>
+        </div>
+        <form id="form-register" class="mt-6 space-y-4" novalidate>
+          <div>
+            <label for="reg-nama" class="block text-xs font-extrabold text-ink-900">Nama Lengkap</label>
+            <input id="reg-nama" type="text" placeholder="Contoh: Budi Santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <div>
+            <label for="reg-email" class="block text-xs font-extrabold text-ink-900">Email</label>
+            <input id="reg-email" type="email" placeholder="nama@email.com" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <div>
+            <label class="block text-xs font-extrabold text-ink-900">Jenjang</label>
+            <div class="grid grid-cols-3 gap-2.5 pt-1.5">
+              <button type="button" data-jenjang-choice="SD" class="jenjang-choice-btn flex items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs sm:text-sm font-bold text-ink-900 transition hover:bg-brand-50">SD/Madrasah</button>
+              <button type="button" data-jenjang-choice="SMP" class="jenjang-choice-btn flex items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs sm:text-sm font-bold text-ink-900 transition hover:bg-brand-50">SMP/MTs</button>
+              <button type="button" data-jenjang-choice="SMA/SMK" class="jenjang-choice-btn flex items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs sm:text-sm font-bold text-ink-900 transition hover:bg-brand-50">SMA/SMK</button>
+            </div>
+          </div>
+          <div>
+            <label for="reg-kelas" class="block text-xs font-extrabold text-ink-900">Kelas</label>
+            <select id="reg-kelas" disabled class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600 disabled:bg-slate-100">
+              <option value="">Pilih jenjang terlebih dahulu</option>
+            </select>
+          </div>
+          <div>
+            <label for="reg-pass" class="block text-xs font-extrabold text-ink-900">Kata Sandi</label>
+            <input id="reg-pass" type="password" placeholder="Minimal 8 karakter" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <div>
+            <label for="reg-pass-confirm" class="block text-xs font-extrabold text-ink-900">Konfirmasi Kata Sandi</label>
+            <input id="reg-pass-confirm" type="password" placeholder="Ulangi kata sandi" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <label class="flex items-start gap-2.5 pt-1 text-xs text-slate-600 cursor-pointer">
+            <input id="reg-terms" type="checkbox" class="mt-0.5 h-4 w-4 rounded border-brand-300 text-brand-700 cursor-pointer">
+            <span>Saya menyetujui Syarat &amp; Ketentuan.</span>
+          </label>
+          <div class="pt-2">
+            <button id="btn-submit-register" type="submit" disabled class="w-full rounded-xl bg-slate-200 py-3.5 font-display text-sm font-extrabold text-slate-400 cursor-not-allowed">Buat Akun Baru</button>
+          </div>
+          <p class="pt-2 text-center text-xs text-slate-600">Petualang Lama? <button type="button" id="link-to-login" class="font-extrabold text-brand-700 hover:underline">Masuk Sekarang</button></p>
+        </form>
+      </div>
+
+      <!-- VIEW LOGIN -->
+      <div id="view-login" class="hidden max-w-lg mx-auto rounded-3xl border border-brand-100 bg-white p-6 sm:p-10 shadow-2xl relative">
+        <button type="button" class="btn-close-modal absolute top-5 left-5 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50 cursor-pointer">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <div class="pt-6 text-left">
+          <span class="inline-block rounded-full bg-brand-100 px-3.5 py-1 text-xs font-extrabold text-brand-700">Portal Masuk Petualang</span>
+          <h2 class="mt-3 font-display text-2xl font-extrabold text-ink-900">Masuk ke Akun EduQuest</h2>
+        </div>
+        <form id="form-login" class="mt-6 space-y-4" novalidate>
+          <div>
+            <label for="login-email" class="block text-xs font-extrabold text-ink-900">Email</label>
+            <input id="login-email" type="email" placeholder="fira@eduquest.id" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <div>
+            <label for="login-password" class="block text-xs font-extrabold text-ink-900">Kata Sandi</label>
+            <input id="login-password" type="password" placeholder="password123" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <div class="pt-2">
+            <button id="btn-submit-login" type="submit" class="w-full rounded-xl bg-brand-700 py-3.5 font-display text-sm font-extrabold text-white shadow-btn hover:bg-brand-600">Masuk ke Akun</button>
+          </div>
+          <p class="text-center text-xs text-slate-600 pt-2">Petualang Baru? <button type="button" id="link-to-register" class="font-extrabold text-brand-700 hover:underline">Daftar di sini</button></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= MODAL FITUR PROFIL / JENJANG / PENGATURAN ================= -->
+  <div id="feature-modal" onclick="if(event.target === this) window.closeFeatureModal()" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-950/60 backdrop-blur-sm hidden overflow-y-auto">
+    <div id="feature-modal-content" class="relative w-full max-w-md rounded-3xl border border-brand-100 bg-white p-6 sm:p-8 shadow-2xl animate-modalZoom">
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 border-b border-brand-100 bg-white/90 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="#view-pengguna-lama" onclick="event.preventDefault(); handleNavClick('beranda')" class="leading-tight">
+        <span class="block font-display text-xl font-extrabold text-brand-700">EduQuest</span>
+        <span class="block text-[10px] font-bold uppercase tracking-wide text-ink-800">Quest Edukatif</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav id="nav-desktop" class="hidden rounded-full border border-brand-100 bg-white p-1 shadow-sm md:flex">
+        <button id="nav-btn-beranda" onclick="handleNavClick('beranda')" class="rounded-full bg-brand-700 px-5 py-1.5 font-display text-sm font-bold text-white transition">Beranda</button>
+        <button id="nav-btn-quest" onclick="handleNavClick('quest')" class="rounded-full px-5 py-1.5 font-display text-sm font-bold text-ink-800 transition hover:bg-brand-50">Quest</button>
+        <button id="nav-btn-kuis" onclick="handleNavClick('kuis')" class="rounded-full px-5 py-1.5 font-display text-sm font-bold text-ink-800 transition hover:bg-brand-50">Kuis</button>
+        <button id="nav-btn-ai-tutor" onclick="handleNavClick('ai-tutor')" class="rounded-full px-5 py-1.5 font-display text-sm font-bold text-ink-800 transition hover:bg-brand-50">AI Tutor</button>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <div id="nav-auth-container">
+          <button type="button" id="nav-btn-auth" class="btn-primary btn-sm">Mulai Quest</button>
+        </div>
+        <button id="menu-btn" class="rounded-lg p-2 text-brand-700 md:hidden">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden border-t border-brand-100 bg-white px-4 py-3 md:hidden space-y-1">
+      <div id="mobile-user-card" class="hidden mb-3 rounded-2xl border border-brand-200 bg-brand-50 p-3"></div>
+      <button onclick="handleNavClick('beranda')" class="block w-full text-left rounded-lg px-3 py-2 font-display text-sm font-bold text-ink-800 hover:bg-brand-50">Beranda</button>
+      <button onclick="handleNavClick('quest')" class="block w-full text-left rounded-lg px-3 py-2 font-display text-sm font-bold text-ink-800 hover:bg-brand-50">Quest</button>
+      <button onclick="handleNavClick('kuis')" class="block w-full text-left rounded-lg px-3 py-2 font-display text-sm font-bold text-ink-800 hover:bg-brand-50">Kuis</button>
+      <button onclick="handleNavClick('ai-tutor')" class="block w-full text-left rounded-lg px-3 py-2 font-display text-sm font-bold text-ink-800 hover:bg-brand-50">AI Tutor</button>
+    </div>
+  </header>
+
+  <!-- ================= KONTEN UTAMA ================= -->
+  <main class="flex-1 mx-auto w-full max-w-7xl px-4 py-8 sm:px-6">
+
+    <!-- ==========================================================
+         VIEW 1: LANDING PAGE PUBLIK
+         ========================================================== -->
+    <div id="view-landing-page" class="space-y-16 pb-12">
+      <section class="rounded-[2.5rem] border border-brand-100 bg-white px-6 py-16 text-center shadow-card sm:py-24">
+        <span class="pill">✨ Platform Edukasi Berbasis Gamifikasi</span>
+        <h1 class="mx-auto mt-6 max-w-3xl font-display text-4xl sm:text-6xl font-extrabold leading-tight text-ink-900">Mulai Quest, Kuasai Pengetahuan!</h1>
+        <p class="mx-auto mt-6 max-w-2xl text-sm sm:text-base text-slate-500 leading-relaxed">Jalankan quest edukatif melalui materi, latihan, dan kuis. Dapatkan petunjuk AI Tutor saat layanan tersedia.</p>
+        <div class="mt-8 flex flex-col items-center gap-4">
+          <button type="button" class="btn-primary btn-lg" onclick="window.openAuthModal('choice')">⚔️ Mulai Quest Sekarang</button>
+        </div>
+      </section>
+
+      <section id="jenjang" class="text-center">
+        <span class="pill">Quest Sesuai Jenjang</span>
+        <h2 class="section-title mt-4">Temukan Quest Sesuai Jenjangmu</h2>
+        <div id="jenjang-list" class="mt-10 grid items-start gap-6 text-left md:grid-cols-3"></div>
+      </section>
+
+      <section class="card !p-8">
+        <h2 class="font-display text-2xl font-extrabold text-ink-900">Mata Pelajaran per Jenjang</h2>
+        <div id="mapel-list" class="mt-8 grid gap-6 md:grid-cols-3"></div>
+      </section>
+    </div>
+
+    <!-- ==========================================================
+         VIEW 2: DASHBOARD PENGGUNA BARU
+         ========================================================== -->
+    <div id="view-pengguna-baru" class="hidden space-y-6 pb-12">
+      <!-- SUB-VIEW: BERANDA -->
+      <div id="new-view-beranda" class="space-y-10">
+        <section class="rounded-3xl border border-brand-200 bg-white p-6 shadow-card sm:p-8">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+              <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-brand-50 border border-brand-100 p-1.5"><img id="new-user-hero-mascot" src="" alt="Maskot EduQuest" class="w-full h-full object-contain drop-shadow-xs" /></div>
+              <div>
+                <span id="new-user-jenjang-tag" class="rounded-full bg-brand-100 px-3 py-1 text-xs font-extrabold text-brand-700">SMP/MTs • Kelas 7</span>
+                <h1 id="new-user-welcome-title" class="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-ink-900">Halo, Petualang Baru!</h1>
+                <p class="mt-1 text-xs sm:text-sm text-slate-500">Selamat datang! Pilih quest pertamamu dan mulai kumpulkan XP. Raih 100 XP untuk mencapai Level 2.</p>
+              </div>
+            </div>
+            <div class="w-full md:w-72 rounded-2xl border border-brand-100 bg-brand-50/50 p-4">
+              <div class="flex justify-between text-xs font-extrabold text-ink-900">
+                <span>Level 1 • Bronze</span>
+                <span>0 / 100 XP</span>
+              </div>
+              <div class="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-brand-200">
+                <div class="h-full w-0 rounded-full bg-brand-700"></div>
+              </div>
+              <p class="mt-2 text-[11px] font-bold text-slate-400">Rank Bronze: 0-99 XP • Silver di 100 XP</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rounded-2xl border-2 border-dashed border-brand-300 bg-brand-50/60 p-6 text-center sm:text-left sm:flex sm:items-center sm:justify-between">
+          <div>
+            <span class="pill">Pilih Quest Pertamamu</span>
+            <h2 class="mt-2 font-display text-xl font-extrabold text-ink-900">Mulai IPS &mdash; Ruang dan Wilayah</h2>
+            <p class="mt-1 text-xs text-slate-500">Pilih topik yang ingin kamu pelajari, lalu kerjakan latihan terbimbing di dalamnya.</p>
+          </div>
+          <button type="button" onclick="switchNewUserTab('quest')" class="btn-primary btn-sm mt-4 sm:mt-0">Mulai Quest</button>
+        </section>
+
+        <section>
+          <div>
+            <h2 class="font-display text-xl font-extrabold text-ink-900">Achievement Terbaru</h2>
+            <p class="text-xs text-slate-500">Lencanamu masih terkunci. Selesaikan quest untuk membuka yang pertama!</p>
+          </div>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="card !p-5 text-center bg-slate-50 opacity-75">
+              <span class="text-2xl">🔒</span>
+              <h4 class="mt-2 font-display text-sm font-extrabold text-ink-900">Langkah Pertama</h4>
+              <p class="text-[11px] text-slate-400">Selesaikan 1 materi</p>
+              <span class="mt-3 inline-block rounded-full bg-slate-200 px-3 py-0.5 text-[10px] font-bold text-slate-600">Terkunci • 0%</span>
+            </div>
+            <div class="card !p-5 text-center bg-slate-50 opacity-75">
+              <span class="text-2xl">🔒</span>
+              <h4 class="mt-2 font-display text-sm font-extrabold text-ink-900">Penakluk Kuis</h4>
+              <p class="text-[11px] text-slate-400">Selesaikan 1 kuis</p>
+              <span class="mt-3 inline-block rounded-full bg-slate-200 px-3 py-0.5 text-[10px] font-bold text-slate-600">Terkunci • 0%</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Galeri 5 Tingkat Pangkat Petualang -->
+        <section>
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <h2 class="font-display text-xl font-extrabold text-ink-900">Pangkat &amp; Gelar Petualang</h2>
+              <p class="text-xs text-slate-500">Kumpulkan XP dari materi dan kuis untuk naik pangkat dari Rekrut hingga Legenda!</p>
+            </div>
+          </div>
+          <div class="rank-emblems-showcase mt-4 grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"></div>
+        </section>
+      </div>
+
+      <!-- SUB-VIEW: QUEST (MENDUKUNG PETUALANG LAMA FIRA & PETUALANG BARU BUDI) -->
+      <div id="new-view-quest" class="hidden space-y-6">
+        <div>
+          <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-ink-900">Quest</h1>
+          <p id="quest-page-subtitle" class="text-xs sm:text-sm text-slate-600 mt-1">
+            40 dari 80 materi selesai di jenjang SMP. Lanjutkan materi aktif atau jelajahi mapel lainnya.
+          </p>
+        </div>
+
+        <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col md:flex-row items-start md:items-center gap-4">
+          <div class="shrink-0">
+            <span class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">JENJANG AKTIF</span>
+            <span class="inline-block rounded-full bg-brand-100/90 px-4 py-2 font-display text-xs font-extrabold text-brand-700">SMP/MTs • Kelas 7</span>
+          </div>
+          <div class="flex-1 w-full">
+            <label class="block text-xs font-extrabold text-ink-900 mb-1.5">Cari quest apa?</label>
+            <div class="relative">
+              <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" placeholder="Cari mata pelajaran..." class="w-full rounded-2xl border border-brand-100 pl-10 pr-4 py-2.5 text-xs sm:text-sm outline-none focus:border-brand-600 bg-white">
+            </div>
+          </div>
+        </div>
+
+        <!-- Daftar Mata Pelajaran (Sesuai Quest — Daftar Mata Pelajaran (Petualang Lama).png) -->
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="font-display text-2xl font-extrabold text-ink-900">Mata Pelajaran</h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Mapel dan materi mengikuti jenjang SMP.</p>
+            </div>
+            <span class="rounded-full bg-brand-100/90 px-3.5 py-1 font-display text-xs font-extrabold text-brand-700">SMP/MTs • Kelas 7</span>
+          </div>
+
+          <!-- Banner Materi Aktif -->
+          <div id="quest-old-user-banner" class="rounded-3xl bg-brand-50/90 border border-brand-100 p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="flex items-start gap-3.5">
+              <span class="mt-0.5 text-brand-700 text-lg">💡</span>
+              <div class="text-xs sm:text-sm text-slate-600 space-y-0.5">
+                <p class="font-semibold text-ink-900">Mengenal Interaksi Antarruang &mdash; Bab Interaksi Antarruang</p>
+                <p>3 dari 5 bagian selesai • Progres materi 60%</p>
+                <p class="text-xs text-slate-500">Nyawa terpisah per mapel, maksimal 3; pulih 1 tiap 2 jam. Materi tetap dapat dibaca saat nyawa habis.</p>
+              </div>
+            </div>
+            <button type="button" onclick="window.openMaterialPage('bab-02', 'mat-2-1', 1)" class="w-full md:w-auto rounded-2xl bg-brand-700 px-5 py-2.5 font-display text-xs sm:text-sm font-extrabold text-white shadow-btn hover:bg-brand-600 transition cursor-pointer shrink-0">
+              Lanjutkan Quest
+            </button>
+          </div>
+
+          <!-- Grid 4 Mata Pelajaran -->
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- IPS -->
+            <div class="rounded-3xl border-2 border-brand-700 bg-white p-6 shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3.5">
+                  <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 border border-brand-100 text-xl">🌍</span>
+                  <div>
+                    <h3 class="font-display text-lg font-extrabold text-ink-900">IPS</h3>
+                    <p class="text-xs text-slate-500">Contoh topik: Interaksi Antarruang</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex justify-between text-xs font-extrabold text-brand-700">
+                  <span>14/20 materi selesai</span>
+                  <span>70%</span>
+                </div>
+                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-brand-100">
+                  <div class="h-full w-[70%] rounded-full bg-brand-700"></div>
+                </div>
+              </div>
+              <button type="button" onclick="window.scrollToBabCatalog()" class="mt-5 w-full rounded-2xl bg-brand-700 py-2.5 font-display text-xs sm:text-sm font-extrabold text-white shadow-btn hover:bg-brand-600 transition cursor-pointer">
+                Lanjutkan Quest
+              </button>
+            </div>
+
+            <!-- IPA -->
+            <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3.5">
+                  <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 border border-emerald-100 text-xl">🧪</span>
+                  <div>
+                    <h3 class="font-display text-lg font-extrabold text-ink-900">IPA</h3>
+                    <p class="text-xs text-slate-500">Makhluk hidup &amp; lingkungan</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex justify-between text-xs font-extrabold text-emerald-700">
+                  <span>10/20 materi selesai</span>
+                  <span>50%</span>
+                </div>
+                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-emerald-100">
+                  <div class="h-full w-[50%] rounded-full bg-emerald-600"></div>
+                </div>
+              </div>
+              <button type="button" onclick="showToast('Mata Pelajaran IPA', '10/20 materi IPA selesai. Gulir ke bawah untuk melihat katalog bab IPS.', '🧪')" class="mt-5 w-full rounded-2xl border-2 border-brand-700 py-2.5 font-display text-xs sm:text-sm font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
+                Lihat Bab
+              </button>
+            </div>
+
+            <!-- Bahasa Indonesia -->
+            <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3.5">
+                  <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 border border-amber-100 text-xl">📖</span>
+                  <div>
+                    <h3 class="font-display text-lg font-extrabold text-ink-900">Bahasa Indonesia</h3>
+                    <p class="text-xs text-slate-500">Teks deskripsi &amp; cerita</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex justify-between text-xs font-extrabold text-amber-700">
+                  <span>8/20 materi selesai</span>
+                  <span>40%</span>
+                </div>
+                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
+                  <div class="h-full w-[40%] rounded-full bg-amber-600"></div>
+                </div>
+              </div>
+              <button type="button" onclick="showToast('Bahasa Indonesia', '8/20 materi Bahasa Indonesia selesai.', '📖')" class="mt-5 w-full rounded-2xl border-2 border-brand-700 py-2.5 font-display text-xs sm:text-sm font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
+                Lihat Bab
+              </button>
+            </div>
+
+            <!-- PPKN -->
+            <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3.5">
+                  <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 border border-brand-100 text-xl">💬</span>
+                  <div>
+                    <h3 class="font-display text-lg font-extrabold text-ink-900">PPKN</h3>
+                    <p class="text-xs text-slate-500">Nilai-nilai Pancasila</p>
+                  </div>
+                </div>
+                <div class="mt-5 flex justify-between text-xs font-extrabold text-amber-700">
+                  <span>8/20 materi selesai</span>
+                  <span>40%</span>
+                </div>
+                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
+                  <div class="h-full w-[40%] rounded-full bg-amber-600"></div>
+                </div>
+              </div>
+              <button type="button" onclick="showToast('PPKN', '8/20 materi PPKN selesai.', '💬')" class="mt-5 w-full rounded-2xl border-2 border-brand-700 py-2.5 font-display text-xs sm:text-sm font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
+                Lihat Bab
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner Butuh Teman Berpikir? -->
+        <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="font-display text-lg font-extrabold text-ink-900">Butuh teman berpikir?</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-0.5">AI Tutor membantumu memahami konsep dengan petunjuk bertahap.</p>
+            <p class="text-xs text-slate-400 mt-0.5">AI dapat keliru. Jika layanan tidak tersedia, lanjutkan belajar melalui materi.</p>
+          </div>
+          <button type="button" onclick="window.handleNavClick('ai-tutor')" class="inline-flex items-center gap-2 rounded-2xl bg-brand-700 px-5 py-3 font-display text-xs sm:text-sm font-extrabold text-white shadow-btn hover:bg-brand-600 transition cursor-pointer shrink-0">
+            <span>🦉</span>
+            <span>Tanya AI Tutor</span>
+          </button>
+        </div>
+
+        <!-- KATALOG BAB & MATERI IPS -->
+        <div id="ips-bab-catalog"></div>
+      </div>
+
+      <!-- SUB-VIEW: AI TUTOR -->
+      <div id="new-view-ai-tutor" class="hidden space-y-6">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+          <div>
+            <h1 class="font-display text-3xl font-extrabold text-ink-900">AI Tutor</h1>
+            <p class="text-sm text-slate-500 mt-1">Teman berpikir untuk petualangan belajarmu.</p>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-[300px_1fr] gap-6">
+          <div class="space-y-4">
+            <div class="card !p-5 border border-slate-200">
+              <h2 class="font-display text-base font-extrabold text-ink-900">Mau belajar apa?</h2>
+              <div class="space-y-3 mt-4">
+                <button type="button" onclick="showToast('Topik AI Tutor', 'Topik IPS: Ruang dan Wilayah sedang aktif.', '🧙‍♂️')" class="w-full flex items-center gap-3 rounded-xl border-2 border-brand-600 bg-brand-50 p-3 text-left cursor-pointer">
+                  <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-lg">🌍</span>
+                  <div>
+                    <p class="text-sm font-extrabold text-ink-900">IPS</p>
+                    <p class="text-[11px] text-slate-500">Ruang dan Wilayah</p>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="card !p-0 border border-brand-200 overflow-hidden bg-white shadow-sm">
+              <div class="p-6 space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-100 text-2xl">🧙‍♂️</div>
+                  <div class="flex-1 rounded-2xl rounded-tl-sm bg-brand-50 border border-brand-100 p-4">
+                    <h4 class="font-display text-lg font-extrabold text-ink-900">Halo, Budi! Siap menjelajah ruang dan wilayah? 👋</h4>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">Aku akan membantumu memahami konsep IPS selangkah demi selangkah.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+         VIEW 3: DASHBOARD PENGGUNA LAMA (LENGKAP)
+         ========================================================== -->
+    <div id="view-pengguna-lama" class="hidden space-y-10 pb-12">
+      
+      <!-- 1. HERO SECTION (SAPAAN & PROGRESS) -->
+      <section class="rounded-3xl border border-brand-200 bg-white p-6 shadow-card sm:p-8">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-amber-50 border border-amber-200 p-2"><img id="old-user-hero-badge" src="" alt="Emblem Kesatria" class="w-full h-full object-contain drop-shadow-xs" /></div>
+            <div>
+              <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-extrabold text-amber-800">SMP/MTs • Kelas 7</span>
+              <h1 id="user-name-title" class="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-ink-900">Halo, Budi!</h1>
+              <p id="user-stats-summary" class="mt-1 text-xs sm:text-sm text-slate-500">40 materi dan 30 kuis selesai • Total 2.920 XP • Sisa 660 XP menuju Level 9</p>
+            </div>
+          </div>
+          <div class="w-full md:w-80 rounded-2xl border border-amber-200 bg-amber-50/50 p-4">
+            <div class="flex justify-between text-xs font-extrabold text-amber-900">
+              <span id="user-level-badge">Level 8 • Gold</span>
+              <span id="user-xp-text">192 / 800 XP</span>
+            </div>
+            <div class="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-amber-200">
+              <div id="user-xp-bar" class="h-full w-[24%] rounded-full bg-amber-600"></div>
+            </div>
+            <p class="mt-2 text-[11px] font-bold text-amber-700">Rank Gold: 300 XP+ • Level 9 pada 800 XP</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. QUEST AKTIF -->
+      <section class="card !p-6 border-brand-300 bg-gradient-to-r from-brand-50 to-white">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <span class="pill">Quest Aktif</span>
+            <h3 class="mt-2 font-display text-lg font-extrabold text-ink-900">Mengenal Interaksi Antarruang &mdash; Bagian 4 dari 5</h3>
+            <p class="text-xs text-slate-500">Bab Interaksi Antarruang • Sekitar 8 menit lagi</p>
+            <div class="mt-3 flex items-center gap-3">
+              <div class="h-2 w-48 overflow-hidden rounded-full bg-brand-200">
+                <div class="h-full w-[60%] rounded-full bg-brand-700"></div>
+              </div>
+              <span class="text-xs font-extrabold text-brand-700">60% Selesai</span>
+            </div>
+          </div>
+          <button type="button" onclick="window.openMaterialPage('bab-01', 'mat-1-1', 1)" class="btn-primary btn-sm shrink-0">Lanjutkan Belajar</button>
+        </div>
+      </section>
+
+      <!-- 3. MATA PELAJARAN -->
+      <section>
+        <h2 class="font-display text-xl font-extrabold text-ink-900">Mata Pelajaran</h2>
+        <p class="text-xs text-slate-500">40 dari 80 materi selesai. Nyawa terpisah per mapel (maksimal 3).</p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="card !p-5">
+            <div class="flex justify-between items-center">
+              <span class="font-display text-base font-extrabold text-ink-900">IPS</span>
+              <span class="text-xs font-bold text-rose-600">1/3 ❤️</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500">14/20 materi selesai</p>
+            <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-brand-100">
+              <div class="h-full w-[70%] bg-brand-700"></div>
+            </div>
+            <div class="mt-2 flex justify-between text-[11px] font-extrabold text-brand-700">
+              <span>Progres</span>
+              <span>70%</span>
+            </div>
+            <button type="button" onclick="handleNavClick('quest')" class="btn-primary btn-sm !py-1.5 mt-3 w-full text-xs">Lanjutkan Quest</button>
+          </div>
+          <div class="card !p-5">
+            <div class="flex justify-between items-center">
+              <span class="font-display text-base font-extrabold text-ink-900">IPA</span>
+              <span class="text-xs font-bold text-emerald-600">3/3 ❤️</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500">10/20 materi selesai</p>
+            <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-brand-100">
+              <div class="h-full w-[50%] bg-brand-700"></div>
+            </div>
+            <div class="mt-2 flex justify-between text-[11px] font-extrabold text-brand-700">
+              <span>Progres</span>
+              <span>50%</span>
+            </div>
+            <button type="button" onclick="handleNavClick('quest')" class="btn-primary btn-sm !py-1.5 mt-3 w-full text-xs">Lanjutkan Quest</button>
+          </div>
+          <div class="card !p-5">
+            <div class="flex justify-between items-center">
+              <span class="font-display text-base font-extrabold text-ink-900">Bahasa Indonesia</span>
+              <span class="text-xs font-bold text-emerald-600">3/3 ❤️</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500">8/20 materi selesai</p>
+            <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-brand-100">
+              <div class="h-full w-[40%] bg-brand-700"></div>
+            </div>
+            <div class="mt-2 flex justify-between text-[11px] font-extrabold text-brand-700">
+              <span>Progres</span>
+              <span>40%</span>
+            </div>
+            <button type="button" onclick="handleNavClick('quest')" class="btn-primary btn-sm !py-1.5 mt-3 w-full text-xs">Lanjutkan Quest</button>
+          </div>
+          <div class="card !p-5">
+            <div class="flex justify-between items-center">
+              <span class="font-display text-base font-extrabold text-ink-900">PPKn</span>
+              <span class="text-xs font-bold text-emerald-600">3/3 ❤️</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-500">8/20 materi selesai</p>
+            <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-brand-100">
+              <div class="h-full w-[40%] bg-brand-700"></div>
+            </div>
+            <div class="mt-2 flex justify-between text-[11px] font-extrabold text-brand-700">
+              <span>Progres</span>
+              <span>40%</span>
+            </div>
+            <button type="button" onclick="handleNavClick('quest')" class="btn-primary btn-sm !py-1.5 mt-3 w-full text-xs">Lanjutkan Quest</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PENCAPAIAN & HASIL KUIS -->
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Achievement -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex justify-between items-center">
+            <h2 class="font-display text-xl font-extrabold text-ink-900">Achievement Terbaru</h2>
+            <span class="text-xs font-bold text-brand-700">4 lencana diperoleh</span>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <div class="card !p-4 flex items-center gap-3 border-emerald-200 bg-emerald-50/40">
+              <span class="text-2xl">🏅</span>
+              <div>
+                <h4 class="font-display text-sm font-extrabold text-ink-900">Langkah Pertama</h4>
+                <p class="text-[11px] text-slate-500">Selesaikan 1 materi</p>
+                <span class="text-[10px] font-bold text-emerald-700">Terbuka 100%</span>
+              </div>
+            </div>
+            <div class="card !p-4 flex items-center gap-3 border-emerald-200 bg-emerald-50/40">
+              <span class="text-2xl">🏆</span>
+              <div>
+                <h4 class="font-display text-sm font-extrabold text-ink-900">Penakluk Kuis</h4>
+                <p class="text-[11px] text-slate-500">Selesaikan 1 kuis</p>
+                <span class="text-[10px] font-bold text-emerald-700">Terbuka 100%</span>
+              </div>
+            </div>
+            <div class="card !p-4 flex items-center gap-3 border-emerald-200 bg-emerald-50/40">
+              <span class="text-2xl">⭐</span>
+              <div>
+                <h4 class="font-display text-sm font-extrabold text-ink-900">Penjelajah Tekun</h4>
+                <p class="text-[11px] text-slate-500">Selesaikan 10 materi</p>
+                <span class="text-[10px] font-bold text-emerald-700">Terbuka 100%</span>
+              </div>
+            </div>
+            <div class="card !p-4 flex items-center gap-3 border-emerald-200 bg-emerald-50/40">
+              <span class="text-2xl">📜</span>
+              <div>
+                <h4 class="font-display text-sm font-extrabold text-ink-900">Ahli IPS</h4>
+                <p class="text-[11px] text-slate-500">Selesaikan 5 kuis IPS</p>
+                <span class="text-[10px] font-bold text-emerald-700">Terbuka 100%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hasil Kuis Terakhir -->
+        <div class="space-y-4">
+          <h2 class="font-display text-xl font-extrabold text-ink-900">Hasil Kuis Terakhir</h2>
+          <div class="card !p-5 bg-white border-brand-200">
+            <span class="pill">IPS • 2 November 2026</span>
+            <h4 class="mt-2 font-display text-base font-extrabold text-ink-900">Kuis IPS: Ruang dan Wilayah</h4>
+            <p class="text-xs text-slate-500">8 dari 10 jawaban benar</p>
+            <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Skor Akhir</span>
+                <p class="font-display text-xl font-extrabold text-brand-700">80 / 100</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] uppercase tracking-wider font-bold text-slate-400">XP Diraih</span>
+                <p class="font-display text-xl font-extrabold text-emerald-600">+64 XP</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ==========================================================
+         VIEW 4: HALAMAN BELAJAR MATERI (MATERI & CONTOH)
+         ========================================================== -->
+    <div id="view-materi-reader" class="hidden pb-12"></div>
+
+    <!-- ==========================================================
+         VIEW 5: ALUR KUIS 3 NYAWA (9 LAYAR INTERAKTIF PETUALANG LAMA)
+         ========================================================== -->
+    <div id="view-quiz-runner" class="hidden pb-12"></div>
+
+    <!-- ==========================================================
+         VIEW 6: HALAMAN PROFIL SAYA (PETUALANG LAMA)
+         ========================================================== -->
+    <div id="view-profil-saya" class="hidden pb-12"></div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto bg-ink-950 text-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6">
+      <div>
+        <p class="font-display text-lg font-extrabold text-brand-200">EduQuest</p>
+        <p class="text-[11px] text-brand-100/60 mt-1">Platform quest edukatif untuk siswa SD—SMA/SMK.</p>
+      </div>
+      <div class="flex flex-col items-center sm:items-end gap-2">
+        <div class="flex gap-4 text-[11px] font-bold text-brand-100/80">
+          <button type="button" onclick="showToast('Syarat & Ketentuan', 'Dokumen Syarat & Ketentuan EduQuest berlaku untuk seluruh petualang.', '📜')" class="hover:text-white transition cursor-pointer">Syarat & Ketentuan</button>
+          <button type="button" onclick="showToast('Kebijakan Privasi', 'Data progres belajar dan profilmu aman terlindungi di EduQuest.', '🔒')" class="hover:text-white transition cursor-pointer">Kebijakan Privasi</button>
+        </div>
+        <p class="text-[10px] text-brand-100/40">&copy; <span id="year">2026</span> EduQuest. Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Controller JavaScript -->
   <script src="js/app.js"></script>
 </body>
 </html>
-

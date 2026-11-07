@@ -12,25 +12,24 @@ class EduQuestAPI {
     }
 
     static getToken() {
-        return localStorage.getItem('eduquest_token');
+        try { return localStorage.getItem('eduquest_token'); } catch (e) { return window._memToken || null; }
     }
 
     static setToken(token) {
-        localStorage.setItem('eduquest_token', token);
+        try { localStorage.setItem('eduquest_token', token); } catch (e) { window._memToken = token; }
     }
 
     static getUser() {
-        const u = localStorage.getItem('eduquest_user');
+        let u = null; try { u = localStorage.getItem('eduquest_user'); } catch (e) { u = window._memUser || null; }
         return u ? JSON.parse(u) : null;
     }
 
     static setUser(user) {
-        localStorage.setItem('eduquest_user', JSON.stringify(user));
+        try { localStorage.setItem('eduquest_user', JSON.stringify(user)); } catch (e) { window._memUser = JSON.stringify(user); }
     }
 
     static logoutLocal() {
-        localStorage.removeItem('eduquest_token');
-        localStorage.removeItem('eduquest_user');
+        try { localStorage.removeItem('eduquest_token'); localStorage.removeItem('eduquest_user'); } catch (e) { window._memToken = null; window._memUser = null; }
     }
 
     static isAuthenticated() {
