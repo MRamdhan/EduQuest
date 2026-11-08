@@ -17,6 +17,7 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
   Authorization: Token <access_token>
   ```
   *(Catatan: Token didapatkan saat response login / register berhasil).*
+- **Masa berlaku token di frontend**: **1 jam** sejak login/register. Token disimpan di `localStorage` beserta waktu kedaluwarsanya. Selama token masih berlaku, refresh halaman langsung membuka dashboard. Setelah 1 jam, token dihapus dan pengguna harus login ulang. Logout juga menghapus token lokal dan meminta backend menghapus token tersebut.*
 
 ---
 
@@ -30,13 +31,18 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
   {
     "username": "budi_santoso",
     "email": "budi@example.com",
+    "first_name": "Budi Santoso",
+    "education_level": "SMP",
+    "kelas": 8,
     "password": "PasswordRahasia123!",
-    "full_name": "Budi Santoso",
-    "role": "student",
-    "grade_level": "SD",
-    "kelas": 4
+    "password_confirm": "PasswordRahasia123!"
   }
   ```
+- **Catatan**:
+  - `username` wajib dan unik (dipakai untuk login).
+  - `education_level` menerima kode `SD` / `SMP` / `SMA` (atau id jenjang). Untuk pilihan UI "SMA/SMK", kirim `SMA`.
+  - `kelas` harus sesuai jenjang: SD 1–6, SMP 7–9, SMA 10–12.
+  - Kata sandi minimal 8 karakter dan tidak boleh terlalu umum/mirip data akun.
 - **Response `201 Created`**:
   ```json
   {
@@ -45,10 +51,10 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
       "id": 12,
       "username": "budi_santoso",
       "email": "budi@example.com",
-      "full_name": "Budi Santoso",
-      "role": "student",
-      "grade_level": "SD",
-      "kelas": 4
+      "first_name": "Budi Santoso",
+      "date_joined": "2026-11-08T10:00:00+07:00",
+      "education_level": {"id": 2, "code": "SMP", "name": "SMP"},
+      "kelas": 8
     }
   }
   ```
@@ -71,10 +77,10 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
       "id": 12,
       "username": "budi_santoso",
       "email": "budi@example.com",
-      "full_name": "Budi Santoso",
-      "role": "student",
-      "grade_level": "SD",
-      "kelas": 4
+      "first_name": "Budi Santoso",
+      "date_joined": "2026-11-08T10:00:00+07:00",
+      "education_level": {"id": 2, "code": "SMP", "name": "SMP"},
+      "kelas": 8
     }
   }
   ```

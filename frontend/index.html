@@ -112,11 +112,16 @@
         <form id="form-register" class="mt-6 space-y-4" novalidate>
           <div>
             <label for="reg-nama" class="block text-xs font-extrabold text-ink-900">Nama Lengkap</label>
-            <input id="reg-nama" type="text" placeholder="Contoh: Budi Santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <input id="reg-nama" type="text" autocomplete="name" placeholder="Contoh: Budi Santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          </div>
+          <div>
+            <label for="reg-username" class="block text-xs font-extrabold text-ink-900">Nama Pengguna</label>
+            <input id="reg-username" type="text" autocomplete="username" placeholder="Contoh: budi_santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <p class="mt-1 text-[11px] text-slate-500">Dipakai untuk masuk. Hanya huruf, angka, dan karakter . @ + - _</p>
           </div>
           <div>
             <label for="reg-email" class="block text-xs font-extrabold text-ink-900">Email</label>
-            <input id="reg-email" type="email" placeholder="nama@email.com" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <input id="reg-email" type="email" autocomplete="email" placeholder="nama@email.com" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
           </div>
           <div>
             <label class="block text-xs font-extrabold text-ink-900">Jenjang</label>
@@ -134,16 +139,17 @@
           </div>
           <div>
             <label for="reg-pass" class="block text-xs font-extrabold text-ink-900">Kata Sandi</label>
-            <input id="reg-pass" type="password" placeholder="Minimal 8 karakter" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <input id="reg-pass" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
           </div>
           <div>
             <label for="reg-pass-confirm" class="block text-xs font-extrabold text-ink-900">Konfirmasi Kata Sandi</label>
-            <input id="reg-pass-confirm" type="password" placeholder="Ulangi kata sandi" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <input id="reg-pass-confirm" type="password" autocomplete="new-password" placeholder="Ulangi kata sandi" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
           </div>
           <label class="flex items-start gap-2.5 pt-1 text-xs text-slate-600 cursor-pointer">
             <input id="reg-terms" type="checkbox" class="mt-0.5 h-4 w-4 rounded border-brand-300 text-brand-700 cursor-pointer">
             <span>Saya menyetujui Syarat &amp; Ketentuan.</span>
           </label>
+          <div id="reg-form-error" class="hidden rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold leading-relaxed text-rose-700" role="alert"></div>
           <div class="pt-2">
             <button id="btn-submit-register" type="submit" disabled class="w-full rounded-xl bg-slate-200 py-3.5 font-display text-sm font-extrabold text-slate-400 cursor-not-allowed">Buat Akun Baru</button>
           </div>
@@ -162,13 +168,14 @@
         </div>
         <form id="form-login" class="mt-6 space-y-4" novalidate>
           <div>
-            <label for="login-email" class="block text-xs font-extrabold text-ink-900">Email</label>
-            <input id="login-email" type="email" placeholder="fira@eduquest.id" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <label for="login-username" class="block text-xs font-extrabold text-ink-900">Nama Pengguna</label>
+            <input id="login-username" type="text" autocomplete="username" placeholder="Contoh: budi_santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
           </div>
           <div>
             <label for="login-password" class="block text-xs font-extrabold text-ink-900">Kata Sandi</label>
-            <input id="login-password" type="password" placeholder="password123" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+            <input id="login-password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
           </div>
+          <div id="login-form-error" class="hidden rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold leading-relaxed text-rose-700" role="alert"></div>
           <div class="pt-2">
             <button id="btn-submit-login" type="submit" class="w-full rounded-xl bg-brand-700 py-3.5 font-display text-sm font-extrabold text-white shadow-btn hover:bg-brand-600">Masuk ke Akun</button>
           </div>
@@ -202,7 +209,7 @@
       </nav>
 
       <div class="flex items-center gap-2">
-        <div id="nav-auth-container">
+        <div id="nav-auth-container" class="flex items-center gap-2">
           <button type="button" id="nav-btn-auth" class="btn-primary btn-sm">Mulai Quest</button>
         </div>
         <button id="menu-btn" class="rounded-lg p-2 text-brand-700 md:hidden">
@@ -231,8 +238,9 @@
         <span class="pill">✨ Platform Edukasi Berbasis Gamifikasi</span>
         <h1 class="mx-auto mt-6 max-w-3xl font-display text-4xl sm:text-6xl font-extrabold leading-tight text-ink-900">Mulai Quest, Kuasai Pengetahuan!</h1>
         <p class="mx-auto mt-6 max-w-2xl text-sm sm:text-base text-slate-500 leading-relaxed">Jalankan quest edukatif melalui materi, latihan, dan kuis. Dapatkan petunjuk AI Tutor saat layanan tersedia.</p>
-        <div class="mt-8 flex flex-col items-center gap-4">
+        <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <button type="button" class="btn-primary btn-lg" onclick="window.openAuthModal('choice')">⚔️ Mulai Quest Sekarang</button>
+          <button type="button" class="btn-outline w-auto px-8 py-4 text-base" onclick="window.openAuthModal('login')">🗡️ Masuk ke Akun</button>
         </div>
       </section>
 

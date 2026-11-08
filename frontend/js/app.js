@@ -298,12 +298,15 @@ const AI_TUTOR_TOPICS = {
   }
 };
 
-// State aplikasi: Default di Petualang Lama (Fira Putri) agar seluruh desain baru langsung tampil
+// State aplikasi: mulai di landing page; dashboard tampil setelah login/registrasi
+// atau saat sesi token yang masih berlaku dipulihkan ketika halaman di-refresh.
 const appState = {
-  isLoggedIn: true,
-  isNewUser: false, // false = Petualang Lama (Fira Putri), true = Petualang Baru (Budi Santoso)
+  isLoggedIn: false,
+  isNewUser: false, // false = tampilan petualang lama, true = tampilan petualang baru
   activeTab: 'beranda', // 'beranda' | 'quest' | 'ai-tutor' | 'profil-saya'
   selectedRegJenjang: '',
+  isRegistering: false,
+  isLoggingIn: false,
   isProfileDropdownOpen: false,
 
   // State Kuis 3 Nyawa (9 Layar Desain Petualang Lama)
@@ -375,6 +378,55 @@ function showToast(title, message, icon = '✓') {
 }
 window.showToast = showToast;
 
+// ==========================================================
+// MASA BERLAKU SESI — TOKEN 1 JAM
+// ==========================================================
+let sessionExpiryTimer = null;
+
+function clearSessionExpiryTimer() {
+  if (sessionExpiryTimer) {
+    clearTimeout(sessionExpiryTimer);
+    sessionExpiryTimer = null;
+  }
+}
+
+function expireSession() {
+  clearSessionExpiryTimer();
+  if (window.EduQuestAPI) {
+    window.EduQuestAPI.logoutLocal();
+  }
+  appState.isLoggedIn = false;
+  appState.inMaterialReader = false;
+  appState.inQuizSession = false;
+  appState.activeTab = 'beranda';
+  appState.isProfileDropdownOpen = false;
+  closeProfileDropdown();
+  closeAuthModal();
+  updateMainViews();
+  renderNavbarAuth();
+  showToast('Sesi Berakhir', 'Sesi login sudah lebih dari 1 jam. Silakan masuk lagi.', '⏰');
+}
+
+function scheduleSessionExpiry() {
+  clearSessionExpiryTimer();
+  if (!window.EduQuestAPI) return;
+  const remaining = window.EduQuestAPI.getTokenRemainingMs
+    ? window.EduQuestAPI.getTokenRemainingMs()
+    : 0;
+  if (!remaining || remaining <= 0) return;
+  // Tambah sedikit jeda agar token benar-benar sudah kedaluwarsa saat dicek.
+  sessionExpiryTimer = setTimeout(expireSession, remaining + 100);
+}
+
+// Jika tab sempat tidak aktif (timer browser ditunda), cek lagi saat kembali aktif.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState !== 'visible') return;
+  if (!appState.isLoggedIn || !window.EduQuestAPI) return;
+  if (!window.EduQuestAPI.isAuthenticated()) {
+    expireSession();
+  }
+});
+
 function getInitials(name) {
   if (!name || !name.trim()) return 'F';
   return name.trim().charAt(0).toUpperCase();
@@ -414,6 +466,9 @@ function renderNavbarAuth() {
       mobileUserCard.innerHTML = '';
     }
     container.innerHTML = `
+      <button type="button" onclick="window.openAuthModal('login')" class="rounded-xl border-2 border-brand-200 bg-white px-4 py-2 font-display text-sm font-bold text-brand-700 transition hover:bg-brand-50 cursor-pointer">
+        Masuk
+      </button>
       <button type="button" id="nav-btn-auth" onclick="window.openAuthModal('choice')" class="btn-primary btn-sm">
         Mulai Quest
       </button>
@@ -3692,12 +3747,16 @@ function handleProfileAction(action) {
   if (mobileMenu) mobileMenu.classList.add('hidden');
 
   if (action === 'keluar') {
+    clearSessionExpiryTimer();
     if (window.EduQuestAPI) {
-      window.EduQuestAPI.logoutLocal();
+      // logout() langsung menghapus token lokal lalu meminta backend
+      // menghapus token agar tidak bisa dipakai lagi.
+      window.EduQuestAPI.logout().catch(() => {});
     }
     appState.isLoggedIn = false;
     appState.inMaterialReader = false;
     appState.inQuizSession = false;
+    appState.activeTab = 'beranda';
     updateMainViews();
     renderNavbarAuth();
     showToast('Berhasil Keluar', 'Sampai jumpa kembali di petualangan EduQuest berikutnya!', '👋');
@@ -4104,6 +4163,16 @@ function openAuthModal(view = 'choice') {
   if (vChoice) vChoice.classList.toggle('hidden', view !== 'choice');
   if (vReg) vReg.classList.toggle('hidden', view !== 'register');
   if (vLogin) vLogin.classList.toggle('hidden', view !== 'login');
+
+  // Bersihkan pesan error lama supaya tidak terbawa saat modal dibuka ulang.
+  ['reg-form-error', 'login-form-error'].forEach(id => {
+    const box = document.getElementById(id);
+    if (box) {
+      box.innerHTML = '';
+      box.classList.add('hidden');
+    }
+  });
+  document.querySelectorAll('#auth-modal .border-rose-400').forEach(el => el.classList.remove('border-rose-400'));
 }
 window.openAuthModal = openAuthModal;
 
@@ -4200,29 +4269,103 @@ document.addEventListener('DOMContentLoaded', () => {
         const list = KELAS_BY_JENJANG[jenjang] || [];
         regKelasSelect.innerHTML = list.map(k => `<option value="${k}">${k}</option>`).join('');
       }
+      setRegisterError('');
+      clearRegisterFieldErrors();
       validateRegisterForm();
     });
   });
 
-  const regInputs = ['reg-nama', 'reg-email', 'reg-kelas', 'reg-pass', 'reg-pass-confirm', 'reg-terms'];
+  const regInputs = ['reg-nama', 'reg-username', 'reg-email', 'reg-kelas', 'reg-pass', 'reg-pass-confirm', 'reg-terms'];
   regInputs.forEach(id => {
     const el = document.getElementById(id);
     if (el) {
-      el.addEventListener('input', validateRegisterForm);
-      el.addEventListener('change', validateRegisterForm);
+      el.addEventListener('input', () => {
+        validateRegisterForm();
+        setRegisterError('');
+        el.classList.remove('border-rose-400');
+      });
+      el.addEventListener('change', () => {
+        validateRegisterForm();
+        setRegisterError('');
+        el.classList.remove('border-rose-400');
+      });
     }
   });
 
-  function validateRegisterForm() {
-    const nama = (document.getElementById('reg-nama')?.value || '').trim();
-    const email = (document.getElementById('reg-email')?.value || '').trim();
-    const kelas = document.getElementById('reg-kelas')?.value || '';
-    const pass = document.getElementById('reg-pass')?.value || '';
-    const confirm = document.getElementById('reg-pass-confirm')?.value || '';
-    const terms = document.getElementById('reg-terms')?.checked || false;
-    const submitBtn = document.getElementById('btn-submit-register');
+  const REG_USERNAME_PATTERN = /^[\w.@+-]+$/;
+  const REG_FIELD_INPUTS = {
+    username: 'reg-username',
+    email: 'reg-email',
+    first_name: 'reg-nama',
+    kelas: 'reg-kelas',
+    password: 'reg-pass',
+    password_confirm: 'reg-pass-confirm',
+  };
+  const REG_FIELD_LABELS = {
+    username: 'Nama pengguna',
+    email: 'Email',
+    first_name: 'Nama lengkap',
+    education_level: 'Jenjang',
+    kelas: 'Kelas',
+    password: 'Kata sandi',
+    password_confirm: 'Konfirmasi kata sandi',
+    non_field_errors: 'Pendaftaran',
+  };
 
-    const isValid = nama.length >= 2 && email.includes('@') && appState.selectedRegJenjang && kelas && pass.length >= 4 && pass === confirm && terms;
+  function escapeHtml(text) {
+    return String(text)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function setRegisterError(html) {
+    const box = document.getElementById('reg-form-error');
+    if (!box) return;
+    box.innerHTML = html || '';
+    box.classList.toggle('hidden', !html);
+  }
+
+  function clearRegisterFieldErrors() {
+    Object.values(REG_FIELD_INPUTS).forEach(id => {
+      document.getElementById(id)?.classList.remove('border-rose-400');
+    });
+  }
+
+  function getRegisterValues() {
+    return {
+      nama: (document.getElementById('reg-nama')?.value || '').trim(),
+      username: (document.getElementById('reg-username')?.value || '').trim(),
+      email: (document.getElementById('reg-email')?.value || '').trim(),
+      jenjang: appState.selectedRegJenjang,
+      kelas: document.getElementById('reg-kelas')?.value || '',
+      pass: document.getElementById('reg-pass')?.value || '',
+      confirm: document.getElementById('reg-pass-confirm')?.value || '',
+      terms: document.getElementById('reg-terms')?.checked || false,
+    };
+  }
+
+  function isRegisterFormValid() {
+    const v = getRegisterValues();
+    return (
+      v.nama.length >= 2 &&
+      v.username.length >= 3 &&
+      REG_USERNAME_PATTERN.test(v.username) &&
+      v.email.includes('@') &&
+      !!v.jenjang &&
+      !!v.kelas &&
+      v.pass.length >= 8 &&
+      v.pass === v.confirm &&
+      v.terms
+    );
+  }
+
+  function validateRegisterForm() {
+    if (appState.isRegistering) return;
+    const isValid = isRegisterFormValid();
+    const submitBtn = document.getElementById('btn-submit-register');
     if (submitBtn) {
       submitBtn.disabled = !isValid;
       submitBtn.className = isValid
@@ -4231,93 +4374,335 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Registrasi -> Masuk sebagai Petualang Baru (Budi Santoso)
+  function normalizeJenjangForBackend(jenjang) {
+    return jenjang === 'SMA/SMK' ? 'SMA' : jenjang;
+  }
+
+  function jenjangUiFromBackend(code) {
+    if (!code) return '';
+    return code === 'SMA' ? 'SMA/SMK' : code;
+  }
+
+  /**
+   * Ubah payload user dari backend menjadi format appState.user yang dipakai UI.
+   * Backend mengirim { username, email, first_name, education_level: {code}, kelas }.
+   */
+  function buildUserFromBackend(apiUser, fallback = {}) {
+    const displayName = (apiUser?.first_name || fallback.nama || '').trim() || apiUser?.username || 'Petualang';
+    const jenjangCode = apiUser?.education_level?.code || normalizeJenjangForBackend(fallback.jenjang || '');
+    const jenjang = jenjangUiFromBackend(jenjangCode) || fallback.jenjang || '';
+    const kelasNumber = apiUser?.kelas ?? fallback.kelasNumber;
+
+    return {
+      id: apiUser?.id,
+      username: apiUser?.username || fallback.username || '',
+      fullName: displayName,
+      firstName: getShortName(displayName),
+      email: apiUser?.email || fallback.email || '',
+      jenjang,
+      jenjangDisplay: JENJANG_LABEL[jenjang] || jenjang,
+      kelas: kelasNumber ? `Kelas ${kelasNumber}` : '-',
+      level: 1,
+      rank: 'Bronze',
+      totalXp: 0,
+      xp: 0,
+      nextLevelXp: 100,
+      ipsLives: 3,
+    };
+  }
+
+  function applyProgressToUser(progress) {
+    if (!progress) return;
+    appState.user.totalXp = progress.xp ?? appState.user.totalXp;
+    appState.user.level = progress.level ?? appState.user.level;
+    appState.user.rank = progress.rank?.name || appState.user.rank;
+    appState.user.xp = progress.xp_into_level ?? appState.user.xp;
+    appState.user.nextLevelXp = progress.xp_for_next_level ?? appState.user.nextLevelXp;
+  }
+
+  function showRegisterServerErrors(error) {
+    const data = error?.data;
+    clearRegisterFieldErrors();
+
+    if (!data || typeof data !== 'object') {
+      setRegisterError(escapeHtml(error?.message || 'Pendaftaran gagal. Silakan coba lagi.'));
+      return;
+    }
+
+    const messages = [];
+    Object.keys(data).forEach(field => {
+      if (field === 'code') return;
+      const raw = data[field];
+      if (field === 'detail') {
+        messages.push(escapeHtml(String(raw)));
+        return;
+      }
+      const list = Array.isArray(raw) ? raw : [raw];
+      const label = REG_FIELD_LABELS[field] || field;
+      list.forEach(msg => {
+        const text = typeof msg === 'string' ? msg : JSON.stringify(msg);
+        messages.push(`<span class="font-extrabold">${escapeHtml(label)}:</span> ${escapeHtml(text)}`);
+      });
+      const inputId = REG_FIELD_INPUTS[field];
+      if (inputId) document.getElementById(inputId)?.classList.add('border-rose-400');
+    });
+
+    setRegisterError(messages.join('<br>') || 'Pendaftaran gagal. Periksa kembali data yang diisi.');
+  }
+
+  function resetRegisterForm() {
+    const formRegister = document.getElementById('form-register');
+    if (formRegister) formRegister.reset();
+
+    appState.selectedRegJenjang = '';
+    document.querySelectorAll('.jenjang-choice-btn').forEach(btn => {
+      btn.className = 'jenjang-choice-btn flex items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs sm:text-sm font-bold text-ink-900 transition hover:bg-brand-50 cursor-pointer';
+    });
+
+    const kelasSelect = document.getElementById('reg-kelas');
+    if (kelasSelect) {
+      kelasSelect.disabled = true;
+      kelasSelect.innerHTML = '<option value="">Pilih jenjang terlebih dahulu</option>';
+    }
+
+    setRegisterError('');
+    clearRegisterFieldErrors();
+    validateRegisterForm();
+  }
+
+  // Registrasi Petualang Baru -> terhubung ke POST /api/auth/register/
   const formRegister = document.getElementById('form-register');
   if (formRegister) {
-    formRegister.addEventListener('submit', (e) => {
+    formRegister.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const nama = (document.getElementById('reg-nama')?.value || 'Budi Santoso').trim();
-      const email = (document.getElementById('reg-email')?.value || 'budi@eduquest.id').trim();
-      const jenjang = appState.selectedRegJenjang || 'SMP';
-      const kelas = document.getElementById('reg-kelas')?.value || 'Kelas 7';
+      if (appState.isRegistering) return;
 
-      appState.isLoggedIn = true;
-      appState.isNewUser = true;
-      appState.inMaterialReader = false;
-      appState.inQuizSession = false;
-      appState.activeTab = 'beranda';
-      appState.user = {
-        fullName: nama,
-        firstName: getShortName(nama),
-        email: email,
-        jenjang: jenjang,
-        jenjangDisplay: JENJANG_LABEL[jenjang] || jenjang,
-        kelas: kelas,
-        level: 1,
-        rank: 'Bronze',
-        totalXp: 0,
-        xp: 0,
-        nextLevelXp: 100,
-        ipsLives: 3
-      };
-
-      closeAuthModal();
-      syncUserUI();
-      updateMainViews();
-      showToast('Pendaftaran Berhasil!', `Selamat datang, ${appState.user.fullName}! Mulai quest pertamamu.`, '⚔️');
-    });
-  }
-
-  // Login -> Masuk sebagai Petualang Lama (Fira Putri)
-  const formLogin = document.getElementById('form-login');
-  if (formLogin) {
-    formLogin.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const emailInput = (document.getElementById('login-email')?.value || 'fira@eduquest.id').trim();
-      const isBudi = emailInput.toLowerCase().startsWith('budi');
-
-      appState.isLoggedIn = true;
-      appState.isNewUser = isBudi;
-      appState.inMaterialReader = false;
-      appState.inQuizSession = false;
-      appState.activeTab = 'beranda';
-
-      if (isBudi) {
-        appState.user = {
-          fullName: 'Budi Santoso',
-          firstName: 'Budi',
-          email: emailInput,
-          jenjang: 'SMP',
-          jenjangDisplay: 'SMP/MTs',
-          kelas: 'Kelas 7',
-          level: 1,
-          rank: 'Bronze',
-          totalXp: 0,
-          xp: 0,
-          nextLevelXp: 100,
-          ipsLives: 3
-        };
-      } else {
-        appState.user = {
-          fullName: 'Fira Putri',
-          firstName: 'Fira',
-          email: emailInput,
-          jenjang: 'SMP',
-          jenjangDisplay: 'SMP/MTs',
-          kelas: 'Kelas 7',
-          level: 8,
-          rank: 'Gold',
-          totalXp: 2920,
-          xp: 120,
-          nextLevelXp: 800,
-          ipsLives: 3
-        };
+      validateRegisterForm();
+      if (!isRegisterFormValid()) return;
+      if (!window.EduQuestAPI) {
+        setRegisterError('Klien API tidak tersedia. Muat ulang halaman lalu coba lagi.');
+        return;
       }
 
-      closeAuthModal();
-      syncUserUI();
-      updateMainViews();
-      showToast('Berhasil Masuk!', `Selamat datang kembali, ${appState.user.fullName}!`, '🗡️');
+      const values = getRegisterValues();
+      const kelasNumber = parseInt(values.kelas.replace(/\D/g, ''), 10);
+      const submitBtn = document.getElementById('btn-submit-register');
+
+      appState.isRegistering = true;
+      setRegisterError('');
+      clearRegisterFieldErrors();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Mendaftarkan...';
+        submitBtn.className = 'w-full rounded-xl bg-brand-400 py-3.5 font-display text-sm font-extrabold text-white opacity-80 cursor-wait';
+      }
+
+      try {
+        const result = await window.EduQuestAPI.register({
+          username: values.username,
+          email: values.email,
+          first_name: values.nama,
+          education_level: normalizeJenjangForBackend(values.jenjang),
+          kelas: kelasNumber,
+          password: values.pass,
+          password_confirm: values.confirm,
+        });
+
+        appState.isLoggedIn = true;
+        appState.isNewUser = true;
+        appState.inMaterialReader = false;
+        appState.inQuizSession = false;
+        appState.activeTab = 'beranda';
+        appState.user = buildUserFromBackend(result.user, {
+          nama: values.nama,
+          username: values.username,
+          email: values.email,
+          jenjang: values.jenjang,
+          kelasNumber,
+        });
+        scheduleSessionExpiry();
+
+        resetRegisterForm();
+        closeAuthModal();
+        syncUserUI();
+        updateMainViews();
+        showToast('Pendaftaran Berhasil!', `Selamat datang, ${appState.user.fullName}! Mulai quest pertamamu.`, '⚔️');
+
+        try {
+          const progress = await window.EduQuestAPI.getProgress();
+          applyProgressToUser(progress);
+          syncUserUI();
+        } catch (progressError) {
+          // Registrasi sudah berhasil; kegagalan memuat progres tidak boleh
+          // membatalkan sesi. Data default (Level 1 • Bronze) tetap dipakai.
+          console.warn('Gagal memuat progres setelah registrasi:', progressError);
+        }
+      } catch (error) {
+        showRegisterServerErrors(error);
+      } finally {
+        appState.isRegistering = false;
+        if (submitBtn) submitBtn.textContent = 'Buat Akun Baru';
+        validateRegisterForm();
+      }
     });
   }
+
+
+  // Login -> terhubung ke POST /api/auth/login/
+  const formLogin = document.getElementById('form-login');
+  if (formLogin) {
+    const loginUsernameInput = document.getElementById('login-username');
+    const loginPasswordInput = document.getElementById('login-password');
+    const loginSubmitBtn = document.getElementById('btn-submit-login');
+    const loginErrorBox = document.getElementById('login-form-error');
+
+    function setLoginError(message) {
+      if (!loginErrorBox) return;
+      loginErrorBox.innerHTML = message ? escapeHtml(message) : '';
+      loginErrorBox.classList.toggle('hidden', !message);
+      loginUsernameInput?.classList.remove('border-rose-400');
+      loginPasswordInput?.classList.remove('border-rose-400');
+    }
+
+    function loginErrorMessage(error) {
+      const data = error?.data;
+      if (data && typeof data === 'object') {
+        const parts = [];
+        ['non_field_errors', 'detail', 'username', 'password'].forEach(field => {
+          if (data[field]) {
+            const list = Array.isArray(data[field]) ? data[field] : [data[field]];
+            list.forEach(item => parts.push(typeof item === 'string' ? item : JSON.stringify(item)));
+          }
+        });
+        if (parts.length) return parts.join(' ');
+      }
+      return error?.message || 'Gagal masuk. Silakan coba lagi.';
+    }
+
+    [loginUsernameInput, loginPasswordInput].forEach(input => {
+      if (!input) return;
+      ['input', 'change'].forEach(eventName => {
+        input.addEventListener(eventName, () => {
+          input.classList.remove('border-rose-400');
+          if (loginErrorBox) {
+            loginErrorBox.innerHTML = '';
+            loginErrorBox.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    formLogin.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (appState.isLoggingIn) return;
+
+      const username = (loginUsernameInput?.value || '').trim();
+      const password = loginPasswordInput?.value || '';
+
+      if (!username || !password) {
+        setLoginError('Nama pengguna dan kata sandi wajib diisi.');
+        if (!username) loginUsernameInput?.classList.add('border-rose-400');
+        if (!password) loginPasswordInput?.classList.add('border-rose-400');
+        return;
+      }
+
+      if (!window.EduQuestAPI) {
+        setLoginError('Klien API tidak tersedia. Muat ulang halaman lalu coba lagi.');
+        return;
+      }
+
+      appState.isLoggingIn = true;
+      setLoginError('');
+
+      if (loginSubmitBtn) {
+        loginSubmitBtn.disabled = true;
+        loginSubmitBtn.textContent = 'Memeriksa akun...';
+        loginSubmitBtn.className = 'w-full rounded-xl bg-brand-400 py-3.5 font-display text-sm font-extrabold text-white opacity-80 cursor-wait';
+      }
+
+      try {
+        const result = await window.EduQuestAPI.login(username, password);
+
+        appState.isLoggedIn = true;
+        appState.isNewUser = false;
+        appState.inMaterialReader = false;
+        appState.inQuizSession = false;
+        appState.activeTab = 'beranda';
+        appState.user = buildUserFromBackend(result.user, {
+          username,
+          email: result.user?.email || '',
+        });
+        scheduleSessionExpiry();
+
+        // Ambil progres agar level, rank, dan XP di dashboard sesuai akun backend.
+        try {
+          const progress = await window.EduQuestAPI.getProgress();
+          applyProgressToUser(progress);
+          appState.isNewUser = Number(progress?.xp || 0) === 0;
+        } catch (progressError) {
+          console.warn('Gagal memuat progres setelah login:', progressError);
+        }
+
+        formLogin.reset();
+        closeAuthModal();
+        syncUserUI();
+        updateMainViews();
+        showToast('Berhasil Masuk!', `Selamat datang kembali, ${appState.user.fullName}!`, '🗡️');
+      } catch (error) {
+        setLoginError(loginErrorMessage(error));
+        if (error?.data?.username) loginUsernameInput?.classList.add('border-rose-400');
+        if (error?.data?.password) loginPasswordInput?.classList.add('border-rose-400');
+      } finally {
+        appState.isLoggingIn = false;
+        if (loginSubmitBtn) {
+          loginSubmitBtn.disabled = false;
+          loginSubmitBtn.textContent = 'Masuk ke Akun';
+          loginSubmitBtn.className = 'w-full rounded-xl bg-brand-700 py-3.5 font-display text-sm font-extrabold text-white shadow-btn hover:bg-brand-600';
+        }
+      }
+    });
+  }
+
+  // Pulihkan sesi dari token yang tersimpan. Jika token masih berlaku (< 1 jam),
+  // pengguna langsung masuk dashboard tanpa login ulang. Jika kedaluwarsa,
+  // getToken() otomatis menghapus token dan landing page tetap tampil.
+  async function restoreSession() {
+    if (!window.EduQuestAPI || !window.EduQuestAPI.isAuthenticated()) {
+      updateMainViews();
+      return;
+    }
+
+    try {
+      const [profile, progress] = await Promise.all([
+        window.EduQuestAPI.getProfile(),
+        window.EduQuestAPI.getProgress(),
+      ]);
+
+      appState.isLoggedIn = true;
+      appState.isNewUser = Number(progress?.xp || 0) === 0;
+      appState.inMaterialReader = false;
+      appState.inQuizSession = false;
+      appState.activeTab = 'beranda';
+      appState.user = buildUserFromBackend(profile);
+      applyProgressToUser(progress);
+      scheduleSessionExpiry();
+
+      syncUserUI();
+      updateMainViews();
+    } catch (error) {
+      // Token tidak valid/kedaluwarsa: bersihkan dan tetap di landing page.
+      // Kegagalan koneksi tidak menghapus token agar bisa dicoba lagi nanti.
+      if (error?.status === 401 || error?.status === 403) {
+        window.EduQuestAPI.logoutLocal();
+      }
+      appState.isLoggedIn = false;
+      appState.activeTab = 'beranda';
+      syncUserUI();
+      updateMainViews();
+    }
+  }
+
+  restoreSession();
+
 });

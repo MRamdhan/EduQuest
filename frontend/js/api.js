@@ -6,30 +6,91 @@
 
 const API_BASE_URL = window.EDUQUEST_API_URL || 'http://127.0.0.1:8000/api';
 
+// Masa berlaku token: 1 jam sejak login/registrasi.
+const TOKEN_TTL_MS = Number(window.EDUQUEST_TOKEN_TTL_MS) > 0
+    ? Number(window.EDUQUEST_TOKEN_TTL_MS)
+    : 60 * 60 * 1000;
+
+const TOKEN_KEY = 'eduquest_token';
+const TOKEN_EXPIRES_KEY = 'eduquest_token_expires_at';
+const USER_KEY = 'eduquest_user';
+
 class EduQuestAPI {
     static get baseUrl() {
         return API_BASE_URL;
     }
 
-    static getToken() {
-        try { return localStorage.getItem('eduquest_token'); } catch (e) { return window._memToken || null; }
+    static get tokenTtlMs() {
+        return TOKEN_TTL_MS;
     }
 
-    static setToken(token) {
-        try { localStorage.setItem('eduquest_token', token); } catch (e) { window._memToken = token; }
+    static getToken() {
+        let token = null;
+        let expiresAt = 0;
+        try {
+            token = localStorage.getItem(TOKEN_KEY);
+            expiresAt = Number(localStorage.getItem(TOKEN_EXPIRES_KEY) || 0);
+        } catch (e) {
+            token = window._memToken || null;
+            expiresAt = Number(window._memExpiresAt || 0);
+        }
+
+        if (!token) return null;
+
+        // Token lama tanpa waktu kedaluwarsa atau sudah lebih dari 1 jam
+        // dianggap kedaluwarsa dan langsung dibersihkan.
+        if (!expiresAt || Date.now() >= expiresAt) {
+            this.logoutLocal();
+            return null;
+        }
+        return token;
+    }
+
+    static getTokenExpiresAt() {
+        try {
+            return Number(localStorage.getItem(TOKEN_EXPIRES_KEY) || 0) || null;
+        } catch (e) {
+            return Number(window._memExpiresAt || 0) || null;
+        }
+    }
+
+    static getTokenRemainingMs() {
+        const expiresAt = this.getTokenExpiresAt();
+        if (!expiresAt) return 0;
+        return Math.max(0, expiresAt - Date.now());
+    }
+
+    static setToken(token, ttlMs = TOKEN_TTL_MS) {
+        const expiresAt = Date.now() + ttlMs;
+        try {
+            localStorage.setItem(TOKEN_KEY, token);
+            localStorage.setItem(TOKEN_EXPIRES_KEY, String(expiresAt));
+        } catch (e) {
+            window._memToken = token;
+            window._memExpiresAt = expiresAt;
+        }
     }
 
     static getUser() {
-        let u = null; try { u = localStorage.getItem('eduquest_user'); } catch (e) { u = window._memUser || null; }
+        let u = null; try { u = localStorage.getItem(USER_KEY); } catch (e) { u = window._memUser || null; }
         return u ? JSON.parse(u) : null;
     }
 
     static setUser(user) {
-        try { localStorage.setItem('eduquest_user', JSON.stringify(user)); } catch (e) { window._memUser = JSON.stringify(user); }
+        try { localStorage.setItem(USER_KEY, JSON.stringify(user)); } catch (e) { window._memUser = JSON.stringify(user); }
     }
 
     static logoutLocal() {
-        try { localStorage.removeItem('eduquest_token'); localStorage.removeItem('eduquest_user'); } catch (e) { window._memToken = null; window._memUser = null; }
+        try {
+            localStorage.removeItem(TOKEN_KEY);
+            localStorage.removeItem(TOKEN_EXPIRES_KEY);
+            localStorage.removeItem(USER_KEY);
+        } catch (e) {
+            // Falls through ke penyimpanan memori di bawah.
+        }
+        window._memToken = null;
+        window._memExpiresAt = 0;
+        window._memUser = null;
     }
 
     static isAuthenticated() {
@@ -122,13 +183,24 @@ class EduQuestAPI {
     }
 
     /**
-     * Logout user & hapus token dari localStorage
+     * Logout user: hapus token lokal segera, lalu minta backend menghapus token.
+     * Token disimpan dulu karena setelah logoutLocal() token tidak bisa dibaca.
      */
     static async logout() {
+        const token = this.getToken();
+        this.logoutLocal();
+        if (!token) return;
+
         try {
-            await this.request('/auth/logout/', { method: 'POST' });
-        } finally {
-            this.logoutLocal();
+            await fetch(`${API_BASE_URL}/auth/logout/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Token ${token}`,
+                },
+            });
+        } catch (e) {
+            // Token lokal sudah dihapus; kegagalan jaringan tidak menghalangi logout.
         }
     }
 
