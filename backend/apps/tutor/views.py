@@ -5,6 +5,7 @@ from rest_framework.throttling import ScopedRateThrottle
 from rest_framework.views import APIView
 
 from apps.learning.models import Material
+from apps.tutor.services.recommendation_service import generate_learning_recommendation
 from apps.tutor.services.tutor_service import ask_tutor
 
 
@@ -30,3 +31,11 @@ class TutorAskView(APIView):
             {**result, "material_id": material.pk},
             status=status.HTTP_200_OK,
         )
+
+
+class TutorRecommendationView(APIView):
+    """Menyajikan rekomendasi materi belajar personal dari AI Tutor."""
+
+    def get(self, request):
+        data = generate_learning_recommendation(request.user)
+        return Response(data, status=status.HTTP_200_OK)

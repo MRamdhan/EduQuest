@@ -108,7 +108,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # --- API, autentikasi, dan CORS -------------------------------------------
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
+        "apps.accounts.authentication.ExpiringTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
@@ -133,6 +133,7 @@ CORS_ALLOWED_ORIGINS = env_list(
     "http://localhost:5500,http://127.0.0.1:5500,"
     "http://localhost:8080,http://127.0.0.1:8080",
 )
+CORS_ALLOW_ALL_ORIGINS = DEBUG
 CORS_ALLOW_CREDENTIALS = False
 
 # --- AI provider (belum final) --------------------------------------------

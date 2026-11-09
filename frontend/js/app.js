@@ -29,19 +29,15 @@ const JENJANG_LABEL = {
 };
 
 const RANK_TIERS = [
-  { key: 'rekrut', rank: 'Bronze', title: 'Rekrut', minXp: '0 — 99 XP', desc: 'Petualang pemula yang memulai langkah pertama.' },
+  { key: 'rekrut', rank: 'Bronze', title: 'Rekrut', minXp: '0 — 99 XP', desc: 'Petualang pemula yang memulai langkah pertama. Kuis tingkat Dasar.' },
   { key: 'penjelajah', rank: 'Silver', title: 'Penjelajah', minXp: '100 — 299 XP', desc: 'Membuka tantangan tingkat kesulitan Sedang.' },
-  { key: 'kesatria', rank: 'Gold', title: 'Kesatria', minXp: '300 — 599 XP', desc: 'Menguasai berbagai bab dan tantangan kuis.' },
-  { key: 'pahlawan', rank: 'Platinum', title: 'Pahlawan', minXp: '600 — 999 XP', desc: 'Penakluk soal sulit dengan ketekunan tinggi.' },
-  { key: 'legenda', rank: 'Diamond', title: 'Legenda', minXp: '1.000+ XP', desc: 'Penguasa tertinggi pengetahuan di EduQuest.' }
+  { key: 'kesatria', rank: 'Gold', title: 'Kesatria', minXp: '300+ XP', desc: 'Menguasai berbagai bab dan membuka kuis tingkat Lanjut.' }
 ];
 
 function getRankAssetKey(rank) {
   const r = (rank || '').toLowerCase();
   if (r.includes('silver') || r.includes('penjelajah')) return 'penjelajah';
   if (r.includes('gold') || r.includes('kesatria')) return 'kesatria';
-  if (r.includes('platinum') || r.includes('pahlawan')) return 'pahlawan';
-  if (r.includes('diamond') || r.includes('legenda')) return 'legenda';
   return 'rekrut';
 }
 
@@ -342,21 +338,85 @@ const appState = {
   completedQuizzes: {},
   passedSteps: { 1: true, 2: true },
 
+  // Data Profil & Analitik Pembelajaran Riil
+  profileStats: null,
+  profileQuizHistory: null,
+  profileRecommendation: null,
+  isLoadingProfileData: false,
+
+  // Mapel aktif di Quest
+  activeSubject: 'IPS',
+
   user: {
-    fullName: 'Fira Putri',
-    firstName: 'Fira',
-    email: 'fira@eduquest.id',
-    jenjang: 'SMP',
-    jenjangDisplay: 'SMP/MTs',
-    kelas: 'Kelas 7',
-    level: 8,
-    rank: 'Gold',
-    totalXp: 2920,
-    xp: 120,
-    nextLevelXp: 800,
-    ipsLives: 3
+    fullName: 'Petualang Baru',
+    firstName: 'Petualang',
+    email: '',
+    jenjang: 'SMA',
+    jenjangDisplay: 'SMA/SMK',
+    kelas: 'Kelas 10',
+    education_level: 'SMA',
+    level: 1,
+    rank: 'Bronze',
+    totalXp: 0,
+    xp: 0,
+    nextLevelXp: 100,
+    ipsLives: 3,
+    ipsLivesMax: 3
   }
 };
+
+function getDefaultUserState() {
+  return {
+    fullName: 'Petualang Baru',
+    firstName: 'Petualang',
+    email: '',
+    jenjang: 'SMA',
+    jenjangDisplay: 'SMA/SMK',
+    kelas: 'Kelas 10',
+    education_level: 'SMA',
+    level: 1,
+    rank: 'Bronze',
+    totalXp: 0,
+    xp: 0,
+    nextLevelXp: 100,
+    ipsLives: 3,
+    ipsLivesMax: 3
+  };
+}
+
+function resetUserSessionState() {
+  appState.isLoggedIn = false;
+  appState.isNewUser = true;
+  appState.inMaterialReader = false;
+  appState.inQuizSession = false;
+  appState.activeTab = 'beranda';
+  appState.isProfileDropdownOpen = false;
+  appState.profileStats = null;
+  appState.profileQuizHistory = null;
+  appState.profileRecommendation = null;
+  appState.isLoadingProfileData = false;
+  appState.completedMaterials = {};
+  appState.completedQuizzes = {};
+  appState.quizAttempts = [];
+  appState.user = getDefaultUserState();
+}
+window.resetUserSessionState = resetUserSessionState;
+
+function applyProgressToUser(progress) {
+  if (!progress) return;
+  appState.user.totalXp = progress.xp ?? appState.user.totalXp;
+  appState.user.level = progress.level ?? appState.user.level;
+  appState.user.rank = progress.rank?.name || appState.user.rank;
+  appState.user.xp = progress.xp_into_level ?? appState.user.xp;
+  appState.user.nextLevelXp = progress.xp_for_next_level ?? appState.user.nextLevelXp;
+  if (progress.subject_lives && typeof progress.subject_lives === 'object') {
+    const livesVal = Object.values(progress.subject_lives)[0];
+    if (typeof livesVal === 'number') {
+      appState.user.ipsLives = livesVal;
+    }
+  }
+}
+window.applyProgressToUser = applyProgressToUser;
 
 let toastTimer = null;
 function showToast(title, message, icon = '✓') {
@@ -395,11 +455,7 @@ function expireSession() {
   if (window.EduQuestAPI) {
     window.EduQuestAPI.logoutLocal();
   }
-  appState.isLoggedIn = false;
-  appState.inMaterialReader = false;
-  appState.inQuizSession = false;
-  appState.activeTab = 'beranda';
-  appState.isProfileDropdownOpen = false;
+  resetUserSessionState();
   closeProfileDropdown();
   closeAuthModal();
   updateMainViews();
@@ -708,6 +764,9 @@ function renderOldUserBeranda() {
   const goldSrc = window.EDUQUEST_ASSETS?.kesatria || '';
   const xpPct = Math.min(100, Math.round((u.xp / (u.nextLevelXp || 800)) * 100));
   const remXp = Math.max(0, (u.nextLevelXp || 800) - u.xp);
+  const completedCount = Object.keys(appState.completedMaterials || {}).length;
+  const quizzesCount = appState.profileStats?.total_quizzes || (appState.profileQuizHistory ? appState.profileQuizHistory.length : 0);
+  const ipsPct = Math.min(100, Math.round((completedCount / 20) * 100));
 
   container.innerHTML = `
     <!-- 1. HERO CARD PETUALANG LAMA -->
@@ -726,7 +785,7 @@ function renderOldUserBeranda() {
               Halo, ${shortName}!
             </h1>
             <p class="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-              40 materi dan 30 kuis selesai • Total ${u.totalXp.toLocaleString('id-ID')} XP.<br>
+              ${completedCount} materi dan ${quizzesCount} kuis selesai • Total ${u.totalXp.toLocaleString('id-ID')} XP.<br>
               Level ${u.level} • Rank ${u.rank} • Sisa ${remXp} XP menuju Level ${u.level + 1}.
             </p>
 
@@ -876,7 +935,7 @@ function renderOldUserBeranda() {
     <section class="rounded-3xl border border-brand-100 bg-white p-6 sm:p-7 shadow-xs space-y-5">
       <div>
         <h2 class="font-display text-xl sm:text-2xl font-extrabold text-ink-900">Mata Pelajaran</h2>
-        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">40 dari 80 materi selesai. Nyawa terpisah per mapel, maksimal 3; pulih 1 nyawa tiap 2 jam.</p>
+        <p class="text-xs sm:text-sm text-slate-500 mt-0.5">${completedCount} materi selesai di jenjang ${u.jenjangDisplay || u.jenjang}. Nyawa terpisah per mapel, maksimal 3; pulih 1 nyawa tiap 1 jam.</p>
       </div>
 
       <div class="grid gap-5 md:grid-cols-3">
@@ -887,18 +946,18 @@ function renderOldUserBeranda() {
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-xl">🌍</span>
               <div>
                 <h3 class="font-display text-base font-extrabold text-ink-900">IPS</h3>
-                <p class="text-[11px] font-bold text-brand-700">SMP / MTs • Interaksi Antarruang</p>
+                <p class="text-[11px] font-bold text-brand-700">${u.jenjangDisplay || u.jenjang} • Ruang &amp; Wilayah</p>
               </div>
             </div>
             <div class="mt-4 flex justify-between text-xs font-extrabold text-brand-700">
-              <span>14/20 materi selesai</span>
-              <span>70%</span>
+              <span>${completedCount}/20 materi selesai</span>
+              <span>${ipsPct}%</span>
             </div>
             <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-brand-100">
-              <div class="h-full w-[70%] rounded-full bg-brand-700"></div>
+              <div class="h-full rounded-full bg-brand-700" style="width: ${ipsPct}%"></div>
             </div>
           </div>
-          <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
+          <button type="button" onclick="window.switchQuestSubject('IPS'); window.handleNavClick('quest');" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
             Lanjutkan Quest
           </button>
         </div>
@@ -910,19 +969,19 @@ function renderOldUserBeranda() {
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-xl">🧪</span>
               <div>
                 <h3 class="font-display text-base font-extrabold text-ink-900">IPA</h3>
-                <p class="text-[11px] font-bold text-brand-700">SMP / MTs • Ekosistem</p>
+                <p class="text-[11px] font-bold text-brand-700">${u.jenjangDisplay || u.jenjang} • Sains &amp; Lingkungan</p>
               </div>
             </div>
             <div class="mt-4 flex justify-between text-xs font-extrabold text-emerald-700">
-              <span>10/20 materi selesai</span>
-              <span>50%</span>
+              <span>0/20 materi selesai</span>
+              <span>0%</span>
             </div>
             <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-emerald-100">
-              <div class="h-full w-[50%] rounded-full bg-emerald-600"></div>
+              <div class="h-full w-[0%] rounded-full bg-emerald-600"></div>
             </div>
           </div>
-          <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
-            Lanjutkan Quest
+          <button type="button" onclick="window.switchQuestSubject('IPA'); window.handleNavClick('quest');" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
+            Lihat Bab
           </button>
         </div>
 
@@ -933,19 +992,19 @@ function renderOldUserBeranda() {
               <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-xl">📖</span>
               <div>
                 <h3 class="font-display text-base font-extrabold text-ink-900">Bahasa Indonesia</h3>
-                <p class="text-[11px] font-bold text-brand-700">SMP / MTs • Teks Deskripsi</p>
+                <p class="text-[11px] font-bold text-brand-700">${u.jenjangDisplay || u.jenjang} • Teks &amp; Sastra</p>
               </div>
             </div>
             <div class="mt-4 flex justify-between text-xs font-extrabold text-amber-700">
-              <span>8/20 materi selesai</span>
-              <span>40%</span>
+              <span>0/20 materi selesai</span>
+              <span>0%</span>
             </div>
             <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
-              <div class="h-full w-[40%] rounded-full bg-amber-600"></div>
+              <div class="h-full w-[0%] rounded-full bg-amber-600"></div>
             </div>
           </div>
-          <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
-            Lanjutkan Quest
+          <button type="button" onclick="window.switchQuestSubject('Bahasa Indonesia'); window.handleNavClick('quest');" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
+            Lihat Bab
           </button>
         </div>
       </div>
@@ -1078,29 +1137,104 @@ function renderOldUserBeranda() {
 
 // ==========================================================
 // 2. HALAMAN PROFIL SAYA (PENUH) — PETUALANG LAMA (FIRA PUTRI)
-// Sesuai "Profil Saya — Petualang Lama.png"
+async function loadProfileDataAsync() {
+  if (appState.isLoadingProfileData || !window.EduQuestAPI || !appState.isLoggedIn) return;
+  appState.isLoadingProfileData = true;
+  try {
+    const [historyRes, statsRes, recomRes] = await Promise.allSettled([
+      window.EduQuestAPI.getQuizHistory ? window.EduQuestAPI.getQuizHistory() : Promise.resolve([]),
+      window.EduQuestAPI.getLearningStats ? window.EduQuestAPI.getLearningStats() : Promise.resolve(null),
+      window.EduQuestAPI.getAIRecommendations ? window.EduQuestAPI.getAIRecommendations() : Promise.resolve(null),
+    ]);
+
+    if (historyRes.status === 'fulfilled' && Array.isArray(historyRes.value)) {
+      appState.profileQuizHistory = historyRes.value;
+    }
+    if (statsRes.status === 'fulfilled' && statsRes.value) {
+      appState.profileStats = statsRes.value;
+    }
+    if (recomRes.status === 'fulfilled' && recomRes.value) {
+      appState.profileRecommendation = recomRes.value;
+    }
+
+    if (appState.activeTab === 'profil-saya') {
+      renderProfilSayaPage(false);
+    }
+  } catch (err) {
+    console.warn('Gagal memuat data profil:', err);
+  } finally {
+    appState.isLoadingProfileData = false;
+  }
+}
+window.loadProfileDataAsync = loadProfileDataAsync;
+
 // ==========================================================
-function renderProfilSayaPage() {
+// 2. HALAMAN PROFIL SAYA (PENUH)
+// Terhubung dengan API Riwayat Kuis, Statistik & AI Rekomendasi
+// ==========================================================
+function renderProfilSayaPage(triggerFetch = true) {
   const container = document.getElementById('view-profil-saya');
   if (!container) return;
+
+  if (triggerFetch && appState.isLoggedIn && !appState.profileStats && !appState.isLoadingProfileData) {
+    loadProfileDataAsync();
+  }
 
   const u = appState.user;
   const initial = getInitials(u.fullName);
   const jenjangText = `${u.jenjangDisplay || JENJANG_LABEL[u.jenjang] || u.jenjang} • ${u.kelas}`;
   const goldSrc = window.EDUQUEST_ASSETS?.[getRankAssetKey(u.rank)] || '';
-  const displayTotalXp = appState.isNewUser ? u.xp : 2992;
-  const displayCurrXp = appState.isNewUser ? u.xp : 192;
-  const displayNextXp = appState.isNewUser ? 100 : 800;
-  const xpPct = Math.min(100, Math.round((displayCurrXp / displayNextXp) * 100));
+  const displayTotalXp = u.totalXp || 0;
+  const displayCurrXp = u.xp || 0;
+  const displayNextXp = u.nextLevelXp || 100;
+  const xpPct = displayNextXp > 0 ? Math.min(100, Math.round((displayCurrXp / displayNextXp) * 100)) : 0;
   const remXp = Math.max(0, displayNextXp - displayCurrXp);
 
-  const quizHistoryRows = [
-    { title: 'Peta dan Letak Wilayah', sub: 'IPS • Sedang · <span class="font-extrabold text-brand-700">Terbaru</span>', ans: '9/10 benar', score: '90', xp: '+72 XP', highlight: true },
-    { title: 'Kuis IPS: Ruang dan Wilayah', sub: 'IPS • Sedang · 2 November 2026', ans: '8/10 benar', score: '80', xp: '+64 XP', highlight: false },
-    { title: 'Nilai-Nilai Pancasila', sub: 'PPKN • Dasar · 30 Oktober 2026', ans: '8/10 benar', score: '80', xp: '+32 XP', highlight: false },
-    { title: 'Ciri Makhluk Hidup', sub: 'IPA • Dasar · 28 Oktober 2026', ans: '9/10 benar', score: '90', xp: '+36 XP', highlight: false },
-    { title: 'Mengenal Ruang dan Wilayah', sub: 'IPS • Dasar · 27 Oktober 2026', ans: '9/10 benar', score: '90', xp: '+36 XP', highlight: false }
-  ];
+  // 1. Data Riwayat Kuis Riil vs Empty State
+  const realHistory = appState.profileQuizHistory;
+  const hasRealHistory = Array.isArray(realHistory) && realHistory.length > 0;
+
+  const quizRows = hasRealHistory
+    ? realHistory.slice(0, 10).map((h, idx) => {
+        const isLatest = idx === 0;
+        const dateStr = h.started_at
+          ? new Date(h.started_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
+          : 'Baru saja';
+        const diffLabel = h.target_difficulty === 3 ? 'Sulit' : h.target_difficulty === 2 ? 'Sedang' : 'Dasar';
+        const title = h.material?.title || `Kuis Latihan #${h.id}`;
+        const sub = `${diffLabel} · ${dateStr}${isLatest ? ' · <span class="font-extrabold text-brand-700">Terbaru</span>' : ''}`;
+        const ans = `${h.correct_count}/${h.total_questions} benar`;
+        const score = `${Math.round(h.percent || 0)}`;
+        const xp = `+${h.xp_gained || 0} XP`;
+        const isEndedEarly = h.ended_early || h.percent < 60;
+        const statusText = isEndedEarly ? '⚠️ Gugur' : '✓ Selesai';
+        const statusClass = isEndedEarly
+          ? 'bg-amber-50 border border-amber-200 text-amber-700'
+          : 'bg-emerald-50 border border-emerald-200 text-emerald-700';
+
+        return {
+          title,
+          sub,
+          ans,
+          score,
+          xp,
+          highlight: isLatest,
+          statusText,
+          statusClass,
+        };
+      })
+    : [];
+
+  // 2. Data Statistik Pembelajaran
+  const stats = appState.profileStats;
+  const totalMateriSelesai = stats?.completed_materials ?? Object.keys(appState.completedMaterials || {}).length;
+  const totalKuisSelesai = stats?.total_quizzes ?? (hasRealHistory ? realHistory.length : 0);
+  const avgAccuracy = (stats && stats.total_quizzes > 0) ? `${stats.average_accuracy}%` : (hasRealHistory ? '85%' : '0%');
+
+  // 3. AI Rekomendasi Belajar
+  const recom = appState.profileRecommendation;
+  const aiMessage = recom?.personalized_message ||
+    `Halo ${u.fullName}! Ayo mulai petualangan belajarmu dengan membaca materi dan mengerjakan kuis untuk mendapatkan analisis dan rekomendasi personal dari AI Tutor!`;
 
   container.innerHTML = `
     <div class="space-y-8">
@@ -1152,7 +1286,7 @@ function renderProfilSayaPage() {
             </div>
 
             <p class="mt-4 text-xs text-slate-500">
-              Setiap materi dan kuis yang kamu tuntaskan menjadi bagian dari perjalanan belajarmu.
+              Setiap materi dan kuis yang kamu tuntaskan tersimpan permanen di akun belajarmu.
             </p>
           </div>
 
@@ -1163,7 +1297,7 @@ function renderProfilSayaPage() {
                 <img src="${goldSrc}" alt="${u.rank}" class="w-12 h-12 object-contain shrink-0" />
                 <div>
                   <h3 class="font-display text-lg font-extrabold text-ink-900 leading-tight">Level ${u.level} • ${u.rank}</h3>
-                  <p class="text-xs text-slate-500">Gold mulai 300 XP • Level terus naik</p>
+                  <p class="text-xs text-slate-500">Bronze &rarr; Silver &rarr; Gold</p>
                 </div>
               </div>
               <div class="text-right">
@@ -1183,23 +1317,60 @@ function renderProfilSayaPage() {
             </div>
 
             <p class="text-xs font-extrabold text-brand-700">${remXp} XP lagi menuju Level ${u.level + 1}</p>
-            <p class="text-[11px] text-slate-500">Rank membuka tingkat kesulitan kuis, bukan batas level.</p>
+            <p class="text-[11px] text-slate-500">Rank membuka tingkat kesulitan kuis berikutnya.</p>
           </div>
         </div>
       </div>
 
-      <!-- 3 Kartu Statistik Ringkas -->
+      <!-- 🌟 KARTU REKOMENDASI BELAJAR AI TUTOR -->
+      <div class="rounded-3xl border border-indigo-100 bg-gradient-to-r from-indigo-50/80 via-white to-purple-50/80 p-6 sm:p-7 shadow-xs">
+        <div class="flex flex-col sm:flex-row items-start gap-4">
+          <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-white text-2xl shadow-md">
+            🤖
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2">
+              <h3 class="font-display text-lg font-extrabold text-ink-900">Rekomendasi Belajar AI Tutor</h3>
+              <span class="rounded-full bg-indigo-100 px-2.5 py-0.5 text-[10px] font-extrabold text-indigo-700">Gemini Powered</span>
+            </div>
+            <p class="mt-2 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+              "${aiMessage}"
+            </p>
+            ${recom && recom.weak_topics && recom.weak_topics.length > 0 ? `
+              <div class="mt-4 flex flex-wrap items-center gap-2">
+                <span class="text-xs font-bold text-amber-700">Perlu Diulang:</span>
+                ${recom.weak_topics.map(w => `
+                  <button type="button" onclick="window.handleNavClick('quest')" class="inline-flex items-center gap-1.5 rounded-xl bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-extrabold text-amber-800 hover:bg-amber-100 transition cursor-pointer">
+                    <span>🔄</span>
+                    <span>${w.title} (${w.subject})</span>
+                  </button>
+                `).join('')}
+              </div>
+            ` : ''}
+            ${recom && recom.next_topics && recom.next_topics.length > 0 ? `
+              <div class="mt-3 flex flex-wrap items-center gap-2">
+                <span class="text-xs font-bold text-indigo-700">Materi Berikutnya:</span>
+                ${recom.next_topics.map(n => `
+                  <button type="button" onclick="window.handleNavClick('quest')" class="inline-flex items-center gap-1.5 rounded-xl bg-indigo-50 border border-indigo-200 px-3 py-1 text-xs font-extrabold text-indigo-800 hover:bg-indigo-100 transition cursor-pointer">
+                    <span>📖</span>
+                    <span>${n.title} (${n.subject})</span>
+                  </button>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Kartu Statistik Pembelajaran -->
       <div class="grid gap-5 md:grid-cols-3">
         <div class="rounded-3xl border border-brand-100 bg-white p-5 flex items-center gap-4 shadow-xs">
           <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
           <div class="flex-1">
-            <p class="font-display text-2xl font-extrabold text-ink-900">40/80 <span class="text-sm font-bold">materi selesai</span></p>
-            <p class="text-xs text-slate-500">50% materi • 4 mata pelajaran</p>
-            <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-brand-100">
-              <div class="h-full w-1/2 rounded-full bg-brand-700"></div>
-            </div>
+            <p class="font-display text-2xl font-extrabold text-ink-900">${totalMateriSelesai} <span class="text-sm font-bold">materi selesai</span></p>
+            <p class="text-xs text-slate-500">Tersimpan di akun belajarmu</p>
           </div>
         </div>
 
@@ -1208,18 +1379,18 @@ function renderProfilSayaPage() {
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
           <div>
-            <p class="font-display text-2xl font-extrabold text-ink-900">31 <span class="text-sm font-bold">kuis selesai</span></p>
+            <p class="font-display text-2xl font-extrabold text-ink-900">${totalKuisSelesai} <span class="text-sm font-bold">kuis selesai</span></p>
             <p class="text-xs text-slate-500">Hasil dan pembahasan tersimpan</p>
           </div>
         </div>
 
         <div class="rounded-3xl border border-brand-100 bg-white p-5 flex items-center gap-4 shadow-xs">
           <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <div>
-            <p class="font-display text-2xl font-extrabold text-ink-900">4 <span class="text-sm font-bold">lencana diperoleh</span></p>
-            <p class="text-xs text-slate-500">Pencapaian dari usahamu</p>
+            <p class="font-display text-2xl font-extrabold text-ink-900">${avgAccuracy} <span class="text-sm font-bold">rata-rata akurasi</span></p>
+            <p class="text-xs text-slate-500">Persentase skor kuis</p>
           </div>
         </div>
       </div>
@@ -1228,137 +1399,62 @@ function renderProfilSayaPage() {
       <div class="space-y-4">
         <div>
           <h2 class="font-display text-2xl font-extrabold text-ink-900">Perkembangan Belajarmu</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">40 materi selesai di 4 mata pelajaran. Lihat sejauh mana kamu sudah melangkah.</p>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Lihat sejauh mana penguasaan materi di mata pelajaranmu.</p>
         </div>
 
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-xl">🌍</span>
-                <div>
-                  <h3 class="font-display text-base font-extrabold text-ink-900">IPS</h3>
-                  <p class="text-xs text-slate-500">Interaksi Antarruang</p>
+          ${stats && stats.subject_breakdown && stats.subject_breakdown.length > 0 ? stats.subject_breakdown.map(sb => `
+            <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-xl">📚</span>
+                  <div>
+                    <h3 class="font-display text-base font-extrabold text-ink-900">${sb.subject_name}</h3>
+                    <p class="text-xs text-slate-500">${sb.mastery_level}</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex justify-between text-xs font-extrabold text-brand-700">
+                  <span>${sb.materials_completed} materi • ${sb.quizzes_taken} kuis</span>
+                  <span>${sb.avg_score}%</span>
+                </div>
+                <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-brand-100">
+                  <div class="h-full rounded-full bg-brand-700" style="width: ${Math.min(100, sb.avg_score)}%"></div>
                 </div>
               </div>
-              <div class="mt-4 flex justify-between text-xs font-extrabold text-brand-700">
-                <span>14/20 materi selesai</span>
-                <span>70%</span>
-              </div>
-              <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-brand-100">
-                <div class="h-full w-[70%] rounded-full bg-brand-700"></div>
-              </div>
+              <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl bg-brand-700 py-2.5 font-display text-xs font-extrabold text-white hover:bg-brand-600 transition cursor-pointer">
+                Lanjutkan Quest
+              </button>
             </div>
-            <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl bg-brand-700 py-2.5 font-display text-xs font-extrabold text-white hover:bg-brand-600 transition cursor-pointer">
-              Lanjutkan Quest
-            </button>
-          </div>
-
-          <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-xl">🧪</span>
-                <div>
-                  <h3 class="font-display text-base font-extrabold text-ink-900">IPA</h3>
-                  <p class="text-xs text-slate-500">Makhluk hidup &amp; lingkungan</p>
+          `).join('') : `
+            <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-xl">🌍</span>
+                  <div>
+                    <h3 class="font-display text-base font-extrabold text-ink-900">IPS</h3>
+                    <p class="text-xs text-slate-500">Interaksi Antarruang</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex justify-between text-xs font-extrabold text-brand-700">
+                  <span>Materi kurikulum aktif</span>
+                  <span>Siap Belajar</span>
                 </div>
               </div>
-              <div class="mt-4 flex justify-between text-xs font-extrabold text-emerald-700">
-                <span>10/20 materi selesai</span>
-                <span>50%</span>
-              </div>
-              <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-emerald-100">
-                <div class="h-full w-[50%] rounded-full bg-emerald-600"></div>
-              </div>
+              <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl bg-brand-700 py-2.5 font-display text-xs font-extrabold text-white hover:bg-brand-600 transition cursor-pointer">
+                Lanjutkan Quest
+              </button>
             </div>
-            <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
-              Lihat Bab
-            </button>
-          </div>
-
-          <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-xl">📖</span>
-                <div>
-                  <h3 class="font-display text-base font-extrabold text-ink-900">Bahasa Indonesia</h3>
-                  <p class="text-xs text-slate-500">Teks deskripsi &amp; cerita</p>
-                </div>
-              </div>
-              <div class="mt-4 flex justify-between text-xs font-extrabold text-amber-700">
-                <span>8/20 materi selesai</span>
-                <span>40%</span>
-              </div>
-              <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
-                <div class="h-full w-[40%] rounded-full bg-amber-600"></div>
-              </div>
-            </div>
-            <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
-              Lihat Bab
-            </button>
-          </div>
-
-          <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-xl">💬</span>
-                <div>
-                  <h3 class="font-display text-base font-extrabold text-ink-900">PPKN</h3>
-                  <p class="text-xs text-slate-500">Nilai-nilai Pancasila</p>
-                </div>
-              </div>
-              <div class="mt-4 flex justify-between text-xs font-extrabold text-amber-700">
-                <span>8/20 materi selesai</span>
-                <span>40%</span>
-              </div>
-              <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
-                <div class="h-full w-[40%] rounded-full bg-amber-600"></div>
-              </div>
-            </div>
-            <button type="button" onclick="window.handleNavClick('quest')" class="mt-4 w-full rounded-xl border-2 border-brand-700 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer">
-              Lihat Bab
-            </button>
-          </div>
+          `}
         </div>
 
         <div class="rounded-2xl bg-brand-50/75 border border-brand-100 px-5 py-3.5 flex flex-wrap items-center gap-4 text-xs">
           <div class="flex items-center gap-2">
-            ${renderHeartsInline(1, 3, 'w-4 h-4')}
-            <span class="font-display font-extrabold text-ink-900 ml-1">Nyawa IPS 1/3</span>
+            ${renderHeartsInline(3, 3, 'w-4 h-4')}
+            <span class="font-display font-extrabold text-ink-900 ml-1">Nyawa Petualang 3/3</span>
           </div>
           <span class="text-slate-600">
-            Nyawa terpisah per mapel, maksimal 3; pulih 1 nyawa tiap 2 jam. Materi tetap bisa dibaca saat nyawa habis.
+            Maksimal 3 nyawa; pulih 1 nyawa tiap 1 jam. Materi tetap bisa dibaca kapan saja tanpa batas!
           </span>
-        </div>
-      </div>
-
-      <!-- Lencana Petualangan -->
-      <div class="rounded-3xl border border-brand-100 bg-white p-6 sm:p-7 shadow-xs space-y-5">
-        <div class="flex items-center justify-between">
-          <div>
-            <h2 class="font-display text-xl sm:text-2xl font-extrabold text-ink-900">Lencana Petualangan</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Setiap usaha punya cerita. Inilah pencapaian yang sudah kamu buka.</p>
-          </div>
-          <span class="font-display text-xs font-extrabold text-brand-700">4 lencana diperoleh</span>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          ${[
-            { icon: '🏅', title: 'Langkah Pertama', sub: 'Selesaikan 1 materi' },
-            { icon: '🏆', title: 'Penakluk Kuis', sub: 'Selesaikan 1 kuis' },
-            { icon: '🏅', title: 'Penjelajah Tekun', sub: 'Selesaikan 10 materi' },
-            { icon: '🏆', title: 'Ahli IPS', sub: 'Selesaikan 5 kuis IPS' }
-          ].map(b => `
-            <div class="rounded-2xl border border-brand-100 bg-white p-5 text-center">
-              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-2xl">${b.icon}</div>
-              <h4 class="mt-3 font-display text-sm font-extrabold text-ink-900">${b.title}</h4>
-              <p class="text-xs text-slate-500 mt-0.5">${b.sub}</p>
-              <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-emerald-100">
-                <div class="h-full w-full rounded-full bg-emerald-700"></div>
-              </div>
-              <p class="mt-2 text-[11px] font-extrabold text-emerald-700">Terbuka • 100%</p>
-            </div>
-          `).join('')}
         </div>
       </div>
 
@@ -1369,57 +1465,75 @@ function renderProfilSayaPage() {
             <h2 class="font-display text-xl sm:text-2xl font-extrabold text-ink-900">Riwayat Kuis</h2>
             <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Tinjau hasilmu dan pelajari kembali pembahasan dari setiap tantangan.</p>
           </div>
-          <span class="font-display text-xs font-extrabold text-brand-700">5 hasil terbaru dari 31 kuis selesai</span>
+          <span class="font-display text-xs font-extrabold text-brand-700">${hasRealHistory ? `${realHistory.length} kuis tercatat` : 'Hasil kuis tersimpan'}</span>
         </div>
 
-        <div class="rounded-3xl border border-brand-100 bg-white p-4 sm:p-6 shadow-xs overflow-x-auto">
-          <table class="w-full text-left border-collapse min-w-[640px]">
-            <thead>
-              <tr class="border-b border-brand-100 text-[11px] font-extrabold text-slate-500">
-                <th class="pb-3 pl-3">Kuis &amp; tanggal</th>
-                <th class="pb-3">Jawaban</th>
-                <th class="pb-3">Skor</th>
-                <th class="pb-3">XP diraih</th>
-                <th class="pb-3">Status</th>
-                <th class="pb-3 text-right pr-3">Pembahasan</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-brand-100/70 text-xs sm:text-sm">
-              ${quizHistoryRows.map(r => `
-                <tr class="${r.highlight ? 'bg-brand-50/70' : ''}">
-                  <td class="py-4 pl-3 rounded-l-2xl">
-                    <p class="font-display font-extrabold text-ink-900">${r.title}</p>
-                    <p class="text-xs text-slate-500 mt-0.5">${r.sub}</p>
-                  </td>
-                  <td class="py-4 font-bold text-ink-900">${r.ans}</td>
-                  <td class="py-4"><span class="font-display text-lg font-extrabold text-ink-900">${r.score}</span><span class="text-xs text-slate-500">/100</span></td>
-                  <td class="py-4 font-display font-extrabold text-brand-700">${r.xp}</td>
-                  <td class="py-4">
-                    <span class="inline-block rounded-full bg-emerald-50 border border-emerald-200 px-3 py-0.5 font-display text-xs font-extrabold text-emerald-700">
-                      ✓ Selesai
-                    </span>
-                  </td>
-                  <td class="py-4 pr-3 text-right rounded-r-2xl">
-                    <button
-                      type="button"
-                      onclick="window.openQuizScreen(8)"
-                      class="rounded-xl border border-brand-600 bg-white px-4 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer"
-                    >
-                      Lihat Pembahasan
-                    </button>
-                  </td>
+        ${hasRealHistory && quizRows.length > 0 ? `
+          <div class="rounded-3xl border border-brand-100 bg-white p-4 sm:p-6 shadow-xs overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[640px]">
+              <thead>
+                <tr class="border-b border-brand-100 text-[11px] font-extrabold text-slate-500">
+                  <th class="pb-3 pl-3">Kuis &amp; tanggal</th>
+                  <th class="pb-3">Jawaban</th>
+                  <th class="pb-3">Skor</th>
+                  <th class="pb-3">XP diraih</th>
+                  <th class="pb-3">Status</th>
+                  <th class="pb-3 text-right pr-3">Aksi</th>
                 </tr>
-              `).join('')}
-            </tbody>
-          </table>
+              </thead>
+              <tbody class="divide-y divide-brand-100/70 text-xs sm:text-sm">
+                ${quizRows.map(r => `
+                  <tr class="${r.highlight ? 'bg-brand-50/70' : ''}">
+                    <td class="py-4 pl-3 rounded-l-2xl">
+                      <p class="font-display font-extrabold text-ink-900">${r.title}</p>
+                      <p class="text-xs text-slate-500 mt-0.5">${r.sub}</p>
+                    </td>
+                    <td class="py-4 font-bold text-ink-900">${r.ans}</td>
+                    <td class="py-4"><span class="font-display text-lg font-extrabold text-ink-900">${r.score}</span><span class="text-xs text-slate-500">/100</span></td>
+                    <td class="py-4 font-display font-extrabold text-brand-700">${r.xp}</td>
+                    <td class="py-4">
+                      <span class="inline-block rounded-full px-3 py-0.5 font-display text-xs font-extrabold ${r.statusClass || 'bg-emerald-50 border border-emerald-200 text-emerald-700'}">
+                        ${r.statusText || '✓ Selesai'}
+                      </span>
+                    </td>
+                    <td class="py-4 pr-3 text-right rounded-r-2xl">
+                      <button
+                        type="button"
+                        onclick="window.openQuizScreen(1)"
+                        class="rounded-xl border border-brand-600 bg-white px-4 py-2 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer"
+                      >
+                        Ulangi Kuis
+                      </button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
 
-          <div class="mt-4 pt-4 border-t border-brand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 px-2">
-            <span>Total 2.992 XP: 800 XP dari materi + 2.192 XP dari kuis.</span>
-            <button type="button" onclick="window.openQuizScreen(1)" class="font-display font-extrabold text-brand-700 hover:underline cursor-pointer">
-              Mulai Kuis &rarr;
+            <div class="mt-4 pt-4 border-t border-brand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-500 px-2">
+              <span>Total ${displayTotalXp.toLocaleString('id-ID')} XP terkumpul dari aktivitas belajarmu.</span>
+              <button type="button" onclick="window.openQuizScreen(1)" class="font-display font-extrabold text-brand-700 hover:underline cursor-pointer">
+                Mulai Kuis Baru &rarr;
+              </button>
+            </div>
+          </div>
+        ` : `
+          <div class="rounded-3xl border border-dashed border-brand-200 bg-brand-50/40 p-8 sm:p-10 text-center">
+            <span class="text-4xl">🎯</span>
+            <h4 class="mt-3 font-display text-lg font-extrabold text-ink-900">Belum Ada Riwayat Kuis</h4>
+            <p class="mt-1.5 text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
+              Kamu belum menyelesaikan kuis apapun. Ayo mulai petualangan pertamamu di tab Kuis untuk mencatat skor dan mengumpulkan XP!
+            </p>
+            <button
+              type="button"
+              onclick="window.handleNavClick('kuis')"
+              class="mt-5 inline-flex items-center gap-2 rounded-2xl bg-brand-700 px-5 py-2.5 font-display text-xs sm:text-sm font-extrabold text-white shadow-btn hover:bg-brand-600 transition cursor-pointer"
+            >
+              <span>⚔️</span>
+              <span>Mulai Kuis Pertama</span>
             </button>
           </div>
-        </div>
+        `}
       </div>
     </div>
   `;
@@ -1429,60 +1543,30 @@ function renderProfilSayaPage() {
 // 3. ALUR KUIS 3 NYAWA (9 LAYAR INTERAKTIF PETUALANG LAMA)
 // Sesuai file 01 s.d. 09 di dalam Edu Quest (10).zip
 // ==========================================================
-function openQuizScreen(screenStep = 1) {
-  if (!appState.inQuizSession) {
+function openQuizScreen(screenStep = 1, returnTab = null) {
+  if (returnTab) {
+    appState.quizReturnTab = returnTab;
+  } else if (!appState.inQuizSession) {
     const prev = appState.activeTab;
-    appState.quizReturnTab = (prev && prev !== 'kuis') ? prev : 'quest';
+    appState.quizReturnTab = (prev && prev !== 'kuis') ? prev : 'beranda';
   }
   appState.inMaterialReader = false;
   appState.inQuizSession = true;
   appState.quizScreenStep = screenStep;
 
+  // Nyawa dan XP dinamis mengikuti alur simulasi kuis
   if (screenStep === 1 || screenStep === 2) {
-    appState.user.ipsLives = 3;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2920;
-      appState.user.xp = 120;
-    }
     appState.quizQ1Selected = null;
+    appState.quizLives = appState.user.ipsLives || 3;
   } else if (screenStep === 3) {
-    appState.user.ipsLives = 3;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2920;
-      appState.user.xp = 120;
-    }
-    appState.quizQ1Selected = 'A';
+    appState.quizQ1Selected = appState.quizQ1Selected || 'A';
   } else if (screenStep === 4) {
-    appState.user.ipsLives = 2;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2920;
-      appState.user.xp = 120;
-    }
     appState.quizQ1Selected = 'A';
+    appState.quizLives = 2;
   } else if (screenStep === 5) {
-    appState.user.ipsLives = 1;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2920;
-      appState.user.xp = 120;
-    }
-  } else if (screenStep === 6) {
-    appState.user.ipsLives = 1;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2928;
-      appState.user.xp = 128;
-    }
-  } else if (screenStep === 7 || screenStep === 8) {
-    appState.user.ipsLives = 1;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2992;
-      appState.user.xp = 192;
-    }
+    appState.quizLives = 1;
   } else if (screenStep === 9) {
-    appState.user.ipsLives = 0;
-    if (!appState.isNewUser) {
-      appState.user.totalXp = 2928;
-      appState.user.xp = 128;
-    }
+    appState.quizLives = 0;
   }
 
   syncUserUI();
@@ -1494,15 +1578,25 @@ window.openQuizScreen = openQuizScreen;
 
 function exitQuizSession() {
   appState.inQuizSession = false;
-  appState.activeTab = appState.quizReturnTab || 'quest';
+  const targetTab = appState.quizReturnTab || 'beranda';
+  appState.activeTab = targetTab;
+  setNavbarActiveTab(targetTab);
   updateMainViews();
-  if (appState.activeTab === 'profil-saya') {
+  if (targetTab === 'profil-saya') {
     renderProfilSayaPage();
-  } else if (appState.activeTab === 'quest') {
+  } else if (targetTab === 'quest') {
+    renderQuestHeaderView();
     renderBabCatalog();
-  } else if (appState.activeTab === 'ai-tutor') {
+  } else if (targetTab === 'ai-tutor') {
     renderAiTutorPage();
+  } else if (targetTab === 'beranda') {
+    if (!appState.isNewUser) {
+      renderOldUserBeranda();
+    } else {
+      renderRankEmblemsShowcase();
+    }
   }
+  syncUserUI();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 window.exitQuizSession = exitQuizSession;
@@ -1575,46 +1669,14 @@ function renderQuizSessionView() {
   };
   const returnLabel = returnLabelMap[appState.quizReturnTab] || 'Quest';
 
-  // Bar Navigasi Cepat 9 Tahap Skenario Desain agar user mudah menguji semua layar
-  const scenarioSteps = [
-    { s: 1, label: '01 Persiapan (3/3 ❤️)' },
-    { s: 2, label: '02 Soal 01 Belum Dijawab' },
-    { s: 3, label: '03 Jawaban Dipilih' },
-    { s: 4, label: '04 Salah Ke-1 & AI (2/3 ❤️)' },
-    { s: 5, label: '05 2x Percobaan Habis (1/3 ❤️)' },
-    { s: 6, label: '06 Soal 02 Benar (+8 XP)' },
-    { s: 7, label: '07 Hasil Selesai (90/100)' },
-    { s: 8, label: '08 Pembahasan & Evaluasi AI' },
-    { s: 9, label: '09 Cabang Nyawa Habis (0/3 ❤️)' }
-  ];
+  const displayTotalXp = u.totalXp || 0;
+  const displayCurrXp = u.xp || 0;
+  const displayNextXp = u.nextLevelXp || 100;
+  const xpPct = displayNextXp > 0 ? Math.min(100, Math.round((displayCurrXp / displayNextXp) * 100)) : 0;
+  const remXp = Math.max(0, displayNextXp - displayCurrXp);
 
-  const stepperNavHtml = `
-    <div class="mb-6 rounded-2xl border border-brand-200 bg-white p-3 shadow-2xs">
-      <div class="flex items-center justify-between mb-2 px-1">
-        <span class="text-[11px] font-display font-extrabold uppercase tracking-wider text-brand-700">
-          🎮 Navigasi Simulasi 9 Layar Kuis (3 Kesempatan Nyawa IPS)
-        </span>
-        <button type="button" onclick="window.exitQuizSession()" class="text-xs font-extrabold text-slate-500 hover:text-brand-700 cursor-pointer">
-          &larr; Kembali ke ${returnLabel}
-        </button>
-      </div>
-      <div class="flex items-center gap-1.5 overflow-x-auto pb-1">
-        ${scenarioSteps.map(item => `
-          <button
-            type="button"
-            onclick="window.openQuizScreen(${item.s})"
-            class="shrink-0 rounded-xl px-3 py-1.5 font-display text-xs font-extrabold transition cursor-pointer ${
-              step === item.s
-                ? 'bg-brand-700 text-white shadow-2xs'
-                : 'bg-brand-50/70 text-ink-900 hover:bg-brand-100'
-            }"
-          >
-            ${item.label}
-          </button>
-        `).join('')}
-      </div>
-    </div>
-  `;
+  // Navigasi simulasi debug dinonaktifkan di production agar tampilan bersih sesuai hasil kuis
+  const stepperNavHtml = '';
 
   // Helper Segmented 10-question bar
   function render10Segments(filledCount) {
@@ -1628,14 +1690,19 @@ function renderQuizSessionView() {
   let bodyHtml = '';
 
   if (step === 1) {
-    // LAYAR 01: Persiapan Kuis • Petualang Lama
+    // LAYAR 01: Persiapan Kuis
     bodyHtml = `
       <div class="space-y-6">
-        <p class="font-display text-xs font-extrabold text-brand-700">Kuis / Peta dan Letak Wilayah</p>
+        <div class="flex items-center justify-between">
+          <p class="font-display text-xs font-extrabold text-brand-700">Kuis / Peta dan Letak Wilayah</p>
+          <button type="button" onclick="window.exitQuizSession()" class="text-xs font-extrabold text-slate-500 hover:text-brand-700 cursor-pointer">
+            &larr; Kembali ke ${returnLabel}
+          </button>
+        </div>
         <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
           <div>
             <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-ink-900">Siap melanjutkan petualangan, ${shortName}?</h1>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">Uji pemahamanmu setelah menyelesaikan materi. Baca panduan singkat sebelum mulai.</p>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">Uji pemahamanmu setelah mempelajari materi. Baca panduan singkat sebelum mulai.</p>
           </div>
           <span class="self-start inline-flex items-center rounded-full bg-brand-100/90 px-4 py-1.5 font-display text-xs font-extrabold text-brand-700">
             ${jenjangText}
@@ -1651,7 +1718,7 @@ function renderQuizSessionView() {
                 <div>
                   <span class="inline-block rounded-full bg-brand-100 px-3 py-0.5 font-display text-xs font-extrabold text-brand-700">IPS • Tingkat Sedang</span>
                   <h2 class="mt-1.5 font-display text-2xl sm:text-3xl font-extrabold text-ink-900">Peta dan Letak Wilayah</h2>
-                  <p class="text-xs sm:text-sm text-slate-500 mt-0.5">SMP/MTs Kelas 7 • Peta dan Wilayah</p>
+                  <p class="text-xs sm:text-sm text-slate-500 mt-0.5">${jenjangText} • Peta dan Wilayah</p>
                 </div>
               </div>
 
@@ -1665,14 +1732,14 @@ function renderQuizSessionView() {
                   <p class="text-xs text-slate-500 mt-0.5">Maksimal XP sesi</p>
                 </div>
                 <div class="rounded-2xl bg-brand-50/60 p-4">
-                  <p class="font-display text-2xl font-extrabold text-ink-900">Silver</p>
+                  <p class="font-display text-2xl font-extrabold text-ink-900">Bronze</p>
                   <p class="text-xs text-slate-500 mt-0.5">Rank minimum</p>
                 </div>
               </div>
 
               <div class="rounded-2xl bg-emerald-50/80 border border-emerald-200/80 p-4">
                 <p class="font-display text-sm font-extrabold text-emerald-800">✓ Semua prasyarat terpenuhi</p>
-                <p class="text-xs sm:text-sm text-slate-600 mt-1">Materi Peta dan Letak Wilayah sudah selesai. Rank Gold kamu memenuhi minimum Silver.</p>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1">Prasyarat tantangan siap. Rank ${u.rank} kamu memenuhi ketentuan petualangan ini.</p>
               </div>
             </div>
 
@@ -1696,7 +1763,7 @@ function renderQuizSessionView() {
                 <div class="flex items-start gap-3.5">
                   <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700 text-sm">💡</span>
                   <div>
-                    <h4 class="font-display text-sm font-extrabold text-ink-900">1 nyawa pulih tiap 2 jam</h4>
+                    <h4 class="font-display text-sm font-extrabold text-ink-900">1 nyawa pulih tiap 1 jam</h4>
                     <p class="text-xs text-slate-500 mt-0.5">Maksimal 3 nyawa per mapel. Membaca materi tetap bisa saat nyawa habis.</p>
                   </div>
                 </div>
@@ -1728,20 +1795,20 @@ function renderQuizSessionView() {
           <div class="space-y-4">
             <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs space-y-4">
               <div class="flex items-center gap-3.5">
-                <img src="${goldSrc}" alt="Gold" class="w-11 h-11 object-contain shrink-0" />
+                <img src="${goldSrc}" alt="${u.rank}" class="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 class="font-display text-base font-extrabold text-ink-900">${u.fullName}</h3>
-                  <p class="text-xs text-slate-500">Level 8 • Rank Gold</p>
+                  <p class="text-xs text-slate-500">Level ${u.level} • Rank ${u.rank}</p>
                 </div>
               </div>
 
               <div class="rounded-2xl border border-brand-100 bg-brand-50/60 p-4 space-y-2.5">
                 <div class="flex items-center justify-between text-[11px] font-display font-extrabold">
-                  <span class="text-ink-900">Level 8 • Gold</span>
-                  <span class="text-brand-700">2.920 XP • 120/800 ke Lv. 9</span>
+                  <span class="text-ink-900">Level ${u.level} • ${u.rank}</span>
+                  <span class="text-brand-700">${displayTotalXp} XP • ${displayCurrXp}/${displayNextXp} ke Lv. ${u.level + 1}</span>
                 </div>
                 <div class="h-1.5 w-full overflow-hidden rounded-full bg-brand-100">
-                  <div class="h-full w-[15%] rounded-full bg-brand-700"></div>
+                  <div class="h-full rounded-full bg-brand-700" style="width: ${xpPct}%"></div>
                 </div>
                 <div class="flex items-center justify-between pt-1 text-xs">
                   <div class="flex items-center gap-1">${renderHeartsInline(3, 3, 'w-3.5 h-3.5')}</div>
@@ -1750,8 +1817,8 @@ function renderQuizSessionView() {
               </div>
 
               <p class="text-xs text-slate-600 leading-relaxed">
-                120/800 XP • 15% ke Level 9<br>
-                Sisa 680 XP menuju Level 9.
+                ${displayCurrXp}/${displayNextXp} XP • ${xpPct}% ke Level ${u.level + 1}<br>
+                Sisa ${remXp} XP menuju Level ${u.level + 1}.
               </p>
 
               <div class="pt-3 border-t border-brand-100">
@@ -1775,17 +1842,20 @@ function renderQuizSessionView() {
                   <p class="text-xs font-bold text-brand-700">Peta dan Letak Wilayah</p>
                 </div>
               </div>
-              <div class="flex justify-between text-xs font-extrabold text-brand-700 pt-1">
-                <span>Materi terkait selesai</span>
-                <span>100%</span>
+              <div class="flex justify-between text-xs font-extrabold ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'text-brand-700' : 'text-slate-500'} pt-1">
+                <span>${Object.keys(appState.completedMaterials || {}).length > 0 ? 'Materi terkait selesai' : 'Materi pengantar'}</span>
+                <span>${Object.keys(appState.completedMaterials || {}).length > 0 ? '100%' : '0%'}</span>
               </div>
-              <div class="h-2 w-full overflow-hidden rounded-full bg-emerald-100">
-                <div class="h-full w-full rounded-full bg-emerald-700"></div>
+              <div class="h-2 w-full overflow-hidden rounded-full ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'bg-emerald-100' : 'bg-slate-100'}">
+                <div class="h-full rounded-full ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'w-full bg-emerald-700' : 'w-0 bg-brand-700'}"></div>
               </div>
               <button
                 type="button"
-                onclick="window.openMaterialPage('bab-01', 'mat-1-2', 1)"
+                onclick="window.openMaterialPage('bab-01', 'mat-1-1', 1)"
                 class="mt-2 w-full rounded-xl border-2 border-brand-700 py-2.5 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer"
+              >
+                ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'Baca Ulang Materi' : 'Pelajari Materi Terkait'}
+              </button>
               >
                 Baca Ulang Materi
               </button>
@@ -2066,7 +2136,7 @@ function renderQuizSessionView() {
                 ${renderHeartsInline(lives, 3, 'w-6 h-6')}
               </div>
               <p class="mt-2.5 text-xs text-slate-600">
-                ${lives === 3 ? 'Penuh. Siap untuk tantangan ini.' : 'Pulih 1 nyawa tiap 2 jam.'}
+                ${lives === 3 ? 'Penuh. Siap untuk tantangan ini.' : 'Pulih 1 nyawa tiap 1 jam.'}
               </p>
               <p class="text-[11px] text-slate-400 mt-0.5">Terpisah per mata pelajaran • Maks. 3</p>
             </div>
@@ -2152,7 +2222,9 @@ function renderQuizSessionView() {
       </div>
     `;
   } else if (step === 6) {
-    // LAYAR 06: Soal 02 • Jawaban Benar (+8 XP, Nyawa IPS 1/3)
+    // LAYAR 06: Soal 02 • Jawaban Benar (+8 XP, Nyawa Dinamis)
+    const step6Lives = Math.max(1, appState.quizLives ?? 2);
+    const step6BadgeClass = step6Lives === 1 ? 'bg-rose-50 text-[#b91c47]' : 'bg-brand-100 text-brand-700';
     bodyHtml = `
       <div class="space-y-6">
         <p class="font-display text-xs font-extrabold text-brand-700">Kuis / Peta dan Letak Wilayah</p>
@@ -2177,8 +2249,8 @@ function renderQuizSessionView() {
           <div class="flex items-center gap-6 md:pl-6 md:border-l border-brand-100">
             <div>
               <div class="flex items-center gap-1.5">
-                ${renderHeartsInline(1, 3, 'w-4 h-4')}
-                <span class="font-display text-sm font-extrabold text-[#b91c47] ml-1">1/3</span>
+                ${renderHeartsInline(step6Lives, 3, 'w-4 h-4')}
+                <span class="font-display text-sm font-extrabold ${step6Lives === 1 ? 'text-[#b91c47]' : 'text-brand-700'} ml-1">${step6Lives}/3</span>
               </div>
               <p class="text-[11px] text-slate-500 mt-0.5">Nyawa IPS</p>
             </div>
@@ -2237,26 +2309,26 @@ function renderQuizSessionView() {
               <div class="rounded-2xl bg-emerald-50/80 border border-emerald-200 p-5">
                 <h4 class="font-display text-sm font-extrabold text-emerald-800">Tepat sekali! +8 XP</h4>
                 <p class="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  B, Timur. Saat utara mengarah ke atas, sebelah kanan peta adalah timur. Benar pada percobaan pertama; nyawa IPS tetap 1/3.
+                  B, Timur. Saat utara mengarah ke atas, sebelah kanan peta adalah timur. Percobaan tepat; sisa nyawa IPS ${step6Lives}/3.
                 </p>
               </div>
 
               <div class="pt-4 border-t border-brand-100 flex flex-wrap items-center justify-between gap-3">
                 <span class="text-xs text-slate-500">Jawaban tersimpan • Tidak bisa diubah</span>
-                <div class="flex items-center gap-2.5">
+                <div class="flex items-center gap-3">
                   <button
                     type="button"
-                    onclick="window.openQuizScreen(9)"
-                    class="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 font-display text-xs font-extrabold text-[#b91c47] hover:bg-rose-100 transition cursor-pointer"
+                    onclick="window.exitQuizSession()"
+                    class="font-display text-xs font-extrabold text-brand-700 hover:underline cursor-pointer"
                   >
-                    Simulasi Soal 03 Salah (Nyawa Habis 0/3)
+                    &larr; Keluar dari Kuis
                   </button>
                   <button
                     type="button"
                     onclick="window.openQuizScreen(7)"
                     class="rounded-2xl bg-brand-700 px-6 py-3 font-display text-sm font-extrabold text-white shadow-btn hover:bg-brand-600 transition cursor-pointer"
                   >
-                    Soal Berikutnya &rarr;
+                    Selesaikan Kuis &rarr;
                   </button>
                 </div>
               </div>
@@ -2267,15 +2339,17 @@ function renderQuizSessionView() {
             <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs space-y-3">
               <div class="flex items-center justify-between">
                 <span class="font-display text-xs font-extrabold text-ink-900">Nyawa IPS</span>
-                <span class="rounded-full bg-rose-50 px-2.5 py-0.5 font-display text-xs font-extrabold text-[#b91c47]">1/3</span>
+                <span class="rounded-full ${step6BadgeClass} px-2.5 py-0.5 font-display text-xs font-extrabold">${step6Lives}/3</span>
               </div>
               <div class="flex items-center gap-1.5">
-                ${renderHeartsInline(1, 3, 'w-6 h-6')}
+                ${renderHeartsInline(step6Lives, 3, 'w-6 h-6')}
               </div>
-              <p class="text-xs text-slate-600">Pulih 1 nyawa tiap 2 jam.</p>
+              <p class="text-xs text-slate-600">Pulih 1 nyawa tiap 1 jam.</p>
               <p class="text-[11px] text-slate-400">Terpisah per mata pelajaran • Maks. 3</p>
               <span class="inline-block rounded-full bg-emerald-50 px-3 py-1 font-display text-xs font-extrabold text-emerald-800">
                 1 benar • +8 XP sesi
+              </span>
+            </div>
               </span>
             </div>
 
@@ -2285,7 +2359,7 @@ function renderQuizSessionView() {
                 <h4 class="font-display text-base font-extrabold text-ink-900">Teruskan petualanganmu</h4>
               </div>
               <p class="text-xs text-slate-600 leading-relaxed">
-                Kamu sudah menyelesaikan 2 soal. Lanjutkan ke soal 03 untuk menguji pemahaman berikutnya.
+                Pemahaman materi Peta dan Letak Wilayahmu sudah sangat baik. Lanjutkan untuk melihat hasil akhir tantangan ini!
               </p>
             </div>
           </div>
@@ -2294,6 +2368,9 @@ function renderQuizSessionView() {
     `;
   } else if (step === 7) {
     // LAYAR 07: Hasil Kuis Selesai • Cabang Utama
+    const step7Lives = Math.max(1, appState.quizLives ?? 2);
+    const step7BadgeClass = step7Lives === 1 ? 'bg-rose-50 text-[#b91c47]' : 'bg-brand-100 text-brand-700';
+    const step7Lost = 3 - step7Lives;
     bodyHtml = `
       <div class="space-y-6">
         <p class="font-display text-xs font-extrabold text-brand-700">Kuis / Peta dan Letak Wilayah</p>
@@ -2348,7 +2425,7 @@ function renderQuizSessionView() {
               <div class="rounded-2xl bg-brand-50/80 border border-brand-100 p-4">
                 <h4 class="font-display text-xs sm:text-sm font-extrabold text-brand-700">XP sudah masuk ke totalmu</h4>
                 <p class="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  2.920 XP sebelum sesi + 72 XP sesi = 2.992 XP. Level 8 dan rank Gold tetap. Tidak ada XP tambahan dari membuka pembahasan.
+                  Selamat! +72 XP berhasil ditambahkan ke akunmu. Level ${u.level} • Rank ${u.rank}.
                 </p>
               </div>
             </div>
@@ -2399,40 +2476,40 @@ function renderQuizSessionView() {
           <div class="space-y-4">
             <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs space-y-4">
               <div class="flex items-center gap-3.5">
-                <img src="${goldSrc}" alt="Gold" class="w-11 h-11 object-contain shrink-0" />
+                <img src="${goldSrc}" alt="${u.rank}" class="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 class="font-display text-base font-extrabold text-ink-900">${u.fullName}</h3>
-                  <p class="text-xs text-slate-500">Level 8 • Rank Gold</p>
+                  <p class="text-xs text-slate-500">Level ${u.level} • Rank ${u.rank}</p>
                 </div>
               </div>
 
               <div class="rounded-2xl border border-brand-100 bg-brand-50/60 p-4 space-y-2.5">
                 <div class="flex items-center justify-between text-[11px] font-display font-extrabold">
-                  <span class="text-ink-900">Level 8 • Gold</span>
-                  <span class="text-brand-700">2.992 XP • 192/800 ke Lv. 9</span>
+                  <span class="text-ink-900">Level ${u.level} • ${u.rank}</span>
+                  <span class="text-brand-700">${displayTotalXp} XP • ${displayCurrXp}/${displayNextXp} ke Lv. ${u.level + 1}</span>
                 </div>
                 <div class="h-1.5 w-full overflow-hidden rounded-full bg-brand-100">
-                  <div class="h-full w-[24%] rounded-full bg-brand-700"></div>
+                  <div class="h-full rounded-full bg-brand-700" style="width: ${xpPct}%"></div>
                 </div>
                 <div class="flex items-center justify-between pt-1 text-xs">
-                  <div class="flex items-center gap-1">${renderHeartsInline(1, 3, 'w-3.5 h-3.5')}</div>
-                  <span class="font-display font-extrabold text-ink-900">Nyawa IPS 1/3</span>
+                  <div class="flex items-center gap-1">${renderHeartsInline(step7Lives, 3, 'w-3.5 h-3.5')}</div>
+                  <span class="font-display font-extrabold text-ink-900">Nyawa IPS ${step7Lives}/3</span>
                 </div>
               </div>
 
               <p class="text-xs text-slate-600 leading-relaxed">
-                192/800 XP • 24% ke Level 9<br>
-                Sisa 608 XP menuju Level 9.
+                ${displayCurrXp}/${displayNextXp} XP • ${xpPct}% ke Level ${u.level + 1}<br>
+                Sisa ${remXp} XP menuju Level ${u.level + 1}.
               </p>
 
               <div class="grid grid-cols-2 gap-3 pt-2 border-t border-brand-100">
                 <div>
-                  <p class="font-display text-xl font-extrabold text-ink-900">40 materi</p>
-                  <p class="text-xs text-slate-500">Tetap selesai</p>
+                  <p class="font-display text-xl font-extrabold text-ink-900">${Object.keys(appState.completedMaterials || {}).length} materi</p>
+                  <p class="text-xs text-slate-500">Selesai</p>
                 </div>
                 <div>
-                  <p class="font-display text-xl font-extrabold text-ink-900">31 kuis</p>
-                  <p class="text-xs text-slate-500">Sebelumnya 30</p>
+                  <p class="font-display text-xl font-extrabold text-ink-900">${(appState.profileStats?.total_quizzes || 0) + 1} kuis</p>
+                  <p class="text-xs text-slate-500">Tercatat</p>
                 </div>
               </div>
             </div>
@@ -2440,15 +2517,15 @@ function renderQuizSessionView() {
             <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs space-y-3">
               <div class="flex items-center justify-between">
                 <span class="font-display text-xs font-extrabold text-ink-900">Nyawa IPS</span>
-                <span class="rounded-full bg-rose-50 px-2.5 py-0.5 font-display text-xs font-extrabold text-[#b91c47]">1/3</span>
+                <span class="rounded-full ${step7BadgeClass} px-2.5 py-0.5 font-display text-xs font-extrabold">${step7Lives}/3</span>
               </div>
               <div class="flex items-center gap-1.5">
-                ${renderHeartsInline(1, 3, 'w-6 h-6')}
+                ${renderHeartsInline(step7Lives, 3, 'w-6 h-6')}
               </div>
-              <p class="text-xs text-slate-600">Pulih 1 nyawa tiap 2 jam.</p>
+              <p class="text-xs text-slate-600">Pulih 1 nyawa tiap 1 jam.</p>
               <p class="text-[11px] text-slate-400">Terpisah per mata pelajaran • Maks. 3</p>
               <p class="text-xs text-slate-600 leading-relaxed pt-1">
-                Dua jawaban salah pada soal 01 mengurangi 2 nyawa IPS. Jawaban benar tidak mengurangi nyawa.
+                ${step7Lost > 0 ? `${step7Lost} jawaban salah mengurangi ${step7Lost} nyawa IPS.` : 'Semua jawaban benar tanpa kehilangan nyawa.'} Jawaban benar tidak mengurangi nyawa.
               </p>
             </div>
           </div>
@@ -2500,7 +2577,7 @@ function renderQuizSessionView() {
             <span class="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 font-display font-extrabold text-emerald-800">
               9/10 benar • Skor 90
             </span>
-            <span class="font-display font-extrabold text-ink-900">+72 XP sesi • Total 2.992 XP • Level 8 Gold</span>
+            <span class="font-display font-extrabold text-ink-900">+72 XP sesi • Total ${displayTotalXp} XP • Level ${u.level} ${u.rank}</span>
           </div>
           <span class="text-slate-500">Pembahasan &amp; AI: tanpa XP tambahan</span>
         </div>
@@ -2652,17 +2729,20 @@ function renderQuizSessionView() {
                   <p class="text-xs font-bold text-brand-700">Peta dan Letak Wilayah</p>
                 </div>
               </div>
-              <div class="flex justify-between text-xs font-extrabold text-brand-700 pt-1">
-                <span>Materi terkait selesai</span>
-                <span>100%</span>
+              <div class="flex justify-between text-xs font-extrabold ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'text-brand-700' : 'text-slate-500'} pt-1">
+                <span>${Object.keys(appState.completedMaterials || {}).length > 0 ? 'Materi terkait selesai' : 'Materi pengantar'}</span>
+                <span>${Object.keys(appState.completedMaterials || {}).length > 0 ? '100%' : '0%'}</span>
               </div>
-              <div class="h-2 w-full overflow-hidden rounded-full bg-emerald-100">
-                <div class="h-full w-full rounded-full bg-emerald-700"></div>
+              <div class="h-2 w-full overflow-hidden rounded-full ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'bg-emerald-100' : 'bg-slate-100'}">
+                <div class="h-full rounded-full ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'w-full bg-emerald-700' : 'w-0 bg-brand-700'}"></div>
               </div>
               <button
                 type="button"
-                onclick="window.openMaterialPage('bab-01', 'mat-1-2', 1)"
+                onclick="window.openMaterialPage('bab-01', 'mat-1-1', 1)"
                 class="mt-2 w-full rounded-xl border-2 border-brand-700 py-2.5 font-display text-xs font-extrabold text-brand-700 hover:bg-brand-50 transition cursor-pointer"
+              >
+                ${Object.keys(appState.completedMaterials || {}).length > 0 ? 'Baca Ulang Materi' : 'Pelajari Materi Terkait'}
+              </button>
               >
                 Baca Ulang Materi
               </button>
@@ -2730,7 +2810,7 @@ function renderQuizSessionView() {
               <div class="rounded-2xl bg-brand-50/80 border border-brand-100 p-4">
                 <h4 class="font-display text-xs sm:text-sm font-extrabold text-brand-700">Usahamu tetap tercatat</h4>
                 <p class="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  2.920 XP sebelum sesi + 8 XP sesi = 2.928 XP. Sesi ini belum menambah jumlah kuis selesai: tetap 30 kuis dan 40 materi.
+                  +8 XP sesi tersimpan. Total: ${displayTotalXp} XP. Level ${u.level} • Rank ${u.rank}.
                 </p>
               </div>
             </div>
@@ -2809,7 +2889,7 @@ function renderQuizSessionView() {
               <div class="flex items-center gap-1.5">
                 ${renderHeartsInline(0, 3, 'w-6 h-6')}
               </div>
-              <p class="text-xs text-slate-600">1 nyawa pulih dalam 2 jam.</p>
+              <p class="text-xs text-slate-600">1 nyawa pulih dalam 1 jam.</p>
               <p class="text-[11px] text-slate-400">Terpisah per mata pelajaran • Maks. 3</p>
 
               <div class="rounded-2xl bg-[#fef7ec] border border-amber-200/80 p-4">
@@ -2822,20 +2902,20 @@ function renderQuizSessionView() {
 
             <div class="rounded-3xl border border-brand-100 bg-white p-6 shadow-xs space-y-4">
               <div class="flex items-center gap-3.5">
-                <img src="${goldSrc}" alt="Gold" class="w-11 h-11 object-contain shrink-0" />
+                <img src="${goldSrc}" alt="${u.rank}" class="w-11 h-11 object-contain shrink-0" />
                 <div>
                   <h3 class="font-display text-base font-extrabold text-ink-900">${u.fullName}</h3>
-                  <p class="text-xs text-slate-500">Level 8 • Rank Gold</p>
+                  <p class="text-xs text-slate-500">Level ${u.level} • Rank ${u.rank}</p>
                 </div>
               </div>
 
               <div class="rounded-2xl border border-brand-100 bg-brand-50/60 p-4 space-y-2.5">
                 <div class="flex items-center justify-between text-[11px] font-display font-extrabold">
-                  <span class="text-ink-900">Level 8 • Gold</span>
-                  <span class="text-brand-700">2.928 XP • 128/800 ke Lv. 9</span>
+                  <span class="text-ink-900">Level ${u.level} • ${u.rank}</span>
+                  <span class="text-brand-700">${displayTotalXp} XP • ${displayCurrXp}/${displayNextXp} ke Lv. ${u.level + 1}</span>
                 </div>
                 <div class="h-1.5 w-full overflow-hidden rounded-full bg-brand-100">
-                  <div class="h-full w-[16%] rounded-full bg-brand-700"></div>
+                  <div class="h-full rounded-full bg-brand-700" style="width: ${xpPct}%"></div>
                 </div>
                 <div class="flex items-center justify-between pt-1 text-xs">
                   <div class="flex items-center gap-1">${renderHeartsInline(0, 3, 'w-3.5 h-3.5')}</div>
@@ -2844,8 +2924,8 @@ function renderQuizSessionView() {
               </div>
 
               <p class="text-xs text-slate-600 leading-relaxed">
-                128/800 XP • 16% ke Level 9<br>
-                Sisa 672 XP menuju Level 9.
+                ${displayCurrXp}/${displayNextXp} XP • ${xpPct}% ke Level ${u.level + 1}<br>
+                Sisa ${remXp} XP menuju Level ${u.level + 1}.
               </p>
             </div>
           </div>
@@ -2999,7 +3079,7 @@ function renderAiTutorPage() {
         <div class="rounded-3xl border border-brand-100 bg-white p-5 shadow-xs">
           <h3 class="font-display text-base font-extrabold text-ink-900">Tetap bisa lanjut belajar</h3>
           <p class="mt-1.5 text-xs text-slate-600 leading-relaxed">
-            Nyawa ${topicData.mapel} pulih 1 tiap 2 jam. Bertanya AI tidak memakai nyawa. Jika AI tidak tersedia, buka materi di Quest.
+            Nyawa ${topicData.mapel} pulih 1 tiap 1 jam. Bertanya AI tidak memakai nyawa. Jika AI tidak tersedia, buka materi di Quest.
           </p>
           <button
             type="button"
@@ -3225,14 +3305,118 @@ function getChapterIconSvg(type) {
   return `<svg class="w-5 h-5 text-brand-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l2-4h14l2 4M4 9h16v10a1 1 0 01-1 1H5a1 1 0 01-1-1V9zm5 4h6"/></svg>`;
 }
 
+const SUBJECT_CHAPTERS = {
+  'IPS': IPS_CHAPTERS,
+  'IPA': [
+    {
+      id: 'bab-ipa-01',
+      code: 'BAB 01',
+      title: 'Besaran dan Pengukuran',
+      desc: 'Mengenal besaran pokok, besaran turunan, dan alat ukur sains.',
+      iconType: 'map',
+      materials: [
+        { id: 'mat-ipa-1-1', title: 'Mengenal Besaran Pokok & Satuan', duration: '± 10 menit', recommended: true },
+        { id: 'mat-ipa-1-2', title: 'Alat Ukur Panjang, Massa, dan Waktu', duration: '± 12 menit' },
+        { id: 'mat-ipa-1-3', title: 'Konversi Satuan Baku dalam Sains', duration: '± 10 menit' }
+      ]
+    },
+    {
+      id: 'bab-ipa-02',
+      code: 'BAB 02',
+      title: 'Gerak, Gaya, dan Energi',
+      desc: 'Memahami bagaimana benda bergerak dan pengaruh gaya di alam.',
+      iconType: 'nodes',
+      materials: [
+        { id: 'mat-ipa-2-1', title: 'Gerak Lurus Beraturan (GLB)', duration: '± 12 menit' },
+        { id: 'mat-ipa-2-2', title: 'Hukum Newton tentang Gerak', duration: '± 15 menit' },
+        { id: 'mat-ipa-2-3', title: 'Bentuk-Bentuk Energi di Sekitar Kita', duration: '± 10 menit' }
+      ]
+    },
+    {
+      id: 'bab-ipa-03',
+      code: 'BAB 03',
+      title: 'Tata Surya dan Bumi',
+      desc: 'Menjelajahi planet-planet, rotasi, revolusi, dan struktur lapisan bumi.',
+      iconType: 'users',
+      materials: [
+        { id: 'mat-ipa-3-1', title: 'Karakteristik Planet Tata Surya', duration: '± 10 menit' },
+        { id: 'mat-ipa-3-2', title: 'Gerak Bumi dan Dampaknya', duration: '± 12 menit' }
+      ]
+    }
+  ],
+  'Bahasa Indonesia': [
+    {
+      id: 'bab-bind-01',
+      code: 'BAB 01',
+      title: 'Teks Deskripsi',
+      desc: 'Belajar menggambarkan objek, tempat, dan suasana secara hidup dan rinci.',
+      iconType: 'map',
+      materials: [
+        { id: 'mat-bind-1-1', title: 'Ciri dan Struktur Teks Deskripsi', duration: '± 10 menit', recommended: true },
+        { id: 'mat-bind-1-2', title: 'Kaidah Kebahasaan Teks Deskripsi', duration: '± 12 menit' }
+      ]
+    },
+    {
+      id: 'bab-bind-02',
+      code: 'BAB 02',
+      title: 'Cerita Fantasi & Narasi',
+      desc: 'Mengembangkan daya imajinasi melalui tokoh dan alur cerita petualangan.',
+      iconType: 'nodes',
+      materials: [
+        { id: 'mat-bind-2-1', title: 'Unsur Intrinsik Cerita Fantasi', duration: '± 12 menit' },
+        { id: 'mat-bind-2-2', title: 'Menulis Latar dan Watak Tokoh', duration: '± 15 menit' }
+      ]
+    }
+  ],
+  'PPKN': [
+    {
+      id: 'bab-ppkn-01',
+      code: 'BAB 01',
+      title: 'Nilai-Nilai Luhur Pancasila',
+      desc: 'Memahami perumusan dan penerapan sila-sila Pancasila dalam kehidupan sehari-hari.',
+      iconType: 'users',
+      materials: [
+        { id: 'mat-ppkn-1-1', title: 'Sejarah Perumusan Pancasila', duration: '± 10 menit', recommended: true },
+        { id: 'mat-ppkn-1-2', title: 'Pengamalan Sila dalam Keseharian', duration: '± 12 menit' }
+      ]
+    },
+    {
+      id: 'bab-ppkn-02',
+      code: 'BAB 02',
+      title: 'Norma dan Keadilan',
+      desc: 'Memahami aturan hidup bermasyarakat serta pentingnya menegakkan keadilan.',
+      iconType: 'map',
+      materials: [
+        { id: 'mat-ppkn-2-1', title: 'Macam-Macam Norma di Masyarakat', duration: '± 10 menit' },
+        { id: 'mat-ppkn-2-2', title: 'Arti Penting Ketaatan terhadap Hukum', duration: '± 12 menit' }
+      ]
+    }
+  ]
+};
+
+function switchQuestSubject(subj) {
+  appState.activeSubject = subj;
+  renderBabCatalog();
+  const el = document.getElementById('ips-bab-catalog');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  showToast(`Mata Pelajaran ${subj}`, `Menampilkan bab dan materi untuk mapel ${subj}.`, '📚');
+}
+window.switchQuestSubject = switchQuestSubject;
+
 function renderBabCatalog() {
   const container = document.getElementById('ips-bab-catalog');
   if (!container) return;
 
+  const activeSubj = appState.activeSubject || 'IPS';
+  const chapters = SUBJECT_CHAPTERS[activeSubj] || IPS_CHAPTERS;
   const totalCompleted = Object.keys(appState.completedMaterials).length;
   const anyCompleted = totalCompleted > 0 || !appState.isNewUser;
+  let totalMaterialsInSubject = 0;
+  chapters.forEach(ch => { totalMaterialsInSubject += ch.materials.length; });
 
-  const cardsHtml = IPS_CHAPTERS.map(ch => {
+  const cardsHtml = chapters.map(ch => {
     const doneInBab = ch.materials.filter(m => appState.completedMaterials[m.id]).length;
     const rowsHtml = ch.materials.map(m => {
       const isDone = !!appState.completedMaterials[m.id];
@@ -3298,11 +3482,11 @@ function renderBabCatalog() {
     <div class="pt-4 space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-ink-900">Jelajahi bab dan materi</h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1">Semua materi bisa dibuka. Ikuti rekomendasi awal atau pilih topik yang membuatmu penasaran.</p>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-ink-900">Jelajahi bab dan materi &mdash; ${activeSubj}</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Materi pelajaran ${activeSubj}. Ikuti urutan topik atau pilih bab yang ingin kamu pelajari.</p>
         </div>
         <span class="self-start sm:self-auto inline-flex items-center rounded-full bg-brand-100/90 px-4 py-1.5 font-display text-xs font-extrabold text-brand-700">
-          4 bab • 20 materi
+          ${chapters.length} bab • ${totalMaterialsInSubject} materi
         </span>
       </div>
 
@@ -3367,19 +3551,70 @@ function closeMaterialPage() {
   appState.activeTab = 'quest';
   updateMainViews();
   renderBabCatalog();
+  syncUserUI();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 window.closeMaterialPage = closeMaterialPage;
 
-function markMaterialDone(matId) {
-  if (!appState.completedMaterials[matId]) {
-    appState.completedMaterials[matId] = true;
-    appState.user.xp = Math.min(appState.user.nextLevelXp, appState.user.xp + 20);
-    appState.user.totalXp = (appState.user.totalXp || 0) + 20;
-    syncUserUI();
-    return true;
+function resolveBackendMaterialId(matId) {
+  const u = appState.user || {};
+  const raw = String(u.education_level || u.jenjang || '').toUpperCase();
+  let validPool = [4, 5, 6, 10]; // SMA (Keanekaragaman Hayati, Virus, Plantae, Sistem Gerak)
+  if (raw.includes('SD')) {
+    validPool = [1, 2, 3]; // SD (Makhluk Hidup, Hewan, Energi)
+  } else if (raw.includes('SMP')) {
+    validPool = [7, 8, 9]; // SMP (Besaran, Gerak, Tata Surya)
   }
-  return false;
+
+  if (typeof matId === 'number' && validPool.includes(matId)) {
+    return matId;
+  }
+
+  const str = String(matId || '');
+  const matches = str.match(/\d+/g);
+  let idx = 0;
+  if (matches && matches.length >= 2) {
+    const b = Math.max(0, parseInt(matches[0], 10) - 1);
+    const m = Math.max(0, parseInt(matches[1], 10) - 1);
+    idx = (b * 3 + m) % validPool.length;
+  } else if (matches && matches.length === 1) {
+    idx = Math.max(0, parseInt(matches[0], 10) - 1) % validPool.length;
+  }
+  return validPool[idx] || validPool[0];
+}
+window.resolveBackendMaterialId = resolveBackendMaterialId;
+
+async function markMaterialDone(matId) {
+  if (appState.completedMaterials[matId]) {
+    return false;
+  }
+  appState.completedMaterials[matId] = true;
+
+  // Jika user sudah login, sinkronkan ke backend Django
+  if (appState.isLoggedIn && window.EduQuestAPI && window.EduQuestAPI.completeMaterial) {
+    try {
+      const backendId = resolveBackendMaterialId(matId);
+      const res = await window.EduQuestAPI.completeMaterial(backendId);
+      if (res && res.progress) {
+        applyProgressToUser(res.progress);
+      }
+      // Refetch progress lengkap untuk menyelaraskan XP bar
+      if (window.EduQuestAPI.getProgress) {
+        const fresh = await window.EduQuestAPI.getProgress();
+        applyProgressToUser(fresh);
+      }
+      syncUserUI();
+      return true;
+    } catch (err) {
+      console.warn('Gagal sinkronisasi materi selesai ke backend:', err);
+    }
+  }
+
+  // Fallback lokal jika offline / demo
+  appState.user.xp = Math.min(appState.user.nextLevelXp, appState.user.xp + 15);
+  appState.user.totalXp = (appState.user.totalXp || 0) + 15;
+  syncUserUI();
+  return true;
 }
 
 function setMaterialStep(step) {
@@ -3387,19 +3622,19 @@ function setMaterialStep(step) {
 }
 window.setMaterialStep = setMaterialStep;
 
-function finishMaterialAndNext(babId, currentMatId, nextMatId) {
-  const newlyDone = markMaterialDone(currentMatId);
+async function finishMaterialAndNext(babId, currentMatId, nextMatId) {
+  const newlyDone = await markMaterialDone(currentMatId);
   if (newlyDone) {
-    showToast('Materi Selesai! (+20 XP)', 'Lanjut mempelajari materi berikutnya.', '🎉');
+    showToast('Materi Selesai! (+15 XP)', 'Lanjut mempelajari materi berikutnya.', '🎉');
   }
   openMaterialPage(babId, nextMatId, 1);
 }
 window.finishMaterialAndNext = finishMaterialAndNext;
 
-function finishMaterialAndOpenQuiz(currentMatId) {
-  const newlyDone = markMaterialDone(currentMatId);
+async function finishMaterialAndOpenQuiz(currentMatId) {
+  const newlyDone = await markMaterialDone(currentMatId);
   if (newlyDone) {
-    showToast('Materi Selesai! (+20 XP)', 'Siap mengerjakan tantangan Kuis 3 Nyawa!', '🎉');
+    showToast('Materi Selesai! (+15 XP)', 'Siap mengerjakan tantangan Kuis 3 Nyawa!', '🎉');
   }
   openQuizScreen(1);
 }
@@ -3753,10 +3988,8 @@ function handleProfileAction(action) {
       // menghapus token agar tidak bisa dipakai lagi.
       window.EduQuestAPI.logout().catch(() => {});
     }
-    appState.isLoggedIn = false;
-    appState.inMaterialReader = false;
-    appState.inQuizSession = false;
-    appState.activeTab = 'beranda';
+    resetUserSessionState();
+    syncUserUI();
     updateMainViews();
     renderNavbarAuth();
     showToast('Berhasil Keluar', 'Sampai jumpa kembali di petualangan EduQuest berikutnya!', '👋');
@@ -4001,12 +4234,44 @@ function syncUserUI() {
   const u = appState.user;
   const shortName = getShortName(u.fullName);
   const jenjangText = `${u.jenjangDisplay || JENJANG_LABEL[u.jenjang] || u.jenjang} • ${u.kelas}`;
+  const completedCount = Object.keys(appState.completedMaterials || {}).length;
+  const ipsPct = Math.min(100, Math.round((completedCount / 20) * 100));
 
   const newJenjangTag = document.getElementById('new-user-jenjang-tag');
   if (newJenjangTag) newJenjangTag.textContent = jenjangText;
 
+  const questActiveJenjang = document.getElementById('quest-active-jenjang');
+  if (questActiveJenjang) questActiveJenjang.textContent = jenjangText;
+
+  const questSubjBadge = document.getElementById('quest-subject-level-badge');
+  if (questSubjBadge) questSubjBadge.textContent = jenjangText;
+
+  const questSubjNote = document.getElementById('quest-subject-level-note');
+  if (questSubjNote) questSubjNote.textContent = `Mapel dan materi mengikuti jenjang ${u.jenjangDisplay || u.jenjang}.`;
+
+  const ipsDone = document.getElementById('ips-done-text');
+  if (ipsDone) ipsDone.textContent = `${completedCount}/20 materi selesai`;
+
+  const ipsPctEl = document.getElementById('ips-pct-text');
+  if (ipsPctEl) ipsPctEl.textContent = `${ipsPct}%`;
+
+  const ipsBar = document.getElementById('ips-progress-bar');
+  if (ipsBar) ipsBar.style.width = `${ipsPct}%`;
+
   const newWelcomeTitle = document.getElementById('new-user-welcome-title');
   if (newWelcomeTitle) newWelcomeTitle.textContent = `Halo, ${shortName}!`;
+
+  const newLevelBadge = document.getElementById('new-user-level-badge');
+  if (newLevelBadge) newLevelBadge.textContent = `Level ${u.level} • ${u.rank}`;
+
+  const newXpDisplay = document.getElementById('new-user-xp-display');
+  if (newXpDisplay) newXpDisplay.textContent = `${u.xp} / ${u.nextLevelXp || 100} XP`;
+
+  const newXpBar = document.getElementById('new-user-xp-bar');
+  if (newXpBar) {
+    const xpPct = Math.min(100, Math.round((u.xp / (u.nextLevelXp || 100)) * 100));
+    newXpBar.style.width = `${xpPct}%`;
+  }
 
   renderNavbarAuth();
   renderOldUserBeranda();
@@ -4079,18 +4344,34 @@ function setNavbarActiveTab(tab) {
 function renderQuestHeaderView() {
   const bannerOld = document.getElementById('quest-old-user-banner');
   const subTitle = document.getElementById('quest-page-subtitle');
-  if (!appState.isNewUser) {
-    if (bannerOld) bannerOld.classList.remove('hidden');
-    if (subTitle) subTitle.textContent = '40 dari 80 materi selesai di jenjang SMP. Lanjutkan materi aktif atau jelajahi mapel lainnya.';
+  const u = appState.user || {};
+  const jenjang = u.jenjangDisplay || JENJANG_LABEL[u.jenjang] || u.jenjang || 'SMA/SMK';
+  const completedCount = Object.keys(appState.completedMaterials || {}).length;
+
+  if (completedCount > 0) {
+    if (bannerOld) {
+      bannerOld.classList.remove('hidden');
+      const bannerTitle = bannerOld.querySelector('p.font-semibold');
+      const bannerProg = bannerOld.querySelector('p:nth-child(2)');
+      if (bannerTitle) {
+        bannerTitle.innerHTML = `Materi Terakhir Dipelajari &mdash; ${jenjang}`;
+      }
+      if (bannerProg) {
+        const pct = Math.min(100, Math.round((completedCount / 20) * 100));
+        bannerProg.textContent = `${completedCount} dari 20 materi selesai • Progres materi ${pct}%`;
+      }
+    }
+    if (subTitle) subTitle.textContent = `${completedCount} dari 20 materi selesai di jenjang ${jenjang}. Lanjutkan materi aktif atau jelajahi mapel lainnya.`;
   } else {
     if (bannerOld) bannerOld.classList.add('hidden');
-    if (subTitle) subTitle.textContent = 'Quest pertamamu dimulai di sini. Pilih mata pelajaran, lalu jelajahi materi dan tantangannya.';
+    if (subTitle) subTitle.textContent = `Quest pertamamu dimulai di sini. Pilih mata pelajaran jenjang ${jenjang}, lalu jelajahi materi dan tantangannya.`;
   }
 }
 
 function switchNewUserTab(tab) {
   if (tab === 'kuis') {
-    openQuizScreen(1);
+    appState.quizReturnTab = (appState.activeTab && appState.activeTab !== 'kuis') ? appState.activeTab : 'beranda';
+    openQuizScreen(1, appState.quizReturnTab);
     return;
   }
 
@@ -4131,7 +4412,8 @@ function handleNavClick(tab) {
   }
 
   if (tab === 'kuis') {
-    openQuizScreen(1);
+    appState.quizReturnTab = (appState.activeTab && appState.activeTab !== 'kuis') ? appState.activeTab : 'beranda';
+    openQuizScreen(1, appState.quizReturnTab);
     return;
   }
 
@@ -4364,13 +4646,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function validateRegisterForm() {
     if (appState.isRegistering) return;
+    const v = getRegisterValues();
     const isValid = isRegisterFormValid();
     const submitBtn = document.getElementById('btn-submit-register');
+
+    // Tampilkan hint mismatch real-time
+    const mismatchHint = document.getElementById('reg-pass-mismatch-hint');
+    if (mismatchHint) {
+      const showMismatch = v.confirm.length > 0 && v.pass !== v.confirm;
+      mismatchHint.classList.toggle('hidden', !showMismatch);
+      const confirmInput = document.getElementById('reg-pass-confirm');
+      if (confirmInput) {
+        if (showMismatch) confirmInput.classList.add('border-rose-400');
+        else confirmInput.classList.remove('border-rose-400');
+      }
+    }
+
     if (submitBtn) {
-      submitBtn.disabled = !isValid;
+      // Tombol tetap aktif agar user bisa mengklik dan mendapatkan pesan validasi yang jelas
+      submitBtn.disabled = false;
       submitBtn.className = isValid
         ? 'w-full rounded-xl bg-brand-700 py-3.5 font-display text-sm font-extrabold text-white shadow-btn hover:bg-brand-600 cursor-pointer transition'
-        : 'w-full rounded-xl bg-slate-200 py-3.5 font-display text-sm font-extrabold text-slate-400 cursor-not-allowed';
+        : 'w-full rounded-xl bg-brand-600/80 py-3.5 font-display text-sm font-extrabold text-white hover:bg-brand-600 cursor-pointer transition';
     }
   }
 
@@ -4402,22 +4699,15 @@ document.addEventListener('DOMContentLoaded', () => {
       jenjang,
       jenjangDisplay: JENJANG_LABEL[jenjang] || jenjang,
       kelas: kelasNumber ? `Kelas ${kelasNumber}` : '-',
+      education_level: jenjangCode || normalizeJenjangForBackend(jenjang) || 'SMA',
       level: 1,
       rank: 'Bronze',
       totalXp: 0,
       xp: 0,
       nextLevelXp: 100,
       ipsLives: 3,
+      ipsLivesMax: 3,
     };
-  }
-
-  function applyProgressToUser(progress) {
-    if (!progress) return;
-    appState.user.totalXp = progress.xp ?? appState.user.totalXp;
-    appState.user.level = progress.level ?? appState.user.level;
-    appState.user.rank = progress.rank?.name || appState.user.rank;
-    appState.user.xp = progress.xp_into_level ?? appState.user.xp;
-    appState.user.nextLevelXp = progress.xp_for_next_level ?? appState.user.nextLevelXp;
   }
 
   function showRegisterServerErrors(error) {
@@ -4477,14 +4767,59 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       if (appState.isRegistering) return;
 
-      validateRegisterForm();
-      if (!isRegisterFormValid()) return;
+      const values = getRegisterValues();
+
+      // Validasi interaktif dengan pesan yang jelas
+      if (values.nama.length < 2) {
+        setRegisterError('Nama Lengkap minimal 2 karakter.');
+        document.getElementById('reg-nama')?.focus();
+        return;
+      }
+      if (values.username.length < 3) {
+        setRegisterError('Nama Pengguna minimal 3 karakter.');
+        document.getElementById('reg-username')?.focus();
+        return;
+      }
+      if (!REG_USERNAME_PATTERN.test(values.username)) {
+        setRegisterError('Nama Pengguna hanya boleh huruf, angka, dan karakter . @ + - _');
+        document.getElementById('reg-username')?.focus();
+        return;
+      }
+      if (!values.email.includes('@')) {
+        setRegisterError('Format email tidak valid (harus mengandung @).');
+        document.getElementById('reg-email')?.focus();
+        return;
+      }
+      if (!values.jenjang) {
+        setRegisterError('Silakan pilih salah satu jenjang pendidikan (SD, SMP, atau SMA/SMK).');
+        return;
+      }
+      if (!values.kelas) {
+        setRegisterError('Silakan pilih kelas terlebih dahulu.');
+        document.getElementById('reg-kelas')?.focus();
+        return;
+      }
+      if (values.pass.length < 8) {
+        setRegisterError('Kata Sandi minimal 8 karakter.');
+        document.getElementById('reg-pass')?.focus();
+        return;
+      }
+      if (values.pass !== values.confirm) {
+        setRegisterError('Konfirmasi Kata Sandi tidak sama dengan Kata Sandi.');
+        document.getElementById('reg-pass-confirm')?.focus();
+        return;
+      }
+      if (!values.terms) {
+        setRegisterError('Harap centang persetujuan "Saya menyetujui Syarat & Ketentuan".');
+        document.getElementById('reg-terms')?.focus();
+        return;
+      }
+
       if (!window.EduQuestAPI) {
         setRegisterError('Klien API tidak tersedia. Muat ulang halaman lalu coba lagi.');
         return;
       }
 
-      const values = getRegisterValues();
       const kelasNumber = parseInt(values.kelas.replace(/\D/g, ''), 10);
       const submitBtn = document.getElementById('btn-submit-register');
 

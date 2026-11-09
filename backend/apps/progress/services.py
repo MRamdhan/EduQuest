@@ -264,3 +264,58 @@ def progress_payload(user, *, recent_limit: int = 5) -> dict:
         "recent_attempts": attempts,
         "achievements": UserAchievement.objects.filter(user=user).select_related("achievement"),
     }
+
+
+def calculate_learning_stats(user) -> dict:
+    """Menghitung statistik pembelajaran analitis dan penguasaan per mapel."""
+    attempts = user.quiz_attempts.filter(status="submitted")
+    total_quizzes = attempts.count()
+    completed_materials = UserMaterialProgress.objects.filter(
+        user=user,
+        status=UserMaterialProgress.Status.COMPLETED,
+    ).count()
+
+    if total_quizzes > 0:
+        avg_score = round(sum(a.percent for a in attempts) / total_quizzes, 1)
+        passed_count = sum(1 for a in attempts if a.percent >= 70.0)
+        pass_rate = round((passed_count / total_quizzes) * 100, 1)
+    else:
+        avg_score = 0.0
+        pass_rate = 0.0
+
+    subject_stats = []
+    subjects = Subject.objects.filter(materials__quiz_attempts__user=user).distinct()
+    for sub in subjects:
+        sub_attempts = attempts.filter(material__subject=sub)
+        sub_count = sub_attempts.count()
+        sub_avg = round(sum(a.percent for a in sub_attempts) / sub_count, 1) if sub_count > 0 else 0.0
+
+        if sub_avg >= 80:
+            mastery = "Mahir"
+        elif sub_avg >= 60:
+            mastery = "Berkembang"
+        else:
+            mastery = "Perlu Latihan"
+
+        sub_materials_done = UserMaterialProgress.objects.filter(
+            user=user,
+            material__subject=sub,
+            status=UserMaterialProgress.Status.COMPLETED,
+        ).count()
+
+        subject_stats.append({
+            "subject_id": sub.pk,
+            "subject_name": sub.name,
+            "quizzes_taken": sub_count,
+            "avg_score": sub_avg,
+            "materials_completed": sub_materials_done,
+            "mastery_level": mastery,
+        })
+
+    return {
+        "total_quizzes": total_quizzes,
+        "completed_materials": completed_materials,
+        "average_accuracy": avg_score,
+        "pass_rate": pass_rate,
+        "subject_breakdown": subject_stats,
+    }

@@ -151,7 +151,7 @@ class EduQuestAPI {
 
     /**
      * Register user baru
-     * @param {Object} payload { username, email, password, full_name, role, grade_level, kelas }
+     * @param {Object} payload { username, email, password, password_confirm, first_name, education_level, kelas }
      */
     static async register(payload) {
         const data = await this.request('/auth/register/', {
@@ -291,6 +291,13 @@ class EduQuestAPI {
     }
 
     /**
+     * Ambil riwayat sesi kuis yang pernah dikerjakan murid
+     */
+    static getQuizHistory() {
+        return this.request('/quizzes/history/');
+    }
+
+    /**
      * Ambil riwayat / detail sesi kuis yang telah selesai (lengkap dengan review & hint)
      * @param {number} attemptId
      */
@@ -315,37 +322,43 @@ class EduQuestAPI {
         });
     }
 
+    /**
+     * Dapatkan rekomendasi belajar personal dari AI Tutor
+     */
+    static getAIRecommendations() {
+        return this.request('/tutor/recommendations/');
+    }
+
     // ==========================================
-    // 5. PROGRES, NYAWA & LEADERBOARD
+    // 5. PROGRES, NYAWA & STATISTIK
     // ==========================================
 
     /**
-     * Ambil ringkasan progres user (total XP, level, rank, streak)
+     * Ambil ringkasan progres user (total XP, level, rank, subject_lives)
      */
     static getProgress() {
         return this.request('/progress/');
     }
 
     /**
-     * Ambil status nyawa user saat ini & waktu regenerasi nyawa berikutnya (1 nyawa per jam)
+     * Ambil statistik belajar analitis (akurasi, kelulusan, performa per mapel)
      */
-    static getUserLives() {
-        return this.request('/progress/lives/');
+    static getLearningStats() {
+        return this.request('/progress/stats/');
     }
 
     /**
-     * Ambil papan peringkat (Leaderboard) global
+     * Helper praktis untuk mengambil status nyawa per mata pelajaran
+     * Mengambil data dari endpoint resmi /progress/
+     * @param {number|null} subjectId
      */
-    static getGlobalLeaderboard() {
-        return this.request('/leaderboard/');
-    }
-
-    /**
-     * Ambil papan peringkat berdasarkan mata pelajaran
-     * @param {number} subjectId
-     */
-    static getSubjectLeaderboard(subjectId) {
-        return this.request(`/leaderboard/?subject_id=${subjectId}`);
+    static async getSubjectLives(subjectId = null) {
+        const progress = await this.getProgress();
+        if (!progress || !progress.subject_lives) return [];
+        if (subjectId !== null) {
+            return progress.subject_lives.find(s => s.subject_id === subjectId) || null;
+        }
+        return progress.subject_lives;
     }
 }
 

@@ -17,7 +17,7 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
   Authorization: Token <access_token>
   ```
   *(Catatan: Token didapatkan saat response login / register berhasil).*
-- **Masa berlaku token di frontend**: **1 jam** sejak login/register. Token disimpan di `localStorage` beserta waktu kedaluwarsanya. Selama token masih berlaku, refresh halaman langsung membuka dashboard. Setelah 1 jam, token dihapus dan pengguna harus login ulang. Logout juga menghapus token lokal dan meminta backend menghapus token tersebut.*
+- **Masa berlaku token di server & klien**: **1 jam** sejak login/register. Backend menerapkan `ExpiringTokenAuthentication` yang secara otomatis menolak token yang berusia lebih dari 1 jam dengan respon `401 Unauthorized`. Klien menyimpan token di `localStorage` dan melakukan auto-logout saat kedaluwarsa.
 
 ---
 
@@ -53,7 +53,11 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
       "email": "budi@example.com",
       "first_name": "Budi Santoso",
       "date_joined": "2026-11-08T10:00:00+07:00",
-      "education_level": {"id": 2, "code": "SMP", "name": "SMP"},
+      "education_level": {
+        "id": 2,
+        "code": "SMP",
+        "name": "SMP"
+      },
       "kelas": 8
     }
   }
@@ -79,7 +83,11 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
       "email": "budi@example.com",
       "first_name": "Budi Santoso",
       "date_joined": "2026-11-08T10:00:00+07:00",
-      "education_level": {"id": 2, "code": "SMP", "name": "SMP"},
+      "education_level": {
+        "id": 2,
+        "code": "SMP",
+        "name": "SMP"
+      },
       "kelas": 8
     }
   }
@@ -88,14 +96,9 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
 ### C. Logout
 - **Endpoint**: `POST /api/auth/logout/`
 - **Auth**: Wajib
-- **Response `200 OK`**:
-  ```json
-  {
-    "detail": "Logout berhasil."
-  }
-  ```
+- **Response `204 No Content`**
 
-### D. Ambil Profil & Progres Saya
+### D. Ambil Profil Saya
 - **Endpoint**: `GET /api/auth/me/`
 - **Auth**: Wajib
 - **Response `200 OK`**:
@@ -104,19 +107,17 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
     "id": 12,
     "username": "budi_santoso",
     "email": "budi@example.com",
-    "full_name": "Budi Santoso",
-    "role": "student",
-    "grade_level": "SD",
-    "kelas": 4,
-    "progress": {
-      "total_xp": 250,
-      "level": 3,
-      "rank": "Silver",
-      "current_streak": 2,
-      "longest_streak": 5
-    }
+    "first_name": "Budi Santoso",
+    "date_joined": "2026-11-08T10:00:00+07:00",
+    "education_level": {
+      "id": 2,
+      "code": "SMP",
+      "name": "SMP"
+    },
+    "kelas": 8
   }
   ```
+*(Catatan: data gamifikasi seperti XP, level, rank, dan nyawa diambil dari `GET /api/progress/`).*
 
 ---
 
@@ -128,47 +129,41 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
 - **Response `200 OK`**:
   ```json
   [
-    {"code": "SD", "name": "Sekolah Dasar", "grades": [1, 2, 3, 4, 5, 6]},
-    {"code": "SMP", "name": "Sekolah Menengah Pertama", "grades": [7, 8, 9]},
-    {"code": "SMA", "name": "Sekolah Menengah Atas", "grades": [10, 11, 12]}
+    {"id": 1, "code": "SD", "name": "SD"},
+    {"id": 2, "code": "SMP", "name": "SMP"},
+    {"id": 3, "code": "SMA", "name": "SMA/SMK"}
   ]
   ```
 
 ### B. Daftar Mata Pelajaran
-- **Endpoint**: `GET /api/subjects/?level=SD&kelas=4`
-- **Query Params (opsional)**:
-  - `level`: `SD` | `SMP` | `SMA`
-  - `kelas`: angka integer (1 - 12)
-- **Response `200 OK`**:
-  ```json
-  [
-    {
-      "id": 1,
-      "name": "Ilmu Pengetahuan Alam dan Sosial (IPAS)",
-      "slug": "ipas-sd-4",
-      "level": "SD",
-      "kelas": 4,
-      "icon": "leaf"
-    }
-  ]
-  ```
-
-### C. Daftar Materi
-- **Endpoint**: `GET /api/materials/?level=SD&kelas=4&subject=1`
+- **Endpoint**: `GET /api/subjects/?level=SMP&kelas=8`
 - **Public**: Ya
 - **Response `200 OK`**:
   ```json
   [
     {
-      "id": 1,
-      "title": "Tumbuhan, Sumber Kehidupan di Bumi",
-      "slug": "tumbuhan-sumber-kehidupan",
-      "subject": 1,
-      "subject_name": "IPAS",
-      "grade_level": "SD",
-      "kelas": 4,
-      "estimated_read_minutes": 5,
-      "xp_reward": 10
+      "id": 6,
+      "name": "IPA",
+      "slug": "ipa-smp",
+      "level": {"id": 2, "code": "SMP", "name": "SMP"},
+      "description": "Ilmu Pengetahuan Alam SMP"
+    }
+  ]
+  ```
+
+### C. Daftar Materi
+- **Endpoint**: `GET /api/materials/?subject=6`
+- **Public**: Ya
+- **Response `200 OK`**:
+  ```json
+  [
+    {
+      "id": 7,
+      "title": "Besaran dan Pengukuran",
+      "slug": "besaran-dan-pengukuran",
+      "subject": 6,
+      "topic_code": "SMP-IPA-01",
+      "kelas": 7
     }
   ]
   ```
@@ -179,15 +174,14 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
 - **Response `200 OK`**:
   ```json
   {
-    "id": 1,
-    "title": "Tumbuhan, Sumber Kehidupan di Bumi",
-    "content": "Isi lengkap bacaan materi dengan teks atau format markdown...",
-    "subject": 1,
-    "grade_level": "SD",
-    "kelas": 4,
-    "estimated_read_minutes": 5,
-    "xp_reward": 10,
-    "has_quiz": true
+    "id": 7,
+    "title": "Besaran dan Pengukuran",
+    "slug": "besaran-dan-pengukuran",
+    "subject": 6,
+    "topic_code": "SMP-IPA-01",
+    "kelas": 7,
+    "body": "Teks lengkap materi pembelajaran...",
+    "status": "published"
   }
   ```
 
@@ -197,9 +191,13 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
 - **Response `200 OK`**:
   ```json
   {
-    "message": "Materi selesai dibaca!",
-    "xp_earned": 10,
-    "total_xp": 260
+    "already_completed": false,
+    "xp_gained": 15,
+    "progress": {
+      "xp": 15,
+      "level": 1,
+      "rank": {"code": "bronze", "name": "Bronze"}
+    }
   }
   ```
 
@@ -208,11 +206,11 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
 ## 3. 🎯 Kuis Adaptif & Sistem Nyawa
 
 > 💡 **Aturan Nyawa & Kuis**:
-> - Maksimal nyawa = **3**.
+> - Maksimal nyawa = **3 per mata pelajaran**.
 > - Salah menjawab soal = **-1 nyawa**.
-> - Jika nyawa habis (`0/3`), kuis langsung berhenti lebih awal (*early stop*) dan siswa harus menunggu regenerasi nyawa.
+> - Jika nyawa habis (`0/3`), kuis langsung berhenti lebih awal (*ended early*) dan siswa harus menunggu regenerasi nyawa.
 > - Regenerasi nyawa: **+1 nyawa setiap 1 jam**.
-> - Hint edukatif & pembahasan lengkap akan disertakan setelah kuis selesai.
+> - Hint edukatif & pembahasan lengkap baru disertakan pada akhir sesi kuis atau saat nyawa habis.
 
 ### A. Mulai Kuis
 - **Endpoint**: `POST /api/quizzes/`
@@ -227,20 +225,37 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
 - **Response `201 Created`**:
   ```json
   {
+    "attempt": {
+      "id": 42,
+      "material": {
+        "id": 1,
+        "title": "Makhluk Hidup dan Ciri-cirinya"
+      },
+      "target_difficulty": 1,
+      "questions": [
+        {
+          "id": 101,
+          "question_text": "Bagian tumbuhan yang berfungsi menyerap air adalah...",
+          "options": [
+            {"key": "A", "text": "Daun"},
+            {"key": "B", "text": "Batang"},
+            {"key": "C", "text": "Akar"},
+            {"key": "D", "text": "Bunga"}
+          ]
+        }
+      ]
+    },
+    "reused": false,
     "attempt_id": 42,
-    "material_id": 1,
-    "difficulty": 1,
-    "lives_remaining": 3,
-    "questions": [
-      {
-        "id": 101,
-        "question_text": "Bagian tumbuhan yang bertugas menyerap air dari dalam tanah adalah...",
-        "option_a": "Daun",
-        "option_b": "Batang",
-        "option_c": "Akar",
-        "option_d": "Bunga"
-      }
-    ]
+    "lives": 3,
+    "max_lives": 3,
+    "unlocked_difficulty": 1,
+    "user_xp": 45,
+    "user_level": 1,
+    "user_rank": {
+      "code": "bronze",
+      "name": "Bronze"
+    }
   }
   ```
 
@@ -254,98 +269,116 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
     "option": "C"
   }
   ```
-- **Response `200 OK` (Jika Benar)**:
+- **Response `200 OK` (Jika kuis masih berjalan)**:
   ```json
   {
-    "is_correct": true,
-    "lives_remaining": 3,
-    "xp_earned": 10,
-    "is_finished": false
+    "correct": true,
+    "retry": false,
+    "revealed": false,
+    "hint": null,
+    "lives": 3,
+    "session_ended": false,
+    "summary": null
   }
   ```
-- **Response `200 OK` (Jika Salah)**:
+- **Response `200 OK` (Jika kuis selesai atau nyawa habis)**:
   ```json
   {
-    "is_correct": false,
-    "lives_remaining": 2,
-    "xp_earned": 0,
-    "is_finished": false
-  }
-  ```
-- **Response `200 OK` (Jika Selesai atau Nyawa Habis)**:
-  ```json
-  {
-    "is_finished": true,
-    "final_score": 80.0,
-    "total_correct": 4,
-    "total_questions": 5,
-    "total_xp_gained": 50,
-    "lives_remaining": 2,
-    "level_up": false,
-    "review": [
-      {
-        "question_id": 101,
-        "question_text": "Bagian tumbuhan yang bertugas...",
-        "user_answer": "C",
-        "correct_answer": "C",
-        "is_correct": true,
-        "hint": "Perhatikan organ tumbuhan yang berada di bawah permukaan tanah.",
-        "explanation": "Jawaban benar adalah C. Akar berfungsi menyerap air dan hara mineral."
-      }
-    ]
+    "correct": true,
+    "retry": false,
+    "revealed": true,
+    "hint": null,
+    "lives": 3,
+    "session_ended": true,
+    "summary": {
+      "attempt_id": 42,
+      "percent": 80.0,
+      "correct_count": 4,
+      "total_questions": 5,
+      "xp_gained": 50,
+      "lives_remaining": 3,
+      "ended_early": false,
+      "review": [
+        {
+          "question_id": 101,
+          "question_text": "Bagian tumbuhan yang berfungsi menyerap air adalah...",
+          "user_answer": "C",
+          "correct_answer": "C",
+          "is_correct": true,
+          "hint": "Fokus pada organ tumbuhan yang berada di bawah tanah.",
+          "explanation": "Jawaban benar adalah C. Akar berfungsi menyerap air dan mineral dari tanah."
+        }
+      ]
+    }
   }
   ```
 
----
-
-## 4. ❤️ Status Nyawa & Progres
-
-### A. Cek Status Nyawa & Waktu Regenerasi
-- **Endpoint**: `GET /api/progress/lives/`
+### C. Riwayat Kuis Siswa
+- **Endpoint**: `GET /api/quizzes/history/`
 - **Auth**: Wajib
-- **Response `200 OK`**:
-  ```json
-  {
-    "current_lives": 2,
-    "max_lives": 3,
-    "seconds_until_next_regen": 1845,
-    "formatted_time_until_regen": "30m 45s",
-    "can_play_quiz": true
-  }
-  ```
-
-### B. Papan Peringkat (Leaderboard)
-- **Endpoint**: `GET /api/leaderboard/?limit=10`
-- **Public**: Ya
 - **Response `200 OK`**:
   ```json
   [
     {
-      "rank": 1,
-      "username": "ahmad_bintang",
-      "full_name": "Ahmad Bintang",
-      "total_xp": 1420,
-      "level": 12,
-      "badge": "Gold"
-    },
-    {
-      "rank": 2,
-      "username": "siti_nurhaliza",
-      "full_name": "Siti Nurhaliza",
-      "total_xp": 1150,
-      "level": 10,
-      "badge": "Silver"
+      "id": 42,
+      "material": {
+        "id": 1,
+        "title": "Makhluk Hidup dan Ciri-cirinya"
+      },
+      "status": "submitted",
+      "target_difficulty": 1,
+      "total_questions": 5,
+      "correct_count": 4,
+      "percent": 80.0,
+      "xp_gained": 50,
+      "started_at": "2026-11-09T09:30:00+07:00",
+      "submitted_at": "2026-11-09T09:35:00+07:00"
     }
   ]
   ```
 
 ---
 
-## 5. 🤖 AI Tutor EduQuest
+## 4. ❤️ Progres & Nyawa (`/progress/`)
 
-Fitur tanya-jawab langsung dengan tutor AI sokratik berorientasi materi pembelajaran.
+### A. Ringkasan Progres & Nyawa per Mapel
+- **Endpoint**: `GET /api/progress/`
+- **Auth**: Wajib
+- **Response `200 OK`**:
+  ```json
+  {
+    "rank": {
+      "code": "bronze",
+      "name": "Bronze",
+      "min_xp": 0,
+      "order": 1
+    },
+    "level": 1,
+    "xp": 65,
+    "xp_into_level": 65,
+    "xp_for_next_level": 100,
+    "xp_to_next_level": 35,
+    "materials_completed": 2,
+    "quizzes_submitted": 3,
+    "subject_lives": [
+      {
+        "subject_id": 6,
+        "subject_name": "IPA",
+        "lives": 3,
+        "max_lives": 3,
+        "seconds_to_next_life": 0,
+        "regen_interval_seconds": 3600
+      }
+    ],
+    "achievements": []
+  }
+  ```
 
-### A. Tanya AI Tutor
+---
+
+## 5. 🤖 AI Tutor EduQuest (`/tutor/`)
+
+### A. Tanya AI Tutor Sokratik
 - **Endpoint**: `POST /api/tutor/ask/`
 - **Auth**: Wajib
 - **Request Body**:
@@ -358,10 +391,9 @@ Fitur tanya-jawab langsung dengan tutor AI sokratik berorientasi materi pembelaj
 - **Response `200 OK`**:
   ```json
   {
-    "reply": "Pertanyaan bagus! Daun memiliki pigmen atau zat warna khusus yang membantu menyerap cahaya matahari saat proses fotosintesis. Coba ingat kembali, apa nama pigmen hijau pada daun tersebut?",
+    "reply": "Pertanyaan bagus! Daun memiliki zat warna khusus yang membantu proses pembuatan makanan (fotosintesis). Coba ingat kembali, apa nama pigmen hijau pada daun tersebut?",
     "material_id": 1,
-    "material_title": "Tumbuhan, Sumber Kehidupan di Bumi",
+    "material_title": "Makhluk Hidup dan Ciri-cirinya",
     "latency_seconds": 1.42
   }
   ```
-

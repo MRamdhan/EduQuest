@@ -30,7 +30,9 @@ class LoginView(APIView):
         serializer = LoginSerializer(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data["user"]
-        token, _ = Token.objects.get_or_create(user=user)
+        # Hapus token lama (termasuk yang sudah kedaluwarsa) dan buat token segar.
+        Token.objects.filter(user=user).delete()
+        token = Token.objects.create(user=user)
         return Response({"token": token.key, "user": UserSerializer(user).data})
 
 
