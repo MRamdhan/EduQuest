@@ -1,0 +1,112 @@
+<div id="auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-ink-950/60 p-4 backdrop-blur-sm">
+  <div class="relative my-auto w-full max-w-2xl animate-modalZoom">
+    <!-- Pilihan -->
+    <div id="view-choice" class="relative hidden overflow-hidden rounded-3xl border border-brand-100 bg-white p-6 shadow-2xl sm:p-10">
+      <button type="button" data-action="close-auth" aria-label="Tutup modal" class="absolute top-5 left-5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="flex flex-col items-center gap-6 pt-6 sm:pt-4 md:flex-row sm:gap-10">
+        <div class="flex flex-shrink-0 items-center justify-center">
+          <img id="mascot-img-choice" src="" alt="EduQuest Mascot" class="pointer-events-none h-auto w-48 select-none object-contain drop-shadow-md sm:w-60">
+        </div>
+        <div class="flex w-full flex-1 flex-col justify-center text-center md:text-left">
+          <h2 class="font-display text-3xl font-extrabold leading-tight text-ink-900">Mulai Quest, Kuasai Pengetahuan!</h2>
+          <div class="mt-8 w-full space-y-4">
+            <button type="button" data-action="auth-view" data-view="register" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border-2 border-brand-300 bg-[#f8f6ff] px-6 py-3.5 font-display font-extrabold text-brand-700 shadow-[0_4px_0_0_#ddd6fe] hover:bg-brand-100">
+              <span>⚔️</span> Daftar &mdash; Petualang Baru
+            </button>
+            <button type="button" data-action="auth-view" data-view="login" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-brand-700 px-6 py-3.5 font-display font-extrabold text-white shadow-btn hover:bg-brand-600">
+              <span>🗡️</span> Masuk &mdash; Sudah Punya Akun
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registrasi -->
+    <div id="view-register" class="relative mx-auto hidden max-w-xl rounded-3xl border border-brand-100 bg-white p-6 shadow-2xl sm:p-10">
+      <button type="button" data-action="close-auth" aria-label="Tutup modal" class="absolute top-5 left-5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="pt-6 text-left">
+        <span class="inline-block rounded-full bg-brand-100 px-3.5 py-1 text-xs font-extrabold text-brand-700">Portal Pendaftaran Petualang</span>
+        <h2 class="mt-3 font-display text-2xl font-extrabold text-ink-900 sm:text-3xl">Buat Akun EduQuest</h2>
+      </div>
+      <form id="form-register" class="mt-6 space-y-4" novalidate>
+        <div>
+          <label for="reg-nama" class="block text-xs font-extrabold text-ink-900">Nama Lengkap</label>
+          <input id="reg-nama" type="text" autocomplete="name" placeholder="Contoh: Budi Santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+        </div>
+        <div>
+          <label for="reg-username" class="block text-xs font-extrabold text-ink-900">Nama Pengguna</label>
+          <input id="reg-username" type="text" autocomplete="username" placeholder="Contoh: budi_santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          <p class="mt-1 text-[11px] text-slate-500">Dipakai untuk masuk. Hanya huruf, angka, dan karakter . @ + - _</p>
+        </div>
+        <div>
+          <label for="reg-email" class="block text-xs font-extrabold text-ink-900">Email</label>
+          <input id="reg-email" type="email" autocomplete="email" placeholder="nama@email.com" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+        </div>
+        <div>
+          <label class="block text-xs font-extrabold text-ink-900">Jenjang</label>
+          <div class="grid grid-cols-3 gap-2.5 pt-1.5">
+            <button type="button" data-jenjang-choice="SD" class="jenjang-choice-btn flex cursor-pointer items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs font-bold text-ink-900 transition hover:bg-brand-50 sm:text-sm">SD/Madrasah</button>
+            <button type="button" data-jenjang-choice="SMP" class="jenjang-choice-btn flex cursor-pointer items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs font-bold text-ink-900 transition hover:bg-brand-50 sm:text-sm">SMP/MTs</button>
+            <button type="button" data-jenjang-choice="SMA/SMK" class="jenjang-choice-btn flex cursor-pointer items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs font-bold text-ink-900 transition hover:bg-brand-50 sm:text-sm">SMA/SMK</button>
+          </div>
+        </div>
+        <div>
+          <label for="reg-kelas" class="block text-xs font-extrabold text-ink-900">Kelas</label>
+          <select id="reg-kelas" disabled required class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600 disabled:bg-slate-100">
+            <option value="">Pilih jenjang terlebih dahulu</option>
+          </select>
+        </div>
+        <div>
+          <label for="reg-pass" class="block text-xs font-extrabold text-ink-900">Kata Sandi</label>
+          <input id="reg-pass" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+        </div>
+        <div>
+          <label for="reg-pass-confirm" class="block text-xs font-extrabold text-ink-900">Konfirmasi Kata Sandi</label>
+          <input id="reg-pass-confirm" type="password" autocomplete="new-password" placeholder="Ulangi kata sandi" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+          <p id="reg-pass-mismatch-hint" class="mt-1 hidden text-[11px] font-semibold text-rose-600">⚠️ Konfirmasi kata sandi belum sama dengan kata sandi.</p>
+        </div>
+        <label class="flex cursor-pointer items-start gap-2.5 pt-1 text-xs text-slate-600">
+          <input id="reg-terms" type="checkbox" required class="mt-0.5 h-4 w-4 cursor-pointer rounded border-brand-300 text-brand-700">
+          <span>Saya menyetujui Syarat &amp; Ketentuan.</span>
+        </label>
+        <div id="reg-form-error" class="hidden rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold leading-relaxed text-rose-700" role="alert"></div>
+        <div class="pt-2">
+          <button id="btn-submit-register" type="submit" class="w-full cursor-pointer rounded-xl bg-brand-700 py-3.5 font-display text-sm font-extrabold text-white shadow-btn transition hover:bg-brand-600">Buat Akun Baru</button>
+        </div>
+        <p class="pt-2 text-center text-xs text-slate-600">Petualang Lama? <button type="button" data-action="auth-view" data-view="login" class="font-extrabold text-brand-700 hover:underline">Masuk Sekarang</button></p>
+      </form>
+    </div>
+
+    <!-- Login -->
+    <div id="view-login" class="relative mx-auto hidden max-w-lg rounded-3xl border border-brand-100 bg-white p-6 shadow-2xl sm:p-10">
+      <button type="button" data-action="close-auth" aria-label="Tutup modal" class="absolute top-5 left-5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="pt-6 text-left">
+        <span class="inline-block rounded-full bg-brand-100 px-3.5 py-1 text-xs font-extrabold text-brand-700">Portal Masuk Petualang</span>
+        <h2 class="mt-3 font-display text-2xl font-extrabold text-ink-900">Masuk ke Akun EduQuest</h2>
+      </div>
+      <form id="form-login" class="mt-6 space-y-4" novalidate>
+        <div>
+          <label for="login-username" class="block text-xs font-extrabold text-ink-900">Nama Pengguna</label>
+          <input id="login-username" type="text" autocomplete="username" placeholder="Contoh: budi_santoso" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+        </div>
+        <div>
+          <label for="login-password" class="block text-xs font-extrabold text-ink-900">Kata Sandi</label>
+          <input id="login-password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" class="mt-1.5 w-full rounded-xl border border-brand-200 px-4 py-2.5 text-sm outline-none focus:border-brand-600" required>
+        </div>
+        <div id="login-form-error" class="hidden rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold leading-relaxed text-rose-700" role="alert"></div>
+        <div class="pt-2">
+          <button id="btn-submit-login" type="submit" class="w-full cursor-pointer rounded-xl bg-brand-700 py-3.5 font-display text-sm font-extrabold text-white shadow-btn hover:bg-brand-600">Masuk ke Akun</button>
+        </div>
+        <p class="pt-2 text-center text-xs text-slate-600">Petualang Baru? <button type="button" data-action="auth-view" data-view="register" class="font-extrabold text-brand-700 hover:underline">Daftar di sini</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>

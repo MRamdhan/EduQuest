@@ -1,6 +1,8 @@
-# 🎨 EduQuest Frontend Workspace
+# 🎨 EduQuest Frontend (MVC + Hash Router)
 
-Selamat datang di direktori **Frontend EduQuest**! Direktori ini dibuat terpisah dari backend agar tim frontend (**Raffa & Raffi**) dapat bekerja leluasa mendesain UI/UX tanpa terbebani konfigurasi backend Django.
+Frontend EduQuest kini memakai arsitektur **MVC penuh** dengan **ES Modules** dan **hash router**. Setiap halaman punya URL sendiri, logic dipisahkan dari markup, dan state aplikasi dikelola satu `Store`.
+
+> Backend Django **tidak diubah** pada refactor ini.
 
 ---
 
@@ -8,107 +10,198 @@ Selamat datang di direktori **Frontend EduQuest**! Direktori ini dibuat terpisah
 
 ```text
 frontend/
-├── index.html          # Starter UI interaktif / playground untuk tes API langsung
-├── css/
-│   └── style.css       # File style CSS dasar (bisa dimodifikasi/diganti framework lain)
+├── index.html                    # Shell aplikasi: navbar, footer, modal, #app-view
+├── templates/
+│   ├── layout/                   # Navbar, footer, toast, modal auth, modal fitur
+│   └── pages/                    # Template halaman yang dimuat router
 ├── js/
-│   ├── api.js          # Library Client API EduQuest (siap pakai untuk semua endpoint)
-│   └── app.js          # Contoh implementasi interaksi UI & pemanggilan API
-├── API_ENDPOINTS.md    # Panduan lengkap endpoint API, Request Body, dan Response JSON
-└── README.md           # Panduan ini
+│   ├── main.js                   # Entry point (import app.js)
+│   ├── app.js                    # Composition root: model, view, controller, routes, guard
+│   ├── config/
+│   │   ├── constants.js          # API URL, storage key, route, jenjang, rank
+│   │   └── curriculum.js         # Data IPS, mata pelajaran, topik AI Tutor
+│   ├── core/
+│   │   ├── store.js              # State + observer
+│   │   ├── router.js             # Hash router + route guard
+│   │   ├── template-loader.js    # Fetch & cache template HTML
+│   │   ├── dom.js                # Helper query, delegation, escape HTML
+│   │   └── format.js             # Format nama, angka, tanggal, XP
+│   ├── models/
+│   │   ├── api-client.js         # Satu-satunya lapisan yang memanggil REST API
+│   │   ├── initial-state.js      # Bentuk state awal
+│   │   ├── auth-model.js         # Login, register, logout, sesi & expiry
+│   │   ├── progress-model.js     # XP, level, rank, materi selesai
+│   │   ├── quest-model.js        # Katalog bab/materi & penyelesaian
+│   │   ├── quiz-model.js         # Mesin kuis 9 layar
+│   │   ├── ai-tutor-model.js     # Percakapan AI Tutor
+│   │   └── profile-model.js      # Riwayat kuis, statistik, rekomendasi
+│   ├── views/
+│   │   ├── layout/               # View navbar, footer, toast, modal
+│   │   ├── components/           # View komponen bersama (rank showcase)
+│   │   └── *-view.js             # View per halaman
+│   ├── controllers/
+│   │   ├── base-controller.js    # Siklus hidup mount/destroy + event delegation
+│   │   └── *-controller.js       # Controller per halaman + auth/navbar/feature modal
+│   ├── assets/
+│   │   └── mascot-assets.js      # Data URI maskot & emblem (export ASSETS)
+│   └── tailwind-config.js        # Konfigurasi tema Tailwind (classic script)
+├── css/
+│   └── style.css                 # CSS legacy, tidak dipakai halaman MVC
+├── API_ENDPOINTS.md              # Dokumentasi endpoint backend
+└── README.md
 ```
 
 ---
 
-## 🚀 Cara Menjalankan Frontend
+## 🧭 Rute Aplikasi
 
-Frontend EduQuest berupa aplikasi web klien statis murni (*Decoupled Static / SPA*). Anda dapat menjalankannya dengan salah satu opsi berikut:
+| Hash | Halaman | Akses |
+|------|---------|-------|
+| `#/` | Landing page | Publik |
+| `#/beranda` | Beranda pengguna baru/lama | Login |
+| `#/quest` | Katalog quest, bab, dan materi | Login |
+| `#/quest/:babId/:matId?step=1` | Baca materi | Login |
+| `#/quest/:babId/:matId?step=2` | Contoh materi | Login |
+| `#/kuis` | Kuis 3 Nyawa (9 layar internal) | Login |
+| `#/ai-tutor` | Percakapan AI Tutor | Login |
+| `#/profil` | Profil, statistik, riwayat kuis | Login |
 
-### Opsi 1: Menggunakan Live Server di VS Code (Paling Direkomendasikan)
+Route guard:
+- Pengguna belum login yang membuka rute terproteksi akan diarahkan ke `#/` dan modal login dibuka otomatis.
+- Pengguna yang sudah login dan membuka `#/` akan diarahkan ke `#/beranda`.
+- Route tidak dikenal akan kembali ke fallback (`#/`), lalu guard menentukan tujuan akhir.
+
+---
+
+## 🏗️ Cara Kerja MVC
+
+1. `main.js` membuat `EduQuestApp` dari `app.js`.
+2. `app.js` memuat template layout, membuat model, memasang controller global (auth, navbar, modal fitur), lalu menjalankan router.
+3. Saat hash berubah, `Router` memilih route, menjalankan guard, memuat template halaman dari `templates/pages/`, lalu memanggil `controller.mount()`.
+4. Controller mengambil data dari model, memanggil view untuk menggambar markup, dan memasang event delegation pada `#app-view`.
+5. Model mengubah `Store`; view yang berlangganan (`store.subscribe`) otomatis dirender ulang.
+6. Saat rute berganti, `controller.destroy()` melepas listener dan subscription lama.
+
+Pemisahan tanggung jawab:
+
+- **Model** — state, aturan bisnis, dan pemanggilan API. Tidak menyentuh DOM.
+- **View** — menyusun markup dan membaca state. Tidak memanggil API.
+- **Controller** — menghubungkan event pengguna, model, view, dan navigasi.
+- **Core** — infrastruktur umum (router, store, template loader, helper DOM/format).
+- **Config** — konstanta dan data kurikulum statis.
+
+---
+
+## 🚀 Cara Menjalankan
+
+Frontend **wajib** dijalankan lewat HTTP karena memakai ES Modules dan `fetch()` untuk template.
+
+### Opsi 1 — Python
+
+```bash
+# dari root repository
+python -m http.server 5500 --directory frontend
+```
+
+Buka `http://127.0.0.1:5500`.
+
+### Opsi 2 — Live Server VS Code
+
 1. Buka folder `frontend` di VS Code.
-2. Pasang ekstensi **Live Server** (oleh Ritwick Dey) jika belum ada.
-3. Klik kanan pada file `index.html` lalu pilih **"Open with Live Server"**.
-4. Browser akan otomatis terbuka di `http://127.0.0.1:5500`.
+2. Klik kanan `index.html` → **Open with Live Server**.
 
-### Opsi 2: Menggunakan Python Simple Server
-Buka terminal di dalam folder `frontend`:
+### Backend Django
+
 ```bash
-python -m http.server 5500
-```
-Buka browser di alamat `http://127.0.0.1:5500`.
-
-### Opsi 3: Menggunakan Vite / Node.js (Jika ingin memakai React/Vue/Tailwind)
-```bash
-npx vite
-```
-Backend Django sudah dikonfigurasi untuk mengizinkan CORS dari port `5173`, `5500`, dan `8080`.
-
----
-
-## ⚡ Memastikan Backend Berjalan
-
-Sebelum menguji login, materi, atau kuis, pastikan backend Django sudah aktif:
-```bash
-# Di terminal terpisah dari root repository EduQuest:
+# terminal terpisah, dari root repository
 cd backend
 ..\.venv\Scripts\python.exe manage.py runserver
 ```
-Backend akan berjalan di `http://127.0.0.1:8000`.
+
+Backend berjalan di `http://127.0.0.1:8000`.
 
 ---
 
-## 💻 Cara Menggunakan `EduQuestAPI` di JavaScript
+## ⚙️ Konfigurasi API & Sesi
 
-File `js/api.js` sudah menyediakan class helper `EduQuestAPI` untuk mempermudah pemanggilan endpoint tanpa harus menulis `fetch()` berulang-ulang:
-
-### 1. Import di HTML:
-```html
-<script src="js/api.js"></script>
-```
-
-### 2. Contoh Pemanggilan di JavaScript:
-
-#### Login Siswa:
-```javascript
-try {
-  const result = await EduQuestAPI.login('username_murid', 'password123');
-  console.log('Login berhasil, token tersimpan:', result.token);
-} catch (error) {
-  console.error('Login gagal:', error.message);
-}
-```
-
-#### Mengambil Daftar Materi:
-```javascript
-const materials = await EduQuestAPI.getMaterials({ level: 'SD' });
-console.log('Daftar materi:', materials);
-```
-
-#### Bertanya ke AI Tutor:
-```javascript
-const response = await EduQuestAPI.askTutor(1, 'Apa fungsi daun bagi tumbuhan?');
-console.log('Jawaban tutor:', response.reply);
-```
-
-#### Memulai Kuis & Mengirim Jawaban:
-```javascript
-// 1. Mulai kuis
-const session = await EduQuestAPI.startQuiz(materialId, 1);
-const questionId = session.questions[0].id;
-
-// 2. Jawab pertanyaan
-const answerResult = await EduQuestAPI.answerQuestion(session.attempt_id, questionId, 'C');
-console.log(answerResult.is_correct ? 'Benar!' : 'Salah!');
-```
+- Base URL default: `http://127.0.0.1:8000/api`
+- Override sebelum `js/main.js` dimuat (mis. untuk staging):
+  ```html
+  <script>window.EDUQUEST_API_URL = 'http://127.0.0.1:8000/api';</script>
+  ```
+- Token disimpan di `localStorage`:
+  - `eduquest_token`
+  - `eduquest_token_expires_at`
+  - `eduquest_user`
+- Masa berlaku token default 1 jam. Dapat diubah lewat `window.EDUQUEST_TOKEN_TTL_MS`.
+- Jika token kedaluwarsa, sesi direset, toast “Sesi Berakhir” muncul, dan pengguna diarahkan ke landing.
 
 ---
 
-## 📖 Rujukan Endpoint Lengkap
-Buka file [`API_ENDPOINTS.md`](./API_ENDPOINTS.md) untuk melihat daftar lengkap URL endpoint, payload request, dan response JSON untuk semua fitur:
-- Autentikasi (`/api/auth/`)
-- Materi & Jenjang (`/api/materials/`, `/api/levels/`)
-- Kuis Adaptif (`/api/quizzes/`)
-- AI Tutor (`/api/tutor/`)
-- Progres & Nyawa (`/api/progress/`)
-- Papan Peringkat (`/api/leaderboard/`)
+## ➕ Menambah Halaman Baru
 
+1. Buat template di `templates/pages/nama-halaman.html` dengan kontainer root, misalnya:
+   ```html
+   <div id="nama-root"></div>
+   ```
+2. Buat view di `js/views/nama-view.js` yang mengisi kontainer tersebut.
+3. Buat controller di `js/controllers/nama-controller.js`:
+   ```js
+   import { BaseController } from './base-controller.js';
+   import { NamaView } from '../views/nama-view.js';
+
+   export class NamaController extends BaseController {
+     mount() {
+       this.view = new NamaView(this.root);
+       this.subscribe();
+       this.render();
+     }
+
+     render() {
+       this.view.render(this.app.store.state);
+     }
+   }
+   ```
+4. Daftarkan route di `js/app.js`:
+   ```js
+   {
+     path: '/nama-halaman',
+     template: 'pages/nama-halaman.html',
+     create: () => new NamaController(this)
+   }
+   ```
+5. Tambahkan menu di `templates/layout/navbar.html` jika perlu:
+   ```html
+   <button type="button" data-nav="nama-halaman">Nama Halaman</button>
+   ```
+   Lalu tambahkan pemetaannya di `NAV_ROUTES` pada `navbar-controller.js`.
+
+---
+
+## 🧩 Konvensi Interaksi
+
+- Gunakan atribut `data-action` untuk aksi umum:
+  - `data-action="go" data-route="/quest"`
+  - `data-action="open-material" data-bab="bab-01" data-mat="mat-1-1" data-step="1"`
+  - `data-action="start-quiz"`
+  - `data-action="open-feature" data-modal="profil"`
+  - `data-action="open-auth" data-view="login"`
+- Gunakan `data-nav` untuk navigasi navbar dan `data-profile-action` untuk menu profil.
+- Gunakan `data-form="nama-form"` dan `data-field="nama-field"` untuk form.
+- **Jangan** memakai inline `onclick`. Semua event ditangani lewat event delegation di controller (halaman) atau di `app.js` (aksi global).
+- Jangan menaruh logic aplikasi di variabel global. Satu-satunya global yang disengaja adalah konfigurasi `window.EDUQUEST_*` dan akses browser bawaan (`window.location`, `window.history`).
+
+---
+
+## 📌 Catatan Perilaku
+
+- Kuis 3 Nyawa adalah simulasi client-side 9 layar; langkah kuis disimpan di `state.quiz.step`, bukan di URL.
+- Halaman baca materi saat ini memakai konten IPS (perilaku legacy dipertahankan).
+- Modal edit profil/ubah jenjang menyimpan perubahan ke state lokal (demo), bukan ke API.
+- Data kuis dan kurikulum masih lokal/demo; riwayat, statistik, dan rekomendasi profil diambil dari API bila tersedia.
+
+---
+
+## 📖 Referensi API
+
+Lihat [`API_ENDPOINTS.md`](./API_ENDPOINTS.md) untuk daftar endpoint autentikasi, materi, kuis adaptif, AI Tutor, progres/nyawa, dan leaderboard.
