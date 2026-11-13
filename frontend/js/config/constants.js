@@ -20,7 +20,8 @@ export const ROUTES = {
   home: '/',
   beranda: '/beranda',
   quest: '/quest',
-  material: (babId, matId, step = 1) => `/quest/${babId}/${matId}?step=${step}`,
+  /** subjectId boleh 0/null; halaman materi akan mengambil subject dari detail backend. */
+  material: (subjectId, materialId, step = 1) => `/quest/${subjectId || 0}/${materialId}?step=${step}`,
   quiz: '/kuis',
   aiTutor: '/ai-tutor',
   profile: '/profil'
@@ -48,34 +49,20 @@ export const RANK_TIERS = [
   { key: 'legenda', rank: 'Diamond', title: 'Legenda', minXp: '1.000+ XP', desc: 'Peringkat tertinggi dengan penguasaan materi sempurna dan rekor istimewa.' }
 ];
 
-export const SUBJECTS = ['IPS', 'IPA', 'Bahasa Indonesia', 'PPKN'];
+/** Pilihan kelas darurat bila endpoint /levels/ belum termuat. */
+export function fallbackKelasOptions(levelCode) {
+  const code = String(levelCode || '').toUpperCase();
+  if (code === 'SD') return [1, 2, 3, 4, 5, 6];
+  if (code === 'SMP') return [7, 8, 9];
+  return [10, 11, 12];
+}
 
-export const LANDING_JENJANG_DATA = [
-  {
-    kode: 'SD',
-    judul: 'SD / Madrasah',
-    rentang: 'Kelas 1 — 6',
-    ikon: '🌱',
-    deskripsi: 'Bangun fondasi berhitung, membaca, sains dasar, dan karakter melalui cerita interaktif.',
-    mapel: ['Matematika Dasar', 'Bahasa Indonesia', 'IPAS', 'PPKn']
-  },
-  {
-    kode: 'SMP',
-    judul: 'SMP / MTs',
-    rentang: 'Kelas 7 — 9',
-    ikon: '🧭',
-    deskripsi: 'Eksplorasi konsep ruang, ekosistem, aljabar, dan literasi kritis lewat tantangan bertahap.',
-    mapel: ['IPS', 'IPA', 'Matematika', 'Bahasa Indonesia', 'Bahasa Inggris', 'PPKn']
-  },
-  {
-    kode: 'SMA/SMK',
-    judul: 'SMA / SMK',
-    rentang: 'Kelas 10 — 12',
-    ikon: '🚀',
-    deskripsi: 'Persiapan mendalam sains, sosial, dan penalaran analitis untuk ujian serta jenjang lanjut.',
-    mapel: ['Matematika Lanjut', 'Fisika & Kimia', 'Biologi', 'Ekonomi & Geografi', 'Bahasa Inggris']
-  }
-];
+/** Label jenjang tampilan dari kode backend. */
+export function levelDisplayName(level) {
+  if (!level) return '';
+  if (typeof level === 'string') return JENJANG_LABEL[level] || level;
+  return level.name || JENJANG_LABEL[level.code] || level.code || '';
+}
 
 /** Mengubah nama rank dari backend menjadi key aset gambar pangkat. */
 export function getRankAssetKey(rank) {

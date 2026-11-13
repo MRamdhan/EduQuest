@@ -7,135 +7,40 @@
   <div class="flex flex-col items-start gap-4 rounded-3xl border border-brand-100 bg-white p-5 shadow-xs md:flex-row md:items-center">
     <div class="shrink-0">
       <span class="mb-1 block text-[10px] font-extrabold uppercase tracking-wider text-slate-500">JENJANG AKTIF</span>
-      <span id="quest-active-jenjang" class="inline-block rounded-full bg-brand-100/90 px-4 py-2 font-display text-xs font-extrabold text-brand-700">SMP/MTs • Kelas 7</span>
+      <span id="quest-active-jenjang" class="inline-block rounded-full bg-brand-100/90 px-4 py-2 font-display text-xs font-extrabold text-brand-700">Memuat...</span>
     </div>
     <div class="w-full flex-1">
-      <label class="mb-1.5 block text-xs font-extrabold text-ink-900">Cari quest apa?</label>
+      <label for="quest-search-input" class="mb-1.5 block text-xs font-extrabold text-ink-900">Cari quest apa?</label>
       <div class="relative">
         <svg class="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        <input type="text" data-field="quest-search" id="quest-search-input" placeholder="Cari bab atau materi..." class="w-full rounded-2xl border border-brand-100 bg-white py-2.5 pl-10 pr-4 text-xs outline-none focus:border-brand-600 sm:text-sm">
+        <input type="text" data-field="quest-search" id="quest-search-input" placeholder="Cari materi, topik, atau mata pelajaran..." autocomplete="off" class="w-full rounded-2xl border border-brand-100 bg-white py-2.5 pl-10 pr-4 text-xs outline-none focus:border-brand-600 sm:text-sm">
       </div>
     </div>
+    <button type="button" data-action="quest-refresh" class="mt-1 inline-flex shrink-0 items-center gap-2 rounded-2xl border border-brand-200 px-4 py-2.5 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50 md:mt-5">
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      Muat Ulang
+    </button>
   </div>
 
   <div class="space-y-4">
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
       <div>
         <h2 class="font-display text-2xl font-extrabold text-ink-900">Mata Pelajaran</h2>
         <p id="quest-subject-level-note" class="mt-0.5 text-xs text-slate-600 sm:text-sm">Mapel dan materi menyesuaikan jenjang aktifmu.</p>
       </div>
-      <span id="quest-subject-level-badge" class="rounded-full bg-brand-100/90 px-3.5 py-1 font-display text-xs font-extrabold text-brand-700">SMA/SMK • Kelas 10</span>
+      <span id="quest-subject-level-badge" class="self-start rounded-full bg-brand-100/90 px-3.5 py-1 font-display text-xs font-extrabold text-brand-700 sm:self-auto">Memuat...</span>
     </div>
 
-    <div id="quest-old-user-banner" class="flex flex-col items-start justify-between gap-4 rounded-3xl border border-brand-100 bg-brand-50/90 p-5 md:flex-row md:items-center">
-      <div class="flex items-start gap-3.5">
-        <span class="mt-0.5 text-lg text-brand-700">💡</span>
-        <div class="space-y-0.5 text-xs text-slate-600 sm:text-sm">
-          <p class="font-semibold text-ink-900">Mengenal Interaksi Antarruang &mdash; Bab Interaksi Antarruang</p>
-          <p>3 dari 5 bagian selesai • Progres materi 60%</p>
-          <p class="text-xs text-slate-500">Nyawa terpisah per mapel, maksimal 3; pulih 1 tiap 1 jam. Materi tetap dapat dibaca saat nyawa habis.</p>
-        </div>
-      </div>
-      <button type="button" data-action="open-material" data-bab="bab-02" data-mat="mat-2-1" data-step="1" class="w-full shrink-0 cursor-pointer rounded-2xl bg-brand-700 px-5 py-2.5 font-display text-xs font-extrabold text-white shadow-btn transition hover:bg-brand-600 md:w-auto sm:text-sm">
-        Lanjutkan Quest
-      </button>
-    </div>
-
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="flex flex-col justify-between rounded-3xl border-2 border-brand-700 bg-white p-6 shadow-xs">
-        <div>
-          <div class="flex items-center gap-3.5">
-            <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-100 bg-brand-50 text-xl">🌍</span>
-            <div>
-              <h3 class="font-display text-lg font-extrabold text-ink-900">IPS</h3>
-              <p class="text-xs text-slate-500">Contoh topik: Interaksi Antarruang</p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between text-xs font-extrabold text-brand-700">
-            <span id="ips-done-text">0 materi selesai</span>
-            <span id="ips-pct-text">0%</span>
-          </div>
-          <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-brand-100">
-            <div id="ips-progress-bar" class="h-full w-[0%] rounded-full bg-brand-700"></div>
-          </div>
-        </div>
-        <button type="button" data-action="select-subject" data-subject="IPS" class="mt-5 w-full cursor-pointer rounded-2xl bg-brand-700 py-2.5 font-display text-xs font-extrabold text-white shadow-btn transition hover:bg-brand-600 sm:text-sm">
-          Lanjutkan Quest
-        </button>
-      </div>
-
-      <div class="flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-6 shadow-xs">
-        <div>
-          <div class="flex items-center gap-3.5">
-            <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-100 bg-emerald-50 text-xl">🧪</span>
-            <div>
-              <h3 class="font-display text-lg font-extrabold text-ink-900">IPA</h3>
-              <p class="text-xs text-slate-500">Makhluk hidup &amp; sains</p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between text-xs font-extrabold text-emerald-700">
-            <span id="ipa-done-text">0 materi selesai</span>
-            <span id="ipa-pct-text">0%</span>
-          </div>
-          <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-emerald-100">
-            <div id="ipa-progress-bar" class="h-full w-[0%] rounded-full bg-emerald-600"></div>
-          </div>
-        </div>
-        <button type="button" data-action="select-subject" data-subject="IPA" class="mt-5 w-full cursor-pointer rounded-2xl border-2 border-brand-700 py-2.5 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50 sm:text-sm">
-          Lihat Bab
-        </button>
-      </div>
-
-      <div class="flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-6 shadow-xs">
-        <div>
-          <div class="flex items-center gap-3.5">
-            <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-amber-100 bg-amber-50 text-xl">📖</span>
-            <div>
-              <h3 class="font-display text-lg font-extrabold text-ink-900">Bahasa Indonesia</h3>
-              <p class="text-xs text-slate-500">Teks deskripsi &amp; cerita</p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between text-xs font-extrabold text-amber-700">
-            <span id="bind-done-text">0 materi selesai</span>
-            <span id="bind-pct-text">0%</span>
-          </div>
-          <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
-            <div id="bind-progress-bar" class="h-full w-[0%] rounded-full bg-amber-600"></div>
-          </div>
-        </div>
-        <button type="button" data-action="select-subject" data-subject="Bahasa Indonesia" class="mt-5 w-full cursor-pointer rounded-2xl border-2 border-brand-700 py-2.5 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50 sm:text-sm">
-          Lihat Bab
-        </button>
-      </div>
-
-      <div class="flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-6 shadow-xs">
-        <div>
-          <div class="flex items-center gap-3.5">
-            <span class="flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-100 bg-brand-50 text-xl">💬</span>
-            <div>
-              <h3 class="font-display text-lg font-extrabold text-ink-900">PPKN</h3>
-              <p class="text-xs text-slate-500">Nilai-nilai Pancasila</p>
-            </div>
-          </div>
-          <div class="mt-5 flex justify-between text-xs font-extrabold text-amber-700">
-            <span id="ppkn-done-text">0 materi selesai</span>
-            <span id="ppkn-pct-text">0%</span>
-          </div>
-          <div class="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-amber-100">
-            <div id="ppkn-progress-bar" class="h-full w-[0%] rounded-full bg-amber-600"></div>
-          </div>
-        </div>
-        <button type="button" data-action="select-subject" data-subject="PPKN" class="mt-5 w-full cursor-pointer rounded-2xl border-2 border-brand-700 py-2.5 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50 sm:text-sm">
-          Lihat Bab
-        </button>
-      </div>
-    </div>
+    <div id="quest-status-banner"></div>
+    <div id="quest-subject-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
   </div>
+
+  <div id="quest-catalog"></div>
 
   <div class="flex flex-col items-start justify-between gap-4 rounded-3xl border border-brand-100 bg-white p-6 shadow-xs sm:flex-row sm:items-center">
     <div>
       <h3 class="font-display text-lg font-extrabold text-ink-900">Butuh teman berpikir?</h3>
-      <p class="mt-0.5 text-xs text-slate-600 sm:text-sm">AI Tutor membantumu memahami konsep dengan petunjuk bertahap.</p>
+      <p class="mt-0.5 text-xs text-slate-600 sm:text-sm">AI Tutor membantumu memahami konsep dari materi yang sedang dipelajari.</p>
       <p class="mt-0.5 text-xs text-slate-400">AI dapat keliru. Jika layanan tidak tersedia, lanjutkan belajar melalui materi.</p>
     </div>
     <button type="button" data-action="go" data-route="/ai-tutor" class="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-2xl bg-brand-700 px-5 py-3 font-display text-xs font-extrabold text-white shadow-btn transition hover:bg-brand-600 sm:text-sm">
@@ -143,6 +48,4 @@
       <span>Tanya AI Tutor</span>
     </button>
   </div>
-
-  <div id="ips-bab-catalog"></div>
 </div>

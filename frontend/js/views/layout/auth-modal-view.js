@@ -1,8 +1,8 @@
 /**
  * AuthModalView — modal masuk/daftar.
- * Semua akses DOM form ada di sini; controller hanya mengatur alur.
+ * Pilihan jenjang/kelas dirender dari endpoint /levels/ (dengan fallback statis).
  */
-import { KELAS_BY_JENJANG } from '../../config/constants.js';
+import { fallbackKelasOptions, JENJANG_LABEL } from '../../config/constants.js';
 import { escapeHtml } from '../../core/dom.js';
 import { ASSETS } from '../../assets/mascot-assets.js';
 
@@ -28,21 +28,81 @@ const REG_FIELD_LABELS = {
   non_field_errors: 'Pendaftaran'
 };
 
+function normalizeLevelCode(code) {
+  const value = String(code || '').toUpperCase();
+  return value === 'SMA/SMK' ? 'SMA' : value;
+}
+
 export class AuthModalView {
   constructor(root) {
     this.root = root;
     this.mascotBindingDone = false;
+    this.levels = [];
+    this.currentView = 'choice';
+  }
+
+  static fallbackLevels() {
+    return [
+      { code: 'SD', name: 'SD/Madrasah', kelas_options: fallbackKelasOptions('SD') },
+      { code: 'SMP', name: 'SMP/MTs', kelas_options: fallbackKelasOptions('SMP') },
+      { code: 'SMA', name: 'SMA/SMK', kelas_options: fallbackKelasOptions('SMA') }
+    ];
   }
 
   qs(selector) {
     return this.root.querySelector(selector);
   }
 
+  setLevels(levels) {
+    this.levels = Array.isArray(levels) && levels.length ? levels : AuthModalView.fallbackLevels();
+    this.renderJenjangOptions();
+  }
+
+  levelFor(code) {
+    const normalized = normalizeLevelCode(code);
+    return this.levels.find(level => normalizeLevelCode(level.code) === normalized) || null;
+  }
+
+  kelasValuesFor(code) {
+    const level = this.levelFor(code);
+    if (level && Array.isArray(level.kelas_options) && level.kelas_options.length) {
+      return level.kelas_options.map(Number).filter(Number.isFinite);
+    }
+    return fallbackKelasOptions(normalizeLevelCode(code));
+  }
+
+  renderJenjangOptions() {
+    const container = this.qs('#reg-jenjang-options');
+    if (!container) return;
+
+    if (!this.levels.length) {
+      container.innerHTML = '<p class="col-span-3 text-xs text-slate-500">Memuat pilihan jenjang...</p>';
+      return;
+    }
+
+    const selected = normalizeLevelCode(this.qs('#view-register')?.dataset.selectedJenjang || '');
+    container.innerHTML = this.levels.map(level => {
+      const code = String(level.code || '');
+      const active = selected && normalizeLevelCode(code) === selected;
+      const label = level.name || JENJANG_LABEL[normalizeLevelCode(code)] || code;
+      return `
+        <button type="button" data-jenjang-choice="${escapeHtml(code)}"
+          class="jenjang-choice-btn flex cursor-pointer items-center justify-center rounded-xl border py-2.5 font-display text-xs font-bold transition sm:text-sm ${
+            active
+              ? 'border-brand-700 bg-brand-700 text-white'
+              : 'border-brand-200 bg-white text-ink-900 hover:bg-brand-50'
+          }">${escapeHtml(label)}</button>
+      `;
+    }).join('');
+  }
+
   open(view = 'choice') {
     const modal = this.qs('#auth-modal');
     if (!modal) return;
+
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+    modal.style.display = 'flex';
     this.bindMascot();
     this.showView(view);
     if (view === 'register') this.resetRegisterForm();
@@ -54,19 +114,25 @@ export class AuthModalView {
     if (!modal) return;
     modal.classList.add('hidden');
     modal.classList.remove('flex');
+    modal.style.display = 'none';
   }
 
   isOpen() {
     const modal = this.qs('#auth-modal');
-    return Boolean(modal && !modal.classList.contains('hidden'));
+    return Boolean(modal && modal.style.display !== 'none' && !modal.classList.contains('hidden'));
   }
 
   showView(view) {
+    this.currentView = ['choice', 'register', 'login'].includes(view) ? view : 'choice';
     ['choice', 'register', 'login'].forEach(name => {
       const panel = this.qs(`#view-${name}`);
       if (!panel) return;
-      panel.classList.toggle('hidden', name !== view);
+      const active = name === this.currentView;
+      panel.classList.toggle('hidden', !active);
+      panel.style.display = active ? 'block' : 'none';
     });
+
+    if (this.currentView === 'register') this.renderJenjangOptions();
   }
 
   bindMascot() {
@@ -105,11 +171,12 @@ export class AuthModalView {
   }
 
   setRegisterJenjang(jenjang) {
+    const code = normalizeLevelCode(jenjang);
     const registerPanel = this.qs('#view-register');
-    if (registerPanel) registerPanel.dataset.selectedJenjang = jenjang;
+    if (registerPanel) registerPanel.dataset.selectedJenjang = code;
 
     this.root.querySelectorAll('.jenjang-choice-btn').forEach(button => {
-      const active = button.getAttribute('data-jenjang-choice') === jenjang;
+      const active = normalizeLevelCode(button.getAttribute('data-jenjang-choice')) === code;
       button.className = `jenjang-choice-btn flex cursor-pointer items-center justify-center rounded-xl border py-2.5 font-display text-xs font-bold transition sm:text-sm ${
         active
           ? 'border-brand-700 bg-brand-700 text-white'
@@ -120,8 +187,10 @@ export class AuthModalView {
     const kelasSelect = this.qs('#reg-kelas');
     if (kelasSelect) {
       kelasSelect.disabled = false;
-      const options = KELAS_BY_JENJANG[jenjang] || [];
-      kelasSelect.innerHTML = options.map(kelas => `<option value="${kelas}">${kelas}</option>`).join('');
+      const options = this.kelasValuesFor(code);
+      kelasSelect.innerHTML = options
+        .map(kelas => `<option value="${kelas}">Kelas ${kelas}</option>`)
+        .join('');
     }
 
     this.setRegisterError('');
@@ -211,9 +280,7 @@ export class AuthModalView {
     const registerPanel = this.qs('#view-register');
     if (registerPanel) registerPanel.dataset.selectedJenjang = '';
 
-    this.root.querySelectorAll('.jenjang-choice-btn').forEach(button => {
-      button.className = 'jenjang-choice-btn flex cursor-pointer items-center justify-center rounded-xl border border-brand-200 bg-white py-2.5 font-display text-xs font-bold text-ink-900 transition hover:bg-brand-50 sm:text-sm';
-    });
+    this.renderJenjangOptions();
 
     const kelasSelect = this.qs('#reg-kelas');
     if (kelasSelect) {

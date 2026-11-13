@@ -43,7 +43,12 @@ export class EduQuestApp {
       auth: new AuthModel({ store: this.store, api, progress: this.progress }),
       progress: this.progress,
       quest,
-      quiz: new QuizModel({ store: this.store }),
+      quiz: new QuizModel({
+        store: this.store,
+        api,
+        progress: this.progress,
+        quest
+      }),
       aiTutor: new AiTutorModel({ store: this.store, api, quest }),
       profile: new ProfileModel({ store: this.store, api })
     };
@@ -170,11 +175,39 @@ export class EduQuestApp {
     return this.router.navigate(path);
   }
 
-  startQuiz(returnPath = null) {
-    this.models.quiz.start(1);
+  /** Siapkan materi kuis lalu biarkan QuizController memulai sesi. */
+  startQuiz(materialId = null, returnPath = null) {
+    const quiz = this.models.quiz;
+    const target = Number(materialId);
+    this.store.state.quiz.materialId = Number.isFinite(target) && target > 0 ? target : null;
+    this.store.state.quiz.phase = 'idle';
+    this.store.state.quiz.feedback = null;
+    this.store.state.quiz.summary = null;
+    this.store.state.quiz.selectedOption = null;
+    this.store.state.quiz.error = null;
+    if (returnPath) quiz.setReturnPath(returnPath);
+
     return this.go(ROUTES.quiz, {
       returnPath: returnPath || this.router?.currentPath || ROUTES.beranda
     });
+  }
+
+  /** Muat ulang rute aktif setelah data profil/jenjang berubah. */
+  reloadCurrentRoute() {
+    if (!this.router) return Promise.resolve();
+    return this.router.resolve();
+  }
+
+  /** Sinkronisasi katalog setelah login/registrasi. */
+  async afterLogin() {
+    const quest = this.models.quest;
+    await Promise.allSettled([
+      quest.loadLevels().catch(() => []),
+      quest.loadCatalog({ force: true }),
+      this.models.progress.loadRanks(),
+      this.models.progress.refresh()
+    ]);
+    this.store.touch();
   }
 
   bindGlobalActions() {
@@ -188,36 +221,41 @@ export class EduQuestApp {
           break;
 
         case 'open-material': {
-          const babId = target.dataset.bab || 'bab-01';
-          const matId = target.dataset.mat || 'mat-1-1';
+          const subjectId = target.dataset.subject || target.dataset.bab || 0;
+          const materialId = target.dataset.material || target.dataset.mat;
+          if (!materialId) break;
           const step = Number(target.dataset.step) >= 2 ? 2 : 1;
-          this.go(ROUTES.material(babId, matId, step));
+          this.go(ROUTES.material(subjectId, materialId, step));
           break;
         }
 
-        case 'start-quiz':
-          this.startQuiz();
+        case 'start-quiz': {
+          const materialId = target.dataset.material || null;
+          this.startQuiz(materialId, this.router?.currentPath || null);
           break;
+        }
 
         case 'open-subject':
         case 'select-subject': {
-          const subject = target.dataset.subject || 'IPS';
-          this.models.quest.setSubject(subject);
+          const rawId = target.dataset.subject;
+          const subject = this.models.quest.getSubject(rawId);
+          if (!subject) break;
+          this.models.quest.setSubject(subject.id);
           this.toast.show(
-            `Mata Pelajaran ${subject}`,
-            `Memuat katalog bab untuk materi ${subject}.`,
-            '📚'
+            `Mata Pelajaran ${subject.name}`,
+            `Materi ${subject.name} siap dijelajahi.`,
+            subject.icon || '📚'
           );
           if (this.router?.currentPath !== ROUTES.quest) {
             this.go(ROUTES.quest).then(() => {
               setTimeout(() => {
-                const el = document.getElementById('ips-bab-catalog');
+                const el = document.getElementById('quest-catalog');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }, 150);
+              }, 180);
             });
           } else {
             setTimeout(() => {
-              const el = document.getElementById('ips-bab-catalog');
+              const el = document.getElementById('quest-catalog');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }, 100);
           }

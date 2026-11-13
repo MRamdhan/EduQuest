@@ -1,20 +1,32 @@
 /**
- * RankShowcaseView — galeri pangkat Bronze/Silver/Gold.
+ * RankShowcaseView — galeri pangkat dari backend /ranks/ (fallback statis).
  */
 import { RANK_TIERS, getRankAssetKey } from '../../config/constants.js';
 import { ASSETS } from '../../assets/mascot-assets.js';
+
+function normalizeRanks(ranks) {
+  if (!Array.isArray(ranks) || !ranks.length) return RANK_TIERS;
+  return ranks.map(rank => ({
+    key: getRankAssetKey(rank.name || rank.code),
+    rank: rank.name || rank.code,
+    title: rank.name || rank.code,
+    minXp: rank.min_xp !== undefined ? `${Number(rank.min_xp).toLocaleString('id-ID')}+ XP` : '',
+    desc: rank.description || ''
+  }));
+}
 
 export class RankShowcaseView {
   constructor(root) {
     this.root = root;
   }
 
-  render(rank) {
+  render(rank, ranks = []) {
     const containers = this.root.querySelectorAll('.rank-emblems-showcase');
     if (!containers.length) return;
 
+    const tiers = normalizeRanks(ranks);
     const activeKey = getRankAssetKey(rank);
-    const html = RANK_TIERS.map(tier => {
+    const html = tiers.map(tier => {
       const source = ASSETS[tier.key] || '';
       const isCurrent = tier.key === activeKey;
       return `

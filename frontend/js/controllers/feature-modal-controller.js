@@ -13,6 +13,7 @@ export class FeatureModalController {
     this.view = new FeatureModalView(document);
     this.disposers = [];
     this.onKeyDown = null;
+    this.saving = false;
   }
 
   mount() {
@@ -48,44 +49,100 @@ export class FeatureModalController {
     document.addEventListener('keydown', this.onKeyDown);
   }
 
-  open(type) {
+  async open(type) {
+    const state = this.app.store.state;
+    if (type === 'jenjang' && (!Array.isArray(state.levels) || !state.levels.length)) {
+      try {
+        await this.app.models.quest.loadLevels();
+      } catch (error) {
+        // Modal memakai fallback statis bila endpoint gagal.
+      }
+    }
+    if (type === 'achievement' && (!Array.isArray(state.ranks) || !state.ranks.length)) {
+      await this.app.models.progress.loadRanks();
+    }
     this.view.open(type, this.app.store.state);
   }
 
-  saveProfile() {
+  async saveProfile() {
+    if (this.saving) return;
     const values = this.view.getEditProfileValues();
-    if (!values.fullName || !values.email) return;
+    if (!values.fullName || !values.email) {
+      this.app.toast.show('Data Belum Lengkap', 'Isi nama lengkap dan email terlebih dahulu.', '✍️');
+      return;
+    }
 
-    const state = this.app.store.state;
-    state.user.fullName = values.fullName;
-    state.user.firstName = values.fullName.split(/\s+/)[0] || values.fullName;
-    state.user.email = values.email;
-    ApiClient.setUser(state.user);
-    this.app.store.touch();
+    this.saving = true;
+    try {
+      const updated = await ApiClient.updateProfile({
+        first_name: values.fullName,
+        email: values.email
+      });
 
-    this.view.close();
-    this.app.toast.show('Profil Diperbarui', 'Perubahan identitasmu sudah disimpan.', '✅');
+      const state = this.app.store.state;
+      state.user.fullName = updated.first_name || values.fullName;
+      state.user.firstName = state.user.fullName.split(/\s+/)[0] || state.user.fullName;
+      state.user.email = updated.email || values.email;
+      ApiClient.setUser(state.user);
+      this.app.store.touch();
+
+      this.view.close();
+      this.app.toast.show('Profil Diperbarui', 'Perubahan identitasmu sudah disimpan ke akun.', '✅');
+    } catch (error) {
+      this.app.toast.show('Gagal Menyimpan Profil', error?.message || 'Coba lagi sebentar.', '⚠️');
+    } finally {
+      this.saving = false;
+    }
   }
 
-  saveJenjang() {
+  async saveJenjang() {
+    if (this.saving) return;
     const values = this.view.getJenjangValues();
-    if (!values.jenjang || !values.kelas) return;
+    const kelasNumber = parseInt(String(values.kelas || '').replace(/\D/g, ''), 10);
+    if (!values.jenjang || !kelasNumber) {
+      this.app.toast.show('Data Belum Lengkap', 'Pilih jenjang dan kelas terlebih dahulu.', '✍️');
+      return;
+    }
 
-    const state = this.app.store.state;
-    const kelasNumber = values.kelas.replace(/\D/g, '');
-    state.user.jenjang = values.jenjang;
-    state.user.jenjangDisplay = JENJANG_LABEL[values.jenjang] || values.jenjang;
-    state.user.education_level = values.jenjang === 'SMA/SMK' ? 'SMA' : values.jenjang;
-    state.user.kelas = `Kelas ${kelasNumber}`;
-    ApiClient.setUser(state.user);
-    this.app.store.touch();
+    const backendLevel = values.jenjang === 'SMA/SMK' ? 'SMA' : values.jenjang;
+    this.saving = true;
+    try {
+      const updated = await ApiClient.updateProfile({
+        education_level: backendLevel,
+        kelas: kelasNumber
+      });
 
-    this.view.close();
-    this.app.toast.show(
-      'Jenjang Diperbarui',
-      `Kamu sekarang belajar di ${state.user.jenjangDisplay} • ${state.user.kelas}.`,
-      '🎓'
-    );
+      const state = this.app.store.state;
+      const savedLevel = updated.education_level?.code || backendLevel;
+      const displayLevel = savedLevel === 'SMA' ? 'SMA/SMK' : savedLevel;
+      const savedKelas = Number(updated.kelas || kelasNumber);
+
+      state.user.jenjang = displayLevel;
+      state.user.jenjangDisplay = JENJANG_LABEL[displayLevel] || displayLevel;
+      state.user.education_level = savedLevel;
+      state.user.kelas = `Kelas ${savedKelas}`;
+      state.user.kelasNumber = savedKelas;
+      ApiClient.setUser(state.user);
+      this.app.store.touch();
+
+      this.app.models.quest.invalidate();
+      await Promise.allSettled([
+        this.app.models.quest.loadCatalog({ force: true }),
+        this.app.models.progress.refresh()
+      ]);
+
+      this.view.close();
+      this.app.toast.show(
+        'Jenjang Diperbarui',
+        `Kamu sekarang belajar di ${state.user.jenjangDisplay} • ${state.user.kelas}.`,
+        '🎓'
+      );
+      this.app.go('/beranda');
+    } catch (error) {
+      this.app.toast.show('Gagal Menyimpan Jenjang', error?.message || 'Coba lagi sebentar.', '⚠️');
+    } finally {
+      this.saving = false;
+    }
   }
 
   destroy() {

@@ -17,7 +17,10 @@ export class ProfileController extends BaseController {
     const state = this.app.store.state;
     if (this.dataRequested || !state.isLoggedIn) return;
     this.dataRequested = true;
-    await this.app.models.profile.load();
+    await Promise.allSettled([
+      this.app.models.profile.load(),
+      this.app.models.quest.loadCatalog()
+    ]);
   }
 
   render() {

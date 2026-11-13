@@ -1,5 +1,5 @@
 /**
- * ProfileModel — riwayat kuis, statistik belajar, dan rekomendasi AI.
+ * ProfileModel — riwayat kuis, statistik belajar, rekomendasi, dan progres.
  */
 export class ProfileModel {
   constructor({ store, api }) {
@@ -15,10 +15,11 @@ export class ProfileModel {
     this.store.touch();
 
     try {
-      const [historyResult, statsResult, recommendationResult] = await Promise.allSettled([
+      const [historyResult, statsResult, recommendationResult, progressResult] = await Promise.allSettled([
         this.api.getQuizHistory ? this.api.getQuizHistory() : Promise.resolve([]),
         this.api.getLearningStats ? this.api.getLearningStats() : Promise.resolve(null),
-        this.api.getAIRecommendations ? this.api.getAIRecommendations() : Promise.resolve(null)
+        this.api.getAIRecommendations ? this.api.getAIRecommendations() : Promise.resolve(null),
+        this.api.getProgress ? this.api.getProgress() : Promise.resolve(null)
       ]);
 
       if (historyResult.status === 'fulfilled' && Array.isArray(historyResult.value)) {
@@ -29,6 +30,9 @@ export class ProfileModel {
       }
       if (recommendationResult.status === 'fulfilled' && recommendationResult.value) {
         state.profileRecommendation = recommendationResult.value;
+      }
+      if (progressResult.status === 'fulfilled' && progressResult.value) {
+        state.progressSummary = progressResult.value;
       }
       return true;
     } catch (error) {

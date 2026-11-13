@@ -1,10 +1,17 @@
 /**
- * QuizModel — state mesin kuis 3 nyawa (9 layar).
- * Semua transisi state ada di sini; view hanya menggambar hasilnya.
+ * QuizModel — siklus kuis berbasis backend.
+ *
+ * Alur: start -> jawab soal -> umpan balik/next_question -> ringkasan.
+ * Semua aturan (nyawa, XP, adaptasi, pemilihan soal) tetap di backend.
  */
+import { createQuizState } from './initial-state.js';
+
 export class QuizModel {
-  constructor({ store }) {
+  constructor({ store, api, progress, quest }) {
     this.store = store;
+    this.api = api;
+    this.progress = progress;
+    this.quest = quest;
   }
 
   get state() {
@@ -12,128 +19,269 @@ export class QuizModel {
   }
 
   setReturnPath(path) {
-    if (path && path !== '/kuis') this.state.returnPath = path;
+    if (path) this.state.returnPath = path;
   }
 
-  /** Pindah ke layar kuis dan atur nyawa/pilihan sesuai desain alur. */
-  start(step = 1) {
-    const quiz = this.state;
-    const user = this.store.state.user;
+  resetState() {
+    const returnPath = this.state.returnPath;
+    this.store.state.quiz = createQuizState();
+    this.store.state.quiz.returnPath = returnPath;
+    this.store.touch();
+  }
 
-    if (step === 1 || step === 2) {
-      quiz.q1Selected = null;
-      quiz.awarded = false;
-      quiz.lives = typeof user.ipsLives === 'number' ? user.ipsLives : 3;
-    } else if (step === 3) {
-      quiz.q1Selected = quiz.q1Selected || 'A';
-    } else if (step === 4) {
-      quiz.q1Selected = 'A';
-      quiz.lives = 2;
-      user.ipsLives = 2;
-    } else if (step === 5) {
-      quiz.lives = 1;
-      user.ipsLives = 1;
-    } else if (step === 7) {
-      if (!quiz.awarded) {
-        user.xp = (user.xp || 0) + 72;
-        user.totalXp = (user.totalXp || 0) + 72;
-        while (user.xp >= user.nextLevelXp) {
-          user.xp -= user.nextLevelXp;
-          user.level = (user.level || 1) + 1;
-          user.nextLevelXp = Math.round(user.nextLevelXp * 1.5);
-        }
-        if (user.totalXp >= 1000) user.rank = 'Diamond';
-        else if (user.totalXp >= 600) user.rank = 'Platinum';
-        else if (user.totalXp >= 300) user.rank = 'Gold';
-        else if (user.totalXp >= 100) user.rank = 'Silver';
-        else user.rank = 'Bronze';
+  applyContext(context) {
+    if (!context) return;
+    const state = this.state;
 
-        this.store.state.isNewUser = false;
-        if (!this.store.state.completedQuizzes) this.store.state.completedQuizzes = {};
-        this.store.state.completedQuizzes['kuis-peta'] = true;
+    if (context.lives !== undefined) state.lives = Number(context.lives);
+    if (context.max_lives !== undefined) state.maxLives = Number(context.max_lives);
+    if (context.unlocked_difficulty !== undefined) {
+      state.unlockedDifficulty = Number(context.unlocked_difficulty);
+    }
+    if (Array.isArray(context.levels)) state.levels = context.levels;
+    if (context.subject) state.subject = context.subject;
 
-        if (!Array.isArray(this.store.state.profileQuizHistory)) {
-          this.store.state.profileQuizHistory = [];
-        }
-        const exists = this.store.state.profileQuizHistory.some(h => h.id === 'kuis-peta');
-        if (!exists) {
-          this.store.state.profileQuizHistory.unshift({
-            id: 'kuis-peta',
-            started_at: new Date().toISOString(),
-            target_difficulty: 2,
-            material: { title: 'Kuis Bab 1: Mengenal Peta & Komponennya' },
-            title: 'Kuis Bab 1: Mengenal Peta & Komponennya',
-            correct_count: 9,
-            total_questions: 10,
-            percent: 90,
-            xp_gained: 72,
-            ended_early: false,
-            badge: 'Kuis Bab 1',
-            scoreText: 'Skor 90%',
-            scoreBadgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-            meta: '10 soal • +72 XP',
-            date: 'Baru saja'
-          });
-        }
-        quiz.awarded = true;
-      }
-    } else if (step === 9) {
-      quiz.lives = 0;
-      user.ipsLives = 0;
+    if (this.progress?.applyQuizContext) {
+      this.progress.applyQuizContext(context);
     }
 
-    quiz.step = step;
+    if (context.subject?.id && this.quest?.subjects) {
+      const subject = this.quest.getSubject(context.subject.id);
+      if (subject) {
+        subject.lives = Number(context.lives ?? subject.lives);
+        subject.max_lives = Number(context.max_lives ?? subject.max_lives);
+      }
+    }
+  }
+
+  materialFromState(materialId) {
+    return this.quest?.getMaterial ? this.quest.getMaterial(materialId) : null;
+  }
+
+  /** Mulai atau lanjutkan sesi kuis untuk sebuah materi. */
+  async start(materialId, difficulty = null) {
+    const id = Number(materialId);
+    const state = this.state;
+
+    if (!Number.isFinite(id) || id <= 0) {
+      state.phase = 'error';
+      state.error = new Error('Materi kuis tidak ditemukan.');
+      this.store.touch();
+      return { ok: false, error: state.error };
+    }
+
+    const material = this.materialFromState(id);
+    state.materialId = id;
+    state.material = material
+      ? { id: material.id, title: material.title }
+      : null;
+    state.phase = 'loading';
+    state.error = null;
+    state.loading = true;
+    state.feedback = null;
+    state.selectedOption = null;
+    state.summary = null;
     this.store.touch();
-    return step;
+
+    try {
+      const response = await this.api.startQuiz(id, difficulty);
+      this.applyContext(response);
+
+      const attempt = response.attempt || null;
+      state.attempt = attempt;
+      state.attemptId = response.attempt_id || attempt?.id || null;
+      state.totalQuestions = Number(attempt?.total_questions || attempt?.questions?.length || 0);
+      if (attempt?.material) state.material = attempt.material;
+      state.difficulty = attempt?.target_difficulty ?? difficulty ?? null;
+
+      if (response.summary) {
+        state.summary = response.summary;
+        state.phase = 'summary';
+        state.question = null;
+        state.loading = false;
+        this.store.touch();
+        return { ok: true, summary: response.summary };
+      }
+
+      if (attempt?.status === 'submitted') {
+        state.loading = false;
+        return this.loadAttempt(state.attemptId);
+      }
+
+      const nextQuestion = response.next_question
+        || attempt?.questions?.find(question => !question.is_resolved)
+        || null;
+
+      if (!nextQuestion) {
+        state.loading = false;
+        return this.loadAttempt(state.attemptId);
+      }
+
+      this.setQuestion(nextQuestion);
+      state.phase = 'question';
+      state.loading = false;
+      this.store.touch();
+      return { ok: true, attemptId: state.attemptId };
+    } catch (error) {
+      state.phase = 'error';
+      state.error = error;
+      state.loading = false;
+      this.store.touch();
+      return { ok: false, error };
+    }
+  }
+
+  setQuestion(question) {
+    const state = this.state;
+    state.question = question;
+    state.questionNumber = Number(question?.order || 0) || (state.questionNumber + 1);
+    state.selectedOption = null;
+  }
+
+  /** Muat ulang attempt (mis. semua soal sudah terjawab). */
+  async loadAttempt(attemptId = this.state.attemptId) {
+    const state = this.state;
+    if (!attemptId) {
+      state.phase = 'error';
+      state.error = new Error('Sesi kuis tidak ditemukan.');
+      this.store.touch();
+      return { ok: false, error: state.error };
+    }
+
+    state.loading = true;
+    state.error = null;
+    this.store.touch();
+
+    try {
+      const response = await this.api.getQuizDetail(attemptId);
+      this.applyContext(response);
+      const attempt = response.attempt || null;
+      state.attempt = attempt;
+      state.attemptId = response.attempt_id || attempt?.id || attemptId;
+      state.totalQuestions = Number(attempt?.total_questions || attempt?.questions?.length || 0);
+      if (attempt?.material) state.material = attempt.material;
+
+      if (response.summary || attempt?.status === 'submitted') {
+        state.summary = response.summary || null;
+        state.phase = 'summary';
+        state.question = null;
+      } else {
+        const nextQuestion = response.next_question
+          || attempt?.questions?.find(question => !question.is_resolved)
+          || null;
+        if (nextQuestion) {
+          this.setQuestion(nextQuestion);
+          state.phase = 'question';
+        } else {
+          state.phase = 'summary';
+          state.summary = response.summary || null;
+        }
+      }
+
+      state.loading = false;
+      this.store.touch();
+      return { ok: true };
+    } catch (error) {
+      state.phase = 'error';
+      state.error = error;
+      state.loading = false;
+      this.store.touch();
+      return { ok: false, error };
+    }
   }
 
   selectOption(option) {
-    const quiz = this.state;
-    quiz.q1Selected = option;
-    if (quiz.step === 2) quiz.step = 3;
+    const state = this.state;
+    if (state.phase !== 'question' || state.loading) return false;
+    state.selectedOption = String(option || '').toUpperCase();
+    state.feedback = null;
     this.store.touch();
+    return true;
   }
 
-  /**
-   * Periksa jawaban soal 01.
-   * @returns {{nextStep: number, correct: boolean, secondAttempt: boolean}}
-   */
-  checkAnswer() {
-    const quiz = this.state;
-    const selected = quiz.q1Selected || 'A';
-
-    if (quiz.step === 2 || quiz.step === 3) {
-      if (selected === 'B') {
-        this.start(6);
-        return { nextStep: 6, correct: true, secondAttempt: false };
-      }
-      this.start(4);
-      return { nextStep: 4, correct: false, secondAttempt: false };
+  /** Kirim jawaban lalu perbarui soal, nyawa, dan ringkasan. */
+  async submitAnswer() {
+    const state = this.state;
+    if (state.phase !== 'question' || state.loading) {
+      return { ok: false, error: new Error('Soal belum siap dijawab.') };
+    }
+    if (!state.selectedOption) {
+      return { ok: false, error: new Error('Pilih salah satu jawaban terlebih dahulu.') };
     }
 
-    if (quiz.step === 4) {
-      if (selected === 'B') {
-        this.start(6);
-        return { nextStep: 6, correct: true, secondAttempt: true };
+    const question = state.question;
+    const selected = state.selectedOption;
+    state.loading = true;
+    state.error = null;
+    this.store.touch();
+
+    try {
+      const response = await this.api.answerQuestion(
+        state.attemptId,
+        question.id,
+        selected
+      );
+
+      this.applyContext(response);
+
+      state.feedback = {
+        questionId: question.id,
+        correct: Boolean(response.correct),
+        retry: Boolean(response.retry),
+        revealed: Boolean(response.revealed),
+        hint: response.hint || '',
+        hintSource: response.hint_source || '',
+        xpGained: Number(response.xp_gained || 0),
+        correctOption: response.correct_option || null,
+        explanation: response.explanation || null,
+        selectedOption: selected
+      };
+
+      if (response.session_ended) {
+        state.summary = response.summary || null;
+        state.phase = 'summary';
+        state.question = null;
+        state.selectedOption = null;
+        state.loading = false;
+        this.refreshProgressSoon();
+        this.store.touch();
+        return { ok: true, ended: true, response };
       }
-      this.start(5);
-      return { nextStep: 5, correct: false, secondAttempt: true };
+
+      if (response.next_question) {
+        this.setQuestion(response.next_question);
+        state.phase = 'question';
+      } else {
+        state.phase = 'question';
+        state.selectedOption = null;
+      }
+
+      state.loading = false;
+      this.refreshProgressSoon();
+      this.store.touch();
+      return { ok: true, response };
+    } catch (error) {
+      state.loading = false;
+      state.error = error;
+      this.store.touch();
+      return { ok: false, error };
     }
-
-    return { nextStep: quiz.step, correct: false, secondAttempt: false };
   }
 
-  selectReviewQuestion(number) {
-    this.state.reviewQuestionNum = number;
-    this.store.touch();
+  refreshProgressSoon() {
+    if (!this.progress?.refresh) return;
+    this.progress.refresh().catch(() => {});
   }
 
-  setAiPrompt(text) {
-    this.state.aiPrompt = text;
-    this.store.touch();
+  /** Ulangi kuis untuk materi yang sama (membuat attempt baru bila perlu). */
+  async restart() {
+    const materialId = this.state.materialId;
+    if (!materialId) return { ok: false };
+    this.resetState();
+    return this.start(materialId);
   }
 
-  resetAiPrompt() {
-    this.state.aiPrompt = '';
+  isQuestionLocked() {
+    return this.state.loading || this.state.phase !== 'question';
   }
 }

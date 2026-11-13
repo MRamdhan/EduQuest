@@ -5,12 +5,15 @@
  */
 export function createDefaultUser() {
   return {
+    id: null,
+    username: '',
     fullName: 'Petualang Baru',
     firstName: 'Petualang',
     email: '',
     jenjang: 'SMA',
     jenjangDisplay: 'SMA/SMK',
     kelas: 'Kelas 10',
+    kelasNumber: 10,
     education_level: 'SMA',
     level: 1,
     rank: 'Bronze',
@@ -19,6 +22,45 @@ export function createDefaultUser() {
     nextLevelXp: 100,
     ipsLives: 3,
     ipsLivesMax: 3
+  };
+}
+
+export function createQuestState() {
+  return {
+    subjects: [],
+    materials: [],
+    loading: false,
+    loaded: false,
+    loadedLevel: null,
+    loadedAt: 0,
+    error: null,
+    activeSubjectId: null,
+    search: ''
+  };
+}
+
+export function createQuizState() {
+  return {
+    phase: 'idle',
+    returnPath: '/beranda',
+    materialId: null,
+    material: null,
+    subject: null,
+    difficulty: null,
+    unlockedDifficulty: 1,
+    levels: [],
+    attempt: null,
+    attemptId: null,
+    question: null,
+    questionNumber: 0,
+    totalQuestions: 0,
+    lives: 3,
+    maxLives: 3,
+    selectedOption: null,
+    feedback: null,
+    summary: null,
+    error: null,
+    loading: false
   };
 }
 
@@ -33,10 +75,18 @@ export function createInitialState() {
     // Navigasi
     route: '/',
 
+    // Data referensi backend
+    levels: [],
+    levelsLoading: false,
+    levelsLoaded: false,
+    levelsError: null,
+    ranks: [],
+
     // Progres belajar
     completedMaterials: {},
     completedQuizzes: {},
     quizAttempts: [],
+    progressSummary: null,
 
     // Profil & analitik
     profileStats: null,
@@ -44,32 +94,27 @@ export function createInitialState() {
     profileRecommendation: null,
     isLoadingProfileData: false,
 
-    // Quest
-    activeSubject: 'IPS',
+    // Quest (mata pelajaran + materi dari backend)
+    quest: createQuestState(),
 
-    // Kuis 3 Nyawa
-    quiz: {
-      step: 1,
-      returnPath: '/beranda',
-      q1Selected: null,
-      lives: 3,
-      reviewQuestionNum: 1,
-      aiPrompt: ''
-    },
+    // Kuis berbasis API
+    quiz: createQuizState(),
 
     // Halaman belajar materi
     material: {
-      babId: 'bab-01',
-      matId: 'mat-1-1',
+      subjectId: null,
+      materialId: null,
       step: 1
     },
 
     // AI Tutor
     aiTutor: {
-      subject: 'IPS',
+      subjectId: null,
+      materialId: null,
       draft: '',
       messages: [],
-      isLoading: false
+      isLoading: false,
+      error: null
     }
   };
 }

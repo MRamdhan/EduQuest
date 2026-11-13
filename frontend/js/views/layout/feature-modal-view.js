@@ -1,16 +1,30 @@
 /**
  * FeatureModalView — modal edit profil, ubah jenjang, achievement, pengaturan.
  */
-import { KELAS_BY_JENJANG, JENJANG_LABEL, RANK_TIERS, getRankAssetKey } from '../../config/constants.js';
+import { fallbackKelasOptions, JENJANG_LABEL, RANK_TIERS, getRankAssetKey } from '../../config/constants.js';
 import { getInitials, jenjangText } from '../../core/format.js';
 import { ASSETS } from '../../assets/mascot-assets.js';
 import { escapeHtml } from '../../core/dom.js';
+
+function normalizeLevelCode(code) {
+  const value = String(code || '').toUpperCase();
+  return value === 'SMA/SMK' ? 'SMA' : value;
+}
+
+function fallbackLevels() {
+  return [
+    { code: 'SD', name: 'SD/Madrasah', kelas_options: fallbackKelasOptions('SD') },
+    { code: 'SMP', name: 'SMP/MTs', kelas_options: fallbackKelasOptions('SMP') },
+    { code: 'SMA', name: 'SMA/SMK', kelas_options: fallbackKelasOptions('SMA') }
+  ];
+}
 
 export class FeatureModalView {
   constructor(root) {
     this.root = root;
     this.type = null;
     this.tempJenjang = '';
+    this.levels = [];
   }
 
   qs(selector) {
@@ -67,10 +81,20 @@ export class FeatureModalView {
         </form>
       `;
     } else if (type === 'jenjang') {
-      const normalizedJenjang = (user.jenjang === 'SMA' ? 'SMA/SMK' : user.jenjang) || 'SMP';
-      this.tempJenjang = normalizedJenjang;
-      const kelasOptions = (KELAS_BY_JENJANG[user.jenjang] || KELAS_BY_JENJANG[normalizedJenjang] || KELAS_BY_JENJANG['SMP'])
-        .map(kelas => `<option value="${kelas}" ${kelas === user.kelas ? 'selected' : ''}>${kelas}</option>`)
+      this.levels = Array.isArray(state.levels) && state.levels.length ? state.levels : fallbackLevels();
+      const currentCode = normalizeLevelCode(user.education_level || user.jenjang);
+      const currentLevel = this.levels.find(level => normalizeLevelCode(level.code) === currentCode)
+        || this.levels[0];
+      this.tempJenjang = currentLevel?.code || 'SMP';
+
+      const currentKelas = Number(user.kelasNumber)
+        || Number(String(user.kelas || '').replace(/\D/g, ''))
+        || null;
+      const kelasValues = Array.isArray(currentLevel?.kelas_options) && currentLevel.kelas_options.length
+        ? currentLevel.kelas_options.map(Number)
+        : fallbackKelasOptions(this.tempJenjang);
+      const kelasOptions = kelasValues
+        .map(kelas => `<option value="${kelas}" ${Number(kelas) === Number(currentKelas) ? 'selected' : ''}>Kelas ${kelas}</option>`)
         .join('');
 
       this.content.innerHTML = `
@@ -85,16 +109,18 @@ export class FeatureModalView {
           <div>
             <label class="mb-2 block text-xs font-extrabold text-ink-900">Pilih Jenjang Pendidikan</label>
             <div class="grid grid-cols-3 gap-2.5">
-              ${['SD', 'SMP', 'SMA/SMK'].map(jenjang => {
-                const isSelected = normalizedJenjang === jenjang;
+              ${this.levels.map(level => {
+                const code = String(level.code || '');
+                const isSelected = normalizeLevelCode(code) === normalizeLevelCode(this.tempJenjang);
+                const label = level.name || JENJANG_LABEL[normalizeLevelCode(code)] || code;
                 return `
-                <button type="button" data-modal-jenjang="${jenjang}"
+                <button type="button" data-modal-jenjang="${escapeHtml(code)}"
                   class="modal-jenjang-btn cursor-pointer rounded-xl border px-2 py-2.5 font-display text-xs font-bold transition sm:text-sm ${
                     isSelected
                       ? 'border-brand-700 bg-brand-700 text-white shadow-xs'
                       : 'border-brand-200 bg-white text-ink-900 hover:bg-brand-50'
                   }">
-                  ${JENJANG_LABEL[jenjang]}
+                  ${escapeHtml(label)}
                 </button>
               `;
               }).join('')}
@@ -114,14 +140,21 @@ export class FeatureModalView {
       `;
     } else if (type === 'achievement') {
       const activeTierKey = getRankAssetKey(user.rank);
-      const tiersHtml = RANK_TIERS.map(tier => {
+      const tiers = Array.isArray(state.ranks) && state.ranks.length
+        ? state.ranks.map(rank => ({
+          key: getRankAssetKey(rank.name || rank.code),
+          title: rank.name || rank.code,
+          rank: rank.min_xp !== undefined ? `${Number(rank.min_xp).toLocaleString('id-ID')}+ XP` : ''
+        }))
+        : RANK_TIERS;
+      const tiersHtml = tiers.map(tier => {
         const source = ASSETS[tier.key] || '';
         const active = tier.key === activeTierKey;
         return `
           <div class="rounded-2xl border p-2.5 text-center ${active ? 'border-brand-700 bg-brand-50' : 'border-brand-100 bg-white'}">
-            <img src="${source}" alt="${tier.title}" class="mx-auto h-10 w-10 object-contain" />
-            <p class="mt-1 font-display text-xs font-extrabold text-ink-900">${tier.title}</p>
-            <p class="text-[10px] font-bold text-brand-700">${tier.rank}</p>
+            <img src="${source}" alt="${escapeHtml(tier.title)}" class="mx-auto h-10 w-10 object-contain" />
+            <p class="mt-1 font-display text-xs font-extrabold text-ink-900">${escapeHtml(tier.title)}</p>
+            <p class="text-[10px] font-bold text-brand-700">${escapeHtml(tier.rank)}</p>
           </div>
         `;
       }).join('');
@@ -188,9 +221,9 @@ export class FeatureModalView {
   }
 
   selectJenjang(jenjang) {
-    this.tempJenjang = jenjang;
+    this.tempJenjang = normalizeLevelCode(jenjang);
     this.root.querySelectorAll('.modal-jenjang-btn').forEach(button => {
-      const selected = button.getAttribute('data-modal-jenjang') === jenjang;
+      const selected = normalizeLevelCode(button.getAttribute('data-modal-jenjang')) === this.tempJenjang;
       button.className = `modal-jenjang-btn cursor-pointer rounded-xl border px-2 py-2.5 font-display text-xs font-bold transition sm:text-sm ${
         selected
           ? 'border-brand-700 bg-brand-700 text-white shadow-xs'
@@ -200,8 +233,11 @@ export class FeatureModalView {
 
     const select = this.qs('#modal-select-kelas');
     if (select) {
-      const options = KELAS_BY_JENJANG[jenjang] || [];
-      select.innerHTML = options.map(kelas => `<option value="${kelas}">${kelas}</option>`).join('');
+      const level = this.levels.find(item => normalizeLevelCode(item.code) === this.tempJenjang);
+      const options = Array.isArray(level?.kelas_options) && level.kelas_options.length
+        ? level.kelas_options.map(Number)
+        : fallbackKelasOptions(this.tempJenjang);
+      select.innerHTML = options.map(kelas => `<option value="${kelas}">Kelas ${kelas}</option>`).join('');
     }
   }
 

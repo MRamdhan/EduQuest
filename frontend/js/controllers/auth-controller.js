@@ -53,14 +53,31 @@ export class AuthController {
       if (event.key === 'Escape' && this.view.isOpen()) this.close();
     };
     document.addEventListener('keydown', this.onKeyDown);
+
+    this.ensureLevels();
+  }
+
+  async ensureLevels() {
+    try {
+      const levels = await this.app.models.quest.loadLevels();
+      this.view.setLevels(levels);
+      return levels;
+    } catch (error) {
+      const fallback = AuthModalView.fallbackLevels();
+      this.view.setLevels(fallback);
+      return fallback;
+    }
   }
 
   open(view = 'choice', jenjang = null) {
     if (this.app.store.state.isLoggedIn) return;
     this.view.open(view);
-    if (jenjang && view === 'register') {
-      this.view.setRegisterJenjang(jenjang);
-    }
+
+    this.ensureLevels().then(() => {
+      if (jenjang && this.view.currentView === 'register') {
+        this.view.setRegisterJenjang(jenjang);
+      }
+    });
   }
 
   close() {
@@ -69,6 +86,10 @@ export class AuthController {
 
   show(view) {
     this.view.showView(view);
+    if (view === 'login') this.view.setLoginError('');
+    if (view === 'register') {
+      this.ensureLevels();
+    }
   }
 
   async handleRegister() {
@@ -104,6 +125,7 @@ export class AuthController {
       this.view.close();
       this.view.resetRegisterForm();
       this.app.toast.show('Akun Dibuat!', `Selamat datang, ${values.nama}! Petualanganmu dimulai sekarang.`, '🎉');
+      await this.app.afterLogin().catch(() => {});
       this.app.go('/beranda');
     } catch (error) {
       this.view.showRegisterServerErrors(error);
@@ -132,6 +154,7 @@ export class AuthController {
       this.view.close();
       this.view.resetLoginForm();
       this.app.toast.show('Selamat Datang Kembali!', 'Petualanganmu siap dilanjutkan.', '👋');
+      await this.app.afterLogin().catch(() => {});
       this.app.go('/beranda');
     } catch (error) {
       this.view.setLoginError(this.view.loginErrorMessage(error));

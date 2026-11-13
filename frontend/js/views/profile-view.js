@@ -34,7 +34,7 @@ export class ProfileView {
           const difficulty = row.target_difficulty === 3 ? 'Sulit' : row.target_difficulty === 2 ? 'Sedang' : 'Dasar';
           const title = row.material?.title || row.title || `Kuis Latihan #${row.id}`;
           const submission = `${difficulty} · ${date}${isLatest ? ' · <span class="font-extrabold text-brand-700">Terbaru</span>' : ''}`;
-          const endedEarly = row.ended_early || row.percent < 60;
+          const needsReview = Math.round(row.percent || 0) < 60;
           return {
             title,
             sub: submission,
@@ -42,8 +42,9 @@ export class ProfileView {
             score: `${Math.round(row.percent || 0)}`,
             xp: `+${row.xp_gained || 0} XP`,
             highlight: isLatest,
-            statusText: endedEarly ? '⚠️ Gugur' : '✓ Selesai',
-            statusClass: endedEarly
+            materialId: row.material?.id || null,
+            statusText: needsReview ? 'Perlu diulang' : '✓ Selesai',
+            statusClass: needsReview
               ? 'border border-amber-200 bg-amber-50 text-amber-700'
               : 'border border-emerald-200 bg-emerald-50 text-emerald-700'
           };
@@ -53,15 +54,21 @@ export class ProfileView {
     const stats = state.profileStats;
     const totalMaterials = stats?.completed_materials ?? Object.keys(state.completedMaterials || {}).length;
     const totalQuizzes = stats?.total_quizzes ?? (hasRealHistory ? realHistory.length : 0);
+    const historyAverage = hasRealHistory
+      ? Math.round(realHistory.reduce((total, row) => total + Number(row.percent || 0), 0) / realHistory.length)
+      : 0;
     const averageAccuracy = (stats && stats.total_quizzes > 0)
-      ? `${stats.average_accuracy}%`
-      : (hasRealHistory ? '85%' : '0%');
+      ? `${Math.round(Number(stats.average_accuracy || 0))}%`
+      : (hasRealHistory ? `${historyAverage}%` : '0%');
 
     const recommendation = state.profileRecommendation;
     const aiMessage = recommendation?.personalized_message
       || `Halo ${user.fullName}! Ayo mulai petualangan belajarmu dengan membaca materi dan mengerjakan kuis untuk mendapatkan analisis dan rekomendasi personal dari AI Tutor!`;
 
     const breakdown = stats?.subject_breakdown;
+    const livesEntries = Array.isArray(state.progressSummary?.subject_lives)
+      ? state.progressSummary.subject_lives.slice(0, 5)
+      : [];
 
     container.innerHTML = `
       <div class="space-y-8">
@@ -112,7 +119,7 @@ export class ProfileView {
                   <img src="${rankSrc}" alt="${escapeHtml(user.rank)}" class="h-12 w-12 shrink-0 object-contain" />
                   <div>
                     <h3 class="font-display text-lg font-extrabold leading-tight text-ink-900">Level ${user.level} • ${escapeHtml(user.rank)}</h3>
-                    <p class="text-xs text-slate-500">Bronze &rarr; Silver &rarr; Gold</p>
+                    <p class="text-xs text-slate-500">${escapeHtml(user.rank || 'Bronze')}${user.nextRank ? ` &rarr; ${escapeHtml(user.nextRank)}` : ''}</p>
                   </div>
                 </div>
                 <div class="text-right">
@@ -154,7 +161,7 @@ export class ProfileView {
                 <div class="mt-4 flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-amber-700">Perlu Diulang:</span>
                   ${recommendation.weak_topics.map(topic => `
-                    <button type="button" data-action="go" data-route="/quest"
+                    <button type="button" data-action="open-material" data-subject="0" data-material="${Number(topic.material_id || 0)}" data-step="1"
                       class="inline-flex cursor-pointer items-center gap-1.5 rounded-xl border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-extrabold text-amber-800 transition hover:bg-amber-100">
                       <span>🔄</span>
                       <span>${escapeHtml(topic.title)} (${escapeHtml(topic.subject)})</span>
@@ -166,7 +173,7 @@ export class ProfileView {
                 <div class="mt-3 flex flex-wrap items-center gap-2">
                   <span class="text-xs font-bold text-indigo-700">Materi Berikutnya:</span>
                   ${recommendation.next_topics.map(topic => `
-                    <button type="button" data-action="go" data-route="/quest"
+                    <button type="button" data-action="open-material" data-subject="0" data-material="${Number(topic.material_id || 0)}" data-step="1"
                       class="inline-flex cursor-pointer items-center gap-1.5 rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-extrabold text-indigo-800 transition hover:bg-indigo-100">
                       <span>📖</span>
                       <span>${escapeHtml(topic.title)} (${escapeHtml(topic.subject)})</span>
@@ -235,42 +242,40 @@ export class ProfileView {
                     <div class="h-full rounded-full bg-brand-700" style="width: ${Math.min(100, subject.avg_score)}%"></div>
                   </div>
                 </div>
-                <button type="button" data-action="go" data-route="/quest"
+                <button type="button" data-action="select-subject" data-subject="${Number(subject.subject_id || 0)}"
                   class="mt-4 w-full cursor-pointer rounded-xl bg-brand-700 py-2.5 font-display text-xs font-extrabold text-white transition hover:bg-brand-600">
                   Lanjutkan Quest
                 </button>
               </div>
             `).join('') : `
-              <div class="flex flex-col justify-between rounded-3xl border border-brand-100 bg-white p-5 shadow-xs">
-                <div>
-                  <div class="flex items-center gap-3">
-                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-xl">🌍</span>
-                    <div>
-                      <h3 class="font-display text-base font-extrabold text-ink-900">IPS</h3>
-                      <p class="text-xs text-slate-500">Interaksi Antarruang</p>
-                    </div>
-                  </div>
-                  <div class="mt-4 flex justify-between text-xs font-extrabold text-brand-700">
-                    <span>Materi kurikulum aktif</span>
-                    <span>Siap Belajar</span>
+              <div class="flex flex-col justify-between rounded-3xl border border-dashed border-brand-200 bg-brand-50/40 p-5 shadow-xs sm:col-span-2 lg:col-span-4">
+                <div class="flex items-start gap-3">
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-xl ring-1 ring-brand-100">📊</span>
+                  <div>
+                    <h3 class="font-display text-base font-extrabold text-ink-900">Belum ada data per mata pelajaran</h3>
+                    <p class="mt-1 text-xs leading-relaxed text-slate-500">Selesaikan materi atau kuis pertama. Statistik mapel akan muncul otomatis dari progres belajarmu.</p>
                   </div>
                 </div>
                 <button type="button" data-action="go" data-route="/quest"
-                  class="mt-4 w-full cursor-pointer rounded-xl bg-brand-700 py-2.5 font-display text-xs font-extrabold text-white transition hover:bg-brand-600">
-                  Lanjutkan Quest
+                  class="mt-4 w-full cursor-pointer rounded-xl border-2 border-brand-700 py-2.5 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50 sm:w-auto sm:self-start sm:px-5">
+                  Buka Quest
                 </button>
               </div>
             `}
           </div>
 
-          <div class="flex flex-wrap items-center gap-4 rounded-2xl border border-brand-100 bg-brand-50/75 px-5 py-3.5 text-xs">
-            <div class="flex items-center gap-2">
-              ${renderHeartsInline(3, 3, 'w-4 h-4')}
-              <span class="ml-1 font-display font-extrabold text-ink-900">Nyawa Petualang 3/3</span>
+          <div class="rounded-2xl border border-brand-100 bg-brand-50/75 px-5 py-4 text-xs">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-display font-extrabold text-ink-900">Nyawa per mapel:</span>
+              ${livesEntries.length ? livesEntries.map(entry => `
+                <span class="inline-flex items-center gap-1.5 rounded-xl bg-white px-3 py-1.5 font-bold text-slate-700 ring-1 ring-brand-100">
+                  ${renderHeartsInline(Number(entry.lives || 0), Number(entry.max_lives || 3), 'w-3.5 h-3.5')}
+                  <span>${escapeHtml(entry.subject)}</span>
+                  <span class="text-[11px] text-slate-500">${Number(entry.lives || 0)}/${Number(entry.max_lives || 3)}</span>
+                </span>
+              `).join('') : '<span class="text-slate-500">Data nyawa belum tersedia.</span>'}
             </div>
-            <span class="text-slate-600">
-              Maksimal 3 nyawa; pulih 1 nyawa tiap 1 jam. Materi tetap bisa dibaca kapan saja tanpa batas!
-            </span>
+            <p class="mt-2 text-slate-600">Maksimal 3 nyawa per mapel; pulih 1 nyawa tiap 1 jam. Materi tetap bisa dibaca kapan saja tanpa batas.</p>
           </div>
         </div>
 
@@ -312,7 +317,7 @@ export class ProfileView {
                         </span>
                       </td>
                       <td class="rounded-r-2xl py-4 pr-3 text-right">
-                        <button type="button" data-action="start-quiz"
+                        <button type="button" data-action="start-quiz" ${row.materialId ? `data-material="${row.materialId}"` : ''}
                           class="cursor-pointer rounded-xl border border-brand-600 bg-white px-4 py-2 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50">
                           Ulangi Kuis
                         </button>

@@ -182,6 +182,16 @@ export class ApiClient {
     });
   }
 
+  static updateProfile(payload) {
+    return this.request('/auth/me/', {
+      method: 'PATCH',
+      body: JSON.stringify(payload)
+    }).then(user => {
+      this.setUser(user);
+      return user;
+    });
+  }
+
   // ==========================================
   // Konten
   // ==========================================
@@ -219,10 +229,14 @@ export class ApiClient {
   // Kuis
   // ==========================================
 
-  static startQuiz(materialId, difficulty = 1) {
+  static startQuiz(materialId, difficulty = null) {
+    const payload = { material_id: materialId };
+    if (difficulty !== null && difficulty !== undefined && difficulty !== '') {
+      payload.difficulty = Number(difficulty);
+    }
     return this.request('/quizzes/', {
       method: 'POST',
-      body: JSON.stringify({ material_id: materialId, difficulty })
+      body: JSON.stringify(payload)
     });
   }
 
@@ -266,6 +280,10 @@ export class ApiClient {
 
   static getLearningStats() {
     return this.request('/progress/stats/');
+  }
+
+  static getRanks() {
+    return this.request('/ranks/');
   }
 
   static async getSubjectLives(subjectId = null) {
