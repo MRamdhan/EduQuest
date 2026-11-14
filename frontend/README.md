@@ -18,8 +18,7 @@ frontend/
 │   ├── main.js                   # Entry point (import app.js)
 │   ├── app.js                    # Composition root: model, view, controller, routes, guard
 │   ├── config/
-│   │   ├── constants.js          # API URL, storage key, route, jenjang, rank
-│   │   └── curriculum.js         # Data IPS, mata pelajaran, topik AI Tutor
+│   │   └── constants.js          # API URL, storage key, route, jenjang, rank
 │   ├── core/
 │   │   ├── store.js              # State + observer
 │   │   ├── router.js             # Hash router + route guard
@@ -31,9 +30,9 @@ frontend/
 │   │   ├── initial-state.js      # Bentuk state awal
 │   │   ├── auth-model.js         # Login, register, logout, sesi & expiry
 │   │   ├── progress-model.js     # XP, level, rank, materi selesai
-│   │   ├── quest-model.js        # Katalog bab/materi & penyelesaian
-│   │   ├── quiz-model.js         # Mesin kuis 9 layar
-│   │   ├── ai-tutor-model.js     # Percakapan AI Tutor
+│   │   ├── quest-model.js        # Katalog mapel/materi dari API sesuai jenjang
+│   │   ├── quiz-model.js         # Siklus kuis dari bank soal backend
+│   │   ├── ai-tutor-model.js     # Percakapan AI Tutor berbasis materi backend
 │   │   └── profile-model.js      # Riwayat kuis, statistik, rekomendasi
 │   ├── views/
 │   │   ├── layout/               # View navbar, footer, toast, modal
@@ -60,9 +59,9 @@ frontend/
 | `#/` | Landing page | Publik |
 | `#/beranda` | Beranda pengguna baru/lama | Login |
 | `#/quest` | Katalog quest, bab, dan materi | Login |
-| `#/quest/:babId/:matId?step=1` | Baca materi | Login |
-| `#/quest/:babId/:matId?step=2` | Contoh materi | Login |
-| `#/kuis` | Kuis 3 Nyawa (9 layar internal) | Login |
+| `#/quest/:subjectId/:materialId?step=1` | Baca materi dari backend | Login |
+| `#/quest/:subjectId/:materialId?step=2` | Latihan & mulai kuis | Login |
+| `#/kuis` | Kuis 3 Nyawa dari bank soal backend | Login |
 | `#/ai-tutor` | Percakapan AI Tutor | Login |
 | `#/profil` | Profil, statistik, riwayat kuis | Login |
 
@@ -70,6 +69,25 @@ Route guard:
 - Pengguna belum login yang membuka rute terproteksi akan diarahkan ke `#/` dan modal login dibuka otomatis.
 - Pengguna yang sudah login dan membuka `#/` akan diarahkan ke `#/beranda`.
 - Route tidak dikenal akan kembali ke fallback (`#/`), lalu guard menentukan tujuan akhir.
+
+---
+
+## 🔌 Sumber Data Dinamis
+
+Tidak ada lagi data materi, soal kuis, mapel, atau jenjang yang di-hardcode di view. Semua dimuat dari REST API backend dan disesuaikan dengan jenjang pengguna:
+
+| Bagian | Endpoint |
+|--------|----------|
+| Jenjang & pilihan kelas | `GET /levels/` (publik) |
+| Mapel sesuai jenjang | `GET /subjects/?level=...` |
+| Materi sesuai jenjang | `GET /materials/?level=...` |
+| Detail & HTML materi | `GET /materials/{id}/` |
+| Kuis, jawaban, ringkasan | `GET/POST /quizzes/...` |
+| Progres, XP, rank, nyawa | `GET /progress/`, `GET /progress/stats/`, `GET /ranks/` |
+| Riwayat & rekomendasi | `GET /quizzes/history/`, `GET /tutor/recommendations/` |
+| AI Tutor | `POST /tutor/ask/` |
+
+Katalog quest hanya menampilkan mapel yang benar-benar punya materi pada jenjang user. Jika endpoint gagal, halaman menampilkan status loading/error dengan tombol coba lagi, bukan data statis pengganti.
 
 ---
 
@@ -88,7 +106,7 @@ Pemisahan tanggung jawab:
 - **View** — menyusun markup dan membaca state. Tidak memanggil API.
 - **Controller** — menghubungkan event pengguna, model, view, dan navigasi.
 - **Core** — infrastruktur umum (router, store, template loader, helper DOM/format).
-- **Config** — konstanta dan data kurikulum statis.
+- **Config** — konstanta, label tampilan, dan fallback aman saat API belum termuat.
 
 ---
 

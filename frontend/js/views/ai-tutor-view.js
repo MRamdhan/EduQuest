@@ -53,9 +53,11 @@ export class AiTutorView {
       return;
     }
 
+    const allMaterials = state.quest?.materials || [];
     const subjectListHtml = subjects.map(subject => {
       const isActive = Number(subject.id) === Number(activeSubject?.id);
-      const materialCount = subject.materials?.length || 0;
+      const materialCount = allMaterials.filter(material => Number(material.subject_id) === Number(subject.id)).length
+        || Number(subject.material_count || 0);
       return `
         <button type="button" data-action="select-ai-subject" data-subject="${subject.id}"
           class="flex w-full cursor-pointer items-center gap-3.5 rounded-2xl p-3.5 text-left transition ${

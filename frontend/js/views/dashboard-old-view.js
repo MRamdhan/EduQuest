@@ -230,6 +230,11 @@ export class DashboardOldView {
       ...next.map(item => ({ ...item, kind: 'next', badge: 'Berikutnya' }))
     ].slice(0, 3);
 
+    const hasTopics = items.length > 0;
+    const emptyCopy = reco
+      ? 'Semua materi di jenjangmu sudah tuntas dan tidak ada nilai kuis yang perlu diulang. Coba kuis di tingkat kesulitan lebih tinggi untuk tantangan baru.'
+      : 'Belum ada rekomendasi. Selesaikan satu kuis untuk mendapatkan saran topik.';
+
     const cards = items.map(item => `
       <div class="flex flex-col justify-between rounded-2xl border border-brand-100 p-5">
         <div>
@@ -252,7 +257,7 @@ export class DashboardOldView {
           <h2 class="font-display text-xl font-extrabold text-ink-900 sm:text-2xl">Rekomendasi Quest Berikutnya</h2>
           <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${reco?.personalized_message ? escapeHtml(reco.personalized_message) : 'Rekomendasi dibuat dari riwayat kuis dan progres materimu.'}</p>
         </div>
-        <div class="grid gap-5 md:grid-cols-3">${cards || '<p class="text-xs text-slate-500">Belum ada rekomendasi. Selesaikan satu kuis untuk mendapatkan saran topik.</p>'}</div>
+        <div class="grid gap-5 md:grid-cols-3">${hasTopics ? cards : `<p class="text-xs text-slate-500">${escapeHtml(emptyCopy)}</p>`}</div>
       </section>
     `;
   }

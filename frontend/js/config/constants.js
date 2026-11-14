@@ -27,13 +27,6 @@ export const ROUTES = {
   profile: '/profil'
 };
 
-export const KELAS_BY_JENJANG = {
-  'SD': ['Kelas 1', 'Kelas 2', 'Kelas 3', 'Kelas 4', 'Kelas 5', 'Kelas 6'],
-  'SMP': ['Kelas 7', 'Kelas 8', 'Kelas 9'],
-  'SMA': ['Kelas 10', 'Kelas 11', 'Kelas 12'],
-  'SMA/SMK': ['Kelas 10', 'Kelas 11', 'Kelas 12']
-};
-
 export const JENJANG_LABEL = {
   'SD': 'SD/Madrasah',
   'SMP': 'SMP/MTs',

@@ -22,27 +22,36 @@ def generate_learning_recommendation(user) -> dict:
     jenjang = profile.education_level.name if profile and profile.education_level else "Umum"
     kelas = profile.kelas if profile and profile.kelas else None
 
-    # 1. Analisis topik lemah: kuis dengan skor < 70% atau gugur awal
+    # 1. Analisis topik lemah: kuis dengan skor < 70% atau gugur awal.
+    #    Urutkan dari pengumpulan terbaru lalu hanya nilai attempt TERAKHIR
+    #    per materi yang dipakai, sehingga skor lama yang sudah diperbaiki
+    #    lewat kuis ulang tidak terus dianggap lemah.
     recent_attempts = (
         user.quiz_attempts.filter(status="submitted")
         .select_related("material__subject")
-        .order_by("-started_at")[:10]
+        .order_by("-submitted_at", "-started_at")[:10]
     )
 
     weak_topics_dict = {}
+    seen_materials = set()
     for att in recent_attempts:
-        if (att.percent < 70.0 or att.ended_early) and att.material:
-            m_id = att.material.pk
-            if m_id not in weak_topics_dict:
-                weak_topics_dict[m_id] = {
-                    "material_id": m_id,
-                    "title": att.material.title,
-                    "subject": att.material.subject.name if att.material.subject else "-",
-                    "last_score": att.percent,
-                    "reason": "Perlu penguatan konsep (skor kuis terakhir di bawah 70%)"
-                    if att.percent < 70.0
-                    else "Kuis gugur lebih awal",
-                }
+        if not att.material:
+            continue
+        m_id = att.material.pk
+        if m_id in seen_materials:
+            continue
+        seen_materials.add(m_id)
+
+        if att.percent < 70.0 or att.ended_early:
+            weak_topics_dict[m_id] = {
+                "material_id": m_id,
+                "title": att.material.title,
+                "subject": att.material.subject.name if att.material.subject else "-",
+                "last_score": att.percent,
+                "reason": "Perlu penguatan konsep (skor kuis terakhir di bawah 70%)"
+                if att.percent < 70.0
+                else "Kuis gugur lebih awal",
+            }
 
     weak_topics = list(weak_topics_dict.values())[:3]
 

@@ -103,3 +103,46 @@ class TestLearningStatsAndRecommendations:
         assert data["next_topics"][0]["title"] == "Letak Geografis"
         assert "Budi" in data["personalized_message"]
 
+    def test_weak_topic_cleared_after_better_retake(self, student_user):
+        """Skor rendah lama tidak lagi dianggap lemah setelah kuis ulang lulus."""
+        user, token, level = student_user
+        subject = Subject.objects.create(name="IPA", slug="ipa-smp-retake", level=level)
+        material = Material.objects.create(
+            title="Hewan dan Pengelompokannya",
+            slug="hewan-pengelompokan-retake",
+            subject=subject,
+            kelas=8,
+            status=Material.Status.PUBLISHED,
+        )
+
+        low = QuizAttempt.objects.create(
+            user=user,
+            material=material,
+            status=QuizAttempt.Status.SUBMITTED,
+            total_questions=5,
+            correct_count=2,
+            percent=40.0,
+            ended_early=True,
+        )
+        QuizAttempt.objects.filter(pk=low.pk).update(
+            started_at=low.started_at.replace(year=low.started_at.year - 1),
+            submitted_at=low.submitted_at.replace(year=low.submitted_at.year - 1)
+            if low.submitted_at
+            else None,
+        )
+        QuizAttempt.objects.create(
+            user=user,
+            material=material,
+            status=QuizAttempt.Status.SUBMITTED,
+            total_questions=5,
+            correct_count=5,
+            percent=100.0,
+        )
+
+        client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
+
+        response = client.get("/api/tutor/recommendations/")
+        assert response.status_code == 200
+        assert response.data["weak_topics"] == []
+
