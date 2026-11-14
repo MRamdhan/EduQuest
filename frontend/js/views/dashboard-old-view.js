@@ -47,6 +47,7 @@ export class DashboardOldView {
     const quizzesCount = Number(progress.quizzes_submitted ?? stats.total_quizzes ?? (state.profileQuizHistory?.length || 0));
     const activeRankKey = getRankAssetKey(user.rank);
     const rankEmblem = ASSETS[activeRankKey] || ASSETS.rekrut;
+    const ranks = state.ranks || [];
 
     this.root.innerHTML = `
       <div class="space-y-6 pb-12">
@@ -90,8 +91,9 @@ export class DashboardOldView {
             </div>
           </div>
 
-          <div class="mt-6 grid gap-3 border-t border-brand-100 pt-5 sm:grid-cols-3 lg:grid-cols-5">
-            ${this.renderRankStrip(user, state.ranks || [])}
+          <div class="mt-6 grid grid-cols-1 gap-3 border-t border-brand-100 pt-5 sm:[grid-template-columns:repeat(var(--cols),minmax(0,1fr))]"
+              style="--cols: ${Math.max(1, ranks.length)}">
+            ${this.renderRankStrip(user, ranks)}
           </div>
         </section>
 
@@ -230,11 +232,6 @@ export class DashboardOldView {
       ...next.map(item => ({ ...item, kind: 'next', badge: 'Berikutnya' }))
     ].slice(0, 3);
 
-    const hasTopics = items.length > 0;
-    const emptyCopy = reco
-      ? 'Semua materi di jenjangmu sudah tuntas dan tidak ada nilai kuis yang perlu diulang. Coba kuis di tingkat kesulitan lebih tinggi untuk tantangan baru.'
-      : 'Belum ada rekomendasi. Selesaikan satu kuis untuk mendapatkan saran topik.';
-
     const cards = items.map(item => `
       <div class="flex flex-col justify-between rounded-2xl border border-brand-100 p-5">
         <div>
@@ -257,7 +254,7 @@ export class DashboardOldView {
           <h2 class="font-display text-xl font-extrabold text-ink-900 sm:text-2xl">Rekomendasi Quest Berikutnya</h2>
           <p class="mt-0.5 text-xs text-slate-500 sm:text-sm">${reco?.personalized_message ? escapeHtml(reco.personalized_message) : 'Rekomendasi dibuat dari riwayat kuis dan progres materimu.'}</p>
         </div>
-        <div class="grid gap-5 md:grid-cols-3">${hasTopics ? cards : `<p class="text-xs text-slate-500">${escapeHtml(emptyCopy)}</p>`}</div>
+        <div class="grid gap-5 md:grid-cols-3">${cards || '<p class="text-xs text-slate-500">Belum ada rekomendasi. Selesaikan satu kuis untuk mendapatkan saran topik.</p>'}</div>
       </section>
     `;
   }
