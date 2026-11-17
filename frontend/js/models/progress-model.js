@@ -23,6 +23,9 @@ export class ProgressModel {
     user.nextLevelXp = progress.xp_for_next_level ?? user.nextLevelXp;
     user.nextRank = progress.next_rank?.name || '';
     user.xpToNextRank = progress.xp_to_next_rank ?? 0;
+    user.unlockedDifficulty = Number(
+      progress.rank?.unlocked_difficulty ?? user.unlockedDifficulty ?? 1
+    );
 
     state.isNewUser = Number(progress.xp || 0) === 0
       && Number(progress.materials_completed || 0) === 0
@@ -53,6 +56,9 @@ export class ProgressModel {
     if (context.rank?.code) user.rankCode = context.rank.code;
     if (context.next_rank?.name) user.nextRank = context.next_rank.name;
     if (context.xp_to_next_rank !== undefined) user.xpToNextRank = context.xp_to_next_rank;
+    if (context.unlocked_difficulty !== undefined) {
+      user.unlockedDifficulty = Number(context.unlocked_difficulty);
+    }
 
     if (Array.isArray(state.progressSummary?.subject_lives) && context.subject?.id) {
       const entry = state.progressSummary.subject_lives.find(item => (

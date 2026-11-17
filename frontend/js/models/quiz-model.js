@@ -268,6 +268,20 @@ export class QuizModel {
     }
   }
 
+  /** Laporkan soal yang diduga salah ke backend (masuk antrean admin). */
+  async reportQuestion(questionId, reason = 'other', note = '') {
+    const id = Number(questionId);
+    if (!Number.isFinite(id) || id <= 0) {
+      return { ok: false, error: new Error('Soal tidak valid.') };
+    }
+    try {
+      const result = await this.api.reportQuestion(id, reason, note);
+      return { ok: true, report: result };
+    } catch (error) {
+      return { ok: false, error };
+    }
+  }
+
   refreshProgressSoon() {
     if (!this.progress?.refresh) return;
     this.progress.refresh().catch(() => {});
@@ -276,9 +290,10 @@ export class QuizModel {
   /** Ulangi kuis untuk materi yang sama (membuat attempt baru bila perlu). */
   async restart() {
     const materialId = this.state.materialId;
+    const difficulty = this.state.difficulty;
     if (!materialId) return { ok: false };
     this.resetState();
-    return this.start(materialId);
+    return this.start(materialId, difficulty);
   }
 
   isQuestionLocked() {

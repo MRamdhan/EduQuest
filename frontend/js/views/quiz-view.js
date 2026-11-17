@@ -261,6 +261,30 @@ export class QuizView {
       const explanation = answer.explanation
         ? `<p class="mt-2 text-xs leading-relaxed text-slate-500">${escapeHtml(answer.explanation)}</p>`
         : '';
+      const reportForm = answer.question_id
+        ? `
+          <div class="mt-3 border-t border-slate-100 pt-2" data-report-form>
+            <details>
+              <summary class="cursor-pointer text-[11px] font-extrabold text-rose-600">Laporkan soal ini</summary>
+              <div class="mt-2 flex flex-col gap-2 sm:flex-row">
+                <select data-report-reason class="rounded-xl border border-slate-200 bg-white px-2 py-1.5 text-[11px] font-bold text-slate-600">
+                  <option value="wrong_key">Kunci jawaban diduga salah</option>
+                  <option value="unclear">Soal/opsi tidak jelas</option>
+                  <option value="typo">Salah ketik</option>
+                  <option value="off_topic">Tidak sesuai materi</option>
+                  <option value="other">Lainnya</option>
+                </select>
+                <input data-report-note type="text" maxlength="2000" placeholder="Catatan (opsional)"
+                  class="min-w-0 flex-1 rounded-xl border border-slate-200 px-2 py-1.5 text-[11px] text-slate-700" />
+                <button type="button" data-action="report-question" data-question="${Number(answer.question_id)}"
+                  class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-1.5 text-[11px] font-extrabold text-rose-700 transition hover:bg-rose-100">
+                  Kirim laporan
+                </button>
+              </div>
+            </details>
+          </div>
+        `
+        : '';
       return `
         <div class="rounded-2xl border border-slate-200 bg-white p-4">
           <div class="flex items-start justify-between gap-3">
@@ -269,6 +293,7 @@ export class QuizView {
           </div>
           <p class="mt-2 text-[11px] font-bold text-slate-500">Jawabanmu: <span class="text-ink-900">${escapeHtml(selected)}</span> · Kunci: <span class="text-emerald-700">${escapeHtml(correct)}</span></p>
           ${explanation}
+          ${reportForm}
         </div>
       `;
     }).join('');

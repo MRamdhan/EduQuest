@@ -255,6 +255,13 @@ export class ApiClient {
     return this.request(`/quizzes/${attemptId}/`);
   }
 
+  static reportQuestion(questionId, reason = 'other', note = '') {
+    return this.request(`/questions/${questionId}/report/`, {
+      method: 'POST',
+      body: JSON.stringify({ reason, note })
+    });
+  }
+
   // ==========================================
   // AI Tutor
   // ==========================================

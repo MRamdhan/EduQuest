@@ -76,7 +76,8 @@ export class MaterialController extends BaseController {
       if (this.detail) this.detail.is_completed = true;
       this.render();
       const returnPath = ROUTES.material(this.subjectId, materialId, 2);
-      this.app.startQuiz(materialId, returnPath);
+      const difficulty = Number(target.dataset.difficulty || 0) || null;
+      this.app.startQuiz(materialId, returnPath, difficulty);
     });
 
     this.bind('click', '[data-action="material-ask-ai"]', (event, target) => {
@@ -149,7 +150,8 @@ export class MaterialController extends BaseController {
         nextMaterial: null,
         completedCount: 0,
         totalMaterials: 0,
-        percent: 0
+        percent: 0,
+        unlockedDifficulty: this.unlockedDifficulty()
       };
     }
 
@@ -203,8 +205,14 @@ export class MaterialController extends BaseController {
       nextMaterial,
       completedCount,
       totalMaterials,
-      percent
+      percent,
+      unlockedDifficulty: this.unlockedDifficulty()
     };
+  }
+
+  unlockedDifficulty() {
+    const value = Number(this.app.store.state.user?.unlockedDifficulty ?? 1);
+    return value >= 1 && value <= 3 ? value : 1;
   }
 
   render() {

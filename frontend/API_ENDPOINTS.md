@@ -222,6 +222,7 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
     "difficulty": 1
   }
   ```
+- `difficulty` opsional (1 = Dasar, 2 = Menengah, 3 = Lanjut). Jika kosong, backend memakai tingkat hasil adaptasi. Tingkat di atas `unlocked_difficulty` ditolak sampai rank pengguna cukup.
 - **Response `201 Created`**:
   ```json
   {
@@ -313,7 +314,24 @@ Dokumentasi ini dibuat khusus untuk mempermudah developer Frontend (**Raffa & Ra
   }
   ```
 
-### C. Riwayat Kuis Siswa
+### C. Laporkan Soal Bermasalah
+- **Endpoint**: `POST /api/questions/{question_id}/report/`
+- **Auth**: Wajib
+- **Request Body**:
+  ```json
+  {
+    "reason": "wrong_key",
+    "note": "Kunci jawaban sepertinya tertukar."
+  }
+  ```
+- **Pilihan `reason`**: `wrong_key`, `unclear`, `typo`, `off_topic`, `other`.
+- **Response `201 Created`**:
+  ```json
+  {"id": 9, "status": "open", "question_id": 101}
+  ```
+- Laporan masuk ke Django Admin (`Laporan soal`) untuk ditinjau admin.
+
+### D. Riwayat Kuis Siswa
 - **Endpoint**: `GET /api/quizzes/history/`
 - **Auth**: Wajib
 - **Response `200 OK`**:

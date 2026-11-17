@@ -211,12 +211,43 @@ Backend berjalan di `http://127.0.0.1:8000`.
 
 ---
 
+## 🛠️ Admin Konten (Django Admin)
+
+Admin mengelola materi dan soal kuis lewat `http://127.0.0.1:8000/admin/`.
+Buat akun admin dengan:
+
+```bash
+cd backend
+..\.venv\Scripts\python.exe manage.py createsuperuser
+```
+
+- **Upload materi:** menu *Materi* → *Tambah materi*. Isi form atau unggah file
+  Markdown (`.md`) pada bagian *Upload cepat*. File memakai format yang sama
+  dengan `content/materi/` (`# Judul`, `**ID Topik:**`, `**Kelas:**`,
+  `**Referensi:**`, lalu `---` dan isi materi).
+- **Buat kuis satu soal:** buka materi lalu klik *Buat soal untuk materi ini*.
+  Mapel, kelas, dan kode topik terisi otomatis; soal yang disimpan langsung
+  masuk ke kuis materi tersebut.
+- **Buat kuis banyak soal:** dari halaman materi klik *Impor banyak soal (CSV)*
+  atau dari menu *Soal* klik *Impor soal dari CSV*. Kolom `jenjang`, `mapel`,
+  `kelas`, dan `topic_code` boleh kosong saat impor dari halaman materi.
+- **Kunci kuis:** soal muncul di kuis materi bila `topic_code` soal sama dengan
+  `topic_code` materi, status soal aktif, dan review status `validated`,
+  `reviewed`, atau `published`. Jumlah soal siap pakai tampil di kolom
+  *Soal kuis* pada daftar materi.
+
+---
+
 ## 📌 Catatan Perilaku
 
-- Kuis 3 Nyawa adalah simulasi client-side 9 layar; langkah kuis disimpan di `state.quiz.step`, bukan di URL.
-- Halaman baca materi saat ini memakai konten IPS (perilaku legacy dipertahankan).
-- Modal edit profil/ubah jenjang menyimpan perubahan ke state lokal (demo), bukan ke API.
-- Data kuis dan kurikulum masih lokal/demo; riwayat, statistik, dan rekomendasi profil diambil dari API bila tersedia.
+- Kuis dijalankan dari bank soal backend; XP, nyawa, tingkat kesulitan, dan
+  adaptasi dihitung di server.
+- Halaman baca materi memuat `content_html` dari `GET /materials/{id}/`.
+- Modal edit profil/ubah jenjang menyimpan perubahan ke `PATCH /auth/me/`.
+- Tingkat kesulitan kuis dipilih di langkah *Ringkasan & Kuis*; tingkat yang
+  terkunci mengikuti `unlocked_difficulty` rank pengguna.
+- Laporan soal dari halaman hasil kuis dikirim ke
+  `POST /questions/{id}/report/` dan tampil di Django Admin.
 
 ---
 

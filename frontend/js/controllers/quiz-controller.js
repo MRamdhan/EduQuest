@@ -32,6 +32,35 @@ export class QuizController extends BaseController {
       this.app.go(returnPath);
     });
 
+    this.bind('click', '[data-action="report-question"]', async (event, target) => {
+      const questionId = Number(target.dataset.question || 0);
+      const form = target.closest('[data-report-form]');
+      const reason = form?.querySelector('[data-report-reason]')?.value || 'other';
+      const note = form?.querySelector('[data-report-note]')?.value || '';
+
+      if (!questionId) return;
+      target.disabled = true;
+      target.textContent = 'Mengirim...';
+
+      const result = await this.app.models.quiz.reportQuestion(questionId, reason, note);
+      if (result.ok) {
+        target.textContent = '✓ Terkirim';
+        this.app.toast.show(
+          'Laporan Terkirim',
+          'Terima kasih. Admin akan meninjau soal ini.',
+          '📨'
+        );
+      } else {
+        target.disabled = false;
+        target.textContent = 'Kirim laporan';
+        this.app.toast.show(
+          'Laporan Gagal',
+          result.error?.message || 'Coba lagi sebentar.',
+          '⚠️'
+        );
+      }
+    });
+
     this.bootstrap();
   }
 
@@ -73,7 +102,7 @@ export class QuizController extends BaseController {
       return;
     }
 
-    await quiz.start(materialId);
+    await quiz.start(materialId, state.quiz.requestedDifficulty ?? null);
   }
 
   showAnswerToast(result) {

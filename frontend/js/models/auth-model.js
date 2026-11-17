@@ -48,6 +48,7 @@ export class AuthModel {
       totalXp: 0,
       xp: 0,
       nextLevelXp: 100,
+      unlockedDifficulty: fallback.unlockedDifficulty || 1,
       ipsLives: 3,
       ipsLivesMax: 3
     };

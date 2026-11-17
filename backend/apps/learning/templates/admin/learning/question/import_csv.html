@@ -1,0 +1,94 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+    &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+    &rsaquo; <a href="{% url 'admin:learning_question_changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+    &rsaquo; Impor CSV
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div id="content-main">
+    {% if material %}
+      <div class="module" style="margin-bottom:16px;">
+        <h2>Impor soal untuk materi</h2>
+        <p style="padding:8px 12px;">
+          <strong>{{ material.title }}</strong><br>
+          Jenjang: {{ material.subject.level.name }} &middot;
+          Mapel: {{ material.subject.name }} &middot;
+          Kelas: {{ material.kelas|default:"-" }} &middot;
+          Kode topik: {{ material.topic_code|default:"(kosong)" }}
+        </p>
+        <p style="padding:0 12px 12px;">
+          Kolom <code>jenjang</code>, <code>mapel</code>, <code>kelas</code>,
+          dan <code>topic_code</code> boleh dikosongkan; nilainya akan diisi
+          otomatis dari materi ini sehingga soal langsung masuk ke kuis materi.
+        </p>
+      </div>
+    {% endif %}
+
+    <fieldset class="module aligned">
+      <h2>Unggah file CSV</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" name="material" value="{{ material_id }}">
+        <div class="form-row">
+          <label for="id_csv_file">File CSV:</label>
+          <input type="file" name="csv_file" id="id_csv_file" accept=".csv,text/csv" required>
+        </div>
+        <div class="form-row">
+          <label for="id_review_status">Status soal:</label>
+          <select name="review_status" id="id_review_status">
+            {% for value, label in status_choices %}
+              <option value="{{ value }}" {% if forloop.first %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="submit-row">
+          <input type="submit" value="Impor soal" class="default">
+          <a class="button cancel-link" href="{% url 'admin:learning_question_changelist' %}">Batal</a>
+          <a class="button" href="{% url 'admin:learning_question_import_csv' %}{% if material_id %}?material={{ material_id }}&amp;template=1{% else %}?template=1{% endif %}">
+            Unduh template CSV
+          </a>
+        </div>
+      </form>
+    </fieldset>
+
+    {% if result %}
+      {% if result.errors %}
+        <div class="module" style="margin-top:16px;">
+          <h2 style="color:#b91c1c;">File belum bisa diimpor</h2>
+          <ul style="padding:8px 12px 12px 32px;">
+            {% for error in result.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+          <p style="padding:0 12px 12px;">
+            Tidak ada soal yang disimpan. Perbaiki file lalu unggah ulang.
+          </p>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="module" style="margin-top:16px;">
+      <h2>Panduan kolom</h2>
+      <div style="padding:8px 12px 12px;">
+        <p>Gunakan kolom berikut (header harus sama):</p>
+        <p><code>{{ columns|join:", " }}</code></p>
+        <ul style="padding-left:20px;">
+          <li><code>jenjang</code>: kode jenjang, mis. <code>SD</code>, <code>SMP</code>, <code>SMA</code>.</li>
+          <li><code>mapel</code>: nama mapel sesuai data master, mis. <code>IPA</code> atau <code>Biologi</code>.</li>
+          <li><code>kelas</code>: angka 1-12 sesuai jenjang (boleh kosong jika impor dari halaman materi).</li>
+          <li><code>difficulty</code>: 1 = Dasar, 2 = Menengah, 3 = Lanjut.</li>
+          <li><code>option_a</code> s.d. <code>option_e</code>: minimal dua opsi terisi.</li>
+          <li><code>correct</code>: huruf kunci jawaban yang harus ada di opsi, mis. <code>B</code>.</li>
+          <li><code>topic_code</code>: harus sama dengan kode topik materi agar soal muncul di kuis materi tersebut.</li>
+        </ul>
+        <p>Maksimal 500 baris dan 1 MB per file. File harus berkode UTF-8.</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

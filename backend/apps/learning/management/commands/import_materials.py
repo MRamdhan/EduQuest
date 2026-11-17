@@ -21,10 +21,14 @@ def _extract(pattern: str, text: str, default: str = "") -> str:
 
 
 def parse_material(path: Path) -> dict:
-    text = path.read_text(encoding="utf-8-sig")
+    return parse_material_text(path.read_text(encoding="utf-8-sig"), path.stem)
+
+
+def parse_material_text(text: str, stem: str) -> dict:
+    """Parse isi Markdown materi. Dipakai impor folder dan upload di admin."""
     lines = text.splitlines()
 
-    title = _extract(r"^#\s+(.+)$", text, default=path.stem.replace("_", " ").title())
+    title = _extract(r"^#\s+(.+)$", text, default=stem.replace("_", " ").title())
     topic_code = _extract(r"\*\*ID Topik:\*\*\s*(.+)$", text)
     kelas_raw = _extract(r"\*\*Kelas:\*\*\s*(\d+)", text)
     kelas = int(kelas_raw) if kelas_raw else None
@@ -50,7 +54,7 @@ def parse_material(path: Path) -> dict:
     order_match = re.search(r"(\d+)$", topic_code)
     return {
         "title": title,
-        "slug": slugify(path.stem)[:220],
+        "slug": slugify(stem)[:220],
         "kelas": kelas,
         "topic": title[:160],
         "topic_code": topic_code[:40],

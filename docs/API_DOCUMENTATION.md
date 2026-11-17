@@ -382,6 +382,27 @@
 ```
 > *Perhatikan:* Saat nyawa habis, seluruh kunci jawaban, penjelasan, dan **Hint AI spesifik** untuk soal yang pernah salah otomatis muncul di `summary.answers`.
 
+### 🔹 Laporkan Soal Bermasalah
+- **Endpoint:** `POST /api/questions/<question_id>/report/`
+- **Header:** `Authorization: Token <token>`
+- **Request Body:**
+```json
+{
+  "reason": "wrong_key",
+  "note": "Kunci jawaban sepertinya tertukar."
+}
+```
+- **Pilihan `reason`:** `wrong_key`, `unclear`, `typo`, `off_topic`, `other`.
+- **Response Success (201 Created):**
+```json
+{
+  "id": 9,
+  "status": "open",
+  "question_id": 101
+}
+```
+> Laporan tampil di Django Admin → *Laporan soal* dan dipakai sebagai pengecualian pada mesin adaptasi.
+
 ---
 
 ## 5. AI Tutor

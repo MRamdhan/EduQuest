@@ -1,0 +1,39 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls %}
+
+{% block after_field_sets %}
+  {{ block.super }}
+  {% if original %}
+    <fieldset class="module aligned">
+      <h2>Kuis materi ini</h2>
+      <div class="form-row">
+        <div>
+          <p>
+            Soal yang aktif, sudah ditinjau/tervalidasi, dan memakai kode topik
+            <strong>{{ original.topic_code|default:"(kosong)" }}</strong>
+            akan dipilih otomatis sebagai kuis materi ini.
+          </p>
+          <p>
+            <strong>{{ quiz_question_count }}</strong> soal siap dipakai.
+            {% if not original.topic_code %}
+              Isi <em>Kode topik</em> terlebih dahulu agar soal bisa dipetakan ke materi ini.
+            {% endif %}
+          </p>
+          <div class="submit-row" style="padding:0;background:none;border:none;">
+            <a class="button" href="{% url 'admin:learning_question_add' %}?material={{ original.pk }}">
+              Buat soal untuk materi ini
+            </a>
+            <a class="button" href="{% url 'admin:learning_question_import_csv' %}?material={{ original.pk }}">
+              Impor banyak soal (CSV)
+            </a>
+            {% if original.topic_code %}
+              <a class="button" href="{% url 'admin:learning_question_changelist' %}?q={{ original.topic_code|urlencode }}">
+                Lihat semua soal materi ini
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  {% endif %}
+{% endblock %}

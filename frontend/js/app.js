@@ -176,10 +176,14 @@ export class EduQuestApp {
   }
 
   /** Siapkan materi kuis lalu biarkan QuizController memulai sesi. */
-  startQuiz(materialId = null, returnPath = null) {
+  startQuiz(materialId = null, returnPath = null, difficulty = null) {
     const quiz = this.models.quiz;
     const target = Number(materialId);
+    const targetDifficulty = Number(difficulty);
     this.store.state.quiz.materialId = Number.isFinite(target) && target > 0 ? target : null;
+    this.store.state.quiz.requestedDifficulty = Number.isFinite(targetDifficulty) && targetDifficulty > 0
+      ? targetDifficulty
+      : null;
     this.store.state.quiz.phase = 'idle';
     this.store.state.quiz.feedback = null;
     this.store.state.quiz.summary = null;
@@ -231,7 +235,8 @@ export class EduQuestApp {
 
         case 'start-quiz': {
           const materialId = target.dataset.material || null;
-          this.startQuiz(materialId, this.router?.currentPath || null);
+          const difficulty = target.dataset.difficulty || null;
+          this.startQuiz(materialId, this.router?.currentPath || null, difficulty);
           break;
         }
 

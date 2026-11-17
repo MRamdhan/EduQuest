@@ -79,10 +79,12 @@ export class QuestModel {
   async loadCatalog({ force = false, level = null } = {}) {
     const state = this.state;
     const requestedLevel = normalizeLevelCode(level || this.levelCode());
+    const requestedKelas = this.kelasNumber();
 
     if (!this.store.state.isLoggedIn) return false;
     if (state.loading && this.loadPromise) return this.loadPromise;
     if (!force && state.loaded && state.loadedLevel === requestedLevel
+      && state.loadedKelas === requestedKelas
       && Date.now() - state.loadedAt < CACHE_TTL_MS) {
       return true;
     }
@@ -93,10 +95,19 @@ export class QuestModel {
 
     this.loadPromise = (async () => {
       try {
-        const [subjects, materials] = await Promise.all([
+        const [subjects, firstMaterials] = await Promise.all([
           this.api.getSubjects(requestedLevel),
-          this.api.getMaterials({ level: requestedLevel })
+          this.api.getMaterials({ level: requestedLevel, kelas: requestedKelas })
         ]);
+
+        // Jika kelas siswa belum punya materi, tampilkan materi lain pada
+        // jenjang yang sama agar katalog tidak kosong.
+        let materials = firstMaterials;
+        let kelasFilterApplied = Boolean(requestedKelas && Array.isArray(firstMaterials) && firstMaterials.length);
+        if (requestedKelas && (!Array.isArray(firstMaterials) || firstMaterials.length === 0)) {
+          materials = await this.api.getMaterials({ level: requestedLevel });
+          kelasFilterApplied = false;
+        }
 
         const normalizedMaterials = (Array.isArray(materials) ? materials : []).map(material => ({
           ...material,
@@ -121,6 +132,8 @@ export class QuestModel {
         state.materials = normalizedMaterials;
         state.loaded = true;
         state.loadedLevel = requestedLevel;
+        state.loadedKelas = requestedKelas;
+        state.kelasFilterApplied = kelasFilterApplied;
         state.loadedAt = Date.now();
 
         if (!usableSubjects.some(subject => subject.id === state.activeSubjectId)) {
@@ -154,6 +167,8 @@ export class QuestModel {
     state.loaded = false;
     state.loadedAt = 0;
     state.loadedLevel = null;
+    state.loadedKelas = null;
+    state.kelasFilterApplied = false;
     this.store.touch();
   }
 

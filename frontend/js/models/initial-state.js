@@ -20,6 +20,7 @@ export function createDefaultUser() {
     totalXp: 0,
     xp: 0,
     nextLevelXp: 100,
+    unlockedDifficulty: 1,
     ipsLives: 3,
     ipsLivesMax: 3
   };
@@ -32,6 +33,8 @@ export function createQuestState() {
     loading: false,
     loaded: false,
     loadedLevel: null,
+    loadedKelas: null,
+    kelasFilterApplied: false,
     loadedAt: 0,
     error: null,
     activeSubjectId: null,
@@ -47,6 +50,7 @@ export function createQuizState() {
     material: null,
     subject: null,
     difficulty: null,
+    requestedDifficulty: null,
     unlockedDifficulty: 1,
     levels: [],
     attempt: null,

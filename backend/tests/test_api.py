@@ -6,7 +6,7 @@ from django.utils import timezone
 from rest_framework.test import APIClient
 
 from apps.learning.constants import ACHIEVEMENTS
-from apps.learning.models import EducationLevel, Material, Question, Subject
+from apps.learning.models import EducationLevel, Material, Question, QuestionReport, Subject
 from apps.progress.constants import RANKS
 from apps.progress.models import Achievement, Rank, SubjectProgress, UserProgress
 from apps.tutor.services.hint_service import generate_hint
@@ -656,6 +656,25 @@ def test_tutor_falls_back_without_provider(api, student, material, settings):
 def test_health_and_authentication_required(api):
     assert api.get("/api/health/").status_code == 200
     assert api.get("/api/progress/").status_code == 401
+
+
+@pytest.mark.django_db
+def test_question_report_is_saved_for_admin(api, student, material, questions):
+    api.force_authenticate(student)
+    question = questions[0]
+
+    response = api.post(
+        f"/api/questions/{question.pk}/report/",
+        {"reason": "wrong_key", "note": "Kunci jawaban diduga tertukar."},
+        format="json",
+    )
+
+    assert response.status_code == 201
+    report = QuestionReport.objects.get(pk=response.data["id"])
+    assert report.question_id == question.pk
+    assert report.user_id == student.pk
+    assert report.reason == "wrong_key"
+    assert report.status == QuestionReport.Status.OPEN
 
 
 @pytest.mark.django_db

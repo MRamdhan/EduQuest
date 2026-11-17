@@ -4,6 +4,12 @@
 import { escapeHtml } from '../core/dom.js';
 import { renderHeartsInline } from './helpers.js';
 
+const DIFFICULTY_OPTIONS = [
+  { level: 1, label: 'Dasar', hint: 'Soal dasar sesuai materi' },
+  { level: 2, label: 'Sedang', hint: 'Butuh rank lebih tinggi' },
+  { level: 3, label: 'Sulit', hint: 'Butuh rank lebih tinggi' }
+];
+
 const SUBJECT_EMOJI = [
   ['biologi', '🧬'], ['fisika', '⚛️'], ['kimia', '🧪'], ['ipa', '🔬'],
   ['matematika', '📐'], ['bahasa indonesia', '📖'], ['bahasa inggris', '🗣️'],
@@ -204,7 +210,23 @@ export class MaterialView {
   renderPracticeStep(data) {
     const { material, subject, nextMaterial, step } = data;
     const done = Boolean(material.is_completed);
+    const unlockedDifficulty = Number(data.unlockedDifficulty || 1);
     const nextLabel = nextMaterial ? `Selesai & Lanjut ke ${nextMaterial.title}` : 'Selesai & Kembali ke Quest';
+    const difficultyButtons = DIFFICULTY_OPTIONS.map(option => {
+      const locked = option.level > unlockedDifficulty;
+      return `
+        <button type="button" data-action="finish-quiz" data-material="${material.id}" data-difficulty="${option.level}"
+          ${locked ? 'disabled' : ''}
+          title="${escapeHtml(option.hint)}"
+          class="flex-1 rounded-2xl border-2 px-3 py-2.5 font-display text-xs font-extrabold transition ${
+            locked
+              ? 'cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400'
+              : 'cursor-pointer border-brand-700 bg-white text-brand-700 hover:bg-brand-50'
+          }">
+          ${locked ? '🔒' : '▶'} ${escapeHtml(option.label)}
+        </button>
+      `;
+    }).join('');
 
     return `
       <div class="space-y-5">
@@ -230,12 +252,13 @@ export class MaterialView {
 
           <div class="mt-6 rounded-2xl border border-brand-100 bg-brand-50/60 p-5">
             <h3 class="font-display text-base font-extrabold text-ink-900">Siap menguji pemahaman?</h3>
-            <p class="mt-1 text-xs leading-relaxed text-slate-600">Kuis berisi soal dari backend sesuai jenjang, mapel, dan rankmu. Setiap jawaban salah mengurangi nyawa mapel. Materi tetap bisa dibaca saat nyawa habis.</p>
-            <div class="mt-4 flex flex-col gap-3 sm:flex-row">
-              <button type="button" data-action="finish-quiz" data-material="${material.id}"
-                class="cursor-pointer rounded-2xl bg-brand-700 px-5 py-2.5 font-display text-xs font-extrabold text-white shadow-btn transition hover:bg-brand-600 sm:text-sm">
-                ${done ? 'Kuis Lagi' : 'Mulai Kuis'} &rarr;
-              </button>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">Kuis berisi soal dari backend sesuai jenjang, mapel, dan rankmu. Pilih tingkat kesulitan; tingkat Sedang dan Sulit terbuka saat rankmu cukup. Setiap jawaban salah mengurangi nyawa mapel.</p>
+            <div class="mt-4">
+              <p class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">Tingkat kesulitan</p>
+              <div class="mt-2 flex flex-col gap-2 sm:flex-row">${difficultyButtons}</div>
+              <p class="mt-2 text-[10px] font-bold text-slate-400">Terbuka sampai tingkat ${unlockedDifficulty} dari 3.</p>
+            </div>
+            <div class="mt-4">
               <button type="button" data-action="material-ask-ai" data-material="${material.id}"
                 class="cursor-pointer rounded-2xl border-2 border-brand-700 px-5 py-2.5 font-display text-xs font-extrabold text-brand-700 transition hover:bg-brand-50 sm:text-sm">
                 🦉 Tanya AI Tutor
